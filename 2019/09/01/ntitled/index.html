@@ -54,19 +54,23 @@
   };
 </script>
 
-  <meta name="description" content="PWN11-WPOGeek - Pwn -PWN11 ida打开查看逻辑观察到system，是sub_A50![](/images/20190828223021889_16026.png =640x)choice输入1，进入sub_A02![](/images/20190828222554733_26364.png =640x) 打开qira Trace一下read可以覆盖ret addr![](">
+  <meta name="description" content="论系统调用在栈上产生的渣渣心情复杂总的来说跌宕起伏无论是把签到题做十几个小时还是exp改二十几次都一个问题还是与一万块失之交臂还是觉得自己菜的惨绝人寰总之结果是好的以后看到bf，第一反应再也不是boyfriend，而是这道题了 题目分析检查保护作为第一道题，保护全开是什么鬼我第一次看到，吓得我以为进错片场……不要害怕，好歹是签到，于是我坚持做了一整天，呵~  逻辑分析逻辑很简单，伪随机加Forma">
 <meta name="keywords" content="PWN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pwn11-WP">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/PWN11-WP/index.html">
+<meta property="og:title" content="论系统调用在栈上产生的渣渣">
+<meta property="og:url" content="http://yoursite.com/2019/09/01/ntitled/index.html">
 <meta property="og:site_name" content="沙雕老王">
-<meta property="og:description" content="PWN11-WPOGeek - Pwn -PWN11 ida打开查看逻辑观察到system，是sub_A50![](/images/20190828223021889_16026.png =640x)choice输入1，进入sub_A02![](/images/20190828222554733_26364.png =640x) 打开qira Trace一下read可以覆盖ret addr![](">
+<meta property="og:description" content="论系统调用在栈上产生的渣渣心情复杂总的来说跌宕起伏无论是把签到题做十几个小时还是exp改二十几次都一个问题还是与一万块失之交臂还是觉得自己菜的惨绝人寰总之结果是好的以后看到bf，第一反应再也不是boyfriend，而是这道题了 题目分析检查保护作为第一道题，保护全开是什么鬼我第一次看到，吓得我以为进错片场……不要害怕，好歹是签到，于是我坚持做了一整天，呵~  逻辑分析逻辑很简单，伪随机加Forma">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-08T13:50:53.350Z">
+<meta property="og:image" content="http://yoursite.com/images/pasted-3.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-2.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-4.png">
+<meta property="og:updated_time" content="2019-09-08T13:56:27.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pwn11-WP">
-<meta name="twitter:description" content="PWN11-WPOGeek - Pwn -PWN11 ida打开查看逻辑观察到system，是sub_A50![](/images/20190828223021889_16026.png =640x)choice输入1，进入sub_A02![](/images/20190828222554733_26364.png =640x) 打开qira Trace一下read可以覆盖ret addr![](">
-  <link rel="canonical" href="http://yoursite.com/2019/09/03/PWN11-WP/">
+<meta name="twitter:title" content="论系统调用在栈上产生的渣渣">
+<meta name="twitter:description" content="论系统调用在栈上产生的渣渣心情复杂总的来说跌宕起伏无论是把签到题做十几个小时还是exp改二十几次都一个问题还是与一万块失之交臂还是觉得自己菜的惨绝人寰总之结果是好的以后看到bf，第一反应再也不是boyfriend，而是这道题了 题目分析检查保护作为第一道题，保护全开是什么鬼我第一次看到，吓得我以为进错片场……不要害怕，好歹是签到，于是我坚持做了一整天，呵~  逻辑分析逻辑很简单，伪随机加Forma">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-3.png">
+  <link rel="canonical" href="http://yoursite.com/2019/09/01/ntitled/">
 
 
 <script id="page-configurations">
@@ -80,7 +84,7 @@
   };
 </script>
 
-  <title>Pwn11-WP | 沙雕老王</title>
+  <title>论系统调用在栈上产生的渣渣 | 沙雕老王</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -220,7 +224,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/PWN11-WP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/ntitled/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tyr Wang">
@@ -232,7 +236,7 @@
       <meta itemprop="name" content="沙雕老王">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Pwn11-WP
+        <h1 class="post-title" itemprop="name headline">论系统调用在栈上产生的渣渣
 
           
         </h1>
@@ -248,7 +252,7 @@
                 
               
 
-              <time title="创建时间：2019-09-03 00:35:00" itemprop="dateCreated datePublished" datetime="2019-09-03T00:35:00+08:00">2019-09-03</time>
+              <time title="创建时间：2019-09-01 00:53:00" itemprop="dateCreated datePublished" datetime="2019-09-01T00:53:00+08:00">2019-09-01</time>
             </span>
           
             
@@ -259,7 +263,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-08 21:50:53" itemprop="dateModified" datetime="2019-09-08T21:50:53+08:00">2019-09-08</time>
+                <time title="修改时间：2019-09-08 21:56:27" itemprop="dateModified" datetime="2019-09-08T21:56:27+08:00">2019-09-08</time>
               </span>
             
           
@@ -270,6 +274,13 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PWN/" itemprop="url" rel="index"><span itemprop="name">PWN</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PWN/Learn/" itemprop="url" rel="index"><span itemprop="name">Learn</span></a></span>
 
                 
                 
@@ -288,11 +299,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="PWN11-WP"><a href="#PWN11-WP" class="headerlink" title="PWN11-WP"></a>PWN11-WP</h1><p>OGeek - Pwn -PWN11</p>
-<h2 id="ida打开查看逻辑"><a href="#ida打开查看逻辑" class="headerlink" title="ida打开查看逻辑"></a>ida打开查看逻辑</h2><p>观察到system，是sub_A50<br>![](/images/20190828223021889_16026.png =640x)<br>choice输入1，进入sub_A02<br>![](/images/20190828222554733_26364.png =640x)</p>
-<h2 id="打开qira-Trace一下"><a href="#打开qira-Trace一下" class="headerlink" title="打开qira Trace一下"></a>打开qira Trace一下</h2><p>read可以覆盖ret addr<br>![](/images/20190828223712183_26436.png =640x)<br>计算好位置：溢出1.5bytes<br>由于开了pie，需要覆盖最低1.5byte，注意不要回车，<br>![](/images/20190828223923888_3624.png =640x)</p>
-<h2 id="get-shell"><a href="#get-shell" class="headerlink" title="get shell"></a>get shell</h2><p>![](/images/20190828222424753_15617.png =519x)</p>
-<h2 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h2><p>![](/images/20190828224105039_26761.png =519x)</p>
+        <h1 id="论系统调用在栈上产生的渣渣"><a href="#论系统调用在栈上产生的渣渣" class="headerlink" title="论系统调用在栈上产生的渣渣"></a>论系统调用在栈上产生的渣渣</h1><h2 id="心情复杂"><a href="#心情复杂" class="headerlink" title="心情复杂"></a>心情复杂</h2><p>总的来说跌宕起伏<br>无论是把签到题做十几个小时<br>还是exp改二十几次都一个问题<br>还是与一万块失之交臂<br>还是觉得自己菜的惨绝人寰<br>总之结果是好的<br>以后看到bf，第一反应再也不是boyfriend，而是这道题了</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h3 id="检查保护"><a href="#检查保护" class="headerlink" title="检查保护"></a>检查保护</h3><p>作为第一道题，保护全开是什么鬼<br>我第一次看到，吓得我以为进错片场……<br>不要害怕，好歹是签到，于是我坚持做了一整天，呵~</p>
+<p><img src="/images/pasted-3.png" alt="upload successful"></p>
+<h3 id="逻辑分析"><a href="#逻辑分析" class="headerlink" title="逻辑分析"></a>逻辑分析</h3><p>逻辑很简单，伪随机加Format String</p>
+<a id="more"></a>
+<p><img src="/images/pasted-2.png" alt="upload successful"></p>
+<h3 id="尝试解题"><a href="#尝试解题" class="headerlink" title="尝试解题"></a>尝试解题</h3><p>整体来说并不难：</p>
+<ul>
+<li>第一次输入算好长度，覆盖seed，使rand产生的随机数可预测</li>
+<li>猜解十次后，进入printf，%lx拿到Canary，和一个.text段地址推算段基址</li>
+<li>其实最好能leak多个，我基友就直接一把搞掉，他给我发exp被我退回去了em……</li>
+<li>摆好canary和ret addr，回到main重走一遍</li>
+<li>再来可以leak栈上一个值，计算相对位置指向&amp;buf，下次read把”/bin/sh\00”摆上，再跟上pop_rdi_ret、sh、system</li>
+<li>然后！<strong>就可以Get Shell 啦</strong>个屁！！！！！！<h3 id="入坑"><a href="#入坑" class="headerlink" title="入坑"></a>入坑</h3>入坑第一步，就是哎呀有个read(),刚好读/bin/sh <strong>perfect</strong><br>然后发现，开了子进程，rdi也是指向binsh，咋啥也没开就返回了呢?<h3 id="躺坑"><a href="#躺坑" class="headerlink" title="躺坑"></a>躺坑</h3>进坑出不来，我决定先换个方式，修改指令位cat flag，ls，呃。。。</li>
+</ul>
+<p>难道有16bytes对齐？挪挪位置，额。。。。</p>
+<p>那就是rdx参数错了？在栈上没有平栈导致栈不平衡，进而导致环境变量不对（大佬的脑洞真大）？只能用one_gadget？，饿。。。。一样样的</p>
+<h3 id="填坑"><a href="#填坑" class="headerlink" title="填坑"></a>填坑</h3><p>基友是读到bss段之后成功开shell。<br>在请教大佬之后，大佬不解，经过追踪发现后期system调用时，将栈拉高，覆盖了/bin/sh，导致出错。<br>于是我把“sh”放在system之后，哈！果然开了shell</p>
+<p><img src="/images/pasted-4.png" alt="upload successful"></p>
+<h3 id="思坑"><a href="#思坑" class="headerlink" title="思坑"></a>思坑</h3><p>这让我想起来之前做无限rop，在bss段开了两个BUF，互相gets读入ROP chains，结果，一半就飞了，仔细观察之后才看出gets函数渣渣太多，盖了一整个buf/哭<br>居然没有进行总结教训</p>
+<ul>
+<li>重要内容往下放</li>
+<li>平栈</li>
+<li>one_gadget</li>
+</ul>
 
     </div>
 
@@ -318,8 +349,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/01/ntitled/" rel="next" title="论系统调用在栈上产生的渣渣">
-                  <i class="fa fa-chevron-left"></i> 论系统调用在栈上产生的渣渣
+                <a href="/2019/08/30/最终测试/" rel="next" title="最终测试">
+                  <i class="fa fa-chevron-left"></i> 最终测试
                 </a>
               
             </div>
@@ -327,6 +358,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/03/PWN11-WP/" rel="prev" title="Pwn11-WP">
+                  Pwn11-WP <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -375,7 +410,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PWN11-WP"><span class="nav-number">1.</span> <span class="nav-text">PWN11-WP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ida打开查看逻辑"><span class="nav-number">1.1.</span> <span class="nav-text">ida打开查看逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开qira-Trace一下"><span class="nav-number">1.2.</span> <span class="nav-text">打开qira Trace一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-shell"><span class="nav-number">1.3.</span> <span class="nav-text">get shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXP"><span class="nav-number">1.4.</span> <span class="nav-text">EXP</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#论系统调用在栈上产生的渣渣"><span class="nav-number">1.</span> <span class="nav-text">论系统调用在栈上产生的渣渣</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#心情复杂"><span class="nav-number">1.1.</span> <span class="nav-text">心情复杂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析"><span class="nav-number">1.2.</span> <span class="nav-text">题目分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查保护"><span class="nav-number">1.2.1.</span> <span class="nav-text">检查保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑分析"><span class="nav-number">1.2.2.</span> <span class="nav-text">逻辑分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尝试解题"><span class="nav-number">1.2.3.</span> <span class="nav-text">尝试解题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#入坑"><span class="nav-number">1.2.4.</span> <span class="nav-text">入坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#躺坑"><span class="nav-number">1.2.5.</span> <span class="nav-text">躺坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填坑"><span class="nav-number">1.2.6.</span> <span class="nav-text">填坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思坑"><span class="nav-number">1.2.7.</span> <span class="nav-text">思坑</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

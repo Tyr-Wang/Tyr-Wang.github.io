@@ -189,6 +189,6 @@ def main(c=False):
 
 
 if __name__ == '__main__':
-    main(False)
+    main(True)
     #main(True)
     input("All Done !!")

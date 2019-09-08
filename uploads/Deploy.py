@@ -31,12 +31,6 @@ Hidden_dir = r"D:\Programs\Hexo-Blog\source\Hidden"
 log_dir = r"D:\Programs\Hexo-Blog\source\uploads\log.txt"
 exclude_dir = r"D:\Programs\Hexo-Blog\source\uploads\exclude.txt"
 img_dir = r"D:\Programs\Hexo-Blog\source\images"
-#ceshi
-source_dir = r"D:\source"
-post_dir = r"D:\source\_posts"
-Hidden_dir = r"D:\source\Hidden"
-log_dir = r"D:\source\uploads\log.txt"
-img_dir = r"D:\source\images"
 
 
 def copy(src=v_hidden_dir, dst=Hidden_dir, exclude=exclude_dir, log_file=log_dir, imgs_dir=img_dir):
@@ -71,7 +65,7 @@ def log(log_path=log_dir):
 def show_log(ls, str="log:"):
     if ls:
         print(str)
-        for i in l_hidden:
+        for i in ls:
             print(i)
 
 
@@ -147,7 +141,7 @@ def ch_index(ls=[], dir=Hidden_dir):
         return 0
     os.chdir(dir)
     try:
-        tmp = '<center><a href="/Hidden/{}" style="color:white;text-decoration:none;" >{}</a></center>\n'
+        tmp = '<center><a href="/Hidden/{}" style="color:white;text-decoration:none;" >{}</a></center>\r'
         #ls = os.listdir(".")
         f = open("index.md", "r+b")
         contents = f.read()
@@ -170,14 +164,14 @@ def pack_up():
     pass
 
 
-def deploy(clean = False):
+def deploy(clean=False):
     os.chdir(blog_dir)
     if clean:
         os.system("hexo clean")
     os.system("hexo g -d")
 
 
-def main():
+def main(c=False):
     copy(v_post_dir, post_dir)
     l_post = log()
     modify(post_dir, l_post)
@@ -187,9 +181,10 @@ def main():
     ch_index(l_hidden)
     show_log(l_hidden, "hidden")
     show_log(l_post, "post")
-    #deploy()
+    deploy(clean=c)
 
 
 if __name__ == '__main__':
-    main()
+    #main(False)
+    main(True)
     input("All Done !!")

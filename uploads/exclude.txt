@@ -1,2 +1,3 @@
-.vsmp
+.vswp
 .json
+_v_images

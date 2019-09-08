@@ -185,7 +185,7 @@ def main(c=False):
     ch_index(l_hidden)
     show_log(l_hidden, "hidden")
     show_log(l_post, "post")
-    deploy(clean=c)
+    #deploy(clean=c)
 
 
 if __name__ == '__main__':

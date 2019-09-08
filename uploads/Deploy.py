@@ -118,7 +118,11 @@ def modify(dir, file_list=[]):
     for i in aim_ls:
         content = ""
         with open(i, "rb") as f:
-            content += f.read().decode("utf8", "ignore")
+            cls = f.readlines()
+            cl = []
+            for j in cls:
+                cl.append(j.decode("utf8", "ignore").strip("\n"))
+            content = "".join(cl)
 
         if content == '':
             continue

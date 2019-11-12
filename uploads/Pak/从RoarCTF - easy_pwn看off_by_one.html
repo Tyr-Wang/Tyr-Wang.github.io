@@ -54,17 +54,19 @@
   };
 </script>
 
-  <meta name="description" content="变秃了，也变强了">
+  <meta name="description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+<meta name="keywords" content="WP">
 <meta property="og:type" content="website">
-<meta property="og:title" content="沙雕老王">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:title" content="从RoarCTF - easy_pwn看off_by_one">
+<meta property="og:url" content="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html">
 <meta property="og:site_name" content="沙雕老王">
-<meta property="og:description" content="变秃了，也变强了">
+<meta property="og:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-13T15:48:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="沙雕老王">
-<meta name="twitter:description" content="变秃了，也变强了">
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+<meta name="twitter:title" content="从RoarCTF - easy_pwn看off_by_one">
+<meta name="twitter:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+  <link rel="canonical" href="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one">
 
 
 <script id="page-configurations">
@@ -73,12 +75,12 @@
     sidebar: "",
     isHome: false,
     isPost: false,
-    isPage: false,
-    isArchive: true
+    isPage: true,
+    isArchive: false
   };
 </script>
 
-  <title>归档 | 沙雕老王</title>
+  <title>从RoarCTF - easy_pwn看off_by_one | 沙雕老王</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -230,153 +232,128 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">从RoarCTF - easy_pwn看off_by_one
+
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        
-        
+  <ul class="breadcrumb">
+      
+      
         
           
+            
+          
+          
+            <li><a href="/uploads/">UPLOADS</a></li>
+          
         
-        <span class="collection-header">...um huh! 洋洋洒洒 4 大篇。 试图变得更加流批ing</span>
-      </div>
       
-
-      
-
-  
-  
-
-  
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/uploads/Pak/">PAK</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li>从ROARCTF - EASY_PWN看OFF_BY_ONE</li>
+          
+        
+      
+    
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+          <h1 id="从RoarCTF-easy-pwn看off-by-one"><a href="#从RoarCTF-easy-pwn看off-by-one" class="headerlink" title="从RoarCTF - easy_pwn看off_by_one"></a>从RoarCTF - easy_pwn看off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路</p>
+<p>one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。</p>
+<h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-扩展释放块"><a href="#unsorted-bin-扩展释放块" class="headerlink" title="unsorted bin 扩展释放块"></a>unsorted bin 扩展释放块</h4><p>释放一个chunk进入unsorted bin（例如 small chunk 0x90+），利用overflow将刚释放的（unsorted bin里面的）chunk扩大，刚好覆盖物理上下一个chunk。再次申请即可获得此chunk达到overlap</p>
+<p>此题限制 calloc，不是malloc，申请后填满”\x00”,<br>#?而且限制size最大0x100，后续需要0x70大小的fastbin，这里最小要申请0x90+0x70 = 0x100<br><strong>失效</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = m(0x90-8);</span><br><span class="line">b = m(0x90-8);</span><br><span class="line">c = m(0x80-8);</span><br><span class="line">d = m(0x80-8);</span><br><span class="line">free(b)</span><br><span class="line">overflow(a) =&gt; b.size = b+c</span><br><span class="line">b&apos; = m(0x180-8) = b+c</span><br></pre></td></tr></table></figure>
+
+<h4 id="扩展正在使用的块"><a href="#扩展正在使用的块" class="headerlink" title="扩展正在使用的块"></a>扩展正在使用的块</h4><p>没有chunk类型和大小限制，连续分配fastbin，</p>
+<h3 id="两个基本问题"><a href="#两个基本问题" class="headerlink" title="两个基本问题"></a>两个基本问题</h3><h4 id="0b01-leak-info"><a href="#0b01-leak-info" class="headerlink" title="0b01 leak info"></a>0b01 leak info</h4><ul>
+<li>控制<br>可以通过show函数进行leak</li>
+</ul>
+<a id="more"></a>
+        
+      </div>
+      
+      
+      
     </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+    
+  <ul class="breadcrumb">
+      
+      
         
-          <a class="post-title-link" href="/2019/11/12/从RoarCTF - easy_pwn看off_by_one/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
+          
+            
+          
+          
+            <li><a href="/uploads/">UPLOADS</a></li>
+          
         
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-12T21:05:25+08:00"
-              content="2019-11-12">
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+      
+    
+      
+      
         
-          <a class="post-title-link" href="/2019/09/03/PWN11-WP/" itemprop="url">
-            <span itemprop="name">Pwn11-WP</span>
-          </a>
+          
+            
+          
+          
+            <li><a href="/uploads/Pak/">PAK</a></li>
+          
         
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-03T00:35:00+08:00"
-              content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+      
+    
+      
+      
         
-          <a class="post-title-link" href="/2019/09/01/论系统调用在栈上产生的渣渣/" itemprop="url">
-            <span itemprop="name">论系统调用在栈上产生的渣渣</span>
-          </a>
+          
+            
+          
+          
+            <li>从ROARCTF - EASY_PWN看OFF_BY_ONE</li>
+          
         
-      </h2>
+      
+    
+  </ul>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-01T00:53:00+08:00"
-              content="2019-09-01">
-          09-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/30/最终测试/" itemprop="url">
-            <span itemprop="name">最终测试</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-30T13:13:46+08:00"
-              content="2019-08-30">
-          08-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-
-    </div>
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -395,6 +372,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc" data-target="post-toc-wrap">
@@ -407,6 +389,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从RoarCTF-easy-pwn看off-by-one"><span class="nav-number">1.</span> <span class="nav-text">从RoarCTF - easy_pwn看off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-off-by-one"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overlap"><span class="nav-number">1.1.1.</span> <span class="nav-text">overlap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unsorted-bin-扩展释放块"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">unsorted bin 扩展释放块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展正在使用的块"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">扩展正在使用的块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个基本问题"><span class="nav-number">1.1.2.</span> <span class="nav-text">两个基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0b01-leak-info"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">0b01 leak info</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

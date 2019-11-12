@@ -54,21 +54,19 @@
   };
 </script>
 
-  <meta name="description" content="最终测试血与泪的教训昨天测试新写的脚本，自动更正hexo-admin后台剪贴图片插入在Windows下的路径问题，结果乱使用”w+”模式…… 把自己的本地文章全清空了可还行 吸取教训，下次bug改完之前先随便找个垃圾堆测试一下再用/笑哭 正式测试代码框格式测试123456789\\c code highlights text#include&amp;lt;stdio.h&amp;gt;int main()&amp;#12">
-<meta name="keywords" content="PWN">
+  <meta name="description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+<meta name="keywords" content="WP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最终测试">
-<meta property="og:url" content="http://yoursite.com/2019/08/30/最终测试/index.html">
+<meta property="og:title" content="从RoarCTF - easy_pwn看off_by_one">
+<meta property="og:url" content="http://yoursite.com/2019/10/13/从RoarCTF - easy_pwn看off_by_one/index.html">
 <meta property="og:site_name" content="沙雕老王">
-<meta property="og:description" content="最终测试血与泪的教训昨天测试新写的脚本，自动更正hexo-admin后台剪贴图片插入在Windows下的路径问题，结果乱使用”w+”模式…… 把自己的本地文章全清空了可还行 吸取教训，下次bug改完之前先随便找个垃圾堆测试一下再用/笑哭 正式测试代码框格式测试123456789\\c code highlights text#include&amp;lt;stdio.h&amp;gt;int main()&amp;#12">
+<meta property="og:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/pasted-1.png">
-<meta property="og:updated_time" content="2019-11-12T13:26:11.727Z">
+<meta property="og:updated_time" content="2019-11-12T13:26:11.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最终测试">
-<meta name="twitter:description" content="最终测试血与泪的教训昨天测试新写的脚本，自动更正hexo-admin后台剪贴图片插入在Windows下的路径问题，结果乱使用”w+”模式…… 把自己的本地文章全清空了可还行 吸取教训，下次bug改完之前先随便找个垃圾堆测试一下再用/笑哭 正式测试代码框格式测试123456789\\c code highlights text#include&amp;lt;stdio.h&amp;gt;int main()&amp;#12">
-<meta name="twitter:image" content="http://yoursite.com/images/pasted-1.png">
-  <link rel="canonical" href="http://yoursite.com/2019/08/30/最终测试/">
+<meta name="twitter:title" content="从RoarCTF - easy_pwn看off_by_one">
+<meta name="twitter:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+  <link rel="canonical" href="http://yoursite.com/2019/10/13/从RoarCTF - easy_pwn看off_by_one/">
 
 
 <script id="page-configurations">
@@ -82,7 +80,7 @@
   };
 </script>
 
-  <title>最终测试 | 沙雕老王</title>
+  <title>从RoarCTF - easy_pwn看off_by_one | 沙雕老王</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -222,7 +220,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/30/最终测试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/从RoarCTF - easy_pwn看off_by_one/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tyr Wang">
@@ -234,7 +232,7 @@
       <meta itemprop="name" content="沙雕老王">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">最终测试
+        <h1 class="post-title" itemprop="name headline">从RoarCTF - easy_pwn看off_by_one
 
           
         </h1>
@@ -250,7 +248,7 @@
                 
               
 
-              <time title="创建时间：2019-08-30 13:13:46" itemprop="dateCreated datePublished" datetime="2019-08-30T13:13:46+08:00">2019-08-30</time>
+              <time title="创建时间：2019-10-13 23:14:00" itemprop="dateCreated datePublished" datetime="2019-10-13T23:14:00+08:00">2019-10-13</time>
             </span>
           
             
@@ -290,25 +288,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="最终测试"><a href="#最终测试" class="headerlink" title="最终测试"></a>最终测试</h2><h3 id="血与泪的教训"><a href="#血与泪的教训" class="headerlink" title="血与泪的教训"></a>血与泪的教训</h3><p>昨天测试新写的脚本，自动更正hexo-admin后台剪贴图片插入在Windows下的路径问题，结果乱使用”w+”模式……</p>
-<p>把自己的本地文章全清空了可还行</p>
-<p>吸取教训，下次bug改完之前先随便找个垃圾堆测试一下再用/笑哭</p>
-<h3 id="正式测试"><a href="#正式测试" class="headerlink" title="正式测试"></a>正式测试</h3><h4 id="代码框格式测试"><a href="#代码框格式测试" class="headerlink" title="代码框格式测试"></a>代码框格式测试</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\\c code highlights text</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str[<span class="number">10</span>];</span><br><span class="line">   <span class="built_in">scanf</span>(<span class="string">"%s"</span>, str);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%d"</span>, str);</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="从RoarCTF-easy-pwn看off-by-one"><a href="#从RoarCTF-easy-pwn看off-by-one" class="headerlink" title="从RoarCTF - easy_pwn看off_by_one"></a>从RoarCTF - easy_pwn看off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路</p>
+<p>one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。</p>
+<h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-扩展释放块"><a href="#unsorted-bin-扩展释放块" class="headerlink" title="unsorted bin 扩展释放块"></a>unsorted bin 扩展释放块</h4><p>释放一个chunk进入unsorted bin（例如 small chunk 0x90+），利用overflow将刚释放的（unsorted bin里面的）chunk扩大，刚好覆盖物理上下一个chunk。再次申请即可获得此chunk达到overlap</p>
+<p>此题限制 calloc，不是malloc，申请后填满”\x00”,<br>#?而且限制size最大0x100，后续需要0x70大小的fastbin，这里最小要申请0x90+0x70 = 0x100<br><strong>失效</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = m(0x90-8);</span><br><span class="line">b = m(0x90-8);</span><br><span class="line">c = m(0x80-8);</span><br><span class="line">d = m(0x80-8);</span><br><span class="line">free(b)</span><br><span class="line">overflow(a) =&gt; b.size = b+c</span><br><span class="line">b&apos; = m(0x180-8) = b+c</span><br></pre></td></tr></table></figure>
 
+<h4 id="扩展正在使用的块"><a href="#扩展正在使用的块" class="headerlink" title="扩展正在使用的块"></a>扩展正在使用的块</h4><p>没有chunk类型和大小限制，连续分配fastbin，</p>
+<h3 id="两个基本问题"><a href="#两个基本问题" class="headerlink" title="两个基本问题"></a>两个基本问题</h3><h4 id="0b01-leak-info"><a href="#0b01-leak-info" class="headerlink" title="0b01 leak info"></a>0b01 leak info</h4><ul>
+<li>控制<br>可以通过show函数进行leak</li>
+</ul>
 <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python highlights test</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    os.chdir(<span class="string">r"D:\Programs\Hexo-Blog\source\_posts"</span>)</span><br><span class="line">    fls = os.listdir(<span class="string">r"."</span>)</span><br><span class="line">    aim_ls = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> fls:</span><br><span class="line">        <span class="keyword">if</span> i[<span class="number">-3</span>:] == <span class="string">".md"</span>:</span><br><span class="line">            aim_ls.append(i)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> aim_ls:</span><br><span class="line">        content = <span class="string">""</span></span><br><span class="line">        <span class="keyword">with</span> open(i, <span class="string">"r"</span>, encoding=<span class="string">'UTF-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            content = f.read()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> content == <span class="string">''</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            content = re.sub(<span class="string">r"(!\[.*?\]\()\\?/?(images)\\?/?(pasted-\d\d?\d?\d?\.png\))"</span>, <span class="string">"\g&lt;1&gt;/\g&lt;2&gt;/\g&lt;3&gt;"</span>, content)</span><br><span class="line">            f = open(i, <span class="string">"w"</span>, encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line">            f.write(content)</span><br><span class="line">            f.close()</span><br><span class="line">        <span class="keyword">except</span> AttributeError <span class="keyword">as</span> e:</span><br><span class="line">            print(e)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            f.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-<h4 id="文本测试"><a href="#文本测试" class="headerlink" title="文本测试"></a>文本测试</h4><p>简体中文测试</p>
-<p>繁體中文測試</p>
-<p>English test</p>
-<p>日本語テスト</p>
-<p>Deutschtest</p>
-<p>Русский тест</p>
-<p>Svenskt test</p>
-<h4 id="图片插入测试"><a href="#图片插入测试" class="headerlink" title="图片插入测试"></a>图片插入测试</h4><p><img src="/images/pasted-1.png" alt="upload successful"></p>
-<h4 id="部署脚本测试"><a href="#部署脚本测试" class="headerlink" title="部署脚本测试"></a>部署脚本测试</h4><p>额。。。能看见这篇文章就说明测试没毛病了</p>
-<p>over！</p>
-
     </div>
 
     
@@ -323,7 +313,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/PWN/" rel="tag"># PWN</a>
+              <a href="/tags/WP/" rel="tag"># WP</a>
             
           </div>
         
@@ -333,14 +323,18 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/09/03/PWN11-WP/" rel="next" title="Pwn11-WP">
+                  <i class="fa fa-chevron-left"></i> Pwn11-WP
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/01/论系统调用在栈上产生的渣渣/" rel="prev" title="论系统调用在栈上产生的渣渣">
-                  论系统调用在栈上产生的渣渣 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/12/Post/" rel="prev" title="Post">
+                  Post <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -390,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最终测试"><span class="nav-number">1.</span> <span class="nav-text">最终测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#血与泪的教训"><span class="nav-number">1.1.</span> <span class="nav-text">血与泪的教训</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正式测试"><span class="nav-number">1.2.</span> <span class="nav-text">正式测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码框格式测试"><span class="nav-number">1.2.1.</span> <span class="nav-text">代码框格式测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本测试"><span class="nav-number">1.2.2.</span> <span class="nav-text">文本测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片插入测试"><span class="nav-number">1.2.3.</span> <span class="nav-text">图片插入测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署脚本测试"><span class="nav-number">1.2.4.</span> <span class="nav-text">部署脚本测试</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从RoarCTF-easy-pwn看off-by-one"><span class="nav-number">1.</span> <span class="nav-text">从RoarCTF - easy_pwn看off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-off-by-one"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overlap"><span class="nav-number">1.1.1.</span> <span class="nav-text">overlap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unsorted-bin-扩展释放块"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">unsorted bin 扩展释放块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展正在使用的块"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">扩展正在使用的块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个基本问题"><span class="nav-number">1.1.2.</span> <span class="nav-text">两个基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0b01-leak-info"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">0b01 leak info</span></a></li></ol></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

@@ -54,18 +54,17 @@
   };
 </script>
 
-  <meta name="description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
-<meta name="keywords" content="WP">
+  <meta name="description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
 <meta property="og:type" content="website">
-<meta property="og:title" content="从RoarCTF - easy_pwn看off_by_one">
+<meta property="og:title" content="沙雕老王">
 <meta property="og:url" content="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html">
 <meta property="og:site_name" content="沙雕老王">
-<meta property="og:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+<meta property="og:description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T15:48:50.000Z">
+<meta property="og:updated_time" content="2019-11-12T14:06:00.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从RoarCTF - easy_pwn看off_by_one">
-<meta name="twitter:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+<meta name="twitter:title" content="沙雕老王">
+<meta name="twitter:description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
   <link rel="canonical" href="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one">
 
 
@@ -80,7 +79,7 @@
   };
 </script>
 
-  <title>从RoarCTF - easy_pwn看off_by_one | 沙雕老王</title>
+  <title> | 沙雕老王</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -239,7 +238,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">从RoarCTF - easy_pwn看off_by_one
+<h1 class="post-title" itemprop="name headline">
 
 </h1>
 
@@ -293,17 +292,18 @@
       
       <div class="post-body">
         
-          <h1 id="从RoarCTF-easy-pwn看off-by-one"><a href="#从RoarCTF-easy-pwn看off-by-one" class="headerlink" title="从RoarCTF - easy_pwn看off_by_one"></a>从RoarCTF - easy_pwn看off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路</p>
-<p>one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。</p>
-<h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-扩展释放块"><a href="#unsorted-bin-扩展释放块" class="headerlink" title="unsorted bin 扩展释放块"></a>unsorted bin 扩展释放块</h4><p>释放一个chunk进入unsorted bin（例如 small chunk 0x90+），利用overflow将刚释放的（unsorted bin里面的）chunk扩大，刚好覆盖物理上下一个chunk。再次申请即可获得此chunk达到overlap</p>
-<p>此题限制 calloc，不是malloc，申请后填满”\x00”,<br>#?而且限制size最大0x100，后续需要0x70大小的fastbin，这里最小要申请0x90+0x70 = 0x100<br><strong>失效</strong></p>
+          <h1 id="��RoarCTF-easy-pwn��off-by-one"><a href="#��RoarCTF-easy-pwn��off-by-one" class="headerlink" title="��RoarCTF - easy_pwn��off_by_one"></a>��RoarCTF - easy_pwn��off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼·</p>
+<p>one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap overflow����ϳ���ĸ��� bin attack�ﵽget shellĿ�ġ�</p>
+<h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-��չ�ͷl�"><a href="#unsorted-bin-��չ�ͷl�" class="headerlink" title="unsorted bin ��չ�ͷſ�"></a>unsorted bin ��չ�ͷſ�</h4><p>�ͷ�һ��chunk����unsorted bin������ small chunk 0x90+��������overflow�����ͷŵģ�unsorted bin����ģ�chunk���󣬸պø�����������һ��chunk���ٴ����뼴�ɻ�ô�chunk�ﵽoverlap</p>
+<a id="more"></a>
+<p>�������� calloc������malloc�����������”\x00”,<br>#?��������size���0x100��������Ҫ0x70��С��fastbin��������СҪ����0x90+0x70 = 0x100<br><strong>ʧЧ</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = m(0x90-8);</span><br><span class="line">b = m(0x90-8);</span><br><span class="line">c = m(0x80-8);</span><br><span class="line">d = m(0x80-8);</span><br><span class="line">free(b)</span><br><span class="line">overflow(a) =&gt; b.size = b+c</span><br><span class="line">b&apos; = m(0x180-8) = b+c</span><br></pre></td></tr></table></figure>
 
-<h4 id="扩展正在使用的块"><a href="#扩展正在使用的块" class="headerlink" title="扩展正在使用的块"></a>扩展正在使用的块</h4><p>没有chunk类型和大小限制，连续分配fastbin，</p>
-<h3 id="两个基本问题"><a href="#两个基本问题" class="headerlink" title="两个基本问题"></a>两个基本问题</h3><h4 id="0b01-leak-info"><a href="#0b01-leak-info" class="headerlink" title="0b01 leak info"></a>0b01 leak info</h4><ul>
-<li>控制<br>可以通过show函数进行leak</li>
+<h4 id="��չ����ʹ�oL�"><a href="#��չ����ʹ�oL�" class="headerlink" title="��չ����ʹ�õĿ�"></a>��չ����ʹ�õĿ�</h4><p>û��chunk���ͺʹ�С���ƣ���������fastbin��</p>
+<h3 id="������������"><a href="#������������" class="headerlink" title="������������"></a>������������</h3><h4 id="0b01-leak-info"><a href="#0b01-leak-info" class="headerlink" title="0b01 leak info"></a>0b01 leak info</h4><ul>
+<li>����<br>����ͨ��show��������leak</li>
 </ul>
-<a id="more"></a>
+
         
       </div>
       
@@ -389,7 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从RoarCTF-easy-pwn看off-by-one"><span class="nav-number">1.</span> <span class="nav-text">从RoarCTF - easy_pwn看off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-off-by-one"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overlap"><span class="nav-number">1.1.1.</span> <span class="nav-text">overlap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unsorted-bin-扩展释放块"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">unsorted bin 扩展释放块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展正在使用的块"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">扩展正在使用的块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个基本问题"><span class="nav-number">1.1.2.</span> <span class="nav-text">两个基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0b01-leak-info"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">0b01 leak info</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#��RoarCTF-easy-pwn��off-by-one"><span class="nav-number">1.</span> <span class="nav-text">��RoarCTF - easy_pwn��off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-off-by-one"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overlap"><span class="nav-number">1.1.1.</span> <span class="nav-text">overlap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unsorted-bin-��չ�ͷl�"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">unsorted bin ��չ�ͷſ�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#��չ����ʹ�oL�"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">��չ����ʹ�õĿ�</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#������������"><span class="nav-number">1.1.2.</span> <span class="nav-text">������������</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0b01-leak-info"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">0b01 leak info</span></a></li></ol></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -443,9 +443,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">Tags</span>
         </a>
       </div>

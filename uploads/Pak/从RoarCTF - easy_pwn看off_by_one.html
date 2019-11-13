@@ -10,7 +10,7 @@
   
   
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/gif">
   <meta name="description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
 <meta property="og:type" content="website">
 <meta property="og:title" content="沙雕老王">
@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1573622113530">
+  <link rel="stylesheet" href="/css/style.css?v=1573623886494">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -41,7 +41,7 @@
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
         <div class="mdui-toolbar-spacer"></div>
         <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="Tyr Wang" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.png"></a>
+        <a href="/" title="Tyr Wang" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.gif"></a>
        </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
       <div class="nexmoe-drawer mdui-drawer" id="drawer">
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="Tyr Wang">
-            <img src="/images/avatar.png" alt="Tyr Wang">
+            <img src="/images/avatar.gif" alt="Tyr Wang">
         </a>
     </div>
     <div class="nexmoe-count">
@@ -167,7 +167,7 @@
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月12日</a>
-    <a><i class="nexmoefont icon-areachart"></i>95 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>96 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
     
@@ -178,9 +178,13 @@
 <h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-��չ�ͷl�"><a href="#unsorted-bin-��չ�ͷl�" class="headerlink" title="unsorted bin ��չ�ͷſ�"></a>unsorted bin ��չ�ͷſ�</h4><p>�ͷ�һ��chunk����unsorted bin������ small chunk 0x90+��������overflow�����ͷŵģ�unsorted bin����ģ�chunk���󣬸պø�����������һ��chunk���ٴ����뼴�ɻ�ô�chunk�ﵽoverlap</p>
 <a id="more"></a>
 <p>�������� calloc������malloc�����������”\x00”,<br>#?��������size���0x100��������Ҫ0x70��С��fastbin��������СҪ����0x90+0x70 = 0x100<br><strong>ʧЧ</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = m(0x90-8);</span><br><span class="line">b = m(0x90-8);</span><br><span class="line">c = m(0x80-8);</span><br><span class="line">d = m(0x80-8);</span><br><span class="line">free(b)</span><br><span class="line">overflow(a) =&gt; b.size = b+c</span><br><span class="line">b&apos; = m(0x180-8) = b+c</span><br></pre></td></tr></table></figure>
-
-<h4 id="��չ����ʹ�oL�"><a href="#��չ����ʹ�oL�" class="headerlink" title="��չ����ʹ�õĿ�"></a>��չ����ʹ�õĿ�</h4><p>û��chunk���ͺʹ�С���ƣ���������fastbin��</p>
+<pre><code>a = m(0x90-8);
+b = m(0x90-8);
+c = m(0x80-8);
+d = m(0x80-8);
+free(b)
+overflow(a) =&gt; b.size = b+c
+b&#39; = m(0x180-8) = b+c</code></pre><h4 id="��չ����ʹ�oL�"><a href="#��չ����ʹ�oL�" class="headerlink" title="��չ����ʹ�õĿ�"></a>��չ����ʹ�õĿ�</h4><p>û��chunk���ͺʹ�С���ƣ���������fastbin��</p>
 <h3 id="������������"><a href="#������������" class="headerlink" title="������������"></a>������������</h3><h4 id="0b01-leak-info"><a href="#0b01-leak-info" class="headerlink" title="0b01 leak info"></a>0b01 leak info</h4><ul>
 <li>����<br>����ͨ��show��������leak</li>
 </ul>
@@ -231,7 +235,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1573622113533"></script>
+<script src="/js/app.js?v=1573623886499"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

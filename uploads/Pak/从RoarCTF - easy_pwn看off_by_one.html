@@ -1,59 +1,16 @@
 <!DOCTYPE html>
+<html>
 
-
-
-
-
-<html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>沙雕老王</title>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="description" content="变秃了，也变强了">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.3.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
   <meta name="description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
 <meta property="og:type" content="website">
 <meta property="og:title" content="沙雕老王">
@@ -65,234 +22,158 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="沙雕老王">
 <meta name="twitter:description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
-  <link rel="canonical" href="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: false,
-    isPage: true,
-    isArchive: false
-  };
-</script>
-
-  <title> | 沙雕老王</title>
-  <meta name="generator" content="Hexo 3.9.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1573622040657">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">沙雕老王</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Tyr Wang" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.png"></a>
+       </div>
     </div>
-        <p class="site-subtitle">在线发牌</p>
-      
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Tyr Wang">
+            <img src="/images/avatar.png" alt="Tyr Wang">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>5</div>
+        <div><span>标签</span>1</div>
+        <div><span>分类</span>2</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/PWN/Learn/">Learn</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/PWN/">PWN</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
 
-
-<nav class="site-nav">
   
-  <ul id="menu" class="menu">
-      
-      
-      
-        
-        <li class="menu-item menu-item-home">
-      
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/PWN/" style="font-size: 10px;">PWN</a>
+    </div>
     
+  </div>
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
   </div>
 
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
   
-
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2019 Tyr Wang
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        
+        <h1></h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月12日</a>
+    <a><i class="nexmoefont icon-areachart"></i>95 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
     
-    
-    <div class="post-block page">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">
-
-</h1>
-
-<div class="post-meta">
-  
-  <ul class="breadcrumb">
-      
-      
-        
-          
-            
-          
-          
-            <li><a href="/uploads/">UPLOADS</a></li>
-          
-        
-      
-    
-      
-      
-        
-          
-            
-          
-          
-            <li><a href="/uploads/Pak/">PAK</a></li>
-          
-        
-      
-    
-      
-      
-        
-          
-            
-          
-          
-            <li>从ROARCTF - EASY_PWN看OFF_BY_ONE</li>
-          
-        
-      
-    
-  </ul>
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-        
-          <h1 id="��RoarCTF-easy-pwn��off-by-one"><a href="#��RoarCTF-easy-pwn��off-by-one" class="headerlink" title="��RoarCTF - easy_pwn��off_by_one"></a>��RoarCTF - easy_pwn��off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼·</p>
+  </div>
+  <article>
+    <h1 id="��RoarCTF-easy-pwn��off-by-one"><a href="#��RoarCTF-easy-pwn��off-by-one" class="headerlink" title="��RoarCTF - easy_pwn��off_by_one"></a>��RoarCTF - easy_pwn��off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼·</p>
 <p>one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap overflow����ϳ���ĸ��� bin attack�ﵽget shellĿ�ġ�</p>
 <h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-��չ�ͷl�"><a href="#unsorted-bin-��չ�ͷl�" class="headerlink" title="unsorted bin ��չ�ͷſ�"></a>unsorted bin ��չ�ͷſ�</h4><p>�ͷ�һ��chunk����unsorted bin������ small chunk 0x90+��������overflow�����ͷŵģ�unsorted bin����ģ�chunk���󣬸պø�����������һ��chunk���ٴ����뼴�ɻ�ô�chunk�ﵽoverlap</p>
 <a id="more"></a>
@@ -304,231 +185,66 @@
 <li>����<br>����ͨ��show��������leak</li>
 </ul>
 
-        
-      </div>
-      
-      
-      
-    </div>
-    
-  <ul class="breadcrumb">
-      
-      
-        
-          
-            
-          
-          
-            <li><a href="/uploads/">UPLOADS</a></li>
-          
-        
-      
-    
-      
-      
-        
-          
-            
-          
-          
-            <li><a href="/uploads/Pak/">PAK</a></li>
-          
-        
-      
-    
-      
-      
-        
-          
-            
-          
-          
-            <li>从ROARCTF - EASY_PWN看OFF_BY_ONE</li>
-          
-        
-      
-    
-  </ul>
-
-    
-    
-    
-  </div>
-
-
-          </div>
-          
-
-        </div>
-          
+  </article>
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>本文作者：</strong>Tyr Wang<br>
+<strong>本文链接：</strong><a href="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html" title="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html" target="_blank" rel="noopener">http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html</a><br>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
-          Contents
-        </li>
-        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-          隔壁老王在这
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#��RoarCTF-easy-pwn��off-by-one"><span class="nav-number">1.</span> <span class="nav-text">��RoarCTF - easy_pwn��off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-off-by-one"><span class="nav-number">1.1.</span> <span class="nav-text">0x01 off_by_one</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overlap"><span class="nav-number">1.1.1.</span> <span class="nav-text">overlap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unsorted-bin-��չ�ͷl�"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">unsorted bin ��չ�ͷſ�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#��չ����ʹ�oL�"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">��չ����ʹ�õĿ�</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#������������"><span class="nav-number">1.1.2.</span> <span class="nav-text">������������</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0b01-leak-info"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">0b01 leak info</span></a></li></ol></li></ol></li></ol></li></ol></div>
-        
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="Tyr Wang">
-  <p class="site-author-name" itemprop="name">Tyr Wang</p>
-  <div class="site-description" itemprop="description">变秃了，也变强了</div>
 </div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">Posts</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-          
-            <a href="/categories/">
-          
-        
-        
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">Cats</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        
-        
-          
-        
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">Tags</span>
-        </a>
-      </div>
-    
-  </nav>
 
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Tyr Wang</span>
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
 </div>
-  <div class="powered-by"> <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a>  v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">T – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+    </div>
   </div>
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
-<script src="/js/schemes/pisces.js?v=7.3.0"></script>
-<script src="/js/next-boot.js?v=7.3.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
-
-  
-
-
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
 
 
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1573622040659"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
 
   
 
-  
 
-  
+
+
 
 </body>
+
 </html>

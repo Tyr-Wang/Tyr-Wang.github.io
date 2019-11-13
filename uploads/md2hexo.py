@@ -18,7 +18,7 @@ def main():
             continue
 
         try:
-            content = re.sub(r"(!\[.*?\]\()\\?/?(images)\\?/?(pasted-\d\d?\d?\d?\.png\))", "\g<1>/\g<2>/\g<3>", content)
+            content = re.sub(r"(!\[.*?\]\()\\?/?(images)\\?/?(pasted-\d\d?\d?\d?\.....?\))", "\g<1>/\g<2>/\g<3>", content)
             f = open(i, "w", encoding='UTF-8')
             f.write(content)
             f.close()

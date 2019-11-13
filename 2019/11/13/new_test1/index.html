@@ -11,17 +11,17 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta name="description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: new_test1date: 2019-11-13 14:57:10  new_test1">
+<meta property="og:type" content="article">
 <meta property="og:title" content="沙雕老王">
-<meta property="og:url" content="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html">
+<meta property="og:url" content="http://yoursite.com/2019/11/13/new_test1/index.html">
 <meta property="og:site_name" content="沙雕老王">
-<meta property="og:description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
+<meta property="og:description" content="title: new_test1date: 2019-11-13 14:57:10  new_test1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-12T14:06:00.070Z">
+<meta property="og:updated_time" content="2019-11-13T06:57:40.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="沙雕老王">
-<meta name="twitter:description" content="��RoarCTF - easy_pwn��off_by_one0x01 off_by_one���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼· one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap">
+<meta name="twitter:description" content="title: new_test1date: 2019-11-13 14:57:10  new_test1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1573628263122">
+  <link rel="stylesheet" href="/css/style.css?v=1573628263246">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -166,36 +166,23 @@
         <h1></h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月12日</a>
-    <a><i class="nexmoefont icon-areachart"></i>96 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>9 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
     
   </div>
   <article>
-    <h1 id="��RoarCTF-easy-pwn��off-by-one"><a href="#��RoarCTF-easy-pwn��off-by-one" class="headerlink" title="��RoarCTF - easy_pwn��off_by_one"></a>��RoarCTF - easy_pwn��off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>���ֽڶ����©�������������ctf�У���һ�����򵥡���ǩ��������һ�´���©���Ľ���˼·</p>
-<p>one byte ��Ч�������ڶ�size��������Ӷ��γ�overlap���ﵽ����UAF��Ч���������ֽ����Ϊ����Χ��heap overflow����ϳ���ĸ��� bin attack�ﵽget shellĿ�ġ�</p>
-<h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-��չ�ͷl�"><a href="#unsorted-bin-��չ�ͷl�" class="headerlink" title="unsorted bin ��չ�ͷſ�"></a>unsorted bin ��չ�ͷſ�</h4><p>�ͷ�һ��chunk����unsorted bin������ small chunk 0x90+��������overflow�����ͷŵģ�unsorted bin����ģ�chunk���󣬸պø�����������һ��chunk���ٴ����뼴�ɻ�ô�chunk�ﵽoverlap</p>
-<a id="more"></a>
-<p>�������� calloc������malloc�����������”\x00”,<br>#?��������size���0x100��������Ҫ0x70��С��fastbin��������СҪ����0x90+0x70 = 0x100<br><strong>ʧЧ</strong></p>
-<pre><code>a = m(0x90-8);
-b = m(0x90-8);
-c = m(0x80-8);
-d = m(0x80-8);
-free(b)
-overflow(a) =&gt; b.size = b+c
-b&#39; = m(0x180-8) = b+c</code></pre><h4 id="��չ����ʹ�oL�"><a href="#��չ����ʹ�oL�" class="headerlink" title="��չ����ʹ�õĿ�"></a>��չ����ʹ�õĿ�</h4><p>û��chunk���ͺʹ�С���ƣ���������fastbin��</p>
-<h3 id="������������"><a href="#������������" class="headerlink" title="������������"></a>������������</h3><h4 id="0b01-leak-info"><a href="#0b01-leak-info" class="headerlink" title="0b01 leak info"></a>0b01 leak info</h4><ul>
-<li>����<br>����ͨ��show��������leak</li>
-</ul>
-
+    <p>title: new_test1<br>date: 2019-11-13 14:57:10</p>
+<hr>
+<h1 id="new-test1"><a href="#new-test1" class="headerlink" title="new_test1"></a>new_test1</h1><h2 id><a href="#" class="headerlink" title></a></h2><a id="more"></a>
   </article>
   
     
 <div class="nexmoe-post-copyright">
 <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
 <strong>本文作者：</strong>Tyr Wang<br>
-<strong>本文链接：</strong><a href="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html" title="http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html" target="_blank" rel="noopener">http://yoursite.com/uploads/Pak/从RoarCTF - easy_pwn看off_by_one.html</a><br>
+<strong>本文链接：</strong><a href="http://yoursite.com/2019/11/13/new_test1/" title="http://yoursite.com/2019/11/13/new_test1/" target="_blank" rel="noopener">http://yoursite.com/2019/11/13/new_test1/</a><br>
 
   <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
@@ -235,7 +222,7 @@ b&#39; = m(0x180-8) = b+c</code></pre><h4 id="��չ����ʹ�oL�"><a
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1573628263128"></script>
+<script src="/js/app.js?v=1573628263248"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

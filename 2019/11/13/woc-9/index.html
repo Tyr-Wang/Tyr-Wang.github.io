@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>从RoarCTF - easy_pwn看off_by_one - 沙雕老王</title>
+  <title>woc - 沙雕老王</title>
   <meta charset="UTF-8">
   <meta name="description" content="变秃了，也变强了">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,18 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta name="description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+  <meta name="description" content="测试第一白次#">
 <meta name="keywords" content="PWN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从RoarCTF - easy_pwn看off_by_one">
-<meta property="og:url" content="http://yoursite.com/2019/10/13/从RoarCTF - easy_pwn看off_by_one/index.html">
+<meta property="og:title" content="woc">
+<meta property="og:url" content="http://yoursite.com/2019/11/13/woc-9/index.html">
 <meta property="og:site_name" content="沙雕老王">
-<meta property="og:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+<meta property="og:description" content="测试第一白次#">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-13T05:13:59.229Z">
+<meta property="og:updated_time" content="2019-11-13T08:14:39.821Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从RoarCTF - easy_pwn看off_by_one">
-<meta name="twitter:description" content="从RoarCTF - easy_pwn看off_by_one0x01 off_by_one单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路 one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。 over">
+<meta name="twitter:title" content="woc">
+<meta name="twitter:description" content="测试第一白次#">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,7 +30,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1573632901171">
+  <link rel="stylesheet" href="/css/style.css?v=1573632901292">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -164,11 +164,11 @@
         
             <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
         
-        <h1>从RoarCTF - easy_pwn看off_by_one</h1>
+        <h1>woc</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年10月13日</a>
-    <a><i class="nexmoefont icon-areachart"></i>271 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>6 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/Learn/">Learn</a>
@@ -178,29 +178,15 @@
     
   </div>
   <article>
-    <h1 id="从RoarCTF-easy-pwn看off-by-one"><a href="#从RoarCTF-easy-pwn看off-by-one" class="headerlink" title="从RoarCTF - easy_pwn看off_by_one"></a>从RoarCTF - easy_pwn看off_by_one</h1><h2 id="0x01-off-by-one"><a href="#0x01-off-by-one" class="headerlink" title="0x01 off_by_one"></a>0x01 off_by_one</h2><p>单字节堆溢出漏洞最近常出现在ctf中，从一个“简单”的签到题来看一下此类漏洞的解题思路</p>
-<p>one byte 有效的利用在对size的溢出，从而形成overlap，达到类似UAF的效果，扩大单字节溢出为更大范围的heap overflow，配合常规的各种 bin attack达到get shell目的。</p>
-<h3 id="overlap"><a href="#overlap" class="headerlink" title="overlap"></a>overlap</h3><h4 id="unsorted-bin-扩展释放块"><a href="#unsorted-bin-扩展释放块" class="headerlink" title="unsorted bin 扩展释放块"></a>unsorted bin 扩展释放块</h4><p>释放一个chunk进入unsorted bin（例如 small chunk 0x90+），利用overflow将刚释放的（unsorted bin里面的）chunk扩大，刚好覆盖物理上下一个chunk。再次申请即可获得此chunk达到overlap</p>
+    <h2 id="测试第一白次"><a href="#测试第一白次" class="headerlink" title="测试第一白次"></a>测试第一白次</h2><p>#</p>
 <a id="more"></a>
-<p>此题限制 calloc，不是malloc，申请后填满”\x00”,<br>#?而且限制size最大0x100，后续需要0x70大小的fastbin，这里最小要申请0x90+0x70 = 0x100<br><strong>失效</strong></p>
-<pre><code>a = m(0x90-8);
-b = m(0x90-8);
-c = m(0x80-8);
-d = m(0x80-8);
-free(b)
-overflow(a) =&gt; b.size = b+c
-b&#39; = m(0x180-8) = b+c</code></pre><h4 id="扩展正在使用的块"><a href="#扩展正在使用的块" class="headerlink" title="扩展正在使用的块"></a>扩展正在使用的块</h4><p>没有chunk类型和大小限制，连续分配fastbin，</p>
-<h3 id="两个基本问题"><a href="#两个基本问题" class="headerlink" title="两个基本问题"></a>两个基本问题</h3><h4 id="0b01-leak-info"><a href="#0b01-leak-info" class="headerlink" title="0b01 leak info"></a>0b01 leak info</h4><ul>
-<li>控制<br>可以通过show函数进行leak</li>
-</ul>
-
   </article>
   
     
 <div class="nexmoe-post-copyright">
 <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
 <strong>本文作者：</strong>Tyr Wang<br>
-<strong>本文链接：</strong><a href="http://yoursite.com/2019/10/13/从RoarCTF - easy_pwn看off_by_one/" title="http://yoursite.com/2019/10/13/从RoarCTF - easy_pwn看off_by_one/" target="_blank" rel="noopener">http://yoursite.com/2019/10/13/从RoarCTF - easy_pwn看off_by_one/</a><br>
+<strong>本文链接：</strong><a href="http://yoursite.com/2019/11/13/woc-9/" title="http://yoursite.com/2019/11/13/woc-9/" target="_blank" rel="noopener">http://yoursite.com/2019/11/13/woc-9/</a><br>
 
   <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
@@ -240,7 +226,7 @@ b&#39; = m(0x180-8) = b+c</code></pre><h4 id="扩展正在使用的块"><a href=
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1573632901173"></script>
+<script src="/js/app.js?v=1573632901295"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

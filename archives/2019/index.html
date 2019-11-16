@@ -28,7 +28,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1573646421727">
+  <link rel="stylesheet" href="/css/style.css?v=1573885485699">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -52,7 +52,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>5</div>
+        <div><span>文章</span>6</div>
         <div><span>标签</span>2</div>
         <div><span>分类</span>3</div>
     </div>
@@ -109,7 +109,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/PWN/Learn/">Learn</a>
-          <span class="category-list-count">2</span>
+          <span class="category-list-count">1</span>
         </li>
 
         
@@ -165,6 +165,135 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <section class="nexmoe-posts" id="brand-waterfall">
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/14/unctf-Box-_IO_2_1_stdout/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="unctf-Box-_IO_2_1_stdout">
+                
+                <h1>unctf-Box-_IO_2_1_stdout</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月14日</a>
+            <a><i class="nexmoefont icon-areachart"></i>341 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="unctf-Box-IO-2-1-stdout"><a href="#unctf-Box-IO-2-1-stdout" class="headerlink" title="unctf-Box-_IO_2_1_stdout"></a>unctf-Box-_IO_2_1_stdout</h1><h2 id="调试IO-FILE结构体"><a href="#调试IO-FILE结构体" class="headerlink" title="调试IO_FILE结构体"></a>调试IO_FILE结构体</h2><pre><code class="shell">pwndbg&gt; p stdout
+$10 = (struct _IO_FILE *) 0x7f19260c7620 &lt;_IO_2_1_stdout_&gt;
+pwndbg&gt; p *stdout
+$11 = {
+  _flags = -72537977, 
+  _IO_read_ptr = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, 
+  _IO_read_end = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, 
+  _IO_read_base = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, 
+  _IO_write_base = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, 
+  _IO_write_ptr = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, 
+  _IO_write_end = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, 
+  _IO_buf_base = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;, 
+  _IO_buf_end = 0x7f19260c76a4 &lt;_IO_2_1_stdout_+132&gt; &quot;&quot;, 
+  _IO_save_base = 0x0, 
+  _IO_backup_base = 0x0, 
+  _IO_save_end = 0x0, 
+  _markers = 0x0, 
+  _chain = 0x7f19260c68e0 &lt;_IO_2_1_stdin_&gt;, 
+  _fileno = 1, 
+  _flags2 = 0, 
+  _old_offset = -1, 
+  _cur_column = 0, 
+  _vtable_offset = 0 &#39;\000&#39;, 
+  _shortbuf = &quot;\n&quot;, 
+  _lock = 0x7f19260c8780 &lt;_IO_stdfile_1_lock&gt;, 
+  _offset = -1, 
+  _codecvt = 0x0, 
+  _wide_data = 0x7f19260c67a0 &lt;_IO_wide_data_1&gt;, 
+  _freeres_list = 0x0, 
+  _freeres_buf = 0x0, 
+  __pad5 = 0, 
+  _mode = -1, 
+  _unused2 = &#39;\000&#39; &lt;repeats 19 times&gt;
+}
+pwndbg&gt; x/gx &amp;_IO_2_1_stdout_
+0x7f19260c7620 &lt;_IO_2_1_stdout_&gt;:    0x00000000fbad2887
+pwndbg&gt; p/x _IO_2_1_stdout_
+$12 = {
+  file = {
+    _flags = 0xfbad2887, 
+    _IO_read_ptr = 0x7f19260c76a3, 
+    _IO_read_end = 0x7f19260c76a3, 
+    _IO_read_base = 0x7f19260c76a3, 
+    _IO_write_base = 0x7f19260c76a3, 
+    _IO_write_ptr = 0x7f19260c76a3, 
+    _IO_write_end = 0x7f19260c76a3, 
+    _IO_buf_base = 0x7f19260c76a3, 
+    _IO_buf_end = 0x7f19260c76a4, 
+    _IO_save_base = 0x0, 
+    _IO_backup_base = 0x0, 
+    _IO_save_end = 0x0, 
+    _markers = 0x0, 
+    _chain = 0x7f19260c68e0, 
+    _fileno = 0x1, 
+    _flags2 = 0x0, 
+    _old_offset = 0xffffffffffffffff, 
+    _cur_column = 0x0, 
+    _vtable_offset = 0x0, 
+    _shortbuf = {0xa}, 
+    _lock = 0x7f19260c8780, 
+    _offset = 0xffffffffffffffff, 
+    _codecvt = 0x0, 
+    _wide_data = 0x7f19260c67a0, 
+    _freeres_list = 0x0, 
+    _freeres_buf = 0x0, 
+    __pad5 = 0x0, 
+    _mode = 0xffffffff, 
+    _unused2 = {0x0 &lt;repeats 20 times&gt;}
+  }, 
+  vtable = 0x7f19260c56e0
+}
+pwndbg&gt; p/x *(struct _IO_FILE *)&amp;_IO_2_1_stdout_
+$13 = {
+  _flags = 0xfbad2887, 
+  _IO_read_ptr = 0x7f19260c76a3, 
+  _IO_read_end = 0x7f19260c76a3, 
+  _IO_read_base = 0x7f19260c76a3, 
+  _IO_write_base = 0x7f19260c76a3, 
+  _IO_write_ptr = 0x7f19260c76a3, 
+  _IO_write_end = 0x7f19260c76a3, 
+  _IO_buf_base = 0x7f19260c76a3, 
+  _IO_buf_end = 0x7f19260c76a4, 
+  _IO_save_base = 0x0, 
+  _IO_backup_base = 0x0, 
+  _IO_save_end = 0x0, 
+  _markers = 0x0, 
+  _chain = 0x7f19260c68e0, 
+  _fileno = 0x1, 
+  _flags2 = 0x0, 
+  _old_offset = 0xffffffffffffffff, 
+  _cur_column = 0x0, 
+  _vtable_offset = 0x0, 
+  _shortbuf = {0xa}, 
+  _lock = 0x7f19260c8780, 
+  _offset = 0xffffffffffffffff, 
+  _codecvt = 0x0, 
+  _wide_data = 0x7f19260c67a0, 
+  _freeres_list = 0x0, 
+  _freeres_buf = 0x0, 
+  __pad5 = 0x0, 
+  _mode = 0xffffffff, 
+  _unused2 = {0x0 &lt;repeats 20 times&gt;}
+}
+pwndbg&gt; p stdout-&gt;_IO_write_base
+$14 = 0x7f19260c76a3 &lt;_IO_2_1_stdout_+131&gt; &quot;\n&quot;
+pwndbg&gt; p &amp;stdout-&gt;_IO_write_base
+$15 = (char **) 0x7f19260c7640 &lt;_IO_2_1_stdout_+32&gt;</code></pre>
+            
+        </article>
+    </div>
     
     <div class="nexmoe-post">
         <a href="/2019/11/13/真_最终测试/">
@@ -264,7 +393,7 @@
             <a><i class="nexmoefont icon-areachart"></i>583 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
             
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/Learn/">Learn</a>
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a>
             
             
                 <a class="nexmoefont icon-tag-fill -link" href="/tags/PWN/">PWN</a>
@@ -274,7 +403,7 @@
             
             <h1 id="论系统调用在栈上产生的渣渣"><a href="#论系统调用在栈上产生的渣渣" class="headerlink" title="论系统调用在栈上产生的渣渣"></a>论系统调用在栈上产生的渣渣</h1><h2 id="心情复杂"><a href="#心情复杂" class="headerlink" title="心情复杂"></a>心情复杂</h2><p>总的来说跌宕起伏<br>无论是把签到题做十几个小时<br>还是exp改二十几次都一个问题<br>还是与一万块失之交臂<br>还是觉得自己菜的惨绝人寰<br>总之结果是好的<br>以后看到bf，第一反应再也不是boyfriend，而是这道题了</p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h3 id="检查保护"><a href="#检查保护" class="headerlink" title="检查保护"></a>检查保护</h3><p>作为第一道题，保护全开是什么鬼<br>我第一次看到，吓得我以为进错片场……<br>不要害怕，好歹是签到，于是我坚持做了一整天，呵~</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"></p>
+<p><img src="_v_images/pasted-3.png" alt="upload successful"></p>
 <h3 id="逻辑分析"><a href="#逻辑分析" class="headerlink" title="逻辑分析"></a>逻辑分析</h3><p>逻辑很简单，伪随机加Format String</p>
             
         </article>
@@ -335,7 +464,7 @@ int main(){
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1573646421730"></script>
+<script src="/js/app.js?v=1573885485702"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

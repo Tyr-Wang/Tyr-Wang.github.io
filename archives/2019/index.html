@@ -28,13 +28,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1573887070635">
+  <link rel="stylesheet" href="/css/style.css?v=1575386014055">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -52,8 +52,8 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>6</div>
-        <div><span>标签</span>2</div>
+        <div><span>文章</span>13</div>
+        <div><span>标签</span>3</div>
         <div><span>分类</span>3</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -109,7 +109,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/PWN/Learn/">Learn</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">0</span>
         </li>
 
         
@@ -138,7 +138,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/PWN/" style="font-size: 20px;">PWN</a> <a href="/tags/呵呵/" style="font-size: 10px;">呵呵</a>
+      <a href="/tags/PWN/" style="font-size: 20px;">PWN</a> <a href="/tags/WP/" style="font-size: 10px;">WP</a> <a href="/tags/呵呵/" style="font-size: 10px;">呵呵</a>
     </div>
     
   </div>
@@ -148,7 +148,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">文章归档</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
     </div>
   </div>
 
@@ -167,10 +167,1296 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
+        <a href="/2019/12/02/小记C类型运算符优先级/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="小记C类型运算符优先级">
+                
+                <h1>小记C类型运算符优先级</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月02日</a>
+            <a><i class="nexmoefont icon-areachart"></i>2k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 8 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="小记C类型运算符优先级"><a href="#小记C类型运算符优先级" class="headerlink" title="小记C类型运算符优先级"></a>小记C类型运算符优先级</h1><p>优先级从上到下依次递减，最上面具有最高的优先级，逗号操作符具有最低的优先级。</p>
+<p>相同优先级中，按结合性进行结合。大多数运算符结合性是从左到右，只有三个优先级是从右至左结合的，它们是单目运算符、条件运算符、赋值运算符。</p>
+<p>基本的优先级需要记住：</p>
+<p>指针最优，单目运算优于双目运算。如正负号。</p>
+<p>先算术运算，后移位运算，最后位运算。请特别注意：1 &lt;&lt; 3 + 2 &amp; 7等价于 (1 &lt;&lt; (3 + 2))&amp;7.</p>
+<p>逻辑运算最后结合。</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><table>
+<thead>
+<tr>
+<th align="center">优先级</th>
+<th align="center">运算符</th>
+<th align="center">名称或含义</th>
+<th align="center">使用形式</th>
+<th align="center">结合方向</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">[]</td>
+<td align="center">数组下标</td>
+<td align="center">数组名[整型表达式]</td>
+<td align="center">左到右</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">()</td>
+<td align="center">圆括号</td>
+<td align="center">（表达式）/函数名(形参表)</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">.</td>
+<td align="center">成员选择（对象）</td>
+<td align="center">对象.成员名</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">-&gt;</td>
+<td align="center">成员选择（指针）</td>
+<td align="center">对象指针-&gt;成员名</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">-</td>
+<td align="center">负号运算符</td>
+<td align="center">-算术类型表达式</td>
+<td align="center">右到左</td>
+<td align="center">单目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">(type)</td>
+<td align="center">强制类型转换</td>
+<td align="center">(纯量数据类型)纯量表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">++</td>
+<td align="center">自增运算符</td>
+<td align="center">++纯量类型可修改左值表达式</td>
+<td align="center"></td>
+<td align="center">单目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">–</td>
+<td align="center">自减运算符</td>
+<td align="center">–纯量类型可修改左值表达式</td>
+<td align="center"></td>
+<td align="center">单目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">*</td>
+<td align="center">取值运算符</td>
+<td align="center">*指针类型表达式</td>
+<td align="center"></td>
+<td align="center">单目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&amp;</td>
+<td align="center">取地址运算符</td>
+<td align="center">&amp;表达式</td>
+<td align="center"></td>
+<td align="center">单目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">!</td>
+<td align="center">逻辑非运算符</td>
+<td align="center">!纯量类型表达式</td>
+<td align="center"></td>
+<td align="center">单目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">~</td>
+<td align="center">按位取反运算符</td>
+<td align="center">~整型表达式</td>
+<td align="center"></td>
+<td align="center">单目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">sizeof</td>
+<td align="center">长度运算符</td>
+<td align="center">sizeof 表达式sizeof(类型)</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">/</td>
+<td align="center">除</td>
+<td align="center">表达式/表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">*</td>
+<td align="center">乘</td>
+<td align="center">表达式*表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">%</td>
+<td align="center">余数（取模）</td>
+<td align="center">整型表达式%整型表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">+</td>
+<td align="center">加</td>
+<td align="center">表达式+表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center">减</td>
+<td align="center">表达式-表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">&lt;&lt;</td>
+<td align="center">左移</td>
+<td align="center">整型表达式&lt;&lt;整型表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&gt;&gt;</td>
+<td align="center">右移</td>
+<td align="center">整型表达式&gt;&gt;整型表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+<td align="center">表达式&gt;表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&gt;=</td>
+<td align="center">大于等于</td>
+<td align="center">表达式&gt;=表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+<td align="center">表达式&lt;表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&lt;=</td>
+<td align="center">小于等于</td>
+<td align="center">表达式&lt;=表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">==</td>
+<td align="center">等于</td>
+<td align="center">表达式==表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">!=</td>
+<td align="center">不等于</td>
+<td align="center">表达式!= 表达式</td>
+<td align="center"></td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">&amp;</td>
+<td align="center">按位与</td>
+<td align="center">整型表达式&amp;整型表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">^</td>
+<td align="center">按位异或</td>
+<td align="center">整型表达式^整型表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">按位或</td>
+<td align="center">整型表达式</td>
+<td align="center">整型表达式</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">&amp;&amp;</td>
+<td align="center">逻辑与</td>
+<td align="center">表达式&amp;&amp;表达式</td>
+<td align="center">左到右</td>
+<td align="center">双目运算符</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">逻辑或</td>
+<td align="center">表达式</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">?:</td>
+<td align="center">条件运算符</td>
+<td align="center">表达式1? 表达式2: 表达式3</td>
+<td align="center">右到左</td>
+<td align="center">三目运算符</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="center">=</td>
+<td align="center">赋值运算符</td>
+<td align="center">可修改左值表达式=表达式</td>
+<td align="center">右到左</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">/=</td>
+<td align="center">除后赋值</td>
+<td align="center">可修改左值表达式/=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">*=</td>
+<td align="center">乘后赋值</td>
+<td align="center">可修改左值表达式*=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">%=</td>
+<td align="center">取模后赋值</td>
+<td align="center">可修改左值表达式%=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">+=</td>
+<td align="center">加后赋值</td>
+<td align="center">可修改左值表达式+=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">-=</td>
+<td align="center">减后赋值</td>
+<td align="center">可修改左值表达式-=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&lt;&lt;=</td>
+<td align="center">左移后赋值</td>
+<td align="center">可修改左值表达式&lt;&lt;=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&gt;&gt;=</td>
+<td align="center">右移后赋值</td>
+<td align="center">可修改左值表达式&gt;&gt;=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&amp;=</td>
+<td align="center">按位与后赋值</td>
+<td align="center">可修改左值表达式&amp;=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">^=</td>
+<td align="center">按位异或后赋值</td>
+<td align="center">可修改左值表达式^=表达式</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">|=</td>
+<td align="center">按位或后赋值</td>
+<td align="center">可修改左值表达式</td>
+<td align="center">=表达式</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center">,</td>
+<td align="center">逗号运算符</td>
+<td align="center">表达式,表达式,…</td>
+<td align="center">左到右</td>
+<td align="center">从左向右顺序结合</td>
+</tr>
+</tbody></table>
+<p>说明：</p>
+<p>同一优先级的运算符，结合次序由结合方向所决定。</p>
+<p>简单记就是：！ &gt; 算术运算符 &gt; 关系运算符 &gt; &amp;&amp; &gt; || &gt; 赋值运算符</p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/26/PlaidDB-null byte exploit/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="PlaidDB-null byte exploit">
+                
+                <h1>PlaidDB-null byte exploit</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月26日</a>
+            <a><i class="nexmoefont icon-areachart"></i>21 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="PlaidDB-null-byte-exploit"><a href="#PlaidDB-null-byte-exploit" class="headerlink" title="PlaidDB-null byte exploit"></a>PlaidDB-null byte exploit</h1><h2 id="trick"><a href="#trick" class="headerlink" title="trick"></a>trick</h2><pre><code class="shell">ncat -vc &#39;ltrace -e &quot;malloc+free+realloc+&quot; ./plaiddb&#39; -kl 127.0.0.1 4000</code></pre>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/25/Git-CheatSheet/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="Git-CheatSheet">
+                
+                <h1>Git-CheatSheet</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月25日</a>
+            <a><i class="nexmoefont icon-areachart"></i>2 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="Git-CheatSheet"><a href="#Git-CheatSheet" class="headerlink" title="Git-CheatSheet"></a>Git-CheatSheet</h1>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/25/Git-branch/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="Git-branch">
+                
+                <h1>Git-branch</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月25日</a>
+            <a><i class="nexmoefont icon-areachart"></i>7.1k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 33 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="Git-branch"><a href="#Git-branch" class="headerlink" title="Git-branch"></a>Git-branch</h1><h2 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h2><p>在<a href="https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192" target="_blank" rel="noopener">版本回退</a>里，你已经知道，每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即<code>master</code>分支。<code>HEAD</code>严格来说不是指向提交，而是指向<code>master</code>，<code>master</code>才是指向提交的，所以，<code>HEAD</code>指向的就是当前分支。</p>
+<p>一开始的时候，<code>master</code>分支是一条线，Git用<code>master</code>指向最新的提交，再用<code>HEAD</code>指向<code>master</code>，就能确定当前分支，以及当前分支的提交点：</p>
+<p><img src="/images/20191125170322091_23018.png" alt="0"></p>
+<p>每次提交，<code>master</code>分支都会向前移动一步，这样，随着你不断提交，<code>master</code>分支的线也越来越长。</p>
+<p>当我们创建新的分支，例如<code>dev</code>时，Git新建了一个指针叫<code>dev</code>，指向<code>master</code>相同的提交，再把<code>HEAD</code>指向<code>dev</code>，就表示当前分支在<code>dev</code>上：</p>
+<p><img src="/images/20191125170400658_2526.png" alt="0"></p>
+<p>你看，Git创建一个分支很快，因为除了增加一个<code>dev</code>指针，改改<code>HEAD</code>的指向，工作区的文件都没有任何变化！</p>
+<p>不过，从现在开始，对工作区的修改和提交就是针对<code>dev</code>分支了，比如新提交一次后，<code>dev</code>指针往前移动一步，而<code>master</code>指针不变：</p>
+<p><img src="/images/20191125170418077_4134.png" alt="0"></p>
+<p>假如我们在<code>dev</code>上的工作完成了，就可以把<code>dev</code>合并到<code>master</code>上。Git怎么合并呢？最简单的方法，就是直接把<code>master</code>指向<code>dev</code>的当前提交，就完成了合并：</p>
+<p><img src="_v_images/20191125170223642_10938" alt="git-br-ff-merge"></p>
+<p>所以Git合并分支也很快！就改改指针，工作区内容也不变！</p>
+<p>合并完分支后，甚至可以删除<code>dev</code>分支。删除<code>dev</code>分支就是把<code>dev</code>指针给删掉，删掉后，我们就剩下了一条<code>master</code>分支：</p>
+<p><img src="_v_images/20191125170223437_21708" alt="git-br-rm"></p>
+<p>真是太神奇了，你看得出来有些提交是通过分支完成的吗？</p>
+<p>下面开始实战。</p>
+<p>首先，我们创建<code>dev</code>分支，然后切换到<code>dev</code>分支：</p>
+<pre><code>$ git checkout -b dev
+Switched to a new branch &#39;dev&#39;
+</code></pre><p><code>git checkout</code>命令加上<code>-b</code>参数表示创建并切换，相当于以下两条命令：</p>
+<pre><code>$ git branch dev
+$ git checkout dev
+Switched to branch &#39;dev&#39;
+</code></pre><p>然后，用<code>git branch</code>命令查看当前分支：</p>
+<pre><code>$ git branch
+* dev
+  master
+</code></pre><p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。</p>
+<p>然后，我们就可以在<code>dev</code>分支上正常提交，比如对<code>readme.txt</code>做个修改，加上一行：</p>
+<pre><code>Creating a new branch is quick.
+</code></pre><p>然后提交：</p>
+<pre><code>$ git add readme.txt 
+$ git commit -m &quot;branch test&quot;
+[dev b17d20e] branch test
+ 1 file changed, 1 insertion(+)
+</code></pre><p>现在，<code>dev</code>分支的工作完成，我们就可以切换回<code>master</code>分支：</p>
+<pre><code>$ git checkout master
+Switched to branch &#39;master&#39;
+</code></pre><p>切换回<code>master</code>分支后，再查看一个<code>readme.txt</code>文件，刚才添加的内容不见了！因为那个提交是在<code>dev</code>分支上，而<code>master</code>分支此刻的提交点并没有变：</p>
+<p><img src="_v_images/20191125170223202_249" alt="git-br-on-master"></p>
+<p>现在，我们把<code>dev</code>分支的工作成果合并到<code>master</code>分支上：</p>
+<pre><code>$ git merge dev
+Updating d46f35e..b17d20e
+Fast-forward
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+</code></pre><p><code>git merge</code>命令用于合并指定分支到当前分支。合并后，再查看<code>readme.txt</code>的内容，就可以看到，和<code>dev</code>分支的最新提交是完全一样的。</p>
+<p>注意到上面的<code>Fast-forward</code>信息，Git告诉我们，这次合并是“快进模式”，也就是直接把<code>master</code>指向<code>dev</code>的当前提交，所以合并速度非常快。</p>
+<p>当然，也不是每次合并都能<code>Fast-forward</code>，我们后面会讲其他方式的合并。</p>
+<p>合并完成后，就可以放心地删除<code>dev</code>分支了：</p>
+<pre><code>$ git branch -d dev
+Deleted branch dev (was b17d20e).
+</code></pre><p>删除后，查看<code>branch</code>，就只剩下<code>master</code>分支了：</p>
+<pre><code>$ git branch
+* master
+</code></pre><p>因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在<code>master</code>分支上工作效果是一样的，但过程更安全。</p>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>我们注意到切换分支使用<code>git checkout &lt;branch&gt;</code>，而前面讲过的撤销修改则是<code>git checkout -- &lt;file&gt;</code>，同一个命令，有两种作用，确实有点令人迷惑。</p>
+<p>实际上，切换分支这个动作，用<code>switch</code>更科学。因此，最新版本的Git提供了新的<code>git switch</code>命令来切换分支：</p>
+<p>创建并切换到新的<code>dev</code>分支，可以使用：</p>
+<pre><code>$ git switch -c dev
+</code></pre><p>直接切换到已有的<code>master</code>分支，可以使用：</p>
+<pre><code>$ git switch master
+</code></pre><p>使用新的<code>git switch</code>命令，比<code>git checkout</code>要更容易理解。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>Git鼓励大量使用分支：</p>
+<p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch &lt;name&gt;</code></p>
+<p>切换分支：<code>git checkout &lt;name&gt;</code>或者<code>git switch &lt;name&gt;</code></p>
+<p>创建+切换分支：<code>git checkout -b &lt;name&gt;</code>或者<code>git switch -c &lt;name&gt;</code></p>
+<p>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></p>
+<p>删除分支：<code>git branch -d &lt;name&gt;</code></p>
+<h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><p>人生不如意之事十之八九，合并分支往往也不是一帆风顺的。</p>
+<p>准备新的<code>feature1</code>分支，继续我们的新分支开发：</p>
+<pre><code>$ git checkout -b feature1
+Switched to a new branch &#39;feature1&#39;
+</code></pre><p>修改<code>readme.txt</code>最后一行，改为：</p>
+<pre><code>Creating a new branch is quick AND simple.
+</code></pre><p>在<code>feature1</code>分支上提交：</p>
+<pre><code>$ git add readme.txt
+
+$ git commit -m &quot;AND simple&quot;
+[feature1 14096d0] AND simple
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre><p>切换到<code>master</code>分支：</p>
+<pre><code>$ git checkout master
+Switched to branch &#39;master&#39;
+Your branch is ahead of &#39;origin/master&#39; by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+</code></pre><p>Git还会自动提示我们当前<code>master</code>分支比远程的<code>master</code>分支要超前1个提交。</p>
+<p>在<code>master</code>分支上把<code>readme.txt</code>文件的最后一行改为：</p>
+<pre><code>Creating a new branch is quick &amp; simple.
+</code></pre><p>提交：</p>
+<pre><code>$ git add readme.txt 
+$ git commit -m &quot;&amp; simple&quot;
+[master 5dc6824] &amp; simple
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre><p>现在，<code>master</code>分支和<code>feature1</code>分支各自都分别有新的提交，变成了这样：</p>
+<p><img src="_v_images/20191125171805840_8815" alt="git-br-feature1"></p>
+<p>这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，我们试试看：</p>
+<pre><code>$ git merge feature1
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre><p>果然冲突了！Git告诉我们，<code>readme.txt</code>文件存在冲突，必须手动解决冲突后再提交。<code>git status</code>也可以告诉我们冲突的文件：</p>
+<pre><code>$ git status
+On branch master
+Your branch is ahead of &#39;origin/master&#39; by 2 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+  (use &quot;git merge --abort&quot; to abort the merge)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+
+    both modified:   readme.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre><p>我们可以直接查看readme.txt的内容：</p>
+<pre><code>Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+Git tracks changes of files.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Creating a new branch is quick &amp; simple.
+=======
+Creating a new branch is quick AND simple.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1
+</code></pre><p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容，我们修改如下后保存：</p>
+<pre><code>Creating a new branch is quick and simple.
+</code></pre><p>再提交：</p>
+<pre><code>$ git add readme.txt 
+$ git commit -m &quot;conflict fixed&quot;
+[master cf810e4] conflict fixed
+</code></pre><p>现在，<code>master</code>分支和<code>feature1</code>分支变成了下图所示：</p>
+<p><img src="_v_images/20191125171805734_3796" alt="git-br-conflict-merged"></p>
+<p>用带参数的<code>git log</code>也可以看到分支的合并情况：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+*   cf810e4 (HEAD -&gt; master) conflict fixed
+|\  
+| * 14096d0 (feature1) AND simple
+* | 5dc6824 &amp; simple
+|/  
+* b17d20e branch test
+* d46f35e (origin/master) remove test.txt
+* b84166e add test.txt
+* 519219b git tracks changes
+* e43a48b understand how stage works
+* 1094adb append GPL
+* e475afc add distributed
+* eaadf4e wrote a readme file
+</code></pre><p>最后，删除<code>feature1</code>分支：</p>
+<pre><code>$ git branch -d feature1
+Deleted branch feature1 (was 14096d0).
+</code></pre><p>工作完成。</p>
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
+<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
+<p>用<code>git log --graph</code>命令可以看到分支合并图。</p>
+<h2 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h2><p>通常，合并分支时，如果可能，Git会用<code>Fast forward</code>模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
+<p>如果要强制禁用<code>Fast forward</code>模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
+<p>下面我们实战一下<code>--no-ff</code>方式的<code>git merge</code>：</p>
+<p>首先，仍然创建并切换<code>dev</code>分支：</p>
+<pre><code>$ git checkout -b dev
+Switched to a new branch &#39;dev&#39;
+</code></pre><p>修改readme.txt文件，并提交一个新的commit：</p>
+<pre><code>$ git add readme.txt 
+$ git commit -m &quot;add merge&quot;
+[dev f52c633] add merge
+ 1 file changed, 1 insertion(+)
+</code></pre><p>现在，我们切换回<code>master</code>：</p>
+<pre><code>$ git checkout master
+Switched to branch &#39;master&#39;
+</code></pre><p>准备合并<code>dev</code>分支，请注意<code>--no-ff</code>参数，表示禁用<code>Fast forward</code>：</p>
+<pre><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; dev
+Merge made by the &#39;recursive&#39; strategy.
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+</code></pre><p>因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把commit描述写进去。</p>
+<p>合并后，我们用<code>git log</code>看看分支历史：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+*   e1e9c68 (HEAD -&gt; master) merge with no-ff
+|\  
+| * f52c633 (dev) add merge
+|/  
+*   cf810e4 conflict fixed
+...
+</code></pre><p>可以看到，不使用<code>Fast forward</code>模式，merge后就像这样：</p>
+<p><img src="_v_images/20191125172102472_10066" alt="git-no-ff-mode"></p>
+<h3 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h3><p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
+<p>首先，<code>master</code>分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在<code>dev</code>分支上，也就是说，<code>dev</code>分支是不稳定的，到某个时候，比如1.0版本发布时，再把<code>dev</code>分支合并到<code>master</code>上，在<code>master</code>分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在<code>dev</code>分支上干活，每个人都有自己的分支，时不时地往<code>dev</code>分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样：</p>
+<p><img src="_v_images/20191125172041340_11290" alt="git-br-policy"></p>
+<h3 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h3><p>Git分支十分强大，在团队开发中应该充分应用。</p>
+<p>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并。</p>
+<h2 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h2><p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支<code>issue-101</code>来修复它，但是，等等，当前正在<code>dev</code>上进行的工作还没有提交：</p>
+<pre><code>$ git status
+On branch dev
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+    new file:   hello.py
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+    modified:   readme.txt
+</code></pre><p>并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？</p>
+<p>幸好，Git还提供了一个<code>stash</code>功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：</p>
+<pre><code>$ git stash
+Saved working directory and index state WIP on dev: f52c633 add merge
+</code></pre><p>现在，用<code>git status</code>查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。</p>
+<p>首先确定要在哪个分支上修复bug，假定需要在<code>master</code>分支上修复，就从<code>master</code>创建临时分支：</p>
+<pre><code>$ git checkout master
+Switched to branch &#39;master&#39;
+Your branch is ahead of &#39;origin/master&#39; by 6 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+$ git checkout -b issue-101
+Switched to a new branch &#39;issue-101&#39;
+</code></pre><p>现在修复bug，需要把“Git is free software …”改为“Git is a free software …”，然后提交：</p>
+<pre><code>$ git add readme.txt 
+$ git commit -m &quot;fix bug 101&quot;
+[issue-101 4c805e2] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre><p>修复完成后，切换到<code>master</code>分支，并完成合并，最后删除<code>issue-101</code>分支：</p>
+<pre><code>$ git checkout master
+Switched to branch &#39;master&#39;
+Your branch is ahead of &#39;origin/master&#39; by 6 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+$ git merge --no-ff -m &quot;merged bug fix 101&quot; issue-101
+Merge made by the &#39;recursive&#39; strategy.
+ readme.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre><p>太棒了，原计划两个小时的bug修复只花了5分钟！现在，是时候接着回到<code>dev</code>分支干活了！</p>
+<pre><code>$ git checkout dev
+Switched to branch &#39;dev&#39;
+
+$ git status
+On branch dev
+nothing to commit, working tree clean
+</code></pre><p>工作区是干净的，刚才的工作现场存到哪去了？用<code>git stash list</code>命令看看：</p>
+<pre><code>$ git stash list
+stash@{0}: WIP on dev: f52c633 add merge
+</code></pre><p>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<p>一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用<code>git stash drop</code>来删除；</p>
+<p>另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了：</p>
+<pre><code>$ git stash pop
+On branch dev
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+    new file:   hello.py
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+    modified:   readme.txt
+
+Dropped refs/stash@{0} (5d677e2ee266f39ea296182fb2354265b91b3b2a)
+</code></pre><p>再用<code>git stash list</code>查看，就看不到任何stash内容了：</p>
+<pre><code>$ git stash list
+</code></pre><p>你可以多次stash，恢复的时候，先用<code>git stash list</code>查看，然后恢复指定的stash，用命令：</p>
+<pre><code>$ git stash apply stash@{0}
+</code></pre><p>在master分支上修复了bug后，我们要想一想，dev分支是早期从master分支分出来的，所以，这个bug其实在当前dev分支上也存在。</p>
+<p>那怎么在dev分支上修复同样的bug？重复操作一次，提交不就行了？</p>
+<p>有木有更简单的方法？</p>
+<p>有！</p>
+<p>同样的bug，要在dev上修复，我们只需要把<code>4c805e2 fix bug 101</code>这个提交所做的修改“复制”到dev分支。注意：我们只想复制<code>4c805e2 fix bug 101</code>这个提交所做的修改，并不是把整个master分支merge过来。</p>
+<p>为了方便操作，Git专门提供了一个<code>cherry-pick</code>命令，让我们能复制一个特定的提交到当前分支：</p>
+<pre><code>$ git branch
+* dev
+  master
+$ git cherry-pick 4c805e2
+[master 1d4b803] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre><p>Git自动给dev分支做了一次提交，注意这次提交的commit是<code>1d4b803</code>，它并不同于master的<code>4c805e2</code>，因为这两个commit只是改动相同，但确实是两个不同的commit。用<code>git cherry-pick</code>，我们就不需要在dev分支上手动再把修bug的过程重复一遍。</p>
+<p>有些聪明的童鞋会想了，既然可以在master分支上修复bug后，在dev分支上可以“重放”这个修复过程，那么直接在dev分支上修复bug，然后在master分支上“重放”行不行？当然可以，不过你仍然需要<code>git stash</code>命令保存现场，才能从dev分支切换到master分支。</p>
+<h3 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h3><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
+<p>当手头工作没有完成时，先把工作现场<code>git stash</code>一下，然后去修复bug，修复后，再<code>git stash pop</code>，回到工作现场；</p>
+<p>在master分支上修复的bug，想要合并到当前dev分支，可以用<code>git cherry-pick &lt;commit&gt;</code>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</p>
+<h2 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h2><p>软件开发中，总有无穷无尽的新的功能要不断添加进来。</p>
+<p>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>现在，你终于接到了一个新任务：开发代号为Vulcan的新功能，该功能计划用于下一代星际飞船。</p>
+<p>于是准备开发：</p>
+<pre><code>$ git checkout -b feature-vulcan
+Switched to a new branch &#39;feature-vulcan&#39;
+</code></pre><p>5分钟后，开发完毕：</p>
+<pre><code>$ git add vulcan.py
+
+$ git status
+On branch feature-vulcan
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+    new file:   vulcan.py
+
+$ git commit -m &quot;add feature vulcan&quot;
+[feature-vulcan 287773e] add feature vulcan
+ 1 file changed, 2 insertions(+)
+ create mode 100644 vulcan.py
+</code></pre><p>切回<code>dev</code>，准备合并：</p>
+<pre><code>$ git checkout dev
+</code></pre><p>一切顺利的话，feature分支和bug分支是类似的，合并，然后删除。</p>
+<p>但是！</p>
+<p>就在此时，接到上级命令，因经费不足，新功能必须取消！</p>
+<p>虽然白干了，但是这个包含机密资料的分支还是必须就地销毁：</p>
+<pre><code>$ git branch -d feature-vulcan
+error: The branch &#39;feature-vulcan&#39; is not fully merged.
+If you are sure you want to delete it, run &#39;git branch -D feature-vulcan&#39;.
+</code></pre><p>销毁失败。Git友情提醒，<code>feature-vulcan</code>分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用大写的<code>-D</code>参数。。</p>
+<p>现在我们强行删除：</p>
+<pre><code>$ git branch -D feature-vulcan
+Deleted branch feature-vulcan (was 287773e).
+</code></pre><p>终于删除成功！</p>
+<h3 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h3><p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过<code>git branch -D &lt;name&gt;</code>强行删除。</p>
+<h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code>。</p>
+<p>要查看远程库的信息，用<code>git remote</code>：</p>
+<pre><code>$ git remote
+origin
+</code></pre><p>或者，用<code>git remote -v</code>显示更详细的信息：</p>
+<pre><code>$ git remote -v
+origin  git@github.com:michaelliao/learngit.git (fetch)
+origin  git@github.com:michaelliao/learngit.git (push)
+</code></pre><p>上面显示了可以抓取和推送的<code>origin</code>的地址。如果没有推送权限，就看不到push的地址。</p>
+<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：</p>
+<pre><code>$ git push origin master
+</code></pre><p>如果要推送其他分支，比如<code>dev</code>，就改成：</p>
+<pre><code>$ git push origin dev
+</code></pre><p>但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
+<ul>
+<li><p><code>master</code>分支是主分支，因此要时刻与远程同步；</p>
+</li>
+<li><p><code>dev</code>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
+</li>
+<li><p>bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
+</li>
+<li><p>feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
+</li>
+</ul>
+<p>总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！</p>
+<h3 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h3><p>多人协作时，大家都会往<code>master</code>和<code>dev</code>分支上推送各自的修改。</p>
+<p>现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆：</p>
+<pre><code>$ git clone git@github.com:michaelliao/learngit.git
+Cloning into &#39;learngit&#39;...
+remote: Counting objects: 40, done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 40 (delta 14), reused 40 (delta 14), pack-reused 0
+Receiving objects: 100% (40/40), done.
+Resolving deltas: 100% (14/14), done.
+</code></pre><p>当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的<code>master</code>分支。不信可以用<code>git branch</code>命令看看：</p>
+<pre><code>$ git branch
+* master
+</code></pre><p>现在，你的小伙伴要在<code>dev</code>分支上开发，就必须创建远程<code>origin</code>的<code>dev</code>分支到本地，于是他用这个命令创建本地<code>dev</code>分支：</p>
+<pre><code>$ git checkout -b dev origin/dev
+</code></pre><p>现在，他就可以在<code>dev</code>上继续修改，然后，时不时地把<code>dev</code>分支<code>push</code>到远程：</p>
+<pre><code>$ git add env.txt
+
+$ git commit -m &quot;add env&quot;
+[dev 7a5e5dd] add env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+$ git push origin dev
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 308 bytes | 308.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   f52c633..7a5e5dd  dev -&gt; dev
+</code></pre><p>你的小伙伴已经向<code>origin/dev</code>分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：</p>
+<pre><code>$ cat env.txt
+env
+
+$ git add env.txt
+
+$ git commit -m &quot;add new env&quot;
+[dev 7bd91f1] add new env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+$ git push origin dev
+To github.com:michaelliao/learngit.git
+ ! [rejected]        dev -&gt; dev (non-fast-forward)
+error: failed to push some refs to &#39;git@github.com:michaelliao/learngit.git&#39;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</code></pre><p>推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用<code>git pull</code>把最新的提交从<code>origin/dev</code>抓下来，然后，在本地合并，解决冲突，再推送：</p>
+<pre><code>$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull &lt;remote&gt; &lt;branch&gt;
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/&lt;branch&gt; dev
+</code></pre><p><code>git pull</code>也失败了，原因是没有指定本地<code>dev</code>分支与远程<code>origin/dev</code>分支的链接，根据提示，设置<code>dev</code>和<code>origin/dev</code>的链接：</p>
+<pre><code>$ git branch --set-upstream-to=origin/dev dev
+Branch &#39;dev&#39; set up to track remote branch &#39;dev&#39; from &#39;origin&#39;.
+</code></pre><p>再pull：</p>
+<pre><code>$ git pull
+Auto-merging env.txt
+CONFLICT (add/add): Merge conflict in env.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre><p>这回<code>git pull</code>成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的<a href="http://www.liaoxuefeng.com/wiki/896043488029600/900004111093344" target="_blank" rel="noopener">解决冲突</a>完全一样。解决后，提交，再push：</p>
+<pre><code>$ git commit -m &quot;fix env conflict&quot;
+[dev 57c53ab] fix env conflict
+
+$ git push origin dev
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 621 bytes | 621.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   7a5e5dd..57c53ab  dev -&gt; dev
+</code></pre><p>因此，多人协作的工作模式通常是这样：</p>
+<ol>
+<li><p>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</p>
+</li>
+<li><p>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</p>
+</li>
+<li><p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+</li>
+<li><p>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</p>
+</li>
+</ol>
+<p>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<h3 id="小结-5"><a href="#小结-5" class="headerlink" title="小结"></a>小结</h3><ul>
+<li><p>查看远程库信息，使用<code>git remote -v</code>；</p>
+</li>
+<li><p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
+</li>
+<li><p>从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用<code>git pull</code>抓取远程的新提交；</p>
+</li>
+<li><p>在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</p>
+</li>
+<li><p>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</p>
+</li>
+<li><p>从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</p>
+</li>
+</ul>
+<h2 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h2><p>在上一节我们看到了，多人在同一个分支上协作时，很容易出现冲突。即使没有冲突，后push的童鞋不得不先pull，在本地合并，然后才能push成功。</p>
+<p>每次合并再push后，分支变成了这样：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+* d1be385 (HEAD -&gt; master, origin/master) init hello
+*   e5e69f1 Merge branch &#39;dev&#39;
+|\  
+| *   57c53ab (origin/dev, dev) fix env conflict
+| |\  
+| | * 7a5e5dd add env
+| * | 7bd91f1 add new env
+| |/  
+* |   12a631b merged bug fix 101
+|\ \  
+| * | 4c805e2 fix bug 101
+|/ /  
+* |   e1e9c68 merge with no-ff
+|\ \  
+| |/  
+| * f52c633 add merge
+|/  
+*   cf810e4 conflict fixed
+</code></pre><p>总之看上去很乱，有强迫症的童鞋会问：为什么Git的提交历史不能是一条干净的直线？</p>
+<p>其实是可以做到的！</p>
+<p>Git有一种称为rebase的操作，有人把它翻译成“变基”。</p>
+<p><img src="_v_images/20191125201429756_31733" alt="rebase"></p>
+<p>先不要随意展开想象。我们还是从实际问题出发，看看怎么把分叉的提交变成直线。</p>
+<p>在和远程分支同步后，我们对<code>hello.py</code>这个文件做了两次提交。用<code>git log</code>命令看看：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+* 582d922 (HEAD -&gt; master) add author
+* 8875536 add comment
+* d1be385 (origin/master) init hello
+*   e5e69f1 Merge branch &#39;dev&#39;
+|\  
+| *   57c53ab (origin/dev, dev) fix env conflict
+| |\  
+| | * 7a5e5dd add env
+| * | 7bd91f1 add new env
+...
+</code></pre><p>注意到Git用<code>(HEAD -&gt; master)</code>和<code>(origin/master)</code>标识出当前分支的HEAD和远程origin的位置分别是<code>582d922 add author</code>和<code>d1be385 init hello</code>，本地分支比远程分支快两个提交。</p>
+<p>现在我们尝试推送本地分支：</p>
+<pre><code>$ git push origin master
+To github.com:michaelliao/learngit.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to &#39;git@github.com:michaelliao/learngit.git&#39;
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</code></pre><p>很不幸，失败了，这说明有人先于我们推送了远程分支。按照经验，先pull一下：</p>
+<pre><code>$ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:michaelliao/learngit
+   d1be385..f005ed4  master     -&gt; origin/master
+ * [new tag]         v1.0       -&gt; v1.0
+Auto-merging hello.py
+Merge made by the &#39;recursive&#39; strategy.
+ hello.py | 1 +
+ 1 file changed, 1 insertion(+)
+</code></pre><p>再用<code>git status</code>看看状态：</p>
+<pre><code>$ git status
+On branch master
+Your branch is ahead of &#39;origin/master&#39; by 3 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+nothing to commit, working tree clean
+</code></pre><p>加上刚才合并的提交，现在我们本地分支比远程分支超前3个提交。</p>
+<p>用<code>git log</code>看看：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+*   e0ea545 (HEAD -&gt; master) Merge branch &#39;master&#39; of github.com:michaelliao/learngit
+|\  
+| * f005ed4 (origin/master) set exit=1
+* | 582d922 add author
+* | 8875536 add comment
+|/  
+* d1be385 init hello
+...
+</code></pre><p>对强迫症童鞋来说，现在事情有点不对头，提交历史分叉了。如果现在把本地分支push到远程，有没有问题？</p>
+<p>有！</p>
+<p>什么问题？</p>
+<p>不好看！</p>
+<p>有没有解决方法？</p>
+<p>有！</p>
+<p>这个时候，rebase就派上了用场。我们输入命令<code>git rebase</code>试试：</p>
+<pre><code>$ git rebase
+First, rewinding head to replay your work on top of it...
+Applying: add comment
+Using index info to reconstruct a base tree...
+M    hello.py
+Falling back to patching base and 3-way merge...
+Auto-merging hello.py
+Applying: add author
+Using index info to reconstruct a base tree...
+M    hello.py
+Falling back to patching base and 3-way merge...
+Auto-merging hello.py
+</code></pre><p>输出了一大堆操作，到底是啥效果？再用<code>git log</code>看看：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+* 7e61ed4 (HEAD -&gt; master) add author
+* 3611cfe add comment
+* f005ed4 (origin/master) set exit=1
+* d1be385 init hello
+...
+</code></pre><p>原本分叉的提交现在变成一条直线了！这种神奇的操作是怎么实现的？其实原理非常简单。我们注意观察，发现Git把我们本地的提交“挪动”了位置，放到了<code>f005ed4 (origin/master) set exit=1</code>之后，这样，整个提交历史就成了一条直线。rebase操作前后，最终的提交内容是一致的，但是，我们本地的commit修改内容已经变化了，它们的修改不再基于<code>d1be385 init hello</code>，而是基于<code>f005ed4 (origin/master) set exit=1</code>，但最后的提交<code>7e61ed4</code>内容是一致的。</p>
+<p>这就是rebase操作的特点：把分叉的提交历史“整理”成一条直线，看上去更直观。缺点是本地的分叉提交已经被修改过了。</p>
+<p>最后，通过push操作把本地分支推送到远程：</p>
+<pre><code>Mac:~/learngit michael$ git push origin master
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 576 bytes | 576.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To github.com:michaelliao/learngit.git
+   f005ed4..7e61ed4  master -&gt; master
+</code></pre><p>再用<code>git log</code>看看效果：</p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+* 7e61ed4 (HEAD -&gt; master, origin/master) add author
+* 3611cfe add comment
+* f005ed4 set exit=1
+* d1be385 init hello
+...
+</code></pre><p>远程分支的提交历史也是一条直线。</p>
+<h3 id="小结-6"><a href="#小结-6" class="headerlink" title="小结"></a>小结</h3><ul>
+<li><p>rebase操作可以把本地未push的分叉提交历史整理成直线；</p>
+</li>
+<li><p>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
+</li>
+</ul>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/24/Git笔记/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="Git笔记">
+                
+                <h1>Git笔记</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月24日</a>
+            <a><i class="nexmoefont icon-areachart"></i>2.4k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 11 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="Git笔记"><a href="#Git笔记" class="headerlink" title="Git笔记"></a>Git笔记</h1><h3 id="commit本地版本仓库的的一个快照-可以恢复误删文件，构成时间线"><a href="#commit本地版本仓库的的一个快照-可以恢复误删文件，构成时间线" class="headerlink" title="commit本地版本仓库的的一个快照,可以恢复误删文件，构成时间线"></a>commit本地版本仓库的的一个快照,可以恢复误删文件，构成时间线</h3><p><img src="_v_images/20191124184953218_7011.jpeg" alt></p>
+<p>工作区暂存区.jpeg</p>
+<h3 id="查看每一次命令"><a href="#查看每一次命令" class="headerlink" title="查看每一次命令"></a>查看每一次命令</h3><pre><code class="shell">git reflog //用来记录你的每一次命令，可以把HEAD指向任意的commit id</code></pre>
+<p><img src="_v_images/20191124184952410_6158.png" alt></p>
+<p>FastForwaed.png</p>
+<h3 id="回退版本-上下来回穿梭-HEAD-指向当前版本，回退版本时就是改变HEAD的指向而已"><a href="#回退版本-上下来回穿梭-HEAD-指向当前版本，回退版本时就是改变HEAD的指向而已" class="headerlink" title="回退版本,上下来回穿梭,HEAD 指向当前版本，回退版本时就是改变HEAD的指向而已"></a>回退版本,上下来回穿梭,HEAD 指向当前版本，回退版本时就是改变HEAD的指向而已</h3><pre><code class="shell">git reset —hard HEAD^ //(一个^是当前版本上一个版本,当前版本的上10个版本用HEAD-10,会修改工作区的代码，也可以回到将来的版本，上下来回穿梭，一般会提示落后于remote分支)
+git pull//拉取远程分支，解决可能的冲突，再次push就行了
+</code></pre>
+<h3 id="工作区回到最后一次git-add-或者-git-commit-状态"><a href="#工作区回到最后一次git-add-或者-git-commit-状态" class="headerlink" title="工作区回到最后一次git add 或者 git commit 状态"></a>工作区回到最后一次git add 或者 git commit 状态</h3><blockquote>
+<p>1.工作区的修改还没有提交到暂存区,工作区会回到和版本库版本一样<br>2.工作区的修改提交到了暂存区，工作区又修改了新的代码，工作去会回到和暂存区一样</p>
+</blockquote>
+<pre><code class="shell">git checkout -- readme.md //没有 -- 为切换分支的命令,工作区回到最后一次git add 或者 git commit 状态，会丢失提交后工作区的修改
+</code></pre>
+<h3 id="工作区与暂存区最新版本的区别"><a href="#工作区与暂存区最新版本的区别" class="headerlink" title="工作区与暂存区最新版本的区别"></a>工作区与暂存区最新版本的区别</h3><pre><code class="shell">git diff HEAD -- readme.md //工作区与暂存区最新版本的区别
+</code></pre>
+<h3 id="工作区的修改已经提交到暂存区了，想要把暂存区的修改撤回"><a href="#工作区的修改已经提交到暂存区了，想要把暂存区的修改撤回" class="headerlink" title="工作区的修改已经提交到暂存区了，想要把暂存区的修改撤回"></a>工作区的修改已经提交到暂存区了，想要把暂存区的修改撤回</h3><pre><code class="shell">git reset HEAD readme.md //HEAD指向当前版本,操作命令行会提示 unstaged changes after reset.
+</code></pre>
+<h3 id="怎么从版本库删除文件？"><a href="#怎么从版本库删除文件？" class="headerlink" title="怎么从版本库删除文件？"></a>怎么从版本库删除文件？</h3><blockquote>
+<p>使用命令git rm 并且 git commit</p>
+</blockquote>
+<pre><code class="shell">git rm  readme.md 
+git commit -m&quot;remove readme.md.&quot;
+</code></pre>
+<h3 id="本地仓库与远程关联"><a href="#本地仓库与远程关联" class="headerlink" title="本地仓库与远程关联"></a>本地仓库与远程关联</h3><pre><code class="shell">git remote add origin GitHub项目地址 //本地仓库与远程关联，origin 时GitHub远程仓库的名称
+
+git push -u origin master //把本地仓库的所有内容都推送到远程仓库上 
+</code></pre>
+<h3 id="创建一个分支并切换到刚创建的分支上"><a href="#创建一个分支并切换到刚创建的分支上" class="headerlink" title="创建一个分支并切换到刚创建的分支上"></a>创建一个分支并切换到刚创建的分支上</h3><pre><code class="shell">git checkout -b dev //创建分支并切换到分支
+相当于
+git branch dev
+git checkout dev
+</code></pre>
+<h3 id="怎样合并dev分支到master"><a href="#怎样合并dev分支到master" class="headerlink" title="怎样合并dev分支到master?"></a>怎样合并dev分支到master?</h3><blockquote>
+<p>切换到master分支上,把dev上的修改合并到master上</p>
+</blockquote>
+<pre><code class="shell">git merge dev //合并dev分支到当前分支
+提示Fast- forward意味着是快进模式，直接把master指向dev的当前提交
+合并后删除分支
+git branch -d dev //删除分支，your branch is ahead of &#39;origin/master&#39; by 1 commit.当前分支比远程的master分支超前一个提交
+git merge --no--ff -m&quot;merge with no-ff&quot; dev //--no--ff参数，表示禁用FastForward,-m是要把分支合并的信息作为一次commit，不添加合并后会丢失分支信息.
+</code></pre>
+<h3 id="情景：正在dev分支上开发，来了一个bug-fix-任务，需要切换到master分支修复，当前在dev的工作未能完成，还不能提交怎么办？"><a href="#情景：正在dev分支上开发，来了一个bug-fix-任务，需要切换到master分支修复，当前在dev的工作未能完成，还不能提交怎么办？" class="headerlink" title="情景：正在dev分支上开发，来了一个bug fix 任务，需要切换到master分支修复，当前在dev的工作未能完成，还不能提交怎么办？"></a>情景：正在dev分支上开发，来了一个bug fix 任务，需要切换到master分支修复，当前在dev的工作未能完成，还不能提交怎么办？</h3><pre><code class="shell">git stash  //可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+git checkout master //切换到master分支
+git checkout -b issue-101 //从master分支创建一个临时分支issue-101，修改bug
+git add readme.txt 
+git commit -m &quot;fix bug 101&quot;
+
+git checkout master //修改完成，切换到master分支
+git merge --no-ff -m &quot;merged bug fix 101&quot; issue-101 //把issue-101合并到master,bug修复工作完成
+git checkout dev //切换到dev分支,继续之前的工作
+git status //nothing to commit, working tree clean，因为之前的stash操作,所有工作区是干净的
+git stash list //查看工作现场存到哪去了
+git stash pop //恢复工作现场，恢复的同时把stash内容也删了，还可以用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+
+</code></pre>
+<h3 id="情景：接到一个秘密的开发任务-开发的过程中，任务取消，必须强制删除分支，不能保留怎么做？"><a href="#情景：接到一个秘密的开发任务-开发的过程中，任务取消，必须强制删除分支，不能保留怎么做？" class="headerlink" title="情景：接到一个秘密的开发任务,开发的过程中，任务取消，必须强制删除分支，不能保留怎么做？"></a>情景：接到一个秘密的开发任务,开发的过程中，任务取消，必须强制删除分支，不能保留怎么做？</h3><pre><code class="csharp">git checkout -b feature-vulcan //从master创建一个分支feature-vulcan
+git add vulcan.py //开发完成提交到暂存区
+git commit -m &quot;add feature vulcan&quot; //提交到版本库
+git checkout master //切回master分支准备合并,接到信息，任务取消，必须强制删除分支
+git branch -d feature-vulcan //error: The branch &#39;feature-vulcan&#39; is not fully merged.
+If you are sure you want to delete it, run &#39;git branch -D feature-vulcan&#39;.
+git branch -D feature-vulcan //强行删除
+</code></pre>
+<h3 id="你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支"><a href="#你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支" class="headerlink" title="你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支"></a>你的小伙伴要在<code>dev</code>分支上开发，就必须创建远程<code>origin</code>的<code>dev</code>分支到本地，于是他用这个命令创建本地<code>dev</code>分支</h3><pre><code class="cpp">git remote //查看远程分支
+git checkout -b dev origin/dev 
+</code></pre>
+<h3 id="如果你和你的小伙伴都往远程origin仓库的dev分支推送，可能会推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单git-pull"><a href="#如果你和你的小伙伴都往远程origin仓库的dev分支推送，可能会推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单git-pull" class="headerlink" title="如果你和你的小伙伴都往远程origin仓库的dev分支推送，可能会推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单git pull"></a>如果你和你的小伙伴都往远程origin仓库的dev分支推送，可能会推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单git pull</h3><pre><code class="shell">git pull
+There is no tracking information for the current branch. //提示no tracking information，则说明本地分支和远程分支的链接关系没有创建,用命令git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull &lt;remote&gt; &lt;branch&gt;
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/&lt;branch&gt; dev
+    //git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：
+     git branch --set-upstream-to=origin/dev dev  //Branch &#39;dev&#39; set up to track remote branch &#39;dev&#39; from &#39;origin&#39;.建立本地分支和远程分支的关联
+     git pull //然后解决冲突
+</code></pre>
+<pre><code class="csharp">* 582d922 (HEAD -&gt; master) add author
+* 8875536 add comment
+* d1be385 (origin/master) init hello
+//Git用(HEAD -&gt; master)和(origin/master)标识出当前分支的HEAD和远程origin的位置分别是582d922 add author和d1be385 init hello，本地分支比远程分支快两个提交。
+</code></pre>
+<h3 id="rebase操作可以把本地未push的分叉提交历史整理成直线"><a href="#rebase操作可以把本地未push的分叉提交历史整理成直线" class="headerlink" title="rebase操作可以把本地未push的分叉提交历史整理成直线"></a>rebase操作可以把本地未push的分叉提交历史整理成直线</h3><blockquote>
+<p>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
+</blockquote>
+<h3 id="rebase使用场景："><a href="#rebase使用场景：" class="headerlink" title="rebase使用场景："></a>rebase使用场景：</h3><blockquote>
+<p>别人往远程分支dev push了一次修改，我提交时要先git pull,合并之后再commit，提交历史分叉了，使用git rebase之后，提交历史变成了一条直线，原理就是git会根据提交时间挪动commit的位置，rebase操作前后，最终的提交内容是一致的，但是，我们本地的commit修改内容已经变化了，它们的修改不再基于<code>d1be385 init hello</code>，而是基于<code>f005ed4 (origin/master) set exit=1</code>，但最后的提交<code>7e61ed4</code>内容是一致的</p>
+</blockquote>
+<h4 id="rebase之前"><a href="#rebase之前" class="headerlink" title="rebase之前"></a>rebase之前</h4><pre><code class="shell">
+$ git log --graph --pretty=oneline --abbrev-commit
+*   e0ea545 (HEAD -&gt; master) Merge branch &#39;master&#39; of github.com:michaelliao/learngit
+|\  
+| * f005ed4 (origin/master) set exit=1
+* | 582d922 add author
+* | 8875536 add comment
+|/  
+* d1be385 init hello
+</code></pre>
+<h4 id="rebase之后"><a href="#rebase之后" class="headerlink" title="rebase之后"></a>rebase之后</h4><ul>
+<li><pre><code class="shell">  git log --graph --pretty=oneline --abbrev-commit
+
+  - 7e61ed4 (HEAD -&gt; master) add author
+  - 3611cfe add comment
+  - f005ed4 (origin/master) set exit=1
+  - d1be385 init hello
+</code></pre>
+</li>
+</ul>
+<h3 id="git-tag-创建标签"><a href="#git-tag-创建标签" class="headerlink" title="git tag 创建标签"></a>git tag 创建标签</h3><blockquote>
+<p>1.命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为<code>HEAD</code>，也可以指定一个commit id；</p>
+</blockquote>
+<pre><code class="shell">git tag v1.0 //新建一个标签,默认为HEAD
+git log --pretty=oneline --abbrev-commit//查找历史提交的标签
+git tag v0.9 f52c633 //对其中某次commit打tag
+</code></pre>
+<blockquote>
+<p>2.命令<code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code>可以指定标签信息；</p>
+</blockquote>
+<pre><code class="shell">git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
+</code></pre>
+<blockquote>
+<p>3.命令<code>git tag</code>可以查看所有标签</p>
+</blockquote>
+<pre><code class="cpp">git tag //查看所有的标签
+git show v0.9 //可以用git show &lt;tagname&gt;查看标签信息
+</code></pre>
+<h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><h4 id="1-删除标签"><a href="#1-删除标签" class="headerlink" title="1.删除标签"></a>1.删除标签</h4><pre><code class="cpp">git tag -d v0.1 //因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。
+</code></pre>
+<h4 id="2-推送某个标签到远程，使用命令git-push-origin-lt-tagname-gt"><a href="#2-推送某个标签到远程，使用命令git-push-origin-lt-tagname-gt" class="headerlink" title="2.推送某个标签到远程，使用命令git push origin &lt;tagname&gt;"></a>2.推送某个标签到远程，使用命令<code>git push origin &lt;tagname&gt;</code></h4><pre><code class="cpp">git push origin v1.0 //推送某个标签到远程
+git push origin --tags //一次性推送全部尚未推送到远程的本地标签
+</code></pre>
+<h4 id="3-删除远程上的一个标签，怎么做？"><a href="#3-删除远程上的一个标签，怎么做？" class="headerlink" title="3.删除远程上的一个标签，怎么做？"></a>3.删除远程上的一个标签，怎么做？</h4><blockquote>
+<p>1.先从本地删除</p>
+</blockquote>
+<pre><code class="shell">git tag -d v0.9
+</code></pre>
+<blockquote>
+<p>2.然后，从远程删除。删除命令也是push</p>
+</blockquote>
+<pre><code class="cpp">git push origin :refs/tags/v0.9 //可以删除一个远程标签
+</code></pre>
+<h3 id="删除与远程仓库的关联-添加新的远程关联怎么做？"><a href="#删除与远程仓库的关联-添加新的远程关联怎么做？" class="headerlink" title="删除与远程仓库的关联,添加新的远程关联怎么做？"></a>删除与远程仓库的关联,添加新的远程关联怎么做？</h3><pre><code class="shell">git remote add origin git@gitee.com:liaoxuefeng/learngit.git //fatal: remote origin already exists.这说明本地库已经关联了一个名叫origin的远程库
+git remote -v //也可以先用git remote -v查看远程库信息
+origin  https://github.com/yqzhouluyao/git_learning.git (fetch)
+origin  https://github.com/yqzhouluyao/git_learning.git (push)
+git remote rm origin //可以删除已有的GitHub远程库
+git remote add origin git@gitee.com:liaoxuefeng/learngit.git //再关联码云的远程库
+</code></pre>
+<h3 id="想关联多个远程库怎么做？"><a href="#想关联多个远程库怎么做？" class="headerlink" title="想关联多个远程库怎么做？"></a>想关联多个远程库怎么做？</h3><pre><code class="csharp">git remote rm origin //先删除远程关联
+git remote add github git@github.com:michaelliao/learngit.git //先关联GitHub的远程库,远程库的名称叫github，不叫origin了
+git remote add gitee git@gitee.com:liaoxuefeng/learngit.git //再关联码云的远程库
+
+git push github master //如果要推送到GitHub
+git push gitee master //如果要推送到码云
+</code></pre>
+<h3 id="被gitignore忽略的文件类型怎么添加到暂存区？"><a href="#被gitignore忽略的文件类型怎么添加到暂存区？" class="headerlink" title="被gitignore忽略的文件类型怎么添加到暂存区？"></a>被gitignore忽略的文件类型怎么添加到暂存区？</h3><pre><code class="kotlin">git add App.class
+The following paths are ignored by one of your .gitignore files:
+App.class
+Use -f if you really want to add them.
+git add -f App.class //可以用-f强制添加到Git
+
+git check-ignore -v App.class //可能是.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查
+.gitignore:3:*.class    App.class
+</code></pre>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/24/Git/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="Git">
+                
+                <h1>Git</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月24日</a>
+            <a><i class="nexmoefont icon-areachart"></i>6.7k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 30 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="常用总结"><a href="#常用总结" class="headerlink" title="常用总结"></a>常用总结</h2>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/11/19/爆刷攻防世界pwn题/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="爆刷攻防世界pwn题">
+                
+                <h1>爆刷攻防世界pwn题</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月19日</a>
+            <a><i class="nexmoefont icon-areachart"></i>213 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <h1 id="爆刷攻防世界pwn题"><a href="#爆刷攻防世界pwn题" class="headerlink" title="爆刷攻防世界pwn题"></a>爆刷攻防世界pwn题</h1><p>跟随练习Linux heap （house of 系列）</p>
+<h2 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h2><p>√ ⚪ ✔  ★☆※⚑✓⚐▲</p>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
         <a href="/2019/11/14/unctf-Box-_IO_2_1_stdout/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="unctf-Box-_IO_2_1_stdout">
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="unctf-Box-_IO_2_1_stdout">
                 
                 <h1>unctf-Box-_IO_2_1_stdout</h1>
             </div>
@@ -299,7 +1585,7 @@ $15 = (char **) 0x7f19260c7640 &lt;_IO_2_1_stdout_+32&gt;</code></pre>
         <a href="/2019/11/13/真_最终测试/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="真_最终测试">
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="真_最终测试">
                 
                 <h1>真_最终测试</h1>
             </div>
@@ -326,20 +1612,20 @@ $15 = (char **) 0x7f19260c7640 &lt;_IO_2_1_stdout_+32&gt;</code></pre>
         <a href="/2019/10/13/从RoarCTF - easy_pwn看off_by_one/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="从RoarCTF - easy_pwn看off_by_one">
+                    <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png" alt="从RoarCTF - easy_pwn看off_by_one">
                 
                 <h1>从RoarCTF - easy_pwn看off_by_one</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年10月13日</a>
-            <a><i class="nexmoefont icon-areachart"></i>271 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>385 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
             
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/Learn/">Learn</a>
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a>
             
             
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/PWN/">PWN</a>
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/WP/">WP</a>
             
         </div>
         <article>
@@ -351,104 +1637,12 @@ $15 = (char **) 0x7f19260c7640 &lt;_IO_2_1_stdout_+32&gt;</code></pre>
         </article>
     </div>
     
-    <div class="nexmoe-post">
-        <a href="/2019/09/03/PWN11-WP/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Pwn11-WP">
-                
-                <h1>Pwn11-WP</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月03日</a>
-            <a><i class="nexmoefont icon-areachart"></i>63 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/PWN/">PWN</a>
-            
-        </div>
-        <article>
-            
-            <h1 id="PWN11-WP"><a href="#PWN11-WP" class="headerlink" title="PWN11-WP"></a>PWN11-WP</h1><p>OGeek - Pwn -PWN11</p>
-<h2 id="ida打开查看逻辑"><a href="#ida打开查看逻辑" class="headerlink" title="ida打开查看逻辑"></a>ida打开查看逻辑</h2><p>观察到system，是sub_A50</p>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2019/09/01/论系统调用在栈上产生的渣渣/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="论系统调用在栈上产生的渣渣">
-                
-                <h1>论系统调用在栈上产生的渣渣</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月01日</a>
-            <a><i class="nexmoefont icon-areachart"></i>583 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/PWN/">PWN</a>
-            
-        </div>
-        <article>
-            
-            <h1 id="论系统调用在栈上产生的渣渣"><a href="#论系统调用在栈上产生的渣渣" class="headerlink" title="论系统调用在栈上产生的渣渣"></a>论系统调用在栈上产生的渣渣</h1><h2 id="心情复杂"><a href="#心情复杂" class="headerlink" title="心情复杂"></a>心情复杂</h2><p>总的来说跌宕起伏<br>无论是把签到题做十几个小时<br>还是exp改二十几次都一个问题<br>还是与一万块失之交臂<br>还是觉得自己菜的惨绝人寰<br>总之结果是好的<br>以后看到bf，第一反应再也不是boyfriend，而是这道题了</p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h3 id="检查保护"><a href="#检查保护" class="headerlink" title="检查保护"></a>检查保护</h3><p>作为第一道题，保护全开是什么鬼<br>我第一次看到，吓得我以为进错片场……<br>不要害怕，好歹是签到，于是我坚持做了一整天，呵~</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"></p>
-<h3 id="逻辑分析"><a href="#逻辑分析" class="headerlink" title="逻辑分析"></a>逻辑分析</h3><p>逻辑很简单，伪随机加Format String</p>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2019/08/30/最终测试/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="最终测试">
-                
-                <h1>最终测试</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月30日</a>
-            <a><i class="nexmoefont icon-areachart"></i>311 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/PWN/">PWN</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/PWN/">PWN</a>
-            
-        </div>
-        <article>
-            
-            <h2 id="最终测试"><a href="#最终测试" class="headerlink" title="最终测试"></a>最终测试</h2><h3 id="血与泪的教训"><a href="#血与泪的教训" class="headerlink" title="血与泪的教训"></a>血与泪的教训</h3><p>昨天测试新写的脚本，自动更正hexo-admin后台剪贴图片插入在Windows下的路径问题，结果乱使用”w+”模式……</p>
-<p>把自己的本地文章全清空了可还行</p>
-<p>吸取教训，下次bug改完之前先随便找个垃圾堆测试一下再用/笑哭</p>
-<h3 id="正式测试"><a href="#正式测试" class="headerlink" title="正式测试"></a>正式测试</h3><h4 id="代码框格式测试"><a href="#代码框格式测试" class="headerlink" title="代码框格式测试"></a>代码框格式测试</h4><pre><code class="c">\\c code highlights text
-#include&lt;stdio.h&gt;
-
-int main(){
-    char str[10];
-   scanf(&quot;%s&quot;, str);
-   printf(&quot;%d&quot;, str);
-   return 0;
-}</code></pre>
-            
-        </article>
-    </div>
-    
 </section>
 
+    <nav class="nexmoe-page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="nexmoefont icon-right"></i></a>
+    </nav>
+  
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
@@ -464,7 +1658,7 @@ int main(){
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1573887070638"></script>
+<script src="/js/app.js?v=1575386014058"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

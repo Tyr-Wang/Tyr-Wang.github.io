@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>Git - 沙雕老王</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="变秃了，也变强了">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="Git常用总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://yoursite.com/2019/11/24/Git/index.html">
+<meta property="og:site_name" content="沙雕老王">
+<meta property="og:description" content="Git常用总结">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181125608_19673">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181123000_32385.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181121693_13379.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181120581_3981.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181119972_13782.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181119064_24202.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181118153_16324">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181117018_1554.png">
+<meta property="og:updated_time" content="2019-11-24T10:12:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="Git常用总结">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/24/Git/_v_images/20191124181125608_19673">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1575386014176">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="Tyr Wang" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.png"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Tyr Wang">
+            <img src="/images/avatar.png" alt="Tyr Wang">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>13</div>
+        <div><span>标签</span>3</div>
+        <div><span>分类</span>3</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="mailto:yysxwzj@163.com" target="_blank" mdui-tooltip="{content: 'Email'}" style="color: rgb(115, 2, 6);background-color: rgba(115, 2, 6, .15);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/Tyr-Wang" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/PWN/Learn/">Learn</a>
+          <span class="category-list-count">0</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/PWN/">PWN</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/测试/">测试</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/PWN/" style="font-size: 20px;">PWN</a> <a href="/tags/WP/" style="font-size: 10px;">WP</a> <a href="/tags/呵呵/" style="font-size: 10px;">呵呵</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2019 Tyr Wang
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/12/03/qldaIPoywVCkT9f.png">
+        
+        <h1>Git</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月24日</a>
+    <a><i class="nexmoefont icon-areachart"></i>6.7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 30 分钟</a>
+    
+    
+  </div>
+  <article>
+    <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="常用总结"><a href="#常用总结" class="headerlink" title="常用总结"></a>常用总结</h2><a id="more"></a>
+
+<p>转载于<a href="https://blog.csdn.net/u014734886/article/details/79527710" target="_blank" rel="noopener">CSDN</a></p>
+<p>学习了廖雪峰老师的Git教程之后的命令总结，重点更新第十项关于git和远程仓库的东西。</p>
+<p>如果没有学过，这是<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">传送门</a></p>
+<p>2019.07.15更新：第6章第12节–修改commit信息</p>
+<p>2019.07.13更新：第6章第11节–创建本地新分支并将新分支和远程某个分支相关联</p>
+<p>2019.06.05更新：第十章第9节–添加fork别人的仓库后如何同原仓库保持同步更新</p>
+<p>2019.05.25更新：第五章删除文件添加删除远端文件</p>
+<p>2019.05.23更新：对一些命令添加了说明信息，添加了origin，对第四部分暂存区git stash命令内容进行更新，添加git checkout的说明，第六部分的合并远程分支添加具体命令，第八部分的第2节创建bug分支处添加具体命令，建议再全看一遍，修改的地方有点多</p>
+<p>下面这个图很重要</p>
+<p><img src="_v_images/20191124181125608_19673" alt></p>
+<h1 id="​​一、git初始化本地仓库和配置"><a href="#​​一、git初始化本地仓库和配置" class="headerlink" title="​​一、git初始化本地仓库和配置"></a>​​一、git初始化本地仓库和配置</h1><p>echo “想输入到文件的内容，一般为# 库名字” &gt;&gt; README.md</p>
+<p>git init</p>
+<p>如果没有配置需要配置</p>
+<p>git config –list</p>
+<p>git config –global user.email “<a href="mailto:abc@bupt.edu.cn" target="_blank" rel="noopener">abc@bupt.edu.cn</a>“</p>
+<p>git config –global user.name “xy”</p>
+<p>git config –list</p>
+<p>还可以配置git显示颜色</p>
+<p>git config –global color.ui true</p>
+<p>配置别名</p>
+<p>git config –global alias.st status 使用git st 代替 git status</p>
+<p>git config –global alias.co checkout 使用git co 代替 git checkout</p>
+<p>git config –global alias.ci commit 使用git ci 代替 git commit</p>
+<p>git config –global alias.br branch 使用git br 代替 git branch</p>
+<p>有人丧心病狂地把lg配置成了：</p>
+<p>git config –global alias.lg “log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit”</p>
+<h1 id="二、提交文件"><a href="#二、提交文件" class="headerlink" title="二、提交文件"></a>二、提交文件</h1><p>git status  查看当前仓库的状态</p>
+<p>git diff file_name</p>
+<p>git add file2.txt file3.txt 想添加所有的文件git add .</p>
+<p>git status</p>
+<p>git commit -m “提交记录文字“</p>
+<p>git status</p>
+<p>举例：</p>
+<p>git commit -m “Fixes bug”</p>
+<p>如果发现commit信息写错了，</p>
+<p>git commit –amend -m “Fixes bug #42”</p>
+<h1 id="三、回退"><a href="#三、回退" class="headerlink" title="三、回退"></a>三、回退</h1><p><img src="_v_images/20191124181123000_32385.png" alt></p>
+<h2 id="1，查看commit信息和命令信息"><a href="#1，查看commit信息和命令信息" class="headerlink" title="1，查看commit信息和命令信息"></a>1，查看commit信息和命令信息</h2><p>git log（查看当前状态下的commit信息，不能查看以后的信息）</p>
+<p>git reflog（查看所有的命令信息）</p>
+<p>git reflog</p>
+<p>git log -p –graph</p>
+<p><a href="https://www.jianshu.com/p/98c473fb0ee2" target="_blank" rel="noopener">https://www.jianshu.com/p/98c473fb0ee2</a></p>
+<p>通过 git pull更新后，会显示别人修改了哪些文件。此时你想要查看某个文件的具体修改的内容，可通过下面的命令去查看：<br>git log -p   + 文件名 （可查看该文件以前每一次push的修改内容）<br>git log - p -1   + 文件名 （只查看该文件当前这一次的push内容）</p>
+<p>git log –graph 看到分支合并图</p>
+<p>git log –graph –pretty=oneline –abbrev-commit</p>
+<h2 id="2，回退"><a href="#2，回退" class="headerlink" title="2，回退"></a>2，回退</h2><p>git reset –hard commit_id。除了–hard参数外，还有–soft，–mixed。</p>
+<p>下面详细介绍这三个参数：</p>
+<p>add表示add操作之后的结果</p>
+<p>commit表示commit之后的结果</p>
+<p>push:表示进行push操作之后的结果</p>
+<p>(stash)表示在add前可能存在stash操作（即暂存工作区的操作）</p>
+<p>假设某次提交过程如下</p>
+<p>init–(stash1)–add1–commit1–push1–(stash2)–add2–commit2–push2–(stash3)–add3–commit3–push3</p>
+<p>举例</p>
+<p>–hard 回退到某个版本commit之前的状态 ，进行1，2，3操作。如现在在commit2，或者add2，可以回到commit3或者commit1</p>
+<p>–soft 回退到某次commit前的stage状态（即处于暂存状态），进行1操作。如现在在commit2，可以回到add1，或者add3</p>
+<p>–mixed回退到add前的状态（即处于工作区，如果有stash，需通过stash pop之后才能真的回到暂存的状态），执行1，2操作。如现在在commit2，可以回退到init–(stash1)，或者commit1-push1–(stash2)，或者</p>
+<h2 id="3，HEAD介绍"><a href="#3，HEAD介绍" class="headerlink" title="3，HEAD介绍"></a>3，HEAD介绍</h2><p>HEAD指向的版本就是当前版本，HEAD^,前一个版本，HEAD^^前两个，HEAD~100，前100个版本</p>
+<h2 id="4，查看远程log"><a href="#4，查看远程log" class="headerlink" title="4，查看远程log"></a>4，查看远程log</h2><p>git fetch –all 可以把远程的commit信息拉到本地更新到本部版本库的master HEAD指针上，然后利用git log和git reflog进行查看操作</p>
+<p>穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本，也可以用git reflog。</p>
+<p>要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。</p>
+<p>建议都用git reflog</p>
+<h1 id="四、切换暂存区、工作区"><a href="#四、切换暂存区、工作区" class="headerlink" title="四、切换暂存区、工作区"></a>四、切换暂存区、工作区</h1><p>git stash   暂存工作现场</p>
+<p>git stash list 会出现stash@{0}: WIP on dev: 6224937 add mergegit</p>
+<p>git stash pop 将暂存区的环境恢复到工作区</p>
+<p>git stash list  此时暂存区已经没有数据了</p>
+<p>git diff HEAD – readme.txt 查看工作区和版本库里面最新版本的区别</p>
+<p>git checkout – readme.txt 把工作区的修改全部撤销,其中–不能省，否则就变成切换分支了。</p>
+<p>git reset HEAD file_name 可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
+<p>关于git checkout可以看一下这篇文章<a href="https://www.cnblogs.com/kuyuecs/p/7111749.html" target="_blank" rel="noopener">https://www.cnblogs.com/kuyuecs/p/7111749.html</a></p>
+<p>checkout命令用法如下：</p>
+<p>1. git checkout [-q] [<commit>] [–] <paths> …</paths></commit></p>
+<p>2. git checkout [<branch>]</branch></p>
+<p>3. git checkout [-m] [ [-b | – orphan ] &lt;new_branch&gt;]  [start_point] </p>
+<p>用法2比用法1的区别在于，用法1包含了路径。为了避免路径和引用（或提交ID）同名而发生冲突，可以在<paths>前用两个连续的连字符作为分隔。用法1的<commit>是可选项，如果省略，则相当于从暂存区进行检出。</commit></paths></p>
+<h1 id="五、删除文件"><a href="#五、删除文件" class="headerlink" title="五、删除文件"></a>五、删除文件</h1><h2 id="1，删除本地文件"><a href="#1，删除本地文件" class="headerlink" title="1，删除本地文件"></a>1，删除本地文件</h2><p>git rm file_name</p>
+<p>git commit -m “删除信息“</p>
+<h2 id="2，误删"><a href="#2，误删" class="headerlink" title="2，误删"></a>2，误删</h2><p>git checkout – test.txt 用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<p>命令git checkout – readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：</p>
+<p>一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+<p>总之，就是让这个文件回到最近一次git commit或git add时的状态。</p>
+<h2 id="3，删除远端文件"><a href="#3，删除远端文件" class="headerlink" title="3，删除远端文件"></a>3，删除远端文件</h2><p>git rm -r –cached –force .idea/  删除文件不需要加-r，删除文件夹需要-r， 该文件夹路径为本地文件夹所在路径</p>
+<p>git commit -m “delete .idea/“ 提交记录<br>git push origin master  推到远端  </p>
+<h1 id="六、本地分支和远程分支"><a href="#六、本地分支和远程分支" class="headerlink" title="六、本地分支和远程分支"></a>六、本地分支和远程分支</h1><h2 id="1，查看本地分支，带星号的表示当前所在本地分支"><a href="#1，查看本地分支，带星号的表示当前所在本地分支" class="headerlink" title="1，查看本地分支，带星号的表示当前所在本地分支"></a>1，查看本地分支，带星号的表示当前所在本地分支</h2><p>git branch</p>
+<p>查看远程和本地分支</p>
+<p>git branch -a</p>
+<p>如果没有成功，先git fetch origin，然后我们在git branch -a</p>
+<h2 id="2，创建本地分支"><a href="#2，创建本地分支" class="headerlink" title="2，创建本地分支"></a>2，创建本地分支</h2><p>git branch dev 创建分支</p>
+<p>git checkout dev 切换分支（不要随意切分支，如果你在某个分支上面修改了一些东西，但没有stash，那么你切换分支后修改的东西就没有任何保存了，如果想切，请先git stash，然后git checkout dev）</p>
+<p>stash后没有stash pop，然后reset –hard</p>
+<p>git checkout -b dev 创建并切换分支也可以用于切换已有分支</p>
+<h2 id="3，创建远程分支"><a href="#3，创建远程分支" class="headerlink" title="3，创建远程分支"></a>3，创建远程分支</h2><p> 如果想把本地的test分支提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支。</p>
+<p>git push origin test:master         // 提交本地test分支作为远程的master分支</p>
+<p>git push origin test:test              // 提交本地test分支作为远程的test分支</p>
+<p>也可以在github网站直接创建</p>
+<p><img src="_v_images/20191124181121693_13379.png" alt></p>
+<p>直接在红色框位置输入想要创建的分支的名字，然后enter即可。</p>
+<h2 id="4，合并本地分支"><a href="#4，合并本地分支" class="headerlink" title="4，合并本地分支"></a>4，合并本地分支</h2><p>git merge dev 合并当前分支，一般先切换到需要被合并的分支，如切换到master，该命令在master分支上输入会将dev分支合并到master分支</p>
+<p>git merge –no-ff -m “merge with no-ff” dev –no-ff参数，表示禁用Fast forward，用普通模式合并，合并后的历史有分支，能看出来曾经做过合并。</p>
+<p>merge和rebase的区别<a href="https://blog.csdn.net/wh_19910525/article/details/7554489" target="_blank" rel="noopener">https://blog.csdn.net/wh_19910525/article/details/7554489</a></p>
+<p>git merge b # 将b分支合并到当前分支</p>
+<p>git rebase b，也是把 b分支合并到当前分支</p>
+<p>假设目前分支：</p>
+<p><img src="_v_images/20191124181120581_3981.jpg" alt></p>
+<p><img src="_v_images/20191124181119972_13782.jpg" alt></p>
+<p><img src="_v_images/20191124181119064_24202.jpg" alt></p>
+<h2 id="5，origin"><a href="#5，origin" class="headerlink" title="5，origin"></a>5，origin</h2><p><a href="https://blog.csdn.net/tyyking/article/details/82909099" target="_blank" rel="noopener">https://blog.csdn.net/tyyking/article/details/82909099</a></p>
+<p>git的服务器端(remote)端包含多个repository，每个repository可以理解为一个项目。而每个repository下有多个branch。”origin”就是指向某一个repository的指针。服务器端的”master”（强调服务器端是因为本地端也有master）就是指向某个repository的一个branch的指针。</p>
+<p>这是服务器端(remote)的情况：</p>
+<p><img src="_v_images/20191124181118153_16324" alt></p>
+<p>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:JasonDu1993/learngit.git 关联远程库，相当于让origin等于后面这个地址</p>
+<h2 id="6，git-fetch-更新远程代码到本地仓库"><a href="#6，git-fetch-更新远程代码到本地仓库" class="headerlink" title="6，git fetch 更新远程代码到本地仓库"></a>6，git fetch 更新远程代码到本地仓库</h2><p><a href="https://www.cnblogs.com/chenlogin/p/6592228.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenlogin/p/6592228.html</a></p>
+<p>理解 fetch 的关键, 是理解 FETCH_HEAD，FETCH_HEAD指的是: 某个branch在服务器上的最新状态</p>
+<p>当前分支指向的FETCH_HEAD, 就是这个文件第一行对应的那个分支.</p>
+<p>一般来说, 存在两种情况:</p>
+<p>1）如果没有显式的指定远程分支, 则远程分支的master将作为默认的FETCH_HEAD.</p>
+<p>2）如果指定了远程分支, 就将这个远程分支作为FETCH_HEAD.</p>
+<p>命令1：git fetch origin branch1</p>
+<p>设定当前分支的 FETCH_HEAD’ 为远程服务器的branch1分支`。这个操作是git pull origin branch1的第一步, 而对应的pull操作,并不会在本地创建新的branch。</p>
+<p>同时这个命令还可以用来测试远程主机的远程分支branch1是否存在, 如果存在, 返回0, 如果不存在, 返回128, 抛出一个异常.</p>
+<p>命令2：git fetch origin branch1:branch2</p>
+<p>使用远程branch1分支在本地创建branch2(但不会切换到该分支),如果本地不存在branch2分支, 则会自动创建一个新的branch2分支,</p>
+<p>如果本地存在branch2分支, 并且是`fast forward’, 则自动合并两个分支, 否则, 会阻止以上操作.</p>
+<h2 id="7，fetch更新本地仓库两种方式"><a href="#7，fetch更新本地仓库两种方式" class="headerlink" title="7，fetch更新本地仓库两种方式"></a>7，fetch更新本地仓库两种方式</h2><p>//方法一</p>
+<p>git fetch origin master //从远程的origin仓库的master分支下载代码到本地的master分支</p>
+<p>git log -p master origin/master //比较本地的仓库和远程仓库的区别</p>
+<p>git merge origin/master //把远程下载下来的代码合并到本地仓库，远程的和本地的合并</p>
+<p>//方法二</p>
+<p>git fetch origin master:temp //从远程的origin仓库的master分支下载到本地并新建一个分支temp</p>
+<p>git diff temp //比较本地master分支和本地temp分支的不同</p>
+<p>git merge temp //合并本地temp分支到本地master分支</p>
+<p>git branch -d temp //删除本地temp分支</p>
+<h2 id="8，合并远程分支"><a href="#8，合并远程分支" class="headerlink" title="8，合并远程分支"></a>8，合并远程分支</h2><p>假设这两个分支是a和b，那么fetch a和b，checkout a，将b merge(rebase)到a，push a到远端。这样做，将b和a合到了一起，并且更新了本地和远端的a。如果b不需要了，可以删除远程b和本地b</p>
+<p>git fetch origin a:a                        将远程a分支拉到本地a(冒号后面的a表示本地分支a)</p>
+<p>git fetch origin b:b                        将远程b分支拉到本地b(冒号后面的b表示本地分支b)</p>
+<p>git checkout a                  切到本地a分支</p>
+<p>git merge b                       将本地b分支合并到本地a分支上</p>
+<p>git push origin a                将本地a分支推到远程a分支</p>
+<p>git branch -d b                   删除本地分支</p>
+<p>git push origin –delete b   删除远程b分支</p>
+<h2 id="9，删除本地分支"><a href="#9，删除本地分支" class="headerlink" title="9，删除本地分支"></a>9，删除本地分支</h2><p>git branch -d dev 删除分支</p>
+<h2 id="10，删除远程分支"><a href="#10，删除远程分支" class="headerlink" title="10，删除远程分支"></a>10，删除远程分支</h2><p>git push origin –delete dev</p>
+<h2 id="11，创建本地新分支并将新分支和远程某个分支相关联"><a href="#11，创建本地新分支并将新分支和远程某个分支相关联" class="headerlink" title="11，创建本地新分支并将新分支和远程某个分支相关联"></a>11，创建本地新分支并将新分支和远程某个分支相关联</h2><p>git branch -a 查看本地和远程所有分支</p>
+<p>git checkout -b dev /origin/dev  创建本地分支dev并和远程dev分支相关联同时切换到本地dev分支</p>
+<h2 id="12，修改commit信息"><a href="#12，修改commit信息" class="headerlink" title="12，修改commit信息"></a>12，修改commit信息</h2><h3 id="1-没有push到远端，修改本地分支commit信息"><a href="#1-没有push到远端，修改本地分支commit信息" class="headerlink" title="(1)没有push到远端，修改本地分支commit信息"></a>(1)没有push到远端，修改本地分支commit信息</h3><p>未执行git push 之前可以使用如下的命令进行操作(只能撤销最近一次的commit)</p>
+<p>git  reset –soft commit_id  (commit_id可以git reflog查看)</p>
+<p>git commit -m “fix commit”  重新提交信息</p>
+<p>对于历史信息的修改可以采用(2)里面的方法，只是不需要执行git push</p>
+<p>命令总结：</p>
+<p>git checkout -b dev</p>
+<p>git rebase -i HEAD~5</p>
+<p>把需要修改的commit信息前的pick改成edit</p>
+<p>git commit –amend</p>
+<p>git rebase –continue</p>
+<p>多次重复执行前面两个命令直到更新</p>
+<h3 id="2-已经push到远端-，修改本地分支commit信息和远程分支commit信息"><a href="#2-已经push到远端-，修改本地分支commit信息和远程分支commit信息" class="headerlink" title="(2) 已经push到远端 ，修改本地分支commit信息和远程分支commit信息"></a>(2) 已经push到远端 ，修改本地分支commit信息和远程分支commit信息</h3><p>命令总结：</p>
+<p>git checkout -b dev</p>
+<p>git rebase -i HEAD~5</p>
+<p>把需要修改的commit信息前的pick改成edit</p>
+<p>git commit –amend</p>
+<p>git rebase –continue</p>
+<p>多次重复执行前面两个命令直到更新</p>
+<p>git push origin dev -f</p>
+<p>下面是详细介绍</p>
+<p><a href="https://blog.csdn.net/qq_39956074/article/details/83992286" target="_blank" rel="noopener">https://blog.csdn.net/qq_39956074/article/details/83992286</a> git 如何修改已经push 的commit 的信息</p>
+<p>A，git rebase -i HEAD~5 最新提交的版本为倒数第一个版本，5表示倒数第5个版本，这个数字可以修改，如改成2</p>
+<p><img src="_v_images/20191124181117018_1554.png" alt="git rebase -i Head~5.png"></p>
+<p>前5行即为HEAD～5所提交的信息，第一行为倒数第五个版本的commit信息，第五行为倒数第一个版本commit信息，每行开头未pick，然后未commit id， 然后时commit信息</p>
+<p>B，输入i进入修改模式，将需要修改的commit信息前的pick改成edit，修改完后使用esc退出修改模式，接着输入:wq保存修改。</p>
+<p>C，命令行输入git commit –amend，输入i进入修改模式，修改commit信息，修改完后使用esc退出修改模式，接着输入:wq保存修改。</p>
+<p>【注】保存之后 git rebase –continue还没有使用之前还可以使用git commit –amend继续修改这条commit信息，但如果提交了就只能从头再来了，即使用git rebase -i HEAD~5 把pick改成edit保存退出，然后git commit –amend，保存修改信息之后屏幕输出以下内容</p>
+<p>保存修改后命令行会输出以下内容</p>
+<pre><code>[detached HEAD fbe9591] 20190716c, bs 16, lr 0.001, maxiter 60000, steps &quot;(50000, 55000)&quot;, 8000
+
+
+
+Date: Mon Jul 15 18:11:43 2019 +0800
+
+1 file changed, 3 insertions(+), 3 deletions(-)</code></pre><p>D，命令行输入git rebase –continue</p>
+<pre><code>(py3) jason@jason:~/workspace/mask-detection$ git rebase --continue
+
+Stopped at 896acbdf7545b0e42ff761376a2cdbca899b445d... 20190715c, bs 8, lr 0.0025, maxiter 60000, steps &quot;(50000, 55000)&quot;, 8000
+
+You can amend the commit now, with
+
+
+
+git commit --amend
+
+
+
+Once you are satisfied with your changes, run
+
+
+
+git rebase --continue</code></pre><p>输出这些信息是因为我们把多个pick改成了edit，因此继续修改commit信息直到全部修改完成，如下所示</p>
+<pre><code>(py3) jason@jason:~/workspace/mask-detection$ git commit --amend
+
+[detached HEAD 70929e1] 20190715e, bs 8, lr 0.0025, maxiter 60000, steps &quot;(50000, 55000)&quot;, 8000
+
+Date: Mon Jul 15 18:19:56 2019 +0800
+
+1 file changed, 4 insertions(+), 4 deletions(-)
+
+(py3) jason@jason:~/workspace/mask-detection$ git rebase --continue
+
+Successfully rebased and updated refs/heads/jason.</code></pre><p>E，git push origin dev -f 将本地更新推送到远程分支上，必须加上-f，否则我们edit的commit会添加到commit后面</p>
+<pre><code>(py3) jason@jason:~/workspace/mask-detection$ git push origin dev -f
+
+Password for &#39;http://jason@git.sankuai.com&#39;: 输入密码
+
+Counting objects: 40, done.
+
+Delta compression using up to 12 threads.
+
+Compressing objects: 100% (40/40), done.
+
+Writing objects: 100% (40/40), 7.75 KiB | 0 bytes/s, done.
+
+Total 40 (delta 31), reused 0 (delta 0)
+
+remote:
+
+remote: Create pull request for jason:
+
+remote: http://git.sankuai.com/users/lvtingxun/repos/mask-detection/compare/commits?sourceBranch=refs/heads/dev
+
+remote:
+
+To http://jason@***.git
+
++ b26a84a...70929e1 dev -&gt; dev (forced update)</code></pre><h2 id="13，删除commit信息"><a href="#13，删除commit信息" class="headerlink" title="13，删除commit信息"></a>13，删除commit信息</h2><p><a href="https://blog.csdn.net/QQxiaoqiang1573/article/details/68074847" target="_blank" rel="noopener">https://blog.csdn.net/QQxiaoqiang1573/article/details/68074847</a> git 删除远程分支上的某次提交</p>
+<h3 id="1-，没有push到远端，删除本地commit信息"><a href="#1-，没有push到远端，删除本地commit信息" class="headerlink" title="(1)，没有push到远端，删除本地commit信息"></a>(1)，没有push到远端，删除本地commit信息</h3><h3 id="2-，已经push到远端，删除本地commit信息和远程commit信息"><a href="#2-，已经push到远端，删除本地commit信息和远程commit信息" class="headerlink" title="(2)，已经push到远端，删除本地commit信息和远程commit信息"></a>(2)，已经push到远端，删除本地commit信息和远程commit信息</h3><h1 id="七、分支策略"><a href="#七、分支策略" class="headerlink" title="七、分支策略"></a>七、分支策略</h1><h2 id="1，在实际开发中，我们应该按照几个基本原则进行分支管理："><a href="#1，在实际开发中，我们应该按照几个基本原则进行分支管理：" class="headerlink" title="1，在实际开发中，我们应该按照几个基本原则进行分支管理："></a>1，在实际开发中，我们应该按照几个基本原则进行分支管理：</h2><p>1)，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>2)，干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
+<p>3)，每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了</p>
+<h2 id="2，分支是否推送到远程"><a href="#2，分支是否推送到远程" class="headerlink" title="2，分支是否推送到远程"></a>2，分支是否推送到远程</h2><p>1)，master分支是主分支，因此要时刻与远程同步；</p>
+<p>2)，dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
+<p>3)，bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
+<p>4)，feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
+<h1 id="八、bug分支和暂存工作现场"><a href="#八、bug分支和暂存工作现场" class="headerlink" title="八、bug分支和暂存工作现场"></a>八、bug分支和暂存工作现场</h1><h2 id="1，bug分支的用途"><a href="#1，bug分支的用途" class="headerlink" title="1，bug分支的用途"></a>1，bug分支的用途</h2><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
+<p>当手头工作没有完成又不想commit时，先把工作现场暂存，然后去修复bug，修复后，再git stash pop，回到工作现场。</p>
+<h2 id="2，创建bug分支的流程"><a href="#2，创建bug分支的流程" class="headerlink" title="2，创建bug分支的流程"></a>2，创建bug分支的流程</h2><p>假设暂存现场在dev分支，总体流程如下：</p>
+<p>git stash   暂存工作现场</p>
+<p>（去修bug，假设bug在master分支上）</p>
+<p>git checkout master</p>
+<p>修改bug</p>
+<p>git add .</p>
+<p>git commit -m “fix bug on master”</p>
+<p>git push origin master</p>
+<p>git checkout dev  切到dev分支</p>
+<p>git stash list 会出现stash@{0}: WIP on dev: 6224937 add mergegit</p>
+<p>git stash pop 将之前本地dev分支暂存的环境恢复出来</p>
+<p>(还可以通过 git stash apply stash@{0}进行恢复，再删除stask内容git stash drop)</p>
+<p>git stash list  再次查看还有暂存现场没有</p>
+<h1 id="九、feature分支"><a href="#九、feature分支" class="headerlink" title="九、feature分支"></a>九、feature分支</h1><p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，用git branch -d <name>，若要强行删除使用-D</name></p>
+<h1 id="十、github远程仓库"><a href="#十、github远程仓库" class="headerlink" title="十、github远程仓库"></a>十、github远程仓库</h1><h2 id="1，使用ssh创建key"><a href="#1，使用ssh创建key" class="headerlink" title="1，使用ssh创建key"></a>1，使用ssh创建key</h2><p>为了和远程库相关联需要添加key，如果不加好像每次需要输密码：</p>
+<p>ssh-keygen -t rsa -C “***@qq.com” # 后面的邮箱根据自己的情况修改</p>
+<p>该命令用于 创建id_rsa文件和id_rsa.pub文件，id_rsa是私钥，id_rsa.pub是公钥用于添加到github的ssh key里面。文件位于用户目录下的.ssh文件里面</p>
+<h2 id="2，本地仓库和远程仓库关联"><a href="#2，本地仓库和远程仓库关联" class="headerlink" title="2，本地仓库和远程仓库关联"></a>2，本地仓库和远程仓库关联</h2><p>第一种情况：远程只有仓库没有内容时，将本地已经写好的代码关联到远程：</p>
+<p>git init</p>
+<p>git add .</p>
+<p>git commit -m “first commit”</p>
+<p>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:JasonDu1993/learngit.git 关联远程库，相当于让origin等于后面这串地址</p>
+<p>git push -u origin master -u只在第一次推送分支时使用，将本地master推到远程master分支上</p>
+<p>关联完之后就可以切分支或者创建其他分支了</p>
+<p>git checkout master</p>
+<p>git push origin master  将到本地master分支内容推到远程master分支上</p>
+<p>git checkout -b dev  创建本地dev分支并切换到本地dev分支</p>
+<p>git push origin dev  将本地dev分支推到远程dev分支</p>
+<p>一般master分支和dev分支都会推到远程</p>
+<p>第二种情况：远程仓库有内容，直接克隆到本地</p>
+<p>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:JasonDu1993/gitskills.git</p>
+<p>git branch -a 查看本地分支和远程分支</p>
+<p>git checkout -b dev origin/dev  如果本地没有dev分支将会报错</p>
+<p>git add file_name</p>
+<p>git commit -m “记录提交信息”</p>
+<p>git push origin dev</p>
+<p>在GitHub上，可以任意Fork开源仓库，这样拥有fork后的仓库的读写权限，你就可以push到你fork之后的这个仓库了，当然也可以推送pull request给官方仓库来贡献代码。</p>
+<h2 id="3，关联仓库出现问题解决办法"><a href="#3，关联仓库出现问题解决办法" class="headerlink" title="3，关联仓库出现问题解决办法"></a>3，关联仓库出现问题解决办法</h2><p>1）如果git checkout -b dev origin/dev迁出分支出现问题</p>
+<p>fatal: Cannot update paths and switch to branch ‘dev’ at the same time.</p>
+<p>Did you intend to checkout ‘orgin/dev’ which can not be resolved as commit?</p>
+<p>解决办法是先git fetch，再git checkout -b dev origin/dev</p>
+<p>2）如果git push失败，先git pull</p>
+<p>如果git pull失败，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：</p>
+<p>git branch –set-upstream dev origin/dev，（现在好像改成git branch –set-upstream-to=origin/dev dev）</p>
+<p>然后在git pull，git push origin master</p>
+<p>3）<a href="https://blog.csdn.net/love_rongrong/article/details/12557347" target="_blank" rel="noopener">https://blog.csdn.net/love_rongrong/article/details/12557347</a></p>
+<p>git error: RPC failed; result=22, HTTP code = 411</p>
+<p>解决办法：改一下git的传输字节限制</p>
+<p>git config http.postBuffer  524288000</p>
+<p>4）error: RPC failed; result=22, HTTP code = 413</p>
+<p>fatal: The remote end hung up unexpectedly</p>
+<p>fatal: The remote end hung up unexpectedly</p>
+<p>Everything up-to-date</p>
+<p>这两个错误看上去相似，一个是411，一个是413</p>
+<p>下面这个错误添加一下密钥就可以了</p>
+<p>首先ssh-keygen -t rsa -C “<a href="mailto:abc@bupt.edu.cn" target="_blank" rel="noopener">abc@bupt.edu.cn</a>“生成密钥</p>
+<h2 id="4，有时候不想解决冲突-建议还是解决冲突好）"><a href="#4，有时候不想解决冲突-建议还是解决冲突好）" class="headerlink" title="4，有时候不想解决冲突(建议还是解决冲突好）"></a>4，有时候不想解决冲突(建议还是解决冲突好）</h2><p>1)，从远处拉取最新的东西到本地（不想解决冲突直接接受远程仓库内容）</p>
+<p>git fetch –all //至少下载到本地不进行合并</p>
+<p>git reset –hard origin/dev</p>
+<p>git pull</p>
+<p>2)，将本地更新强制推到远程，不想解决和远程的冲突</p>
+<p>git push –force origin dev 或者git push -f origin dev</p>
+<h2 id="5，删除远程分支"><a href="#5，删除远程分支" class="headerlink" title="5，删除远程分支"></a>5，删除远程分支</h2><p>git push origin –delete dev</p>
+<p>删除本地分支</p>
+<p>git branch -d dev</p>
+<h2 id="6，创建远程分支"><a href="#6，创建远程分支" class="headerlink" title="6，创建远程分支"></a>6，创建远程分支</h2><p> 如果想把本地的test分支提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支。</p>
+<p>git push origin test:master         // 提交本地test分支作为远程的master分支</p>
+<p>git push origin test:test              // 提交本地test分支作为远程的test分支</p>
+<h2 id="7，查看远程分支commit信息用于回退到远程分支的某个版本"><a href="#7，查看远程分支commit信息用于回退到远程分支的某个版本" class="headerlink" title="7，查看远程分支commit信息用于回退到远程分支的某个版本"></a>7，查看远程分支commit信息用于回退到远程分支的某个版本</h2><p>git fetch –all</p>
+<p>git log</p>
+<p>git reset –hard commit_id</p>
+<h2 id="8，修改远程仓库名称"><a href="#8，修改远程仓库名称" class="headerlink" title="8，修改远程仓库名称"></a>8，修改远程仓库名称</h2><p>1) 在本地仓库删除远程仓库：</p>
+<p>git remote rm origin 1</p>
+<p>2 )修改Github仓库名称： </p>
+<p>在Github页面中，进入要修改的仓库，在页面上方选择“Settings”，即可重命名远程仓库。</p>
+<p>3) 添加新的远程仓库：</p>
+<p>git remote add origin <a href="https://github.com/JasonDu1993/gitskill.git" target="_blank" rel="noopener">https://github.com/JasonDu1993/gitskill.git</a></p>
+<h2 id="9，fork别人的仓库后如何同原仓库保持同步更新"><a href="#9，fork别人的仓库后如何同原仓库保持同步更新" class="headerlink" title="9，fork别人的仓库后如何同原仓库保持同步更新"></a>9，fork别人的仓库后如何同原仓库保持同步更新</h2><p><a href="https://blog.csdn.net/matrix_google/article/details/80676034" target="_blank" rel="noopener">https://blog.csdn.net/matrix_google/article/details/80676034</a> Github进行fork后如何与原仓库同步</p>
+<p>1）git remote -v                                                                  查看远程目录地址</p>
+<p>2）git branch -a                                                                  查看所有分支情况</p>
+<p>3）git remote add upstream 你fork之前的源仓库地址        该操作将源仓库和上游代码库upstream相关联（重要1）</p>
+<p>4）git remote -v                                                                   再次查看远程目录的地址</p>
+<p>5）git stash                                                                         暂存自己的工作状态（不是必须的，如果改了代码没有push则需要）</p>
+<p>6）git fetch upstream                                                          抓取源仓库的修改文件（重要2）</p>
+<p>7）git branch -a                                                                   再次查看所有分支情况</p>
+<p>8）git checkout master                                                        切换到master分支</p>
+<p>9）git merge upstream/master                                             将本地代码和源代码保持同步（最重要3）</p>
+<p>10）git stash pop                                                                  将暂存区的环境恢复到工作区</p>
+<p>上传到远程仓库</p>
+<p>11）git add .</p>
+<p>12) git commit -m “update forked repository at 2019.06.05”</p>
+<p>13）git push origin master                                                    上传新的代码到自己的远程master分支</p>
+<h2 id="10，git-pull-can’t-update"><a href="#10，git-pull-can’t-update" class="headerlink" title="10，git pull can’t update"></a>10，git pull can’t update</h2><p>No tracked branch configured for branch dev or the branch doesn’t exist. To make your branch track a remote branch call, for example, git branch –set-upstream-to origin/dev dev</p>
+<h1 id="十一、多人合作流程"><a href="#十一、多人合作流程" class="headerlink" title="十一、多人合作流程"></a>十一、多人合作流程</h1><p>因此，多人协作的工作模式通常是这样：</p>
+<p>首先，可以试图用git push origin branch-name推送自己的修改；</p>
+<p>如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+<p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+<p>没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！</p>
+<p>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream branch-name origin/branch-name。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<h1 id="十二、版本标签"><a href="#十二、版本标签" class="headerlink" title="十二、版本标签"></a>十二、版本标签</h1><p>标签用于发布版本时使用，相当于给某次commit取个名字</p>
+<h2 id="1，添加标签"><a href="#1，添加标签" class="headerlink" title="1，添加标签"></a>1，添加标签</h2><p>git tag <name> 用于新建一个标签一般取名name为v0.1等，默认为HEAD，也可以指定一个commit id</name></p>
+<p>git tag -a <tagname> -m “blablabla…” 可以指定标签信息</tagname></p>
+<p>git tag 可以查看所有标签</p>
+<h2 id="2，删除标签"><a href="#2，删除标签" class="headerlink" title="2，删除标签"></a>2，删除标签</h2><p>git tag -d <tagname> 删除一个本地标签</tagname></p>
+<p>git push origin :refs/tags/<tagname> 删除一个远程标签</tagname></p>
+<p>git push origin <tagname> 推送一个本地标签</tagname></p>
+<p>git push origin –tags 推送全部未推送过的本地标签</p>
+<h1 id="十三，忽略特特殊文件"><a href="#十三，忽略特特殊文件" class="headerlink" title="十三，忽略特特殊文件"></a>十三，忽略特特殊文件</h1><p>在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件，同时提交这个文件到Git。</p>
+<p>例子如下，.gitignore文件内容如下：</p>
+<p># Windows:</p>
+<p>Thumbs.db</p>
+<p>ehthumbs.db</p>
+<p>Desktop.ini</p>
+<p># Python:</p>
+<p>*.py[cod]</p>
+<p>*.so</p>
+<p>*.egg</p>
+<p>*.egg-info</p>
+<p>dist</p>
+<p>build</p>
+<p># iead</p>
+<p>.idea</p>
+<p># My configurations:</p>
+<p>db.ini</p>
+<p>deploy_key_rsa</p>
+<p>忽略文件的原则是：</p>
+<p>1，忽略操作系统自动生成的文件，比如缩略图等；</p>
+<p>2，忽略编译生成的中间文件、可执行文件等，比如Java编译产生的.class文件；</p>
+<p>3，忽略敏感信息的配置文件，比如存放口令的配置文件。</p>
+<h1 id="十四、自定义Git服务器"><a href="#十四、自定义Git服务器" class="headerlink" title="十四、自定义Git服务器"></a>十四、自定义Git服务器</h1><p>假设你已经有sudo权限的用户账号并且该教程是在ubuntu下介绍的</p>
+<p>1，安装git：</p>
+<p>sudo apt-get install git</p>
+<p>2，创建一个git用户，用来运行git服务：</p>
+<p>sudo adduser git</p>
+<p>3，创建证书登录：</p>
+<p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。</p>
+<p>4，初始化Git仓库：</p>
+<p>先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令：</p>
+<p>sudo git init –bare sample.git</p>
+<p>Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：</p>
+<p>sudo chown -R git:git sample.git</p>
+<p>5，禁用shell登录：</p>
+<p>出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：</p>
+<p>git:x:1001:1001:,,,:/home/git:/bin/bash</p>
+<p>改为：</p>
+<p>git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</p>
+<p>这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。</p>
+<p>6，克隆远程仓库：</p>
+<p>现在，可以通过git clone命令克隆远程仓库了，在各自的电脑上运行：</p>
+<p>git clone git@server:/srv/sample.git</p>
+<p>Cloning into ‘sample’…</p>
+<p>warning: You appear to have cloned an empty repository.</p>
+<p>管理公钥</p>
+<p>如果团队很小，把每个人的公钥收集起来放到服务器的/home/git/.ssh/authorized_keys文件里就是可行的。如果团队有几百号人，就没法这么玩了，这时，可以用Gitosis来管理公钥。</p>
+<p>管理权限</p>
+<p>使用Gitolite就是这个工具管理权限</p>
+
+  </article>
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>本文作者：</strong>Tyr Wang<br>
+<strong>本文链接：</strong><a href="http://yoursite.com/2019/11/24/Git/" title="http://yoursite.com/2019/11/24/Git/" target="_blank" rel="noopener">http://yoursite.com/2019/11/24/Git/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1575386014179"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

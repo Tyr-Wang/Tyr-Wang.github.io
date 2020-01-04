@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>从刷题中学习-Pwnable.tw</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">tags</a></li>
+         
+          <li><a href="/categories/">categories</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/12/20/pwnable_tw-WPs/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/12/02/小记C类型运算符优先级/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&text=从刷题中学习-Pwnable.tw"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&is_video=false&description=从刷题中学习-Pwnable.tw"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=从刷题中学习-Pwnable.tw&body=Check out this article: http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&name=从刷题中学习-Pwnable.tw&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&t=从刷题中学习-Pwnable.tw"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从刷题中学习-Pwnable-tw"><span class="toc-number">1.</span> <span class="toc-text">从刷题中学习-Pwnable.tw</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#start"><span class="toc-number">1.1.</span> <span class="toc-text">start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#收获"><span class="toc-number">1.1.1.</span> <span class="toc-text">收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#orw"><span class="toc-number">1.2.</span> <span class="toc-text">orw</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#收获-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dubblesort"><span class="toc-number">1.3.</span> <span class="toc-text">dubblesort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pwndbg"><span class="toc-number">1.3.1.</span> <span class="toc-text">pwndbg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stack-canary"><span class="toc-number">1.3.2.</span> <span class="toc-text">stack canary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stack-定位"><span class="toc-number">1.3.3.</span> <span class="toc-text">stack 定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hacknote"><span class="toc-number">1.4.</span> <span class="toc-text">hacknote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Silver-Bullet"><span class="toc-number">1.5.</span> <span class="toc-text">Silver Bullet</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        从刷题中学习-Pwnable.tw
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tyr Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-20T04:47:03.000Z" itemprop="datePublished">2019-12-20</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/PWN/">PWN</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="从刷题中学习-Pwnable-tw"><a href="#从刷题中学习-Pwnable-tw" class="headerlink" title="从刷题中学习-Pwnable.tw"></a>从刷题中学习-Pwnable.tw</h1><h2 id="start"><a href="#start" class="headerlink" title="start"></a>start</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pwndbg&gt; </span><br><span class="line"><span class="number">0xfffc4f57</span> in ?? ()</span><br><span class="line">LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA</span><br><span class="line">─────────────────────────────────[ REGISTERS ]──────────────────────────────────</span><br><span class="line"> EAX  <span class="number">0xb</span></span><br><span class="line"> EBX  0xfffc4f38 ◂— '/bin//sh'</span><br><span class="line"> ECX  <span class="number">0x0</span></span><br><span class="line"> EDX  <span class="number">0x3c</span></span><br><span class="line"> EDI  <span class="number">0x0</span></span><br><span class="line"> ESI  <span class="number">0x0</span></span><br><span class="line"> EBP  <span class="number">0x0</span></span><br><span class="line"> ESP  0xfffc4f38 ◂— '/bin//sh'</span><br><span class="line"> EIP  <span class="number">0xfffc4f57</span> ◂— <span class="number">0xfc5880cd</span></span><br><span class="line">───────────────────────────────────[ DISASM ]───────────────────────────────────</span><br><span class="line">   <span class="number">0xfffc4f48</span>    push   ecx</span><br><span class="line">   <span class="number">0xfffc4f49</span>    push   <span class="number">0x68732f2f</span></span><br><span class="line">   <span class="number">0xfffc4f4e</span>    push   <span class="number">0x6e69622f</span></span><br><span class="line">   <span class="number">0xfffc4f53</span>    mov    ebx, esp</span><br><span class="line">   <span class="number">0xfffc4f55</span>    mov    al, <span class="number">0xb</span></span><br><span class="line"> ► <span class="number">0xfffc4f57</span>    <span class="keyword">int</span>    <span class="number">0x80</span> &lt;SYS_execve&gt;</span><br><span class="line">        path: 0xfffc4f38 ◂— '/bin//sh'</span><br><span class="line">        argv: <span class="number">0x0</span></span><br><span class="line">        envp: <span class="number">0x3c</span></span><br><span class="line">   <span class="number">0xfffc4f59</span>    pop    eax</span><br><span class="line">   <span class="number">0xfffc4f5a</span>    cld    </span><br><span class="line">───────────────────────────────────[ STACK ]────────────────────────────────────</span><br><span class="line">00:0000│ ebx esp  0xfffc4f38 ◂— '/bin//sh'</span><br><span class="line">01:0004│          0xfffc4f3c ◂— '//sh'</span><br><span class="line"><span class="number">02</span>:<span class="number">0008</span>│          <span class="number">0xfffc4f40</span> ◂— <span class="number">0x0</span></span><br><span class="line"><span class="number">03</span>:<span class="number">000</span>c│          <span class="number">0xfffc4f44</span> ◂— <span class="number">0xc031c931</span></span><br><span class="line">04:0010│          0xfffc4f48 ◂— 0x2f2f6851 ('Qh//')</span><br><span class="line">05:0014│          0xfffc4f4c ◂— 0x2f686873 ('shh/')</span><br><span class="line"><span class="number">06</span>:<span class="number">0018</span>│          <span class="number">0xfffc4f50</span> ◂— <span class="number">0x896e6962</span></span><br><span class="line"><span class="number">07</span>:<span class="number">001</span>c│ eip<span class="number">-3</span>    <span class="number">0xfffc4f54</span> ◂— <span class="number">0xcd0bb0e3</span></span><br><span class="line">─────────────────────────────────[ BACKTRACE ]──────────────────────────────────</span><br><span class="line"> ► f <span class="number">0</span> fffc4f57</span><br><span class="line">────────────────────────────────────────────────────────────────────────────────</span><br><span class="line">pwndbg&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><p>开发shellcode的艺术</p>
+<ul>
+<li><p>短小精悍</p>
+<ul>
+<li>MUL 指令<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">;指令格式:</span><br><span class="line">;MUL r/m  ;参数是乘数</span><br><span class="line">;如果参数是 r8/m8,   将把  AL 做乘数, 结果放在 AX</span><br><span class="line">;如果参数是 r16/m16, 将把  AX 做乘数, 结果放在 DX:AX</span><br><span class="line">;如果参数是 r32/m32, 将把 EAX 做乘数, 结果放在 EDX:EAX</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>控制避免”\00”的trick（本题read不需要）</p>
+</li>
+<li><p>注意清空寄存器，该清零的就必须清零</p>
+</li>
+<li><p>成功和失败gdb追调的状态</p>
+</li>
+</ul>
+<h2 id="orw"><a href="#orw" class="headerlink" title="orw"></a>orw</h2><h3 id="收获-1"><a href="#收获-1" class="headerlink" title="收获"></a>收获</h3><h2 id="dubblesort"><a href="#dubblesort" class="headerlink" title="dubblesort"></a>dubblesort</h2><h3 id="pwndbg"><a href="#pwndbg" class="headerlink" title="pwndbg"></a>pwndbg</h3><ul>
+<li>命令</li>
+<li>栈中的<code>... ↓</code> : 表示跟前一行重复而不是0x0</li>
+</ul>
+<h3 id="stack-canary"><a href="#stack-canary" class="headerlink" title="stack canary"></a>stack canary</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> v12; <span class="comment">// [esp+7Ch] [ebp-10h]</span></span><br><span class="line">v12 = __readgsdword(<span class="number">0x14</span>u);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.text:000009DA                 mov     eax, large gs:14h</span><br><span class="line">.text:000009E0                 mov     [esp+7Ch], eax</span><br></pre></td></tr></table></figure>
+
+<p>stack canary 在esp+0x7c：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pwndbg&gt; x/wx $esp+0x7c</span><br><span class="line">0xffa8b02c:	0x6c38e900 ;占满32bit、最低位\00（大数字）</span><br></pre></td></tr></table></figure>
+
+<h3 id="stack-定位"><a href="#stack-定位" class="headerlink" title="stack 定位"></a>stack 定位</h3><p>记录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ary -&gt; 0xffe2d2ac</span><br><span class="line"></span><br><span class="line">vmmap:</span><br><span class="line">    0xffe0d000 0xffe2e000 rw-p    21000 0      [stack]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ary -&gt; 0xffb0d92c</span><br><span class="line"></span><br><span class="line">vmmap:</span><br><span class="line">    0xffaef000 0xffb10000 rw-p    21000 0      [stack]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0xff8291cc</span><br><span class="line">0xff80a000 0xff82b000 rw-p    21000 0      [stack]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0xffabbaec</span><br><span class="line">0xffa9d000 0xffabe000 rw-p    21000 0      [stack]</span><br></pre></td></tr></table></figure>
+
+<h2 id="hacknote"><a href="#hacknote" class="headerlink" title="hacknote"></a>hacknote</h2><p>GOT = .got.plt<br>GOT在数据段，找不到.got.plt就找.plt跳过去，GOT与程序段位置固定，不固定的有libc、heap、stack</p>
+<h2 id="Silver-Bullet"><a href="#Silver-Bullet" class="headerlink" title="Silver Bullet"></a>Silver Bullet</h2><p><strong>ROP注意</strong><br>劫持rip之后的leak<br>写返回值！！！<br>system<br>写返回值！！！</p>
+<p><strong>.plt.got不是GOT！！！！.got.ptl才是</strong></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">tags</a></li>
+         
+          <li><a href="/categories/">categories</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从刷题中学习-Pwnable-tw"><span class="toc-number">1.</span> <span class="toc-text">从刷题中学习-Pwnable.tw</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#start"><span class="toc-number">1.1.</span> <span class="toc-text">start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#收获"><span class="toc-number">1.1.1.</span> <span class="toc-text">收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#orw"><span class="toc-number">1.2.</span> <span class="toc-text">orw</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#收获-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dubblesort"><span class="toc-number">1.3.</span> <span class="toc-text">dubblesort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pwndbg"><span class="toc-number">1.3.1.</span> <span class="toc-text">pwndbg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stack-canary"><span class="toc-number">1.3.2.</span> <span class="toc-text">stack canary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stack-定位"><span class="toc-number">1.3.3.</span> <span class="toc-text">stack 定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hacknote"><span class="toc-number">1.4.</span> <span class="toc-text">hacknote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Silver-Bullet"><span class="toc-number">1.5.</span> <span class="toc-text">Silver Bullet</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&text=从刷题中学习-Pwnable.tw"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&is_video=false&description=从刷题中学习-Pwnable.tw"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=从刷题中学习-Pwnable.tw&body=Check out this article: http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&title=从刷题中学习-Pwnable.tw"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&name=从刷题中学习-Pwnable.tw&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/12/20/PWN-TW个人思考、收获/&t=从刷题中学习-Pwnable.tw"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">tags</a></li>
+         
+          <li><a href="/categories/">categories</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

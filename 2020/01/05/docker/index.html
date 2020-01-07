@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>docker——虚拟环境搭建的利器</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">tags</a></li>
+         
+          <li><a href="/categories/">categories</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/01/05/From CTF to Real/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/05/docker/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/05/docker/&text=docker——虚拟环境搭建的利器"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/05/docker/&is_video=false&description=docker——虚拟环境搭建的利器"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=docker——虚拟环境搭建的利器&body=Check out this article: http://yoursite.com/2020/01/05/docker/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/05/docker/&name=docker——虚拟环境搭建的利器&description=&lt;h1 id=&#34;docker&#34;&gt;&lt;a href=&#34;#docker&#34; class=&#34;headerlink&#34; title=&#34;docker&#34;&gt;&lt;/a&gt;docker&lt;/h1&gt;&lt;h2 id=&#34;0x01&#34;&gt;&lt;a href=&#34;#0x01&#34; class=&#34;headerlink&#34; title=&#34;0x01&#34;&gt;&lt;/a&gt;0x01&lt;/h2&gt;&lt;p&gt;需要调试&lt;code&gt;tcache&lt;/code&gt;，升级&lt;code&gt;glibc&lt;/code&gt;有一定的风险，所以决定使用&lt;code&gt;docker&lt;/code&gt;;&lt;/p&gt;
+&lt;p&gt;对于pwn环境已经有了不少&lt;code&gt;image&lt;/code&gt;，所以能不折腾就不折腾，记录一下&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/05/docker/&t=docker——虚拟环境搭建的利器"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker"><span class="toc-number">1.</span> <span class="toc-text">docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01"><span class="toc-number">1.1.</span> <span class="toc-text">0x01</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-初识"><span class="toc-number">1.2.</span> <span class="toc-text">0x02 初识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Concepts"><span class="toc-number">1.2.1.</span> <span class="toc-text">Concepts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Docker"><span class="toc-number">1.3.</span> <span class="toc-text">安装Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker守护进程"><span class="toc-number">1.3.1.</span> <span class="toc-text">Docker守护进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载-Docker"><span class="toc-number">1.4.</span> <span class="toc-text">卸载 Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Docker"><span class="toc-number">1.5.</span> <span class="toc-text">使用Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Image"><span class="toc-number">1.5.1.</span> <span class="toc-text">Docker Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Container"><span class="toc-number">1.5.2.</span> <span class="toc-text">Docker Container</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看、管理"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">查看、管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止、删除"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">停止、删除</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Repository"><span class="toc-number">1.5.3.</span> <span class="toc-text">Docker Repository</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拉取仓库镜像"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">拉取仓库镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#发布-image-文件"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">发布 image 文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实操"><span class="toc-number">1.6.</span> <span class="toc-text">实操</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#破除封印-狗头"><span class="toc-number">1.6.1.</span> <span class="toc-text">破除封印/狗头</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置镜像加速器"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">配置镜像加速器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行镜像"><span class="toc-number">1.6.2.</span> <span class="toc-text">运行镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#–rm-v"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">–rm -v</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">1.7.</span> <span class="toc-text">Reference:</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        docker——虚拟环境搭建的利器
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">沙雕老王</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-05T13:32:16.000Z" itemprop="datePublished">2020-01-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/docker/">docker</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>需要调试<code>tcache</code>，升级<code>glibc</code>有一定的风险，所以决定使用<code>docker</code>;</p>
+<p>对于pwn环境已经有了不少<code>image</code>，所以能不折腾就不折腾，记录一下</p>
+<a id="more"></a>
+
+<h2 id="0x02-初识"><a href="#0x02-初识" class="headerlink" title="0x02 初识"></a>0x02 初识</h2><p>容器算是一个相对可靠的沙箱环境、虚拟机，轻量、跨平台，易于复制、备份——优秀，看来不得不见识一下了</p>
+<h3 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h3><ul>
+<li><p><strong>Dockerfile</strong><br>用来生成Image的配置文件，就像Makefile；手动docker run等一系列配置命令，如果想要展示配置过程，或者省去每次生成镜像时运行重复命令的麻烦——写到Dockerfile里吧</p>
+</li>
+<li><p><strong>镜像（Image）</strong>：<br>Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</p>
+<ul>
+<li>通过修改官方系统镜像，添加个人需要的组件、服务，可以生成新的镜像，就像一个<strong>配方</strong></li>
+</ul>
+</li>
+<li><p><strong>容器（Container）</strong>：<br>镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例（对象）一样：镜像是静态的定义，容器是镜像运行时的实体。<br>容器可以被创建、启动、停止、删除、暂停等。</p>
+</li>
+<li><p><strong>仓库（Repository）</strong>：<br>类似Github：<a href="https://hub.docker.com" target="_blank" rel="noopener">Docker Hub</a> 提供了庞大的镜像集合</p>
+</li>
+</ul>
+<h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">official install instruction</a></p>
+<p><a href="https://www.runoob.com/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">runoob</a></p>
+<h3 id="Docker守护进程"><a href="#Docker守护进程" class="headerlink" title="Docker守护进程"></a>Docker守护进程</h3><p>Docker 是服务器—-客户端架构。命令行运行<code>docker</code>命令的时候，需要本机有 Docker 服务。如果这项服务没有启动，可以用下面的命令启动（<a href="https://docs.docker.com/config/daemon/systemd/" target="_blank" rel="noopener">官方文档</a>）。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># service 命令</span></span><br><span class="line">$ sudo service docker start</span><br><span class="line"></span><br><span class="line"><span class="comment"># systemctl 命令</span></span><br><span class="line">$ sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<h2 id="卸载-Docker"><a href="#卸载-Docker" class="headerlink" title="卸载 Docker"></a>卸载 Docker</h2><ol>
+<li><p>Uninstall the Docker Engine - Community package:</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get purge docker-ce</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes:</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo rm -rf /var/lib/docker</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<p>You must delete any edited configuration files manually.</p>
+<h2 id="使用Docker"><a href="#使用Docker" class="headerlink" title="使用Docker"></a>使用Docker</h2><h3 id="Docker-Image"><a href="#Docker-Image" class="headerlink" title="Docker Image"></a>Docker Image</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出本机的所有 image 文件。</span></span><br><span class="line">$ docker image ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 image 文件</span></span><br><span class="line">$ docker image rm [imageName]</span><br><span class="line"></span><br><span class="line"><span class="comment">#将 image 文件从仓库抓取到本地。</span></span><br><span class="line">$ docker image pull library/hello-world</span><br></pre></td></tr></table></figure>
+
+<p>由 Docker 官方提供的 image 文件，都放在<code>library</code>组里面，所以它的是默认组，可以省略。因此，上面的命令可以写成<code>$ docker image pull hello-world</code></p>
+<h3 id="Docker-Container"><a href="#Docker-Container" class="headerlink" title="Docker Container"></a>Docker Container</h3><p><strong>image 文件生成的容器实例，本身也是一个文件，称为容器文件。</strong><br>也就是说，一旦容器生成，就会同时存在两个文件： image 文件和容器文件。而且关闭容器并不会删除容器文件，只是容器停止运行而已。</p>
+<h4 id="查看、管理"><a href="#查看、管理" class="headerlink" title="查看、管理"></a>查看、管理</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 列出本机正在运行的容器</span></span><br><span class="line">$ docker container ls</span><br><span class="line"></span><br><span class="line">$ docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出本机所有容器，包括终止运行的容器，**输出结果包括容器的 ID</span></span><br><span class="line">$ docker container ls --all</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### 生成、启动</span></span><br></pre></td></tr></table></figure>
+
+<p>#从 image 文件，生成并启动运行一个容器实例<br>$ docker container run hello-world<br>#注意，<code>docker container run</code>命令具有自动抓取 image 文件的功能。如果发现本地没有指定的 image 文件，就会从仓库自动抓取。因此，前面的<code>docker image pull</code>命令并不是必需的步骤。</p>
+<p>#启动一个已经生成好的容器实例<br>$ docker container start [containerID]</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 使用、交互</span><br><span class="line"></span><br><span class="line">`docker container exec`命令用于进入一个正在运行的 docker 容器。如果`docker run`命令生成并运行容器的时候，没有使用`-it`参数，就要用这个命令接入容器</span><br><span class="line">```bash</span><br><span class="line">$ docker container exec -it [containerID] /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><code>docker container logs</code>命令用来查看 docker 容器的输出，即容器里面 Shell 的标准输出。如果<code>docker run</code>命令运行容器的时候，没有使用<code>-it</code>参数，就要用这个命令查看输出。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker container logs [containerID]</span><br></pre></td></tr></table></figure>
+
+<p><code>docker container cp</code>命令用于从正在运行的 Docker 容器里面，将文件拷贝到本机。下面是拷贝到当前目录的写法。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ docker container cp [containID]:[/path/to/file] local_path</span><br></pre></td></tr></table></figure>
+
+<h4 id="停止、删除"><a href="#停止、删除" class="headerlink" title="停止、删除"></a>停止、删除</h4><p>有些容器不会自动终止，因为提供的是服务。比如Ubuntu 的 image</p>
+<p>对于那些不会自动终止的容器，必须使用<code>docker container kill</code> 命令手动终止。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker container <span class="built_in">kill</span> [containID]</span><br></pre></td></tr></table></figure>
+
+<p><code>docker container kill</code>命令终止容器运行，相当于向容器里面的主进程发出 SIGKILL 信号。而<code>docker container stop</code>命令也是用来终止容器运行，相当于向容器里面的主进程发出 SIGTERM 信号，然后过一段时间再发出 SIGKILL 信号。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ docker container stop [containerID]</span><br></pre></td></tr></table></figure>
+
+<p>这两个信号的差别是，应用程序收到 SIGTERM 信号以后，可以自行进行收尾清理工作，但也可以不理会这个信号。如果收到 SIGKILL 信号，就会强行立即终止，那些正在进行中的操作会全部丢失。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#彻底删除容器文件</span></span><br><span class="line">$ docker container rm [containerID]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker-Repository"><a href="#Docker-Repository" class="headerlink" title="Docker Repository"></a>Docker Repository</h3><h4 id="拉取仓库镜像"><a href="#拉取仓库镜像" class="headerlink" title="拉取仓库镜像"></a>拉取仓库镜像</h4><p>我们可以从  <a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a> 来搜索镜像</p>
+<p>我们也可以使用 docker search 命令来搜索镜像。比如我们需要一个 httpd 的镜像来作为我们的 web 服务。我们可以通过 docker search 命令搜索 关键词 来寻找适合我们的镜像。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ docker search httpd</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>NAME:</strong> 镜像仓库源的名称</li>
+<li><strong>OFFICIAL:</strong> 是否 docker 官方发布</li>
+<li><strong>stars:</strong> 类似 Github 里面的 star</li>
+<li><strong>AUTOMATED:</strong> 自动构建。</li>
+<li><h4 id="发布-image-文件"><a href="#发布-image-文件" class="headerlink" title="发布 image 文件"></a>发布 image 文件</h4></li>
+</ul>
+<p>容器运行成功后，就确认了 image 文件的有效性。这时，我们就可以考虑把 image 文件分享到网上，让其他人使用。</p>
+<p>首先，去 <a href="https://hub.docker.com/" target="_blank" rel="noopener">hub.docker.com</a> 或 <a href="https://cloud.docker.com/" target="_blank" rel="noopener">cloud.docker.com</a> 注册一个账户。然后，用下面的命令登录/登出。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker login</span><br><span class="line"></span><br><span class="line">$ docker logout</span><br></pre></td></tr></table></figure>
+
+<p>接着，为本地的 image 标注用户名和版本。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ docker image tag [imageName] [username]/[repository]:[tag]</span><br><span class="line"><span class="comment"># 实例</span></span><br><span class="line">$ docker image tag koa-demos:0.0.1 ruanyf/koa-demos:0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>也可以不标注用户名，重新构建一下 image 文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ docker image build -t [username]/[repository]:[tag] .</span><br></pre></td></tr></table></figure>
+
+<p>最后，发布 image 文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$ docker image push [username]/[repository]:[tag]</span><br></pre></td></tr></table></figure>
+
+<p>发布成功以后，登录 hub.docker.com，就可以看到已经发布的 image 文件。</p>
+<h2 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h2><h3 id="破除封印-狗头"><a href="#破除封印-狗头" class="headerlink" title="破除封印/狗头"></a>破除封印/狗头</h3><h4 id="配置镜像加速器"><a href="#配置镜像加速器" class="headerlink" title="配置镜像加速器"></a>配置镜像加速器</h4><p>阿里大法好</p>
+<p>针对Docker客户端版本大于 1.10.0 的用户</p>
+<p>您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">'EOF'</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"registry-mirrors"</span>: [<span class="string">"https://f9s49i7l.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>shell的续行符 “&quot;，可以把一行命令分解成多行<br>\Enter,反斜杠后面紧跟回车，表示下一行是当前行的续行</p>
+<p><code>ctrl+D</code> 等于手动输入exit回车，可以从docker、root、程序中收尾退出</p>
+<p><strong>Pwndocker</strong></p>
+<p>A docker environment for pwn in ctf based on <strong>phusion/baseimage:master-amd64</strong>, which is a modified ubuntu 18.04 baseimage for docker</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \                                        <span class="comment">#后台运行容器，并返回容器ID</span></span><br><span class="line">	--rm \                                             <span class="comment">#只是在开发调试过程中短期运行，其用户数据并无保留的必要，因而可以在容器启动时设置--rm选项，这样在容器退出时就能够自动清理容器内部的文件系统 等价于 在容器退出后，执行docker rm -v</span></span><br><span class="line">	-h <span class="variable">$&#123;ctf_name&#125;</span> \</span><br><span class="line">	--name <span class="variable">$&#123;ctf_name&#125;</span> \</span><br><span class="line">	-v $(<span class="built_in">pwd</span>)/<span class="variable">$&#123;ctf_name&#125;</span>:/ctf/work \                  <span class="comment">#挂载分区，将主机目录挂载到容器内</span></span><br><span class="line">	-p 23946:23946 \                                   <span class="comment">#绑定端口，主机:容器，主机的io转发到绑定端口</span></span><br><span class="line">	--<span class="built_in">cap</span>-add=SYS_PTRACE \                             <span class="comment">#增加权限，以便在容器内正常使用gdb调试</span></span><br><span class="line">	skysider/pwndocker</span><br><span class="line"></span><br><span class="line">docker <span class="built_in">exec</span> -it <span class="variable">$&#123;ctf_name&#125;</span> /bin/bash</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/tyr/Desktop/PWN/docker_workspace</span><br><span class="line">ctf_name=Ubuntu18.04_Customized</span><br><span class="line">mkdir <span class="variable">$&#123;ctf_name&#125;</span></span><br><span class="line">docker run -d -h <span class="variable">$&#123;ctf_name&#125;</span> --name <span class="variable">$&#123;ctf_name&#125;</span> -v $(<span class="built_in">pwd</span>)/<span class="variable">$&#123;ctf_name&#125;</span>:/ctf/work -p 23946:23946 --<span class="built_in">cap</span>-add=SYS_PTRACE skysider/pwndocker &amp;&amp; docker <span class="built_in">exec</span> -it <span class="variable">$&#123;ctf_name&#125;</span> /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/skysider/pwndocker" target="_blank" rel="noopener">pwndocker</a></p>
+<h4 id="–rm-v"><a href="#–rm-v" class="headerlink" title="–rm -v"></a>–rm -v</h4><p><strong>-v</strong> 会挂载指定目录到对应docker容器内部指定目录，效果跟挂载一样，同步修改，只是退出时不会默认删除挂载点（像缓存一样在<code>/var/lib/docker/vfs/dir</code>目录下），除非run时加<code>--rm</code>或者退出后，删除时使用<code>docker rm -v [container]</code></p>
+<p><strong>删除Volumes</strong></p>
+<p>这个功能可能会更加重要，如果你已经使用<code>docker rm</code>来删除你的容器，那可能有很多的孤立的Volume仍在占用着空间。  </p>
+<p>Volume只有在下列情况下才能被删除：  </p>
+<ul>
+<li>该容器是用<code>docker rm －v</code>命令来删除的（<code>-v</code>是必不可少的）。</li>
+<li><code>docker run</code>中使用了<code>--rm</code>参数</li>
+</ul>
+<p>即使用以上两种命令，也只能删除没有容器连接的Volume。连接到用户指定主机目录的Volume永远不会被docker删除。</p>
+<p><a href="http://dockone.io/article/128" target="_blank" rel="noopener">深入理解Docker Volume（一）</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p><a href="https://docs.docker.com/engine/docker-overview/" target="_blank" rel="noopener">官方文档</a><br><a href="https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">阮一峰-docker教程</a><br><a href="https://xiaoxiaorenwu.top/2019/08/08/docker初识/" target="_blank" rel="noopener">pwn docker</a></p>
+<p><strong>其他教程</strong><br><a href="http://dockerone.com/article/111" target="_blank" rel="noopener">dockone.io</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">tags</a></li>
+         
+          <li><a href="/categories/">categories</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker"><span class="toc-number">1.</span> <span class="toc-text">docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01"><span class="toc-number">1.1.</span> <span class="toc-text">0x01</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-初识"><span class="toc-number">1.2.</span> <span class="toc-text">0x02 初识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Concepts"><span class="toc-number">1.2.1.</span> <span class="toc-text">Concepts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Docker"><span class="toc-number">1.3.</span> <span class="toc-text">安装Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker守护进程"><span class="toc-number">1.3.1.</span> <span class="toc-text">Docker守护进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载-Docker"><span class="toc-number">1.4.</span> <span class="toc-text">卸载 Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Docker"><span class="toc-number">1.5.</span> <span class="toc-text">使用Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Image"><span class="toc-number">1.5.1.</span> <span class="toc-text">Docker Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Container"><span class="toc-number">1.5.2.</span> <span class="toc-text">Docker Container</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看、管理"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">查看、管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止、删除"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">停止、删除</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-Repository"><span class="toc-number">1.5.3.</span> <span class="toc-text">Docker Repository</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拉取仓库镜像"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">拉取仓库镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#发布-image-文件"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">发布 image 文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实操"><span class="toc-number">1.6.</span> <span class="toc-text">实操</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#破除封印-狗头"><span class="toc-number">1.6.1.</span> <span class="toc-text">破除封印/狗头</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置镜像加速器"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">配置镜像加速器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行镜像"><span class="toc-number">1.6.2.</span> <span class="toc-text">运行镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#–rm-v"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">–rm -v</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">1.7.</span> <span class="toc-text">Reference:</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/05/docker/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/05/docker/&text=docker——虚拟环境搭建的利器"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/05/docker/&is_video=false&description=docker——虚拟环境搭建的利器"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=docker——虚拟环境搭建的利器&body=Check out this article: http://yoursite.com/2020/01/05/docker/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/05/docker/&title=docker——虚拟环境搭建的利器"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/05/docker/&name=docker——虚拟环境搭建的利器&description=&lt;h1 id=&#34;docker&#34;&gt;&lt;a href=&#34;#docker&#34; class=&#34;headerlink&#34; title=&#34;docker&#34;&gt;&lt;/a&gt;docker&lt;/h1&gt;&lt;h2 id=&#34;0x01&#34;&gt;&lt;a href=&#34;#0x01&#34; class=&#34;headerlink&#34; title=&#34;0x01&#34;&gt;&lt;/a&gt;0x01&lt;/h2&gt;&lt;p&gt;需要调试&lt;code&gt;tcache&lt;/code&gt;，升级&lt;code&gt;glibc&lt;/code&gt;有一定的风险，所以决定使用&lt;code&gt;docker&lt;/code&gt;;&lt;/p&gt;
+&lt;p&gt;对于pwn环境已经有了不少&lt;code&gt;image&lt;/code&gt;，所以能不折腾就不折腾，记录一下&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/05/docker/&t=docker——虚拟环境搭建的利器"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">tags</a></li>
+         
+          <li><a href="/categories/">categories</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

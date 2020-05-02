@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Use MuseScore making drum sheets</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/01/28/glibc-source&dbg/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/01/13/Tmux/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&text=Use MuseScore making drum sheets"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&is_video=false&description=Use MuseScore making drum sheets"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Use MuseScore making drum sheets&body=Check out this article: http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&name=Use MuseScore making drum sheets&description=&lt;h1 id=&#34;MuseScore快速上头指南–打击乐版&#34;&gt;&lt;a href=&#34;#MuseScore快速上头指南–打击乐版&#34; class=&#34;headerlink&#34; title=&#34;MuseScore快速上头指南–打击乐版&#34;&gt;&lt;/a&gt;MuseScore快速上头指南–打击乐版&lt;/h1&gt;&lt;h2 id=&#34;记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理&#34;&gt;&lt;a href=&#34;#记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理&#34; class=&#34;headerlink&#34; title=&#34;记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理&#34;&gt;&lt;/a&gt;记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理&lt;/h2&gt;&lt;h3 id=&#34;Liar&#34;&gt;&lt;a href=&#34;#Liar&#34; class=&#34;headerlink&#34; title=&#34;Liar&#34;&gt;&lt;/a&gt;Liar&lt;/h3&gt;&lt;p&gt;从万能的某宝淘来了一本OOR的乐谱选集，官方出品，TB盗印，必属精品/笑哭&lt;/p&gt;
+&lt;p&gt;一方面，整本书太厚重，我那9块9包邮的谱架承受不住；另一方面，Liar这首谱梦寐以求好几年，电子档却莫得，只能由我贡献一份力量哇咔咔咔咔&lt;/p&gt;
+&lt;p&gt;咳咳&lt;/p&gt;
+&lt;p&gt;然后一打开，/懵逼，满书的跳转、重复、反复记号，真·环保……&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&t=Use MuseScore making drum sheets"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MuseScore快速上头指南–打击乐版"><span class="toc-number">1.</span> <span class="toc-text">MuseScore快速上头指南–打击乐版</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理"><span class="toc-number">1.1.</span> <span class="toc-text">记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Liar"><span class="toc-number">1.1.1.</span> <span class="toc-text">Liar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#龟速打谱ing"><span class="toc-number">1.1.2.</span> <span class="toc-text">龟速打谱ing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用记号"><span class="toc-number">1.2.</span> <span class="toc-text">常用记号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">1.2.1.</span> <span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#速度记号"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">速度记号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拍号"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">拍号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#音符"><span class="toc-number">1.2.2.</span> <span class="toc-text">音符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重复"><span class="toc-number">1.2.3.</span> <span class="toc-text">重复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见反复跳跃记号"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">常见反复跳跃记号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择、复制与粘贴"><span class="toc-number">1.3.</span> <span class="toc-text">选择、复制与粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入"><span class="toc-number">1.4.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">1.5.</span> <span class="toc-text">附录</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Use MuseScore making drum sheets
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-22T04:14:15.000Z" itemprop="datePublished">2020-01-22</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Music/">Music</a> › <a class="category-link" href="/categories/Music/Drum/">Drum</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Drum/">Drum</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="MuseScore快速上头指南–打击乐版"><a href="#MuseScore快速上头指南–打击乐版" class="headerlink" title="MuseScore快速上头指南–打击乐版"></a>MuseScore快速上头指南–打击乐版</h1><h2 id="记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理"><a href="#记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理" class="headerlink" title="记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理"></a>记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理</h2><h3 id="Liar"><a href="#Liar" class="headerlink" title="Liar"></a>Liar</h3><p>从万能的某宝淘来了一本OOR的乐谱选集，官方出品，TB盗印，必属精品/笑哭</p>
+<p>一方面，整本书太厚重，我那9块9包邮的谱架承受不住；另一方面，Liar这首谱梦寐以求好几年，电子档却莫得，只能由我贡献一份力量哇咔咔咔咔</p>
+<p>咳咳</p>
+<p>然后一打开，/懵逼，满书的跳转、重复、反复记号，真·环保……</p>
+<a id="more"></a>
+
+<h3 id="龟速打谱ing"><a href="#龟速打谱ing" class="headerlink" title="龟速打谱ing"></a>龟速打谱ing</h3><p>之前用GP6，换了电脑没留下来，偶然间发现这个轻量级、跨平台编谱软件——MuseScore，还™免费</p>
+<p><code>perfect！</code></p>
+<p>类比伟大的PS，这个打谱一定有它的快捷键</p>
+<p>然后，我就发现了他反人类的一堆设计，不过可定制性很强，于是我手动魔改了下</p>
+<p>我使用的打谱方式主要依靠键盘，<code>N</code>进入音符输入模式，定义<code>[A-G]</code>最多七个快捷音符输入。</p>
+<p>考虑到常用的时值在：二分-三十二分音符；偶尔用到全音符，64+用震音符号代替，所以数字键1-5分别对应2^1-2^5，完美对应2-32，全音符置零；```输入休止符：<br>魔改如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#修改快捷键：</span></span><br><span class="line">`  <span class="comment">#设为 输入休止符</span></span><br><span class="line"><span class="number">1</span>  <span class="comment">#音符时值：全音符</span></span><br><span class="line"><span class="number">2</span>  <span class="comment">#音符时值：二分音符</span></span><br><span class="line"><span class="number">3</span>  <span class="comment">#音符时值：四分音符</span></span><br><span class="line"><span class="number">4</span>  <span class="comment">#音符时值：八分音符</span></span><br><span class="line"><span class="number">5</span>  <span class="comment">#音符时值：十六分音符</span></span><br><span class="line"><span class="number">6</span>  <span class="comment">#音符时值：三十二分音符</span></span><br><span class="line">...</span><br><span class="line"><span class="comment">#以此类推</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#编辑鼓组面板：</span></span><br><span class="line">A  <span class="comment">#(default) S.D. Acoustic Drum or Electric Snare Drum</span></span><br><span class="line">B  <span class="comment">#(default) B.D. Bass Drum</span></span><br><span class="line">C  <span class="comment">#(default) Crush Cymbal 1</span></span><br><span class="line">D  <span class="comment">#(modify) Ride or High-Mid Tom (Tom 2)</span></span><br><span class="line">E  <span class="comment">#(modify) High Tom (Tom 1)</span></span><br><span class="line">F  <span class="comment">#(modify) Floor Tom (Tom 3)</span></span><br><span class="line">G  <span class="comment">#(default) H.H. Hi-Hat (closed)</span></span><br><span class="line"></span><br><span class="line">开音踩镲 <span class="comment">#第一间改为上加一间、符头改为斜杠型/四分音符改为小斜杠(Small slash with vertical ends)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="常用记号"><a href="#常用记号" class="headerlink" title="常用记号"></a>常用记号</h2><p>Muse中将大多数记号作为修饰，放在主面板，可以使用拖动到对应的元素上（如：音符、符杠、小节、小节线）或选中元素然后双击修饰面板</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h4 id="速度记号"><a href="#速度记号" class="headerlink" title="速度记号"></a>速度记号</h4><p>拖动至首个音符，一般使用四分音符、bmp，可以将意大利速度用词tempo记在前面</p>
+<h4 id="拍号"><a href="#拍号" class="headerlink" title="拍号"></a>拍号</h4><p>拖动至小节开始处</p>
+<h3 id="音符"><a href="#音符" class="headerlink" title="音符"></a>音符</h3><ul>
+<li><p><code>N</code>进入输入状态，<code>Shift + [A-G]</code>可以添加同时值音符再同一符杠上（同时击打）</p>
+</li>
+<li><p>符杠属性 —— 可以美化连音的亚子，好看就完事了，默认Auto，怎么也连不起来的时候注意一下中间夹着的<strong>休止符</strong>也有这个属性</p>
+</li>
+<li><p>N连音 —— 选择合适的时值，再 <code>Ctrl + N</code>（2的指数次连音就别用了，直接用对应时值吧，不然像个傻子）</p>
+<p>  建议在非输入状态下使用，先控制音符时长(此动作会修改、分割选中的休止符），自动进入输入状态并自动调整好合适的时值</p>
+</li>
+<li><p>延音 —— 菜单栏图标，或是快捷键<code>+</code>，[注意] 输入状态下默认延音相同时值，所以推荐先按照不延音的状态打好音符，再在延音的第一个符头使用延音记号</p>
+</li>
+<li><p>倚音 （自带音色库倚音很散）// 不带连音线有些不习惯，可以用<code>+</code>连音（但是效果会变，加上连音符就失去倚音音色）</p>
+<ul>
+<li>单倚音、装饰音 —— 短倚音 快捷键<code>/</code></li>
+<li>双倚音、多倚音 —— 多次对同一音符添加短倚音</li>
+</ul>
+</li>
+<li><p>滚奏、压奏 —— 震音 // 拖动至符杠上</p>
+</li>
+<li><p>重音 —— 不同于力度记号，常见的重音记号在 奏法记号&gt;重音(上)</p>
+</li>
+<li><p>开闭合Hi-Hat —— <code>o +</code> 开闭符号：奏法记号&gt;泛音；奏法记号&gt;静音(闭音) //Muse中音色不受影响，只能作为记号<br>  想要开闭的音色需要输入不同的音符来控制音色：<br>  默认的G音符输入闭音：Closed Hi-Hat 终止钹；开音：Open Hi-Hat 空心钹（音符在第一间，可以根据习惯修改为上加一间，也可修改符头与闭音区分，最后统一加奏法记号）<br>  <strong>若有些未使用开音，可利用复制大法，复制开音符头，选中粘贴，十分方便</strong></p>
+</li>
+<li><p>鬼音 —— 将面板基础调至高级，符头&gt;圆括号 快捷键<code>(</code> //可惜音色并没有改动</p>
+<h3 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h3><h4 id="常见反复跳跃记号"><a href="#常见反复跳跃记号" class="headerlink" title="常见反复跳跃记号"></a>常见反复跳跃记号</h4></li>
+<li><p><img src="_v_images/20200122214026458_32638.svg" alt="Coda_sign"> Coda 尾声</p>
+</li>
+<li><p><img src="_v_images/20200122222316026_20288.svg" alt="SegnoTeken">Segno 反复记号 </p>
+</li>
+<li><p>Fine 终止记号</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">:|| 结束反复，若无开始反复记号||: 则默认从头反复</span><br><span class="line">||: -- bytes -- :|| 反复跳跃记号，可以用┌<span class="number">1.</span>----┐:║┌<span class="number">2.</span>----┐控制结尾First Ending/Sec Ending </span><br><span class="line"><span class="comment">//Muse只能实现单小节不同结尾</span></span><br><span class="line"></span><br><span class="line">D.C. 回到开头</span><br><span class="line">D.S. 回到 segno 记号处 类似$(S和※的结合体)</span><br><span class="line">D.C al Fine 回到第一小节，直到 Fine 结束</span><br><span class="line">D.S. al Fine 回到 segno 记号处，直到 Fine 结束</span><br><span class="line">D.S. al Coda 回到 segno 记号处，遇到 Coda 处跳到下一个 Coda 继续（跳过两个之间部分）</span><br><span class="line"><span class="comment">// Muse 中使用 To Coda 与 Coda 为一组</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="选择、复制与粘贴"><a href="#选择、复制与粘贴" class="headerlink" title="选择、复制与粘贴"></a>选择、复制与粘贴</h2><ul>
+<li>F6打开选择面板，可以控制单独选择声部</li>
+<li>Shift + click 可以选择范围，当出现框框，框住部分即可进行剪切、复制和粘贴</li>
+</ul>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><ul>
+<li>（小节前）插入一小节<code>ins</code>，插入多小节<code>ctrl+ins</code></li>
+<li>删除小节内容<code>del</code>，删除整个小节<code>ctrl+del</code></li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://en.wikipedia.org/wiki/Drum_kit" target="_blank" rel="noopener"><strong>The drum kit</strong></a></p>
+<p><img src="_v_images/20200122134901355_7190.svg" alt="Drums_schematic"></p>
+<ul>
+<li><p>(1) Bass drum</p>
+<ul>
+<li>(2) Floor tom</li>
+<li>(3) Snare drum</li>
+<li>(4) Hanging/Rack toms(Tom-tom drum)</li>
+<li>(5) Hi-hat</li>
+<li>(6) Crash cymbal</li>
+<li>(7) Ride cymbal</li>
+<li>(8) Splash cymbal</li>
+<li>(9) China cymbal</li>
+</ul>
+<p><strong>Not shown</strong></p>
+<ul>
+<li>sizzle cymbal</li>
+<li>swish cymbal</li>
+<li>crash/ride cymbal</li>
+<li>cowbell</li>
+<li>wood block</li>
+<li>tambourine</li>
+<li>rototom</li>
+<li>octoban</li>
+<li>temple block</li>
+<li>gong</li>
+<li>triangle</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MuseScore快速上头指南–打击乐版"><span class="toc-number">1.</span> <span class="toc-text">MuseScore快速上头指南–打击乐版</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理"><span class="toc-number">1.1.</span> <span class="toc-text">记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Liar"><span class="toc-number">1.1.1.</span> <span class="toc-text">Liar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#龟速打谱ing"><span class="toc-number">1.1.2.</span> <span class="toc-text">龟速打谱ing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用记号"><span class="toc-number">1.2.</span> <span class="toc-text">常用记号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">1.2.1.</span> <span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#速度记号"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">速度记号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拍号"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">拍号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#音符"><span class="toc-number">1.2.2.</span> <span class="toc-text">音符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重复"><span class="toc-number">1.2.3.</span> <span class="toc-text">重复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见反复跳跃记号"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">常见反复跳跃记号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择、复制与粘贴"><span class="toc-number">1.3.</span> <span class="toc-text">选择、复制与粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入"><span class="toc-number">1.4.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">1.5.</span> <span class="toc-text">附录</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&text=Use MuseScore making drum sheets"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&is_video=false&description=Use MuseScore making drum sheets"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Use MuseScore making drum sheets&body=Check out this article: http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&title=Use MuseScore making drum sheets"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&name=Use MuseScore making drum sheets&description=&lt;h1 id=&#34;MuseScore快速上头指南–打击乐版&#34;&gt;&lt;a href=&#34;#MuseScore快速上头指南–打击乐版&#34; class=&#34;headerlink&#34; title=&#34;MuseScore快速上头指南–打击乐版&#34;&gt;&lt;/a&gt;MuseScore快速上头指南–打击乐版&lt;/h1&gt;&lt;h2 id=&#34;记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理&#34;&gt;&lt;a href=&#34;#记-MuseScore-打谱，顺带复习一下忘得渣都不剩的乐理&#34; class=&#34;headerlink&#34; title=&#34;记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理&#34;&gt;&lt;/a&gt;记 MuseScore 打谱，顺带复习一下忘得渣都不剩的乐理&lt;/h2&gt;&lt;h3 id=&#34;Liar&#34;&gt;&lt;a href=&#34;#Liar&#34; class=&#34;headerlink&#34; title=&#34;Liar&#34;&gt;&lt;/a&gt;Liar&lt;/h3&gt;&lt;p&gt;从万能的某宝淘来了一本OOR的乐谱选集，官方出品，TB盗印，必属精品/笑哭&lt;/p&gt;
+&lt;p&gt;一方面，整本书太厚重，我那9块9包邮的谱架承受不住；另一方面，Liar这首谱梦寐以求好几年，电子档却莫得，只能由我贡献一份力量哇咔咔咔咔&lt;/p&gt;
+&lt;p&gt;咳咳&lt;/p&gt;
+&lt;p&gt;然后一打开，/懵逼，满书的跳转、重复、反复记号，真·环保……&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/22/Use MuseScore making drum sheets/&t=Use MuseScore making drum sheets"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

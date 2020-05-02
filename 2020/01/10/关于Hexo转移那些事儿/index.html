@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>关于Hexo转移那些事儿</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/01/13/Tmux/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/01/05/docker/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&text=关于Hexo转移那些事儿"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&is_video=false&description=关于Hexo转移那些事儿"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于Hexo转移那些事儿&body=Check out this article: http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&name=关于Hexo转移那些事儿&description=&lt;h1 id=&#34;放假回家，blogs怎么办-笑哭&#34;&gt;&lt;a href=&#34;#放假回家，blogs怎么办-笑哭&#34; class=&#34;headerlink&#34; title=&#34;放假回家，blogs怎么办/笑哭&#34;&gt;&lt;/a&gt;放假回家，blogs怎么办/笑哭&lt;/h1&gt;&lt;p&gt;两个电脑之间的同步和备份一直是一个老大难。又赶上放假回家……&lt;/p&gt;
+&lt;p&gt;参考了前人经验，我就不再赘述。&lt;/p&gt;
+&lt;h2 id=&#34;两个方向&#34;&gt;&lt;a href=&#34;#两个方向&#34; class=&#34;headerlink&#34; title=&#34;两个方向&#34;&gt;&lt;/a&gt;两个方向&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;手动复制文件，手动安装依赖，添加ssh密钥，好像在骗GitHub我没换电脑呀——简单粗暴易执行；&lt;/li&gt;
+&lt;li&gt;利用git原本的功能，手动pull、push&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当然选择了第一个啦，记录一下&lt;/p&gt;
+&lt;h2 id=&#34;好像就似从头-再来&#34;&gt;&lt;a href=&#34;#好像就似从头-再来&#34; class=&#34;headerlink&#34; title=&#34;好像就似从头~再来&#34;&gt;&lt;/a&gt;好像就似从头~再来&lt;/h2&gt;&lt;h3 id=&#34;安装必要软件&#34;&gt;&lt;a href=&#34;#安装必要软件&#34; class=&#34;headerlink&#34; title=&#34;安装必要软件&#34;&gt;&lt;/a&gt;安装必要软件&lt;/h3&gt;&lt;p&gt;安装 Git、node JS&lt;/p&gt;
+&lt;h3 id=&#34;在-github-添加新电脑产生的密钥&#34;&gt;&lt;a href=&#34;#在-github-添加新电脑产生的密钥&#34; class=&#34;headerlink&#34; title=&#34;在 github 添加新电脑产生的密钥&#34;&gt;&lt;/a&gt;在 github 添加新电脑产生的密钥&lt;/h3&gt;&lt;p&gt;右键 -&amp;gt; Git Bash Here，&lt;strong&gt;设置用户名和邮箱&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git config --global user.name &amp;quot;GitHub 用户名&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git config --global user.email &amp;quot;GitHub 邮箱&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;创建 SSH 密匙&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;ssh-keygen -t rsa -C &amp;quot;GitHub 邮箱&amp;quot;&lt;/code&gt;，然后一路回车。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;添加密匙：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;进入 [C:\Users\用户名\.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。&lt;/p&gt;
+&lt;p&gt;登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。&lt;/p&gt;
+&lt;p&gt;Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;验证连接：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开 Git Bash，输入 &lt;code&gt;ssh -T git@github.com&lt;/code&gt; 出现 “Are you sure……”，输入 yes 回车确认。&lt;/p&gt;
+&lt;p&gt;显示 “Hi xxx! You’ve successfully……” 即连接成功。&lt;/p&gt;
+&lt;h3 id=&#34;部分文件拷贝&#34;&gt;&lt;a href=&#34;#部分文件拷贝&#34; class=&#34;headerlink&#34; title=&#34;部分文件拷贝&#34;&gt;&lt;/a&gt;部分文件拷贝&lt;/h3&gt;&lt;p&gt;将你原来电脑上个人博客目录下必要文件拷到你的新电脑上（比如F:/Blog目录下），注意无需拷全部，只拷如下几个目录：&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;.gitignore      #忽略同步&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;_config.yml     #全局配置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;package.json    #安装到Blog下的js库&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;scaffolds/      #模板文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;source/         #博客markdown源文件不上传到github&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;themes/         #主题、主题配置，hexo默认不同步到github&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;为什么是这些，这要从hexo的原理讲起。&lt;/p&gt;
+&lt;p&gt;观察Github中的文件、&lt;code&gt;hexo g&lt;/code&gt;的日志可以发现，渲染生成的页面在&lt;code&gt;public/&lt;/code&gt;，刚好与GitHub上完全一致&lt;/p&gt;
+&lt;p&gt;所以配置本地文件的目的，等价于让&lt;code&gt;hexo g&lt;/code&gt;生成的网页正常，即可保证迁移成功&lt;/p&gt;
+&lt;p&gt;再者，观察初次搭建博客时候的初始化命令，观察生成的文件&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo init&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Cloning into &lt;span class=&#34;string&#34;&gt;&#39;D:\test&#39;&lt;/span&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Submodule &lt;span class=&#34;string&#34;&gt;&#39;themes/landscape&#39;&lt;/span&gt; (https://github.com/hexojs/hexo-theme-landscape.git) registered &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; path &lt;span class=&#34;string&#34;&gt;&#39;themes/landscape&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Cloning into &lt;span class=&#34;string&#34;&gt;&#39;D:/test/themes/landscape&#39;&lt;/span&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Submodule path &lt;span class=&#34;string&#34;&gt;&#39;themes/landscape&#39;&lt;/span&gt;: checked out &lt;span class=&#34;string&#34;&gt;&#39;73a23c51f8487cfcd7c6deec96ccc7543960d350&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  Install dependencies&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  See you again&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;D:\TEST&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├─scaffolds&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├─source&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  └─_posts&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├─themes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  └─landscape&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│      ├─languages&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│      ├─layout&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│      ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|       &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└─node_modules&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    └─...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ├ ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          └─ ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;简单来说就相当于重新搭建，但是跳过了&lt;code&gt;hexo init&lt;/code&gt;步骤，手动初始化，沿用以前的配置、主题、插件，保留之前的博文&lt;/p&gt;
+&lt;h3 id=&#34;安装-hexo&#34;&gt;&lt;a href=&#34;#安装-hexo&#34; class=&#34;headerlink&#34; title=&#34;安装 hexo&#34;&gt;&lt;/a&gt;安装 hexo&lt;/h3&gt;&lt;p&gt;全局安装 hexo：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install hexo-cli -g&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;进入Blog目录，安装相关模块&#34;&gt;&lt;a href=&#34;#进入Blog目录，安装相关模块&#34; class=&#34;headerlink&#34; title=&#34;进入Blog目录，安装相关模块&#34;&gt;&lt;/a&gt;进入Blog目录，安装相关模块&lt;/h3&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm install hexo-deployer-git --save // 文章部署到 git 的模块&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;npm install&lt;/code&gt; (in package directory, no arguments):&lt;/p&gt;
+&lt;p&gt;  Install the dependencies in the local node_modules folder.&lt;/p&gt;
+&lt;p&gt;  In global mode (ie, with &lt;code&gt;-g&lt;/code&gt; or &lt;code&gt;--global&lt;/code&gt; appended to the command), it installs the current package context (ie, the current working directory) as a global package.&lt;/p&gt;
+&lt;p&gt;  By default, &lt;code&gt;npm install&lt;/code&gt; will install all modules listed as dependencies in &lt;code&gt;[package.json](https://docs.npmjs.com/files/package.json)&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;大功告成 \&amp;gt;&amp;lt;/&lt;/strong&gt;&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&t=关于Hexo转移那些事儿"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#放假回家，blogs怎么办-笑哭"><span class="toc-number">1.</span> <span class="toc-text">放假回家，blogs怎么办/笑哭</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#两个方向"><span class="toc-number">1.1.</span> <span class="toc-text">两个方向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#好像就似从头-再来"><span class="toc-number">1.2.</span> <span class="toc-text">好像就似从头~再来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装必要软件"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装必要软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-github-添加新电脑产生的密钥"><span class="toc-number">1.2.2.</span> <span class="toc-text">在 github 添加新电脑产生的密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部分文件拷贝"><span class="toc-number">1.2.3.</span> <span class="toc-text">部分文件拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-hexo"><span class="toc-number">1.2.4.</span> <span class="toc-text">安装 hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入Blog目录，安装相关模块"><span class="toc-number">1.2.5.</span> <span class="toc-text">进入Blog目录，安装相关模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">2.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        关于Hexo转移那些事儿
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-10T13:18:10.000Z" itemprop="datePublished">2020-01-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Hexo/">Hexo</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="放假回家，blogs怎么办-笑哭"><a href="#放假回家，blogs怎么办-笑哭" class="headerlink" title="放假回家，blogs怎么办/笑哭"></a>放假回家，blogs怎么办/笑哭</h1><p>两个电脑之间的同步和备份一直是一个老大难。又赶上放假回家……</p>
+<p>参考了前人经验，我就不再赘述。</p>
+<h2 id="两个方向"><a href="#两个方向" class="headerlink" title="两个方向"></a>两个方向</h2><ol>
+<li>手动复制文件，手动安装依赖，添加ssh密钥，好像在骗GitHub我没换电脑呀——简单粗暴易执行；</li>
+<li>利用git原本的功能，手动pull、push</li>
+</ol>
+<p>当然选择了第一个啦，记录一下</p>
+<h2 id="好像就似从头-再来"><a href="#好像就似从头-再来" class="headerlink" title="好像就似从头~再来"></a>好像就似从头~再来</h2><h3 id="安装必要软件"><a href="#安装必要软件" class="headerlink" title="安装必要软件"></a>安装必要软件</h3><p>安装 Git、node JS</p>
+<h3 id="在-github-添加新电脑产生的密钥"><a href="#在-github-添加新电脑产生的密钥" class="headerlink" title="在 github 添加新电脑产生的密钥"></a>在 github 添加新电脑产生的密钥</h3><p>右键 -&gt; Git Bash Here，<strong>设置用户名和邮箱</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建 SSH 密匙</strong>：</p>
+<p>输入 <code>ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code>，然后一路回车。</p>
+<p><strong>添加密匙：</strong></p>
+<p>进入 [C:\Users\用户名\.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
+<p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。</p>
+<p>Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。</p>
+<p><strong>验证连接：</strong></p>
+<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。</p>
+<p>显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
+<h3 id="部分文件拷贝"><a href="#部分文件拷贝" class="headerlink" title="部分文件拷贝"></a>部分文件拷贝</h3><p>将你原来电脑上个人博客目录下必要文件拷到你的新电脑上（比如F:/Blog目录下），注意无需拷全部，只拷如下几个目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.gitignore      #忽略同步</span><br><span class="line">_config.yml     #全局配置</span><br><span class="line">package.json    #安装到Blog下的js库</span><br><span class="line">scaffolds/      #模板文件</span><br><span class="line">source/         #博客markdown源文件不上传到github</span><br><span class="line">themes/         #主题、主题配置，hexo默认不同步到github</span><br></pre></td></tr></table></figure>
+
+<p>为什么是这些，这要从hexo的原理讲起。</p>
+<p>观察Github中的文件、<code>hexo g</code>的日志可以发现，渲染生成的页面在<code>public/</code>，刚好与GitHub上完全一致</p>
+<p>所以配置本地文件的目的，等价于让<code>hexo g</code>生成的网页正常，即可保证迁移成功</p>
+<p>再者，观察初次搭建博客时候的初始化命令，观察生成的文件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">Cloning into <span class="string">'D:\test'</span>...</span><br><span class="line">...</span><br><span class="line">Submodule <span class="string">'themes/landscape'</span> (https://github.com/hexojs/hexo-theme-landscape.git) registered <span class="keyword">for</span> path <span class="string">'themes/landscape'</span></span><br><span class="line">Cloning into <span class="string">'D:/test/themes/landscape'</span>...</span><br><span class="line">...</span><br><span class="line">Submodule path <span class="string">'themes/landscape'</span>: checked out <span class="string">'73a23c51f8487cfcd7c6deec96ccc7543960d350'</span></span><br><span class="line">INFO  Install dependencies</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">D:\TEST</span><br><span class="line">├─scaffolds</span><br><span class="line">├─source</span><br><span class="line">│  └─_posts</span><br><span class="line">├─themes</span><br><span class="line">│  └─landscape</span><br><span class="line">│      ├─languages</span><br><span class="line">│      ├─layout</span><br><span class="line">│      ...</span><br><span class="line">|       </span><br><span class="line">└─node_modules</span><br><span class="line">    └─...</span><br><span class="line">        ├ ...</span><br><span class="line">          └─ ...</span><br></pre></td></tr></table></figure>
+
+<p>简单来说就相当于重新搭建，但是跳过了<code>hexo init</code>步骤，手动初始化，沿用以前的配置、主题、插件，保留之前的博文</p>
+<h3 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h3><p>全局安装 hexo：</p>
+<p><code>npm install hexo-cli -g</code></p>
+<h3 id="进入Blog目录，安装相关模块"><a href="#进入Blog目录，安装相关模块" class="headerlink" title="进入Blog目录，安装相关模块"></a>进入Blog目录，安装相关模块</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save // 文章部署到 git 的模块</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>npm install</code> (in package directory, no arguments):</p>
+<p>  Install the dependencies in the local node_modules folder.</p>
+<p>  In global mode (ie, with <code>-g</code> or <code>--global</code> appended to the command), it installs the current package context (ie, the current working directory) as a global package.</p>
+<p>  By default, <code>npm install</code> will install all modules listed as dependencies in <code>[package.json](https://docs.npmjs.com/files/package.json)</code>.</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p><strong>大功告成 \&gt;&lt;/</strong></p>
+<a id="more"></a>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.cnblogs.com/study-everyday/p/8902136.html" target="_blank" rel="noopener">换了电脑如何使用hexo继续写博客</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/60578464" target="_blank" rel="noopener">搭建Blog完全指南：Hexo + Github Pages</a></p>
+<p><a href="https://docs.npmjs.com/cli/install" target="_blank" rel="noopener">npm install</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#放假回家，blogs怎么办-笑哭"><span class="toc-number">1.</span> <span class="toc-text">放假回家，blogs怎么办/笑哭</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#两个方向"><span class="toc-number">1.1.</span> <span class="toc-text">两个方向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#好像就似从头-再来"><span class="toc-number">1.2.</span> <span class="toc-text">好像就似从头~再来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装必要软件"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装必要软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-github-添加新电脑产生的密钥"><span class="toc-number">1.2.2.</span> <span class="toc-text">在 github 添加新电脑产生的密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部分文件拷贝"><span class="toc-number">1.2.3.</span> <span class="toc-text">部分文件拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-hexo"><span class="toc-number">1.2.4.</span> <span class="toc-text">安装 hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入Blog目录，安装相关模块"><span class="toc-number">1.2.5.</span> <span class="toc-text">进入Blog目录，安装相关模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">2.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&text=关于Hexo转移那些事儿"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&is_video=false&description=关于Hexo转移那些事儿"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于Hexo转移那些事儿&body=Check out this article: http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&title=关于Hexo转移那些事儿"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&name=关于Hexo转移那些事儿&description=&lt;h1 id=&#34;放假回家，blogs怎么办-笑哭&#34;&gt;&lt;a href=&#34;#放假回家，blogs怎么办-笑哭&#34; class=&#34;headerlink&#34; title=&#34;放假回家，blogs怎么办/笑哭&#34;&gt;&lt;/a&gt;放假回家，blogs怎么办/笑哭&lt;/h1&gt;&lt;p&gt;两个电脑之间的同步和备份一直是一个老大难。又赶上放假回家……&lt;/p&gt;
+&lt;p&gt;参考了前人经验，我就不再赘述。&lt;/p&gt;
+&lt;h2 id=&#34;两个方向&#34;&gt;&lt;a href=&#34;#两个方向&#34; class=&#34;headerlink&#34; title=&#34;两个方向&#34;&gt;&lt;/a&gt;两个方向&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;手动复制文件，手动安装依赖，添加ssh密钥，好像在骗GitHub我没换电脑呀——简单粗暴易执行；&lt;/li&gt;
+&lt;li&gt;利用git原本的功能，手动pull、push&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当然选择了第一个啦，记录一下&lt;/p&gt;
+&lt;h2 id=&#34;好像就似从头-再来&#34;&gt;&lt;a href=&#34;#好像就似从头-再来&#34; class=&#34;headerlink&#34; title=&#34;好像就似从头~再来&#34;&gt;&lt;/a&gt;好像就似从头~再来&lt;/h2&gt;&lt;h3 id=&#34;安装必要软件&#34;&gt;&lt;a href=&#34;#安装必要软件&#34; class=&#34;headerlink&#34; title=&#34;安装必要软件&#34;&gt;&lt;/a&gt;安装必要软件&lt;/h3&gt;&lt;p&gt;安装 Git、node JS&lt;/p&gt;
+&lt;h3 id=&#34;在-github-添加新电脑产生的密钥&#34;&gt;&lt;a href=&#34;#在-github-添加新电脑产生的密钥&#34; class=&#34;headerlink&#34; title=&#34;在 github 添加新电脑产生的密钥&#34;&gt;&lt;/a&gt;在 github 添加新电脑产生的密钥&lt;/h3&gt;&lt;p&gt;右键 -&amp;gt; Git Bash Here，&lt;strong&gt;设置用户名和邮箱&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git config --global user.name &amp;quot;GitHub 用户名&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git config --global user.email &amp;quot;GitHub 邮箱&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;创建 SSH 密匙&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;ssh-keygen -t rsa -C &amp;quot;GitHub 邮箱&amp;quot;&lt;/code&gt;，然后一路回车。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;添加密匙：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;进入 [C:\Users\用户名\.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。&lt;/p&gt;
+&lt;p&gt;登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。&lt;/p&gt;
+&lt;p&gt;Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;验证连接：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开 Git Bash，输入 &lt;code&gt;ssh -T git@github.com&lt;/code&gt; 出现 “Are you sure……”，输入 yes 回车确认。&lt;/p&gt;
+&lt;p&gt;显示 “Hi xxx! You’ve successfully……” 即连接成功。&lt;/p&gt;
+&lt;h3 id=&#34;部分文件拷贝&#34;&gt;&lt;a href=&#34;#部分文件拷贝&#34; class=&#34;headerlink&#34; title=&#34;部分文件拷贝&#34;&gt;&lt;/a&gt;部分文件拷贝&lt;/h3&gt;&lt;p&gt;将你原来电脑上个人博客目录下必要文件拷到你的新电脑上（比如F:/Blog目录下），注意无需拷全部，只拷如下几个目录：&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;.gitignore      #忽略同步&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;_config.yml     #全局配置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;package.json    #安装到Blog下的js库&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;scaffolds/      #模板文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;source/         #博客markdown源文件不上传到github&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;themes/         #主题、主题配置，hexo默认不同步到github&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;为什么是这些，这要从hexo的原理讲起。&lt;/p&gt;
+&lt;p&gt;观察Github中的文件、&lt;code&gt;hexo g&lt;/code&gt;的日志可以发现，渲染生成的页面在&lt;code&gt;public/&lt;/code&gt;，刚好与GitHub上完全一致&lt;/p&gt;
+&lt;p&gt;所以配置本地文件的目的，等价于让&lt;code&gt;hexo g&lt;/code&gt;生成的网页正常，即可保证迁移成功&lt;/p&gt;
+&lt;p&gt;再者，观察初次搭建博客时候的初始化命令，观察生成的文件&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo init&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Cloning into &lt;span class=&#34;string&#34;&gt;&#39;D:\test&#39;&lt;/span&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Submodule &lt;span class=&#34;string&#34;&gt;&#39;themes/landscape&#39;&lt;/span&gt; (https://github.com/hexojs/hexo-theme-landscape.git) registered &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; path &lt;span class=&#34;string&#34;&gt;&#39;themes/landscape&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Cloning into &lt;span class=&#34;string&#34;&gt;&#39;D:/test/themes/landscape&#39;&lt;/span&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Submodule path &lt;span class=&#34;string&#34;&gt;&#39;themes/landscape&#39;&lt;/span&gt;: checked out &lt;span class=&#34;string&#34;&gt;&#39;73a23c51f8487cfcd7c6deec96ccc7543960d350&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  Install dependencies&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  See you again&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;D:\TEST&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├─scaffolds&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├─source&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  └─_posts&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├─themes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  └─landscape&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│      ├─languages&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│      ├─layout&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│      ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|       &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└─node_modules&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    └─...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ├ ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          └─ ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;简单来说就相当于重新搭建，但是跳过了&lt;code&gt;hexo init&lt;/code&gt;步骤，手动初始化，沿用以前的配置、主题、插件，保留之前的博文&lt;/p&gt;
+&lt;h3 id=&#34;安装-hexo&#34;&gt;&lt;a href=&#34;#安装-hexo&#34; class=&#34;headerlink&#34; title=&#34;安装 hexo&#34;&gt;&lt;/a&gt;安装 hexo&lt;/h3&gt;&lt;p&gt;全局安装 hexo：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install hexo-cli -g&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;进入Blog目录，安装相关模块&#34;&gt;&lt;a href=&#34;#进入Blog目录，安装相关模块&#34; class=&#34;headerlink&#34; title=&#34;进入Blog目录，安装相关模块&#34;&gt;&lt;/a&gt;进入Blog目录，安装相关模块&lt;/h3&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm install hexo-deployer-git --save // 文章部署到 git 的模块&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;npm install&lt;/code&gt; (in package directory, no arguments):&lt;/p&gt;
+&lt;p&gt;  Install the dependencies in the local node_modules folder.&lt;/p&gt;
+&lt;p&gt;  In global mode (ie, with &lt;code&gt;-g&lt;/code&gt; or &lt;code&gt;--global&lt;/code&gt; appended to the command), it installs the current package context (ie, the current working directory) as a global package.&lt;/p&gt;
+&lt;p&gt;  By default, &lt;code&gt;npm install&lt;/code&gt; will install all modules listed as dependencies in &lt;code&gt;[package.json](https://docs.npmjs.com/files/package.json)&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;大功告成 \&amp;gt;&amp;lt;/&lt;/strong&gt;&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/10/关于Hexo转移那些事儿/&t=关于Hexo转移那些事儿"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

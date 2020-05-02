@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>JS Slides</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/03/01/IO_FILE/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/02/07/WHY BLOG/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/08/JS Slides/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/08/JS Slides/&text=JS Slides"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/08/JS Slides/&is_video=false&description=JS Slides"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JS Slides&body=Check out this article: http://yoursite.com/2020/02/08/JS Slides/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/08/JS Slides/&name=JS Slides&description=&lt;h1 id=&#34;JS-Slides&#34;&gt;&lt;a href=&#34;#JS-Slides&#34; class=&#34;headerlink&#34; title=&#34;JS Slides&#34;&gt;&lt;/a&gt;JS Slides&lt;/h1&gt;&lt;p&gt;之前看winesap大佬的课，看到大佬做的slides就十分心水，尤其是讲解Heap过程中，record&amp;amp;trace了内存空间的变化并简洁的复现到HTML上，清晰&amp;amp;炫酷——十分好懂&lt;/p&gt;
+&lt;p&gt;后来各种前端、神设计——跪感十足，遂学习JS&lt;/p&gt;
+&lt;p&gt;学以致用、以用促学，我发现了好多JS库可以简单实现我想要的功能，哇哦，I can really dance！&lt;/p&gt;
+&lt;h2 id=&#34;需求&#34;&gt;&lt;a href=&#34;#需求&#34; class=&#34;headerlink&#34; title=&#34;需求&#34;&gt;&lt;/a&gt;需求&lt;/h2&gt;&lt;p&gt;最近录一个小课，可以试试制作效果炸裂的JS slides，更容易理解同时也方便在博客中符加展示&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以顺滑的切换←↑↓→&lt;/li&gt;
+&lt;li&gt;风格类似Markdown，最好直接支持Markdown语法（省事）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;选择模块&#34;&gt;&lt;a href=&#34;#选择模块&#34; class=&#34;headerlink&#34; title=&#34;选择模块&#34;&gt;&lt;/a&gt;选择模块&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/impress/impress.js&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impress.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;突破传统边框束缚，全图切换，效果炫酷炸裂，甚至支持3D（比较心水的）；支持演示者模式&lt;/li&gt;
+&lt;li&gt;不足：有点花里胡哨，使用较为复杂，风格适合 词云、极简风，没有内容慎用，容易喧宾夺主华而不实&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;http://impress.js.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://impress.js.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/imakewebthings/deck.js&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;deck.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;偏向传统横向ppt，不太markdown&lt;/li&gt;
+&lt;li&gt;制作复杂，从底层写JS生成元素&lt;/li&gt;
+&lt;li&gt;太久不维护，五年了&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;http://imakewebthings.com/deck.js/introduction/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://imakewebthings.com/deck.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hakimel/reveal.js&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reveal.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;跟想象中的最接近，极简风，全屏无框，效果简洁不花哨，支持上下左右滑动切换；额外附赠&lt;code&gt;alt+click&lt;/code&gt;放大功能（贴心）；Markdown式用法，简单又兼容；还支持在线编辑；支持元素的特殊效果：渐入渐出，四方位平移，特性改变（颜色大小等HTML元素特性）；还有一个超好的特性，兼容插入Web内容到某一页作为背景，还是可以交互的，slide变成了一个悬浮前景frame；支持演示者模式&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;https://revealjs.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://revealjs.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gnab/remark&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;remark.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;极简部署，超兼容Markdown；支持演示者模式：注释、下一张幻灯片预览、时间&lt;/li&gt;
+&lt;li&gt;不支持上下左右滑动切换，切换效果较简单；只支持整张幻灯片，不支持元素分别出现&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;http://remarkjs.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;remarkjs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marp-team/marp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Marp&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;较为完备的Markdown Slides 平台，设计为易于在Github Pages上展示，支持 VS code 插件，制作方便；支持各种主题，支持KaTeX公式；&lt;/li&gt;
+&lt;li&gt;较为庞大，是一个Marp生态；主题设置较为繁琐&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;https://marp.app/#get-started&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Marp.app&lt;/a&gt; / &lt;a href=&#34;https://yhatt-marp-cli-example.netlify.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Marp-cli-example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/08/JS Slides/&t=JS Slides"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS-Slides"><span class="toc-number">1.</span> <span class="toc-text">JS Slides</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求"><span class="toc-number">1.1.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择模块"><span class="toc-number">1.2.</span> <span class="toc-text">选择模块</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        JS Slides
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-02-08T14:40:13.000Z" itemprop="datePublished">2020-02-08</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="JS-Slides"><a href="#JS-Slides" class="headerlink" title="JS Slides"></a>JS Slides</h1><p>之前看winesap大佬的课，看到大佬做的slides就十分心水，尤其是讲解Heap过程中，record&amp;trace了内存空间的变化并简洁的复现到HTML上，清晰&amp;炫酷——十分好懂</p>
+<p>后来各种前端、神设计——跪感十足，遂学习JS</p>
+<p>学以致用、以用促学，我发现了好多JS库可以简单实现我想要的功能，哇哦，I can really dance！</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>最近录一个小课，可以试试制作效果炸裂的JS slides，更容易理解同时也方便在博客中符加展示</p>
+<ul>
+<li>可以顺滑的切换←↑↓→</li>
+<li>风格类似Markdown，最好直接支持Markdown语法（省事）</li>
+</ul>
+<h2 id="选择模块"><a href="#选择模块" class="headerlink" title="选择模块"></a>选择模块</h2><ul>
+<li><a href="https://github.com/impress/impress.js" target="_blank" rel="noopener">impress.js</a><ul>
+<li>突破传统边框束缚，全图切换，效果炫酷炸裂，甚至支持3D（比较心水的）；支持演示者模式</li>
+<li>不足：有点花里胡哨，使用较为复杂，风格适合 词云、极简风，没有内容慎用，容易喧宾夺主华而不实</li>
+<li>Demo: <a href="http://impress.js.org" target="_blank" rel="noopener">http://impress.js.org</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/imakewebthings/deck.js" target="_blank" rel="noopener">deck.js</a><ul>
+<li>偏向传统横向ppt，不太markdown</li>
+<li>制作复杂，从底层写JS生成元素</li>
+<li>太久不维护，五年了</li>
+<li>Demo: <a href="http://imakewebthings.com/deck.js/introduction/" target="_blank" rel="noopener">http://imakewebthings.com/deck.js</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/hakimel/reveal.js" target="_blank" rel="noopener">reveal.js</a><ul>
+<li>跟想象中的最接近，极简风，全屏无框，效果简洁不花哨，支持上下左右滑动切换；额外附赠<code>alt+click</code>放大功能（贴心）；Markdown式用法，简单又兼容；还支持在线编辑；支持元素的特殊效果：渐入渐出，四方位平移，特性改变（颜色大小等HTML元素特性）；还有一个超好的特性，兼容插入Web内容到某一页作为背景，还是可以交互的，slide变成了一个悬浮前景frame；支持演示者模式</li>
+<li>Demo: <a href="https://revealjs.com" target="_blank" rel="noopener">https://revealjs.com</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/gnab/remark" target="_blank" rel="noopener">remark.js</a><ul>
+<li>极简部署，超兼容Markdown；支持演示者模式：注释、下一张幻灯片预览、时间</li>
+<li>不支持上下左右滑动切换，切换效果较简单；只支持整张幻灯片，不支持元素分别出现</li>
+<li>Demo: <a href="http://remarkjs.com" target="_blank" rel="noopener">remarkjs</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/marp-team/marp/" target="_blank" rel="noopener">Marp</a><ul>
+<li>较为完备的Markdown Slides 平台，设计为易于在Github Pages上展示，支持 VS code 插件，制作方便；支持各种主题，支持KaTeX公式；</li>
+<li>较为庞大，是一个Marp生态；主题设置较为繁琐</li>
+<li>Demo: <a href="https://marp.app/#get-started" target="_blank" rel="noopener">Marp.app</a> / <a href="https://yhatt-marp-cli-example.netlify.com/" target="_blank" rel="noopener">Marp-cli-example</a></li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS-Slides"><span class="toc-number">1.</span> <span class="toc-text">JS Slides</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求"><span class="toc-number">1.1.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择模块"><span class="toc-number">1.2.</span> <span class="toc-text">选择模块</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/08/JS Slides/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/08/JS Slides/&text=JS Slides"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/08/JS Slides/&is_video=false&description=JS Slides"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JS Slides&body=Check out this article: http://yoursite.com/2020/02/08/JS Slides/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/08/JS Slides/&title=JS Slides"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/08/JS Slides/&name=JS Slides&description=&lt;h1 id=&#34;JS-Slides&#34;&gt;&lt;a href=&#34;#JS-Slides&#34; class=&#34;headerlink&#34; title=&#34;JS Slides&#34;&gt;&lt;/a&gt;JS Slides&lt;/h1&gt;&lt;p&gt;之前看winesap大佬的课，看到大佬做的slides就十分心水，尤其是讲解Heap过程中，record&amp;amp;trace了内存空间的变化并简洁的复现到HTML上，清晰&amp;amp;炫酷——十分好懂&lt;/p&gt;
+&lt;p&gt;后来各种前端、神设计——跪感十足，遂学习JS&lt;/p&gt;
+&lt;p&gt;学以致用、以用促学，我发现了好多JS库可以简单实现我想要的功能，哇哦，I can really dance！&lt;/p&gt;
+&lt;h2 id=&#34;需求&#34;&gt;&lt;a href=&#34;#需求&#34; class=&#34;headerlink&#34; title=&#34;需求&#34;&gt;&lt;/a&gt;需求&lt;/h2&gt;&lt;p&gt;最近录一个小课，可以试试制作效果炸裂的JS slides，更容易理解同时也方便在博客中符加展示&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以顺滑的切换←↑↓→&lt;/li&gt;
+&lt;li&gt;风格类似Markdown，最好直接支持Markdown语法（省事）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;选择模块&#34;&gt;&lt;a href=&#34;#选择模块&#34; class=&#34;headerlink&#34; title=&#34;选择模块&#34;&gt;&lt;/a&gt;选择模块&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/impress/impress.js&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impress.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;突破传统边框束缚，全图切换，效果炫酷炸裂，甚至支持3D（比较心水的）；支持演示者模式&lt;/li&gt;
+&lt;li&gt;不足：有点花里胡哨，使用较为复杂，风格适合 词云、极简风，没有内容慎用，容易喧宾夺主华而不实&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;http://impress.js.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://impress.js.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/imakewebthings/deck.js&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;deck.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;偏向传统横向ppt，不太markdown&lt;/li&gt;
+&lt;li&gt;制作复杂，从底层写JS生成元素&lt;/li&gt;
+&lt;li&gt;太久不维护，五年了&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;http://imakewebthings.com/deck.js/introduction/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://imakewebthings.com/deck.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hakimel/reveal.js&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reveal.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;跟想象中的最接近，极简风，全屏无框，效果简洁不花哨，支持上下左右滑动切换；额外附赠&lt;code&gt;alt+click&lt;/code&gt;放大功能（贴心）；Markdown式用法，简单又兼容；还支持在线编辑；支持元素的特殊效果：渐入渐出，四方位平移，特性改变（颜色大小等HTML元素特性）；还有一个超好的特性，兼容插入Web内容到某一页作为背景，还是可以交互的，slide变成了一个悬浮前景frame；支持演示者模式&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;https://revealjs.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://revealjs.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gnab/remark&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;remark.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;极简部署，超兼容Markdown；支持演示者模式：注释、下一张幻灯片预览、时间&lt;/li&gt;
+&lt;li&gt;不支持上下左右滑动切换，切换效果较简单；只支持整张幻灯片，不支持元素分别出现&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;http://remarkjs.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;remarkjs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marp-team/marp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Marp&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;较为完备的Markdown Slides 平台，设计为易于在Github Pages上展示，支持 VS code 插件，制作方便；支持各种主题，支持KaTeX公式；&lt;/li&gt;
+&lt;li&gt;较为庞大，是一个Marp生态；主题设置较为繁琐&lt;/li&gt;
+&lt;li&gt;Demo: &lt;a href=&#34;https://marp.app/#get-started&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Marp.app&lt;/a&gt; / &lt;a href=&#34;https://yhatt-marp-cli-example.netlify.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Marp-cli-example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/08/JS Slides/&t=JS Slides"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

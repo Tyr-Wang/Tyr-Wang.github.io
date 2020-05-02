@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>安全技术和个人生活随笔</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/02/双拼/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/04/10/Word Tricks/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/02/python_tricks/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/02/python_tricks/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/02/python_tricks/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/05/02/python_tricks/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/02/python_tricks/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/02/python_tricks/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-tricks"><span class="toc-number">1.</span> <span class="toc-text">python_tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#python-工具"><span class="toc-number">1.1.</span> <span class="toc-text">python 工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#virtualenv"><span class="toc-number">1.1.1.</span> <span class="toc-text">virtualenv</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小结"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">小结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指定版本"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">指定版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pip"><span class="toc-number">1.1.2.</span> <span class="toc-text">pip</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#requirements"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">requirements</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#specific-editions"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">specific editions</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pyinstaller"><span class="toc-number">1.1.3.</span> <span class="toc-text">pyinstaller</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#坑"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">坑</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-02T14:23:21.410Z" itemprop="datePublished">2020-05-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="python-tricks"><a href="#python-tricks" class="headerlink" title="python_tricks"></a>python_tricks</h1><h2 id="python-工具"><a href="#python-工具" class="headerlink" title="python 工具"></a>python 工具</h2><h3 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h3><p>在开发Python应用程序的时候，系统安装的Python3只有一个版本：3.4。所有第三方的包都会被<code>pip</code>安装到Python3的<code>site-packages</code>目录下。</p>
+<p>如果我们要同时开发多个应用程序，那这些应用程序都会共用一个Python，就是安装在系统的Python 3。如果应用A需要xxxlib 2.7，而应用B需要xxxlib 2.6怎么办？</p>
+<p>这种情况下，每个应用可能需要各自拥有一套“独立”的Python运行环境。virtualenv就是用来为一个应用创建一套“隔离”的Python运行环境。</p>
+<p>首先，我们用<code>pip</code>安装virtualenv：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install virtualenv</span><br></pre></td></tr></table></figure>
+
+<p>然后，假定我们要开发一个新的项目，需要一套独立的Python运行环境，可以这么做：</p>
+<p>第一步，创建目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~ User$ mkdir myproject</span><br><span class="line">~ User$ cd myproject/</span><br><span class="line">User$</span><br></pre></td></tr></table></figure>
+
+<p>第二步，创建一个独立的Python运行环境，命名为<code>venv</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User$ virtualenv --no-site-packages venv</span><br><span class="line">Using base prefix &apos;/usr/local/.../Python.framework/Versions/3.4&apos;</span><br><span class="line">New python executable in venv/bin/python3.4</span><br><span class="line">Also creating executable in venv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure>
+
+<p>命令<code>virtualenv</code>就可以创建一个独立的Python运行环境，我们还加上了参数<code>--no-site-packages</code>，这样，已经安装到系统Python环境中的所有第三方包都不会复制过来，这样，我们就得到了一个不带任何第三方包的“干净”的Python运行环境。</p>
+<p>新建的Python环境被放到当前目录下的<code>venv</code>目录。有了<code>venv</code>这个Python环境，可以用<code>source</code>进入该环境：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User$ source venv/bin/activate</span><br><span class="line">(venv)User$</span><br></pre></td></tr></table></figure>
+
+<p>注意到命令提示符变了，有个<code>(venv)</code>前缀，表示当前环境是一个名为<code>venv</code>的Python环境。</p>
+<p>下面正常安装各种第三方包，并运行<code>python</code>命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(venv)User$ pip install xxxlib2</span><br><span class="line">...</span><br><span class="line">Successfully installed xxxlib2-2.7.3</span><br><span class="line">(venv)User$ python myapp.py</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>在<code>venv</code>环境下，用<code>pip</code>安装的包都被安装到<code>venv</code>这个环境下，系统Python环境不受任何影响。也就是说，<code>venv</code>环境是专门针对<code>myproject</code>这个应用创建的。</p>
+<p>退出当前的<code>venv</code>环境，使用<code>deactivate</code>命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(venv)User$ deactivate </span><br><span class="line">User$</span><br></pre></td></tr></table></figure>
+
+<p>此时就回到了正常的环境，现在<code>pip</code>或<code>python</code>均是在系统Python环境下执行。</p>
+<p>完全可以针对每个应用创建独立的Python运行环境，这样就可以对每个应用的Python环境进行隔离。</p>
+<p>virtualenv是如何创建“独立”的Python运行环境的呢？原理很简单，就是把系统Python复制一份到virtualenv的环境，用命令<code>source venv/bin/activate</code>进入一个virtualenv环境时，virtualenv会修改相关环境变量，让命令<code>python</code>和<code>pip</code>均指向当前的virtualenv环境。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>virtualenv为应用提供了隔离的Python运行环境，解决了不同应用间多版本的冲突问题。</p>
+<h4 id="指定版本"><a href="#指定版本" class="headerlink" title="指定版本"></a>指定版本</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#创建python2.7虚拟环境</span><br><span class="line">virtualenv -p /usr/bin/python2.7 ENV2.7</span><br></pre></td></tr></table></figure>
+
+<p>参数–no-site-packages，这样，已经安装到系统Python环境中的所有第三方包都不会复制过来，这样，我们就得到了一个不带任何第三方包的“干净”的Python运行环境。</p>
+<h3 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h3><h4 id="requirements"><a href="#requirements" class="headerlink" title="requirements"></a>requirements</h4><p>在虚拟环境中使用pip生成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(venv) $ pip freeze &gt;requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>安装依赖：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(venv) $ pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="specific-editions"><a href="#specific-editions" class="headerlink" title="specific editions"></a>specific editions</h4><p>版本范围符号：==、&gt;=、&lt;=、&gt;、&lt;。</p>
+<ul>
+<li>单个安装示例：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install xxxlib                   <span class="comment">#不指定版本号，安装可用的最新版本</span></span><br><span class="line">pip install <span class="string">"xxxlib==2.7"</span>            <span class="comment">#指定版本号2.7</span></span><br><span class="line">pip install <span class="string">"xxxlib&gt;2.0,&lt;3.0"</span>        <span class="comment">#(2.0,3.0)之间的最新版本</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用requirement.txt安装多个，文件内容实例如下。（pip install -r requirement.txt）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># requirement.txt</span></span><br><span class="line">requests&gt;<span class="number">2.5</span>,&lt;<span class="number">3.0</span>    <span class="comment">#(2.5,3.0)之间的最新版本</span></span><br><span class="line">cchardet         <span class="comment">#不指定版本号，安装可用的最新版本</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>国内 pip 镜像：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 豆瓣</span></span><br><span class="line">pip3 install psutil -i https://pypi.doubanio.com/simple/</span><br><span class="line"><span class="comment"># 阿里云</span></span><br><span class="line">pip3 install psutil -i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+<h3 id="pyinstaller"><a href="#pyinstaller" class="headerlink" title="pyinstaller"></a>pyinstaller</h3><h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><ul>
+<li>No module named ‘pkg_resources.py2_warn’</li>
+</ul>
+<p>:::alert-info</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"site-packages\PyInstaller\loader\rthooks\pyi_rth_pkgres.py"</span>, line <span class="number">13</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">"c:\code\py\risk\uic\exe\eee\lib\site-packages\PyInstaller\loader\pyimod03_importers.py"</span>, line <span class="number">623</span>, <span class="keyword">in</span> exec_module</span><br><span class="line">    exec(bytecode, module.__dict__)</span><br><span class="line">  File <span class="string">"site-packages\pkg_resources\__init__.py"</span>, line <span class="number">86</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ImportError: No module named <span class="string">'pkg_resources.py2_warn'</span></span><br><span class="line">[<span class="number">3244</span>] Failed to execute script pyi_rth_pkgres</span><br></pre></td></tr></table></figure>
+
+<p>:::</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pip uninstaller setuptools</span><br><span class="line">pip installer setuptools==44.0.0</span><br><span class="line"><span class="comment">#对setuptools进行降级处理，可能有些功能不能使用</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.51cto.com/cfy10/2468597" target="_blank" rel="noopener">https://blog.51cto.com/cfy10/2468597</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-tricks"><span class="toc-number">1.</span> <span class="toc-text">python_tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#python-工具"><span class="toc-number">1.1.</span> <span class="toc-text">python 工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#virtualenv"><span class="toc-number">1.1.1.</span> <span class="toc-text">virtualenv</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小结"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">小结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指定版本"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">指定版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pip"><span class="toc-number">1.1.2.</span> <span class="toc-text">pip</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#requirements"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">requirements</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#specific-editions"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">specific editions</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pyinstaller"><span class="toc-number">1.1.3.</span> <span class="toc-text">pyinstaller</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#坑"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">坑</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/02/python_tricks/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/02/python_tricks/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/02/python_tricks/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/05/02/python_tricks/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/02/python_tricks/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/02/python_tricks/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/02/python_tricks/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>复利 —— an Amazing Power</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/02/06/Hexo & 扩展、美化/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/01/28/glibc-source&dbg/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/05/复利、指数爆炸与e/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&text=复利 —— an Amazing Power"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&is_video=false&description=复利 —— an Amazing Power"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=复利 —— an Amazing Power&body=Check out this article: http://yoursite.com/2020/02/05/复利、指数爆炸与e/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&name=复利 —— an Amazing Power&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&t=复利 —— an Amazing Power"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#复利-——-an-Amazing-Power"><span class="toc-number">1.</span> <span class="toc-text">复利 —— an Amazing Power</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复利"><span class="toc-number">1.1.</span> <span class="toc-text">复利</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自然对数的底"><span class="toc-number">1.1.1.</span> <span class="toc-text">自然对数的底</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存一年的钱钱（实际利率计算）"><span class="toc-number">1.1.2.</span> <span class="toc-text">存一年的钱钱（实际利率计算）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复利的阴谋"><span class="toc-number">1.2.</span> <span class="toc-text">复利的阴谋</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一桶金不如开源节流"><span class="toc-number">1.2.1.</span> <span class="toc-text">第一桶金不如开源节流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我们能活多久？"><span class="toc-number">1.2.2.</span> <span class="toc-text">我们能活多久？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收益与风险并存"><span class="toc-number">1.2.3.</span> <span class="toc-text">收益与风险并存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ref"><span class="toc-number">1.3.</span> <span class="toc-text">Ref</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        复利 —— an Amazing Power
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-02-05T08:15:05.000Z" itemprop="datePublished">2020-02-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="复利-——-an-Amazing-Power"><a href="#复利-——-an-Amazing-Power" class="headerlink" title="复利 —— an Amazing Power"></a>复利 —— an Amazing Power</h1><h2 id="复利"><a href="#复利" class="headerlink" title="复利"></a>复利</h2><blockquote>
+<p>复利是世界上第八大奇迹，它的威力甚至超过了原子弹</p>
+<p>—— 爱因斯坦</p>
+</blockquote>
+<p>高中的时候，老板给我们撒鸡汤：你每天比别人多努力1%，一年就能比别人优秀(1.01)^365=37.783=3783%</p>
+<p>我向来对鸡汤嗤之以鼻，何况是老板亲自撒的。但是，这个式子的结果确实给我留下了深刻的印象</p>
+<h3 id="自然对数的底"><a href="#自然对数的底" class="headerlink" title="自然对数的底"></a>自然对数的底</h3><p>自然对数的底，e，又叫欧拉数</p>
+<p>刚接触它时，我就对它的存在产生了无尽的好奇——为什么毫不相关的事物、原理、公式、规律、甚至是某种花的分形规律都恰好跟这么一个看上去一点也不特别的数有关系，2.718281828459045……<br>课后的拓展阅读说‘自然’底数，在自然界中到处都有它的身影</p>
+<p>第一次把e看为常数的是雅各布·伯努利，他尝试计算下式的值：</p>
+<p>$$<br>\lim_{n\to\infty} \left(1+\frac{1}{n}\right)^n<br>$$</p>
+<p>当n趋近无穷大的时候，$(1+1/n)^n=e$<br>另一种方便的计算的方法就是对指数函数$f(x)=e^x$泰勒展开</p>
+<p>$$<br>{e^x =1+x+{\frac {x^{2}}{2!}}+{\frac {x^{3}}{3!}}+…}<br>$$</p>
+<p>再代入x=1，可以得到不断逼近的e值</p>
+<h3 id="存一年的钱钱（实际利率计算）"><a href="#存一年的钱钱（实际利率计算）" class="headerlink" title="存一年的钱钱（实际利率计算）"></a>存一年的钱钱（实际利率计算）</h3><p>设：本金 PV，最后的钱钱 FV，（名义）利率 r，复利次数 n</p>
+<p>获得的小钱钱它们之间满足这样一个关系：</p>
+<p>$$<br>PV×(1+r/n)^n=FV<br>$$</p>
+<p>单利不用想，即令n = 1，$FV=(1+r)×PV$</p>
+<p>代入2、3、4、12（每月复利）、365（每日复利）……发现真的复利次数越多，钱钱就变多了；</p>
+<p>那我要是无限复利会不会有钱到爆炸？</p>
+<p>那就要回忆一下高数中的<strong>夹逼准则</strong>和<strong>两个重要极限</strong>了，单调有界数列必然存在极限……不想听了吧，那给结论：</p>
+<p>当n趋于无穷时，$FV=PV×e^r$<a href="[夹逼准则证明第二个重要极限](https://www.zhihu.com/question/51427107/answer/305160256)">^1</a></p>
+<p>看来复利是个有上界的增函数，而且界并不是很高嘛（存余额宝利息都买不起小裙裙（我不是女装大佬））</p>
+<p>但是连续复利它跟这个利率关系很大（指数相关），如果这个利息比较高的话，那么连续复利就比普通利息要高出很多了（比如高利贷，1倍变近3倍）</p>
+<h2 id="复利的阴谋"><a href="#复利的阴谋" class="headerlink" title="复利的阴谋"></a>复利的阴谋</h2><p>复利强大力量的本质——本金、时间、正利率</p>
+<p>但是，如同阿克琉斯之踵，没有什么是完美、没有弱点的——复利也一样</p>
+<p>三个特征对应着三个BUG——前期低增长、有限的复利次数、不可把控的正利率</p>
+<p>美好的想象只存在于童话，现实教我们做人</p>
+<h3 id="第一桶金不如开源节流"><a href="#第一桶金不如开源节流" class="headerlink" title="第一桶金不如开源节流"></a>第一桶金不如开源节流</h3><blockquote>
+<p>人们往往高估短期收益、低估长期收益，忽视时间的力量</p>
+<p>——《和时间做朋友》</p>
+</blockquote>
+<p>人们喜欢拿国王和棋手的故事来凸显“感官上的夸张”，却往往忽视了前期的低增长。</p>
+<p>手头上有100块零花钱，想要存余额宝连续复利变出两百块？那也要5-10年<br>还不如少被消费主义洗脑，记个帐——<strong>节流</strong>；<br>当我们手里有了第一桶金，想要存进xx理财按月复利变成百万富翁？洗洗睡吧<br>不如投资自己，学习技能，挣出第二桶金——<strong>开源</strong>。</p>
+<p>当然，不是说只有小钱钱就不让投资<br>毕竟，学习投资也是必不可少。</p>
+<h3 id="我们能活多久？"><a href="#我们能活多久？" class="headerlink" title="我们能活多久？"></a>我们能活多久？</h3><p>动不动就代入（100-年龄）也是被钱钱蒙蔽了双眼，不说能不能活到一百，到了那个岁数还想钱？想怎么带天上？</p>
+<h3 id="收益与风险并存"><a href="#收益与风险并存" class="headerlink" title="收益与风险并存"></a>收益与风险并存</h3><p>现在的社会节奏快、日常焦虑贩卖，急功近利加上人性的贪婪，人们总是想要一夜暴富、投机&gt;投资</p>
+<p>复利也是如此，高利率复利的确会带来高收益，可是保证正利率哪有这么简单，除了少得可怜的债券和货币基金，谁又能保证稳赚不亏</p>
+<p>而一旦亏损一次，可能之前数年的努力便付诸东流。所以，冷静吧，骚年。为了走上人生巅峰，不是公式代入豪车别墅、80年和手上的1000块反推每年要多少利率，而是该适当降低一下所谓”人生巅峰“</p>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#复利-——-an-Amazing-Power"><span class="toc-number">1.</span> <span class="toc-text">复利 —— an Amazing Power</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复利"><span class="toc-number">1.1.</span> <span class="toc-text">复利</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自然对数的底"><span class="toc-number">1.1.1.</span> <span class="toc-text">自然对数的底</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存一年的钱钱（实际利率计算）"><span class="toc-number">1.1.2.</span> <span class="toc-text">存一年的钱钱（实际利率计算）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复利的阴谋"><span class="toc-number">1.2.</span> <span class="toc-text">复利的阴谋</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一桶金不如开源节流"><span class="toc-number">1.2.1.</span> <span class="toc-text">第一桶金不如开源节流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我们能活多久？"><span class="toc-number">1.2.2.</span> <span class="toc-text">我们能活多久？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收益与风险并存"><span class="toc-number">1.2.3.</span> <span class="toc-text">收益与风险并存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ref"><span class="toc-number">1.3.</span> <span class="toc-text">Ref</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/05/复利、指数爆炸与e/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&text=复利 —— an Amazing Power"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&is_video=false&description=复利 —— an Amazing Power"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=复利 —— an Amazing Power&body=Check out this article: http://yoursite.com/2020/02/05/复利、指数爆炸与e/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&title=复利 —— an Amazing Power"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&name=复利 —— an Amazing Power&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/05/复利、指数爆炸与e/&t=复利 —— an Amazing Power"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

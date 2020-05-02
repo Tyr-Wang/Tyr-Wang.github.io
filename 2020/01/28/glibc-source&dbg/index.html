@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>glibc-source&amp;dbg</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/02/05/复利、指数爆炸与e/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/01/22/Use MuseScore making drum sheets/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&text=glibc-source&amp;dbg"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&is_video=false&description=glibc-source&amp;dbg"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=glibc-source&amp;dbg&body=Check out this article: http://yoursite.com/2020/01/28/glibc-source&amp;dbg/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&name=glibc-source&amp;dbg&description=&lt;h1 id=&#34;glibc-source-amp-dbg&#34;&gt;&lt;a href=&#34;#glibc-source-amp-dbg&#34; class=&#34;headerlink&#34; title=&#34;glibc-source&amp;amp;dbg&#34;&gt;&lt;/a&gt;glibc-source&amp;amp;dbg&lt;/h1&gt;&lt;p&gt;glibc调试一直是做pwn的一个痛点，尝试过自己编译的libc，结果build半天全部core dump……&lt;/p&gt;
+&lt;h2 id=&#34;“源”由&#34;&gt;&lt;a href=&#34;#“源”由&#34; class=&#34;headerlink&#34; title=&#34;“源”由&#34;&gt;&lt;/a&gt;“源”由&lt;/h2&gt;&lt;p&gt;最早追溯到学习ret2dl-resolver时候需要调试源码，后来heap exploit时候更需要了，看源码静态分析宏定义看的想shi；&lt;/p&gt;
+&lt;p&gt;终于到house of orange卡住了，我一定要动调源码。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;怎么学？当然是看源码！&lt;/p&gt;
+&lt;p&gt;—— 某周大佬&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;源码&#34;&gt;&lt;a href=&#34;#源码&#34; class=&#34;headerlink&#34; title=&#34;源码&#34;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;h3 id=&#34;apt-get-下载本机配套源码&#34;&gt;&lt;a href=&#34;#apt-get-下载本机配套源码&#34; class=&#34;headerlink&#34; title=&#34;apt-get 下载本机配套源码&#34;&gt;&lt;/a&gt;apt-get 下载本机配套源码&lt;/h3&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo apt-get install glibc-source &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo apt-get install libc6-dbg &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo tar xf /usr/src/glibc/glibc-2.23.tar.xz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;在gdb中使用directory重定向源码搜索目录：&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pwndbg&amp;gt; dir[ectory] /usr/src/glibc/glibc-2.23/malloc/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://bbs.pediy.com/thread-251195-1.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[看雪]借助gdb调试glibc代码学习House of Orange&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://stackoverflow.com/questions/29955609/include-source-code-of-malloc-c-in-gdb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;stackoverflow: include source code in gdb&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;GNU官方-glibc源码&#34;&gt;&lt;a href=&#34;#GNU官方-glibc源码&#34; class=&#34;headerlink&#34; title=&#34;GNU官方 glibc源码&#34;&gt;&lt;/a&gt;GNU官方 glibc源码&lt;/h3&gt;&lt;p&gt;使用 git clone git://sourceware.org/git/glibc.git 命令来下载代码&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourceware.org/ml/libc-alpha/2019-08/msg00029.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The GNU C Library version 2.30 is now available&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Download sources&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Checkout the latest glibc in development:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;git clone git://sourceware.org/git/glibc.git&lt;br&gt;cd glibc&lt;br&gt;git checkout master&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Releases are available by source branch checkout &lt;a href=&#34;https://sourceware.org/git/?p=glibc.git&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;via git&lt;/a&gt; and tarball &lt;a href=&#34;http://ftp.gnu.org/gnu/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;via ftp&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Checkout the latest glibc 2.30 stable release:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;git clone git://sourceware.org/git/glibc.git&lt;br&gt;cd glibc&lt;br&gt;git checkout release/2.30/master&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Release tarballs are available via anonymous ftp at &lt;a href=&#34;http://ftp.gnu.org/gnu/glibc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://ftp.gnu.org/gnu/glibc/&lt;/a&gt; and its mirrors.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.30.tar.gz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.gnu.org/software/libc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GNU C&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ftp.gnu.org/gnu/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GNU C mirror&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Ubuntu镜像源码&#34;&gt;&lt;a href=&#34;#Ubuntu镜像源码&#34; class=&#34;headerlink&#34; title=&#34;Ubuntu镜像源码&#34;&gt;&lt;/a&gt;Ubuntu镜像源码&lt;/h3&gt;&lt;p&gt;Ubuntu修改了glibc的源码，通过&lt;a href=&#34;http://old-releases.ubuntu.com/ubuntu/pool/main/g/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu 的镜像源&lt;/a&gt;和&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/ubuntu/pool/main/g/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;清华源镜像&lt;/a&gt;可以下载到不同版本的 glibc。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get source libc6-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/u012927281/article/details/51289608&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSDN-使用gdb调试glibc&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://samwhelp.github.io/book-ubuntu-basic-skill/book/content/package/how-to-download-source-package.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;如何下載「Source Package」&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;dpkg&#34;&gt;&lt;a href=&#34;#dpkg&#34; class=&#34;headerlink&#34; title=&#34;dpkg&#34;&gt;&lt;/a&gt;dpkg&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;dpkg is the software at the base of the package management system in the free operating system Debian and its numerous derivatives. dpkg is used to install, remove, and provide information about .deb packages.&lt;/p&gt;
+&lt;p&gt;dpkg (Debian Package) itself is a low-level tool. APT (Advanced Package Tool), a higher-level tool, is more commonly used than dpkg as it can fetch packages from remote locations and deal with complex package relations, such as dependency resolution. Frontends for APT, like aptitude (ncurses) and synaptic (GTK+), are used for their friendlier interfaces.&lt;/p&gt;
+&lt;p&gt;The Debian package “dpkg” provides the dpkg program, as well as several other programs necessary for run-time functioning of the packaging system, including dpkg-deb, dpkg-split, dpkg-query, dpkg-statoverride, dpkg-divert and dpkg-trigger.[5] It also includes the programs such as update-alternatives and start-stop-daemon. The install-info program used to be included as well, but was later removed[6] as it is now developed and distributed separately.[7] The Debian package “dpkg-dev” includes the numerous build tools described below.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;简单来说，dpkg是Debian Package缩写，延伸为deb的包管理系统，相比APT更加低级，其一系列命令提供deb包的安装、卸载等功能&lt;/p&gt;
+&lt;h2 id=&#34;GDB内调试源码&#34;&gt;&lt;a href=&#34;#GDB内调试源码&#34; class=&#34;headerlink&#34; title=&#34;GDB内调试源码&#34;&gt;&lt;/a&gt;GDB内调试源码&lt;/h2&gt;&lt;h3 id=&#34;命令&#34;&gt;&lt;a href=&#34;#命令&#34; class=&#34;headerlink&#34; title=&#34;命令&#34;&gt;&lt;/a&gt;命令&lt;/h3&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;directory &amp;lt;directory&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Add directory to the list of directories that is searched for sources.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    list &amp;lt;filename&amp;gt;:&amp;lt;function&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    list &amp;lt;filename&amp;gt;:&amp;lt;line_number&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    list &amp;lt;first&amp;gt;,&amp;lt;last&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Shows the current or given source con-text. The filename may be omitted（省略）. If last is omitted the context starting at start is printed instead of centered a-round it.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set listsize &amp;lt;count&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Set how many lines to show in `list`&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GDB Cheat Sheet&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  GDB之所以能够知道对应的源代码，是因为调试版的可执行程序中记录了源代码的位置；因为源代码的位置在编译之后可能会移动到其它地方，所以GDB还会在当前目录中查找源代码，另外GDB也允许明确指定源代码的搜索位置。默认情况下，GDB在编译时目录中搜索，如果失败则在当前目录中搜索，即$cdir:$cwd
+  其中$cdir指的是编译时目录（compilation directory），$cwd指的是当前工作目录（current working directory）。
+  在GDB中使用查看源代码相关的命令时，有一个当前文件的概念，当命令的位置参数没有限定一个文件的时候（不论是明确限定还是隐含限定），将使用当前文件。当前文件默认是main函数所在文件，如果程序当前正处于断点位置，则断点所在文件即为当前文件。
+  与当前文件的概念类似，还存在一个当前行的概念，它默认为main函数的开始处。如果使用gdb载入一个可执行文件，然后单单执行一条简单的list命令，你会发现输出的源代码并非是从第一行开始的，这是因为当前行默认在main函数附近处的缘故。
+  1.设置和获取源代码显示数量：
+     默认情况下，GDB显示指定位置处以及其前后的10行代码，但是这是一个可设置的值。
+     set listsize count：设置list命令显示的源代码数量最多为count行，0表示不限制行数。
+     show listsize：显示listsize的值。
+...
+  3.搜索源代码：
+     有的时候，我们希望在当前文件中进行搜索，GDB提供了这样的命令。
+     search regexp：从当前行的下一行开始向前搜索。
+     rev regexp ：从当前行的上一行开始向后搜索。
+     有的时候，你会发现search命令总是提示“Expression not found”，这是因为当前行可能已经是最后一行了，特别是文件很短的时候。这里需要注意的是，任何list命令都会影响当前行的位置，并且由于每次都是多行输出，所以对当前行的影响并非简单地向前一行或者向后一行。
+      search命令本身也会影响当前行的位置。
+  4.源代码位置：
+     GDB之所以可以查看到源代码，是因为它知道源代码放在哪里。
+     在一个调试会话中，GDB维护了一个源代码查找目录列表，默认值是编译目录和当前工作目录。当GDB需要一个源文件的时候，它依次在这些目录中查找，直到找到一个或者抛出错误。
+     GDB还维护了一个路径替换规则，将要搜索的原始路径按照找到的第一个规则做前缀替换，然后再在源码搜索目录中查找文件。
+     GDB允许明确指定源代码位置，或者路径替换规则，以应付源代码位置迁移的情况。
+     directory path-list：将一个或者多个源代码搜索目录加入到当前源码搜索目录列表的前面，目录之间使用空格间隔。
+     directory：不带参数的directory将源码搜索目录恢复为默认值。
+     set directories path-list：将源码目录设置为path-list，但是会补上默认目录。
+     show directories：显示源码搜索目录列表。
+     set substitute-path from to：设置目录替换规则，放置在规则列表的末端。
+     unset substitute-path [path]：删除path对应的替换规则，或者删除所有的替换规则。
+     show substitute-path [path]：显示path对应的替换规则，或者显示所有的替换规则。
+  ...&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/frydsh/p/3388828.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;使用GDB的源代码查看功能&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;directory不能遍历搜索&#34;&gt;&lt;a href=&#34;#directory不能遍历搜索&#34; class=&#34;headerlink&#34; title=&#34;directory不能遍历搜索&#34;&gt;&lt;/a&gt;directory不能遍历搜索&lt;/h3&gt;&lt;h4 id=&#34;对于-g编译的程序本身的源码，源码位置变更&#34;&gt;&lt;a href=&#34;#对于-g编译的程序本身的源码，源码位置变更&#34; class=&#34;headerlink&#34; title=&#34;对于-g编译的程序本身的源码，源码位置变更&#34;&gt;&lt;/a&gt;对于-g编译的程序本身的源码，源码位置变更&lt;/h4&gt;&lt;p&gt;What you need for this is the command &lt;a href=&#34;http://sourceware.org/gdb/onlinedocs/gdb/Source-Path.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;set substitute-path&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;(gdb) set substitute-path /usr/src/include /mnt/include&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Only available in recent versions (6.6+) of gdb, though.&lt;/p&gt;
+&lt;p&gt;Or you can do something like this, for debugging program &lt;code&gt;prog&lt;/code&gt; with source in directory &lt;code&gt;srcdir&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gdb `find srcdir -type d -printf &amp;apos;-d %p &amp;apos;` prog&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;I think it’s a more direct answer to your question. Also useful if your executable doesn’t contain the compilation directories and/or you don’t have version 6.6+ of gdb.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/1103161/gdb-searching-for-source-directories&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;search for source files inside a single directory recursively&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在gdb程序的时候，有时候会发现源代码文件找不到，对于那些带调试信息的系统库或者第三方库，很多时候当你真正想gdb去追他源代码的时候你会发现gdb根本找不到这些源代码路径。这个时候有两种选择：&lt;/p&gt;
+&lt;p&gt;【1】如果gdb这个时候告诉你找不到这个带调试信息库的源文件路径，此时给出的路径地址是绝对路径，比如&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/home/rickyk/qt-4.8.6/src/corelib/tools/qstring.cpp: 没有那个文件或目录&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这种提示的，你就应该用gdb提供的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set substitute-path&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个其实很好理解，就是替换规则，你如果想查看当前的替换规则，你可以&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;show substitute-path&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;比如此时我们需要qstring.cpp这个文件，但由于某种原因，目前我们不能在/home/rickyk/qt-4.8.6/src/corelib/tools/qstring.cpp中找到，但我们确可以在/home/rickyk/qt-everywhere-opensource-src-4.8.6/src/corelib/tools/qstring.cpp中找到，我们就&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set substitute-path /home/rickyk/qt-4.8.6 /home/rickyk/qt-everywhere-opensource-src-4.8.6&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是什么意思？其实就是让gdb在看到/home/rickyk/qt-4.8.6的时候他会做自动替换成/home/rickyk/qt-everywhere-opensource-src.4.8.6，也就是说gdb可以正确知道这个文件了。此时我们再show substitute-path可以看到此时的转换规则已经被我们加进去了&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(gdb) show substitute-path 
+List of all source path substitution rules:
+&amp;apos;/home/rickyk/qt-4.8.6&amp;apos; -&amp;gt; &amp;apos;/home/rickyk/qt-everywhere-opensource-src-4.8.6&amp;apos;.&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【2】如果此时的gdb弹出的错误信息不是绝对路径的概念，而是相对路径的概念&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./a.cpp 没有那个文件或目录&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;那么此时你可以用gdb的第二个源代码路径法宝—-directory(dir) dirName来指定，也就是说如果我们此时的a.cpp不在当前目录下，而是在当前目录下的bak文件夹下，我们只要&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dir bak&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个时候我们的gdb就会把你加进去的dir&lt;strong&gt;整个替换到相对路径的前面&lt;/strong&gt;，自己做拼接，也就是说，现在的./a.cpp变成了./bak/a.cpp。&lt;/p&gt;
+&lt;p&gt;注意两者的差别，对于绝对路径来说，你需要给出替换规则给他做字符串替换，对于相对路径来说，你需要给他目录来让他做拼接，也有点prefix的意思，这里的prefix由你给出，但相对路径整体结构由gdb给出，然后完成拼接操作。&lt;/p&gt;
+&lt;p&gt;PS: 同时你需要在.gdbinit上加上一句&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set auto-load safe-path /&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/rickyk/p/4184860.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GDB源代码查找路径&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;对于glibc&#34;&gt;&lt;a href=&#34;#对于glibc&#34; class=&#34;headerlink&#34; title=&#34;对于glibc&#34;&gt;&lt;/a&gt;对于glibc&lt;/h4&gt;&lt;p&gt;老笨办法：手动添加directory&lt;br&gt;如何确定位置呢？——list&lt;br&gt;进入想要跟踪的函数时，&lt;code&gt;(gdb) list&lt;/code&gt;，显示无相关源代码时，就显示出了路径&lt;/p&gt;
+&lt;p&gt;……然而&lt;/p&gt;
+&lt;p&gt;我的并没有显示出来，可能因为编的本来就是不带源码的libc，只显示了相对路径（文件名）&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pwndbg&amp;gt; list malloc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;file: &lt;span class=&#34;string&#34;&gt;&#34;dl-minimal.c&#34;&lt;/span&gt;, line number: 50, symbol: &lt;span class=&#34;string&#34;&gt;&#34;malloc&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45	dl-minimal.c: No such file or directory.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;file: &lt;span class=&#34;string&#34;&gt;&#34;malloc.c&#34;&lt;/span&gt;, line number: 3028, symbol: &lt;span class=&#34;string&#34;&gt;&#34;???&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3023	malloc.c: No such file or directory.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;前人已经不辞辛苦写好脚本，我们只要改一改/嘿嘿嘿&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;directory有个问题是它不会遍历子目录，所以如果要加整个glibc的话就要写脚本遍历(你很闲的话一个个加也是可以的&lt;br&gt;下面是我写的py脚本(可以参考一下或者改一下直接用也可以，下面会说怎么改)(而且要能用python的gdb才行，可以自己编)：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#! -*- coding:utf8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; gdb&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; os&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;gdbDir_rec&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(f)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     fs = os.listdir(f)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;comment&#34;&gt;#print(f)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     result = []&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; f1 &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; fs:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         tmp_path = os.path.join(f,f1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; os.path.isdir(tmp_path):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;comment&#34;&gt;#gdb.execute(&#39;set dir &#39; + tmp_path,True,True)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             result.append(tmp_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             result += gdbDir_rec(tmp_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;# arg in path of glibc installed(32/64), and path/.. is root of glibc source&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Gcdir&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(gdb.Command)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         super(self.__class__, self).__init__(&lt;span class=&#34;string&#34;&gt;&#34;gcdir&#34;&lt;/span&gt;, gdb.COMMAND_USER)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self, args, from_tty)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         argv = gdb.string_to_argv(args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; len(argv) != &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; gdb.GdbError(&lt;span class=&#34;string&#34;&gt;&#39;argv error!&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; args[&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;] == &lt;span class=&#34;string&#34;&gt;&#39;/&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             args += &lt;span class=&#34;string&#34;&gt;&#39;../&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             args += &lt;span class=&#34;string&#34;&gt;&#39;/../&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         fin_path = gdbDir_rec(args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         fin_path = &lt;span class=&#34;string&#34;&gt;&#39;:&#39;&lt;/span&gt;.join(fin_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         gdb.execute(&lt;span class=&#34;string&#34;&gt;&#39;set dir &#39;&lt;/span&gt; + fin_path,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         print(&lt;span class=&#34;string&#34;&gt;&#39;glibc -&amp;gt; &#39;&lt;/span&gt;+args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Gcinit&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(gdb.Command)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         super(self.__class__, self).__init__(&lt;span class=&#34;string&#34;&gt;&#34;gcinit&#34;&lt;/span&gt;, gdb.COMMAND_USER)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self, args, from_tty)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         argv = gdb.string_to_argv(args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; len(argv)==&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;and&lt;/span&gt; (argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-h&#39;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;or&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;--help&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             print(&lt;span class=&#34;string&#34;&gt;&#39;-m32 version  ---&amp;gt;  32 bit version of glibc &#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             print(&lt;span class=&#34;string&#34;&gt;&#39;-m64 version  ---&amp;gt;  64 bit version of glibc &#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             print(&lt;span class=&#34;string&#34;&gt;&#39;-p path       ---&amp;gt;  set path of glibc installed &#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; len(argv) != &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; gdb.GdbError(&lt;span class=&#34;string&#34;&gt;&#39;argv error!&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;comment&#34;&gt;# 这里设置好放各版本glibc的总目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         glibc_root = &lt;span class=&#34;string&#34;&gt;&#39;/home/tover/Lab/gnu_c/glibc/glibc-&#39;&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 这里把前缀顺便加上去了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-m32&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             fin_path = glibc_root+argv[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&#39;/x86/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;elif&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-m64&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             fin_path = glibc_root+argv[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&#39;/x64/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;elif&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-p&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             fin_path = argv[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; fin_path[&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;] != &lt;span class=&#34;string&#34;&gt;&#39;/&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;                 fin_path += &lt;span class=&#34;string&#34;&gt;&#39;/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; gdb.GdbError(&lt;span class=&#34;string&#34;&gt;&#39;input error!&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         print(fin_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         gdb.execute(&lt;span class=&#34;string&#34;&gt;&#39;set env LD_LIBRARY_PATH= &#39;&lt;/span&gt;+fin_path+&lt;span class=&#34;string&#34;&gt;&#39;lib/&#39;&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         gdb.execute(&lt;span class=&#34;string&#34;&gt;&#39;gcdir &#39;&lt;/span&gt;+fin_path,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; Gcdir()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; Gcinit()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;## example usage(in gdb):&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#  gcdir /home/tover/Lab/glibc/glibc-2.23/x86&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#  gcinit -m32 2.23&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#  gcinit -p /home/tover/Lab/glibc/glibc-2.23/x86&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;用法就是在gdb中gcdir加安装的库的目录(自动递归遍历子目录)。另外还写了个设环境变量的，用法上面也有，这个需要改一下 glibc_root 换成自己对应的的glibc目录，而且目录结构是 “glibc_root(要改的那个)-&amp;gt;各版本的glibc-&amp;gt;安装目录(名字要是x64/x86，不是的话改一下脚本就好了)”。&lt;/p&gt;
+&lt;p&gt;脚本可以随便放一个文件，然后在 “~/.gdbinit” 这个文件(没有的话新建一个)激活一下：&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; #这里换成脚本放的位置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     source /path/to/script&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://0xffff.one/d/337&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;编译带debug_info的glibc&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;多版本glibc&#34;&gt;&lt;a href=&#34;#多版本glibc&#34; class=&#34;headerlink&#34; title=&#34;多版本glibc&#34;&gt;&lt;/a&gt;多版本glibc&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://bbs.pediy.com/thread-254868.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[看雪]关于不同版本 glibc 更换的一些问题&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;查看glibc的版本&#34;&gt;&lt;a href=&#34;#查看glibc的版本&#34; class=&#34;headerlink&#34; title=&#34;查看glibc的版本&#34;&gt;&lt;/a&gt;查看glibc的版本&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;$ ldd --version&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;glibc API 函数：&lt;/p&gt;
+  &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;gnu/libc-version.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;puts&lt;/span&gt; (gnu_get_libc_version ());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;（先通过ldd查看使用的库文件路径，再）命令行执行glibc 库（像命令一样）&lt;/p&gt;
+&lt;p&gt;  输出结果会显示更多关于glibc库的详细信息，包括glibc的版本以及使用的GNU编译器，也提供了glibc扩展的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://yq.aliyun.com/articles/85863&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;如何检查Linux上的glibc版本&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;http://blog.lujun9972.win/blog/2019/05/05/如何查看glibc的版本/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;如何查看glibc的版本&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;更换程序libc依赖&#34;&gt;&lt;a href=&#34;#更换程序libc依赖&#34; class=&#34;headerlink&#34; title=&#34;更换程序libc依赖&#34;&gt;&lt;/a&gt;更换程序libc依赖&lt;/h3&gt;&lt;p&gt;从2.23到2.27，经常用到不同版本的libc&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;LD_PRELOAD=&amp;quot;./glibc_versions/libc-2.25.so&amp;quot; ./glibc_versions/ld-2.25.so ./glibc_2.25/unsafe_unlink&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用不同的libc可以通过环境变量LD_PRELOAD解决，在gdb中可以通过命令&lt;code&gt;set exec-wrapper env &amp;quot;LD_PRELOAD=./libc-2.25.so&amp;quot;&lt;/code&gt;解决，现在就剩下链接器了，在看雪上看到有人分享了Python脚本修改程序使用的ld&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bbs.pediy.com/thread-225849.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;关于不同版本glibc强行加载的方法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;更换libc的依赖主要有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;elfpatch / 手动patch(libc.so.6 - &amp;gt; ./bc.so.6)&lt;/li&gt;
+&lt;li&gt;修改环境变量，LD_PRELOAD强行加载（版本与ld版本相差过大会引起Segment fault）、LD_LIBRARY_PATH（没成功过）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://thonsun.github.io/2019/07/15/自选择glibc带符号版本调试/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;自选择glibc带符号版本调试&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;自己编译不同版本glibc（硬骨头，暂未尝试）&#34;&gt;&lt;a href=&#34;#自己编译不同版本glibc（硬骨头，暂未尝试）&#34; class=&#34;headerlink&#34; title=&#34;自己编译不同版本glibc（硬骨头，暂未尝试）&#34;&gt;&lt;/a&gt;自己编译不同版本glibc（硬骨头，暂未尝试）&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/astrotycoon/article/details/52662685&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;源码级调试glibc&lt;/a&gt;&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&t=glibc-source&amp;dbg"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#glibc-source-amp-dbg"><span class="toc-number">1.</span> <span class="toc-text">glibc-source&amp;dbg</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#“源”由"><span class="toc-number">1.1.</span> <span class="toc-text">“源”由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-number">1.2.</span> <span class="toc-text">源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-下载本机配套源码"><span class="toc-number">1.2.1.</span> <span class="toc-text">apt-get 下载本机配套源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNU官方-glibc源码"><span class="toc-number">1.2.2.</span> <span class="toc-text">GNU官方 glibc源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu镜像源码"><span class="toc-number">1.2.3.</span> <span class="toc-text">Ubuntu镜像源码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dpkg"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">dpkg</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB内调试源码"><span class="toc-number">1.3.</span> <span class="toc-text">GDB内调试源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-number">1.3.1.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#directory不能遍历搜索"><span class="toc-number">1.3.2.</span> <span class="toc-text">directory不能遍历搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对于-g编译的程序本身的源码，源码位置变更"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">对于-g编译的程序本身的源码，源码位置变更</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对于glibc"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">对于glibc</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多版本glibc"><span class="toc-number">1.4.</span> <span class="toc-text">多版本glibc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看glibc的版本"><span class="toc-number">1.4.1.</span> <span class="toc-text">查看glibc的版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换程序libc依赖"><span class="toc-number">1.4.2.</span> <span class="toc-text">更换程序libc依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己编译不同版本glibc（硬骨头，暂未尝试）"><span class="toc-number">1.5.</span> <span class="toc-text">自己编译不同版本glibc（硬骨头，暂未尝试）</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        glibc-source&amp;dbg
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-28T03:18:51.000Z" itemprop="datePublished">2020-01-28</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="glibc-source-amp-dbg"><a href="#glibc-source-amp-dbg" class="headerlink" title="glibc-source&amp;dbg"></a>glibc-source&amp;dbg</h1><p>glibc调试一直是做pwn的一个痛点，尝试过自己编译的libc，结果build半天全部core dump……</p>
+<h2 id="“源”由"><a href="#“源”由" class="headerlink" title="“源”由"></a>“源”由</h2><p>最早追溯到学习ret2dl-resolver时候需要调试源码，后来heap exploit时候更需要了，看源码静态分析宏定义看的想shi；</p>
+<p>终于到house of orange卡住了，我一定要动调源码。</p>
+<blockquote>
+<p>怎么学？当然是看源码！</p>
+<p>—— 某周大佬</p>
+</blockquote>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><h3 id="apt-get-下载本机配套源码"><a href="#apt-get-下载本机配套源码" class="headerlink" title="apt-get 下载本机配套源码"></a>apt-get 下载本机配套源码</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt-get install glibc-source </span><br><span class="line">sudo apt-get install libc6-dbg </span><br><span class="line">sudo tar xf /usr/src/glibc/glibc-2.23.tar.xz</span><br></pre></td></tr></table></figure>
+
+<p>在gdb中使用directory重定向源码搜索目录：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pwndbg&gt; dir[ectory] /usr/src/glibc/glibc-2.23/malloc/</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://bbs.pediy.com/thread-251195-1.htm" target="_blank" rel="noopener">[看雪]借助gdb调试glibc代码学习House of Orange</a><br><a href="https://stackoverflow.com/questions/29955609/include-source-code-of-malloc-c-in-gdb" target="_blank" rel="noopener">stackoverflow: include source code in gdb</a></p>
+<h3 id="GNU官方-glibc源码"><a href="#GNU官方-glibc源码" class="headerlink" title="GNU官方 glibc源码"></a>GNU官方 glibc源码</h3><p>使用 git clone git://sourceware.org/git/glibc.git 命令来下载代码</p>
+<p><a href="https://sourceware.org/ml/libc-alpha/2019-08/msg00029.html" target="_blank" rel="noopener">The GNU C Library version 2.30 is now available</a></p>
+<blockquote>
+<p><strong>Download sources</strong></p>
+<p>Checkout the latest glibc in development:</p>
+<p><strong>git clone git://sourceware.org/git/glibc.git<br>cd glibc<br>git checkout master</strong></p>
+<p>Releases are available by source branch checkout <a href="https://sourceware.org/git/?p=glibc.git" target="_blank" rel="noopener">via git</a> and tarball <a href="http://ftp.gnu.org/gnu/glibc/" target="_blank" rel="noopener">via ftp</a>.</p>
+<p>Checkout the latest glibc 2.30 stable release:</p>
+<p><strong>git clone git://sourceware.org/git/glibc.git<br>cd glibc<br>git checkout release/2.30/master</strong></p>
+<p>Release tarballs are available via anonymous ftp at <a href="http://ftp.gnu.org/gnu/glibc" target="_blank" rel="noopener">http://ftp.gnu.org/gnu/glibc/</a> and its mirrors.</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.30.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.gnu.org/software/libc/" target="_blank" rel="noopener">GNU C</a></p>
+<p><a href="https://ftp.gnu.org/gnu/glibc/" target="_blank" rel="noopener">GNU C mirror</a></p>
+<h3 id="Ubuntu镜像源码"><a href="#Ubuntu镜像源码" class="headerlink" title="Ubuntu镜像源码"></a>Ubuntu镜像源码</h3><p>Ubuntu修改了glibc的源码，通过<a href="http://old-releases.ubuntu.com/ubuntu/pool/main/g/glibc/" target="_blank" rel="noopener">Ubuntu 的镜像源</a>和<a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/pool/main/g/glibc/" target="_blank" rel="noopener">清华源镜像</a>可以下载到不同版本的 glibc。</p>
+<p><code>apt-get source libc6-dev</code></p>
+<p><a href="https://blog.csdn.net/u012927281/article/details/51289608" target="_blank" rel="noopener">CSDN-使用gdb调试glibc</a><br><a href="https://samwhelp.github.io/book-ubuntu-basic-skill/book/content/package/how-to-download-source-package.html" target="_blank" rel="noopener">如何下載「Source Package」</a></p>
+<h4 id="dpkg"><a href="#dpkg" class="headerlink" title="dpkg"></a>dpkg</h4><blockquote>
+<p>dpkg is the software at the base of the package management system in the free operating system Debian and its numerous derivatives. dpkg is used to install, remove, and provide information about .deb packages.</p>
+<p>dpkg (Debian Package) itself is a low-level tool. APT (Advanced Package Tool), a higher-level tool, is more commonly used than dpkg as it can fetch packages from remote locations and deal with complex package relations, such as dependency resolution. Frontends for APT, like aptitude (ncurses) and synaptic (GTK+), are used for their friendlier interfaces.</p>
+<p>The Debian package “dpkg” provides the dpkg program, as well as several other programs necessary for run-time functioning of the packaging system, including dpkg-deb, dpkg-split, dpkg-query, dpkg-statoverride, dpkg-divert and dpkg-trigger.[5] It also includes the programs such as update-alternatives and start-stop-daemon. The install-info program used to be included as well, but was later removed[6] as it is now developed and distributed separately.[7] The Debian package “dpkg-dev” includes the numerous build tools described below.</p>
+</blockquote>
+<p>简单来说，dpkg是Debian Package缩写，延伸为deb的包管理系统，相比APT更加低级，其一系列命令提供deb包的安装、卸载等功能</p>
+<h2 id="GDB内调试源码"><a href="#GDB内调试源码" class="headerlink" title="GDB内调试源码"></a>GDB内调试源码</h2><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">directory &lt;directory&gt;</span><br><span class="line">    Add directory to the list of directories that is searched for sources.</span><br><span class="line">    </span><br><span class="line">list</span><br><span class="line"></span><br><span class="line">    list &lt;filename&gt;:&lt;function&gt;</span><br><span class="line">    list &lt;filename&gt;:&lt;line_number&gt;</span><br><span class="line">    list &lt;first&gt;,&lt;last&gt;</span><br><span class="line">        Shows the current or given source con-text. The filename may be omitted（省略）. If last is omitted the context starting at start is printed instead of centered a-round it.</span><br><span class="line"></span><br><span class="line">set listsize &lt;count&gt;</span><br><span class="line">    Set how many lines to show in `list`</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf" target="_blank" rel="noopener">GDB Cheat Sheet</a></p>
+<pre><code>  GDB之所以能够知道对应的源代码，是因为调试版的可执行程序中记录了源代码的位置；因为源代码的位置在编译之后可能会移动到其它地方，所以GDB还会在当前目录中查找源代码，另外GDB也允许明确指定源代码的搜索位置。默认情况下，GDB在编译时目录中搜索，如果失败则在当前目录中搜索，即$cdir:$cwd
+  其中$cdir指的是编译时目录（compilation directory），$cwd指的是当前工作目录（current working directory）。
+  在GDB中使用查看源代码相关的命令时，有一个当前文件的概念，当命令的位置参数没有限定一个文件的时候（不论是明确限定还是隐含限定），将使用当前文件。当前文件默认是main函数所在文件，如果程序当前正处于断点位置，则断点所在文件即为当前文件。
+  与当前文件的概念类似，还存在一个当前行的概念，它默认为main函数的开始处。如果使用gdb载入一个可执行文件，然后单单执行一条简单的list命令，你会发现输出的源代码并非是从第一行开始的，这是因为当前行默认在main函数附近处的缘故。
+  1.设置和获取源代码显示数量：
+     默认情况下，GDB显示指定位置处以及其前后的10行代码，但是这是一个可设置的值。
+     set listsize count：设置list命令显示的源代码数量最多为count行，0表示不限制行数。
+     show listsize：显示listsize的值。
+...
+  3.搜索源代码：
+     有的时候，我们希望在当前文件中进行搜索，GDB提供了这样的命令。
+     search regexp：从当前行的下一行开始向前搜索。
+     rev regexp ：从当前行的上一行开始向后搜索。
+     有的时候，你会发现search命令总是提示“Expression not found”，这是因为当前行可能已经是最后一行了，特别是文件很短的时候。这里需要注意的是，任何list命令都会影响当前行的位置，并且由于每次都是多行输出，所以对当前行的影响并非简单地向前一行或者向后一行。
+      search命令本身也会影响当前行的位置。
+  4.源代码位置：
+     GDB之所以可以查看到源代码，是因为它知道源代码放在哪里。
+     在一个调试会话中，GDB维护了一个源代码查找目录列表，默认值是编译目录和当前工作目录。当GDB需要一个源文件的时候，它依次在这些目录中查找，直到找到一个或者抛出错误。
+     GDB还维护了一个路径替换规则，将要搜索的原始路径按照找到的第一个规则做前缀替换，然后再在源码搜索目录中查找文件。
+     GDB允许明确指定源代码位置，或者路径替换规则，以应付源代码位置迁移的情况。
+     directory path-list：将一个或者多个源代码搜索目录加入到当前源码搜索目录列表的前面，目录之间使用空格间隔。
+     directory：不带参数的directory将源码搜索目录恢复为默认值。
+     set directories path-list：将源码目录设置为path-list，但是会补上默认目录。
+     show directories：显示源码搜索目录列表。
+     set substitute-path from to：设置目录替换规则，放置在规则列表的末端。
+     unset substitute-path [path]：删除path对应的替换规则，或者删除所有的替换规则。
+     show substitute-path [path]：显示path对应的替换规则，或者显示所有的替换规则。
+  ...</code></pre><p><a href="https://www.cnblogs.com/frydsh/p/3388828.html" target="_blank" rel="noopener">使用GDB的源代码查看功能</a></p>
+<h3 id="directory不能遍历搜索"><a href="#directory不能遍历搜索" class="headerlink" title="directory不能遍历搜索"></a>directory不能遍历搜索</h3><h4 id="对于-g编译的程序本身的源码，源码位置变更"><a href="#对于-g编译的程序本身的源码，源码位置变更" class="headerlink" title="对于-g编译的程序本身的源码，源码位置变更"></a>对于-g编译的程序本身的源码，源码位置变更</h4><p>What you need for this is the command <a href="http://sourceware.org/gdb/onlinedocs/gdb/Source-Path.html" target="_blank" rel="noopener">set substitute-path</a>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(gdb) set substitute-path /usr/src/include /mnt/include</span><br></pre></td></tr></table></figure>
+
+<p>Only available in recent versions (6.6+) of gdb, though.</p>
+<p>Or you can do something like this, for debugging program <code>prog</code> with source in directory <code>srcdir</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gdb `find srcdir -type d -printf &apos;-d %p &apos;` prog</span><br></pre></td></tr></table></figure>
+
+<p>I think it’s a more direct answer to your question. Also useful if your executable doesn’t contain the compilation directories and/or you don’t have version 6.6+ of gdb.</p>
+<p><a href="https://stackoverflow.com/questions/1103161/gdb-searching-for-source-directories" target="_blank" rel="noopener">search for source files inside a single directory recursively</a></p>
+<blockquote>
+<p>在gdb程序的时候，有时候会发现源代码文件找不到，对于那些带调试信息的系统库或者第三方库，很多时候当你真正想gdb去追他源代码的时候你会发现gdb根本找不到这些源代码路径。这个时候有两种选择：</p>
+<p>【1】如果gdb这个时候告诉你找不到这个带调试信息库的源文件路径，此时给出的路径地址是绝对路径，比如</p>
+<pre><code>/home/rickyk/qt-4.8.6/src/corelib/tools/qstring.cpp: 没有那个文件或目录</code></pre><p>这种提示的，你就应该用gdb提供的</p>
+<pre><code>set substitute-path</code></pre><p>这个其实很好理解，就是替换规则，你如果想查看当前的替换规则，你可以</p>
+<pre><code>show substitute-path</code></pre><p>比如此时我们需要qstring.cpp这个文件，但由于某种原因，目前我们不能在/home/rickyk/qt-4.8.6/src/corelib/tools/qstring.cpp中找到，但我们确可以在/home/rickyk/qt-everywhere-opensource-src-4.8.6/src/corelib/tools/qstring.cpp中找到，我们就</p>
+<pre><code>set substitute-path /home/rickyk/qt-4.8.6 /home/rickyk/qt-everywhere-opensource-src-4.8.6</code></pre><p>这是什么意思？其实就是让gdb在看到/home/rickyk/qt-4.8.6的时候他会做自动替换成/home/rickyk/qt-everywhere-opensource-src.4.8.6，也就是说gdb可以正确知道这个文件了。此时我们再show substitute-path可以看到此时的转换规则已经被我们加进去了</p>
+<pre><code>(gdb) show substitute-path 
+List of all source path substitution rules:
+&apos;/home/rickyk/qt-4.8.6&apos; -&gt; &apos;/home/rickyk/qt-everywhere-opensource-src-4.8.6&apos;.</code></pre><p>【2】如果此时的gdb弹出的错误信息不是绝对路径的概念，而是相对路径的概念</p>
+<pre><code>./a.cpp 没有那个文件或目录</code></pre><p>那么此时你可以用gdb的第二个源代码路径法宝—-directory(dir) dirName来指定，也就是说如果我们此时的a.cpp不在当前目录下，而是在当前目录下的bak文件夹下，我们只要</p>
+<pre><code>dir bak</code></pre><p>这个时候我们的gdb就会把你加进去的dir<strong>整个替换到相对路径的前面</strong>，自己做拼接，也就是说，现在的./a.cpp变成了./bak/a.cpp。</p>
+<p>注意两者的差别，对于绝对路径来说，你需要给出替换规则给他做字符串替换，对于相对路径来说，你需要给他目录来让他做拼接，也有点prefix的意思，这里的prefix由你给出，但相对路径整体结构由gdb给出，然后完成拼接操作。</p>
+<p>PS: 同时你需要在.gdbinit上加上一句</p>
+<pre><code>set auto-load safe-path /</code></pre><p>…</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/rickyk/p/4184860.html" target="_blank" rel="noopener">GDB源代码查找路径</a></p>
+<h4 id="对于glibc"><a href="#对于glibc" class="headerlink" title="对于glibc"></a>对于glibc</h4><p>老笨办法：手动添加directory<br>如何确定位置呢？——list<br>进入想要跟踪的函数时，<code>(gdb) list</code>，显示无相关源代码时，就显示出了路径</p>
+<p>……然而</p>
+<p>我的并没有显示出来，可能因为编的本来就是不带源码的libc，只显示了相对路径（文件名）</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">pwndbg&gt; list malloc</span><br><span class="line">file: <span class="string">"dl-minimal.c"</span>, line number: 50, symbol: <span class="string">"malloc"</span></span><br><span class="line">45	dl-minimal.c: No such file or directory.</span><br><span class="line">file: <span class="string">"malloc.c"</span>, line number: 3028, symbol: <span class="string">"???"</span></span><br><span class="line">3023	malloc.c: No such file or directory.</span><br></pre></td></tr></table></figure>
+
+<p>前人已经不辞辛苦写好脚本，我们只要改一改/嘿嘿嘿</p>
+<blockquote>
+<p>directory有个问题是它不会遍历子目录，所以如果要加整个glibc的话就要写脚本遍历(你很闲的话一个个加也是可以的<br>下面是我写的py脚本(可以参考一下或者改一下直接用也可以，下面会说怎么改)(而且要能用python的gdb才行，可以自己编)：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt; <span class="comment">#! -*- coding:utf8 -*-</span></span><br><span class="line">&gt; <span class="keyword">import</span> gdb</span><br><span class="line">&gt; <span class="keyword">import</span> os</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="function"><span class="keyword">def</span> <span class="title">gdbDir_rec</span><span class="params">(f)</span>:</span></span><br><span class="line">&gt;     fs = os.listdir(f)</span><br><span class="line">&gt;     <span class="comment">#print(f)</span></span><br><span class="line">&gt;     result = []</span><br><span class="line">&gt;     <span class="keyword">for</span> f1 <span class="keyword">in</span> fs:</span><br><span class="line">&gt;         tmp_path = os.path.join(f,f1)</span><br><span class="line">&gt;         <span class="keyword">if</span> os.path.isdir(tmp_path):</span><br><span class="line">&gt;             <span class="comment">#gdb.execute('set dir ' + tmp_path,True,True)</span></span><br><span class="line">&gt;             result.append(tmp_path)</span><br><span class="line">&gt;             result += gdbDir_rec(tmp_path)</span><br><span class="line">&gt;     <span class="keyword">return</span> result</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment"># arg in path of glibc installed(32/64), and path/.. is root of glibc source</span></span><br><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">Gcdir</span><span class="params">(gdb.Command)</span>:</span></span><br><span class="line">&gt;     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">&gt;         super(self.__class__, self).__init__(<span class="string">"gcdir"</span>, gdb.COMMAND_USER)</span><br><span class="line">&gt; </span><br><span class="line">&gt;     <span class="function"><span class="keyword">def</span> <span class="title">invoke</span><span class="params">(self, args, from_tty)</span>:</span></span><br><span class="line">&gt;         argv = gdb.string_to_argv(args)</span><br><span class="line">&gt;         <span class="keyword">if</span> len(argv) != <span class="number">1</span>:</span><br><span class="line">&gt;             <span class="keyword">raise</span> gdb.GdbError(<span class="string">'argv error!'</span>)</span><br><span class="line">&gt;         <span class="keyword">if</span> args[<span class="number">-1</span>] == <span class="string">'/'</span>:</span><br><span class="line">&gt;             args += <span class="string">'../'</span></span><br><span class="line">&gt;         <span class="keyword">else</span>:</span><br><span class="line">&gt;             args += <span class="string">'/../'</span></span><br><span class="line">&gt;         fin_path = gdbDir_rec(args)</span><br><span class="line">&gt;         fin_path = <span class="string">':'</span>.join(fin_path)</span><br><span class="line">&gt;         gdb.execute(<span class="string">'set dir '</span> + fin_path,<span class="literal">True</span>,<span class="literal">True</span>)</span><br><span class="line">&gt;         print(<span class="string">'glibc -&gt; '</span>+args)</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">Gcinit</span><span class="params">(gdb.Command)</span>:</span></span><br><span class="line">&gt;     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">&gt;         super(self.__class__, self).__init__(<span class="string">"gcinit"</span>, gdb.COMMAND_USER)</span><br><span class="line">&gt; </span><br><span class="line">&gt;     <span class="function"><span class="keyword">def</span> <span class="title">invoke</span><span class="params">(self, args, from_tty)</span>:</span></span><br><span class="line">&gt;         argv = gdb.string_to_argv(args)</span><br><span class="line">&gt;         <span class="keyword">if</span> len(argv)==<span class="number">1</span> <span class="keyword">and</span> (argv[<span class="number">0</span>]==<span class="string">'-h'</span> <span class="keyword">or</span> argv[<span class="number">0</span>]==<span class="string">'--help'</span>):</span><br><span class="line">&gt;             print(<span class="string">'-m32 version  ---&gt;  32 bit version of glibc '</span>)</span><br><span class="line">&gt;             print(<span class="string">'-m64 version  ---&gt;  64 bit version of glibc '</span>)</span><br><span class="line">&gt;             print(<span class="string">'-p path       ---&gt;  set path of glibc installed '</span>)</span><br><span class="line">&gt;         <span class="keyword">if</span> len(argv) != <span class="number">2</span>:</span><br><span class="line">&gt;             <span class="keyword">raise</span> gdb.GdbError(<span class="string">'argv error!'</span>)</span><br><span class="line">&gt; </span><br><span class="line">&gt;         <span class="comment"># 这里设置好放各版本glibc的总目录</span></span><br><span class="line">&gt;         glibc_root = <span class="string">'/home/tover/Lab/gnu_c/glibc/glibc-'</span>  <span class="comment"># 这里把前缀顺便加上去了</span></span><br><span class="line">&gt;         <span class="keyword">if</span> argv[<span class="number">0</span>]==<span class="string">'-m32'</span>:</span><br><span class="line">&gt;             fin_path = glibc_root+argv[<span class="number">1</span>]+<span class="string">'/x86/'</span></span><br><span class="line">&gt;         <span class="keyword">elif</span> argv[<span class="number">0</span>]==<span class="string">'-m64'</span>:</span><br><span class="line">&gt;             fin_path = glibc_root+argv[<span class="number">1</span>]+<span class="string">'/x64/'</span></span><br><span class="line">&gt;         <span class="keyword">elif</span> argv[<span class="number">0</span>]==<span class="string">'-p'</span>:</span><br><span class="line">&gt;             fin_path = argv[<span class="number">1</span>]</span><br><span class="line">&gt;             <span class="keyword">if</span> fin_path[<span class="number">-1</span>] != <span class="string">'/'</span>:</span><br><span class="line">&gt;                 fin_path += <span class="string">'/'</span></span><br><span class="line">&gt;         <span class="keyword">else</span>:</span><br><span class="line">&gt;             <span class="keyword">raise</span> gdb.GdbError(<span class="string">'input error!'</span>)</span><br><span class="line">&gt;         print(fin_path)</span><br><span class="line">&gt;         gdb.execute(<span class="string">'set env LD_LIBRARY_PATH= '</span>+fin_path+<span class="string">'lib/'</span>,<span class="literal">True</span>,<span class="literal">True</span>)</span><br><span class="line">&gt;         gdb.execute(<span class="string">'gcdir '</span>+fin_path,<span class="literal">True</span>,<span class="literal">True</span>)</span><br><span class="line">&gt; </span><br><span class="line">&gt; Gcdir()</span><br><span class="line">&gt; Gcinit()</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">## example usage(in gdb):</span></span><br><span class="line">&gt; <span class="comment">#  gcdir /home/tover/Lab/glibc/glibc-2.23/x86</span></span><br><span class="line">&gt; <span class="comment">#</span></span><br><span class="line">&gt; <span class="comment">#  gcinit -m32 2.23</span></span><br><span class="line">&gt; <span class="comment">#  gcinit -p /home/tover/Lab/glibc/glibc-2.23/x86</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>用法就是在gdb中gcdir加安装的库的目录(自动递归遍历子目录)。另外还写了个设环境变量的，用法上面也有，这个需要改一下 glibc_root 换成自己对应的的glibc目录，而且目录结构是 “glibc_root(要改的那个)-&gt;各版本的glibc-&gt;安装目录(名字要是x64/x86，不是的话改一下脚本就好了)”。</p>
+<p>脚本可以随便放一个文件，然后在 “~/.gdbinit” 这个文件(没有的话新建一个)激活一下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; #这里换成脚本放的位置</span><br><span class="line">&gt;     source /path/to/script</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="https://0xffff.one/d/337" target="_blank" rel="noopener">编译带debug_info的glibc</a></p>
+<h2 id="多版本glibc"><a href="#多版本glibc" class="headerlink" title="多版本glibc"></a>多版本glibc</h2><p><a href="https://bbs.pediy.com/thread-254868.htm" target="_blank" rel="noopener">[看雪]关于不同版本 glibc 更换的一些问题</a></p>
+<h3 id="查看glibc的版本"><a href="#查看glibc的版本" class="headerlink" title="查看glibc的版本"></a>查看glibc的版本</h3><ul>
+<li><p><code>$ ldd --version</code></p>
+</li>
+<li><p>glibc API 函数：</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gnu/libc-version.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">puts</span> (gnu_get_libc_version ());</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（先通过ldd查看使用的库文件路径，再）命令行执行glibc 库（像命令一样）</p>
+<p>  输出结果会显示更多关于glibc库的详细信息，包括glibc的版本以及使用的GNU编译器，也提供了glibc扩展的信息</p>
+</li>
+</ul>
+<p><a href="https://yq.aliyun.com/articles/85863" target="_blank" rel="noopener">如何检查Linux上的glibc版本</a><br><a href="http://blog.lujun9972.win/blog/2019/05/05/如何查看glibc的版本/index.html" target="_blank" rel="noopener">如何查看glibc的版本</a></p>
+<h3 id="更换程序libc依赖"><a href="#更换程序libc依赖" class="headerlink" title="更换程序libc依赖"></a>更换程序libc依赖</h3><p>从2.23到2.27，经常用到不同版本的libc</p>
+<p><code>LD_PRELOAD=&quot;./glibc_versions/libc-2.25.so&quot; ./glibc_versions/ld-2.25.so ./glibc_2.25/unsafe_unlink</code></p>
+<p>使用不同的libc可以通过环境变量LD_PRELOAD解决，在gdb中可以通过命令<code>set exec-wrapper env &quot;LD_PRELOAD=./libc-2.25.so&quot;</code>解决，现在就剩下链接器了，在看雪上看到有人分享了Python脚本修改程序使用的ld</p>
+<p><a href="https://bbs.pediy.com/thread-225849.htm" target="_blank" rel="noopener">关于不同版本glibc强行加载的方法</a></p>
+<p>更换libc的依赖主要有</p>
+<ul>
+<li>elfpatch / 手动patch(libc.so.6 - &gt; ./bc.so.6)</li>
+<li>修改环境变量，LD_PRELOAD强行加载（版本与ld版本相差过大会引起Segment fault）、LD_LIBRARY_PATH（没成功过）</li>
+</ul>
+<p><a href="https://thonsun.github.io/2019/07/15/自选择glibc带符号版本调试/" target="_blank" rel="noopener">自选择glibc带符号版本调试</a></p>
+<h2 id="自己编译不同版本glibc（硬骨头，暂未尝试）"><a href="#自己编译不同版本glibc（硬骨头，暂未尝试）" class="headerlink" title="自己编译不同版本glibc（硬骨头，暂未尝试）"></a>自己编译不同版本glibc（硬骨头，暂未尝试）</h2><p><a href="https://blog.csdn.net/astrotycoon/article/details/52662685" target="_blank" rel="noopener">源码级调试glibc</a></p>
+<a id="more"></a>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#glibc-source-amp-dbg"><span class="toc-number">1.</span> <span class="toc-text">glibc-source&amp;dbg</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#“源”由"><span class="toc-number">1.1.</span> <span class="toc-text">“源”由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-number">1.2.</span> <span class="toc-text">源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#apt-get-下载本机配套源码"><span class="toc-number">1.2.1.</span> <span class="toc-text">apt-get 下载本机配套源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNU官方-glibc源码"><span class="toc-number">1.2.2.</span> <span class="toc-text">GNU官方 glibc源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu镜像源码"><span class="toc-number">1.2.3.</span> <span class="toc-text">Ubuntu镜像源码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dpkg"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">dpkg</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB内调试源码"><span class="toc-number">1.3.</span> <span class="toc-text">GDB内调试源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-number">1.3.1.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#directory不能遍历搜索"><span class="toc-number">1.3.2.</span> <span class="toc-text">directory不能遍历搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对于-g编译的程序本身的源码，源码位置变更"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">对于-g编译的程序本身的源码，源码位置变更</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对于glibc"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">对于glibc</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多版本glibc"><span class="toc-number">1.4.</span> <span class="toc-text">多版本glibc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看glibc的版本"><span class="toc-number">1.4.1.</span> <span class="toc-text">查看glibc的版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换程序libc依赖"><span class="toc-number">1.4.2.</span> <span class="toc-text">更换程序libc依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己编译不同版本glibc（硬骨头，暂未尝试）"><span class="toc-number">1.5.</span> <span class="toc-text">自己编译不同版本glibc（硬骨头，暂未尝试）</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&text=glibc-source&amp;dbg"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&is_video=false&description=glibc-source&amp;dbg"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=glibc-source&amp;dbg&body=Check out this article: http://yoursite.com/2020/01/28/glibc-source&amp;dbg/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&title=glibc-source&amp;dbg"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&name=glibc-source&amp;dbg&description=&lt;h1 id=&#34;glibc-source-amp-dbg&#34;&gt;&lt;a href=&#34;#glibc-source-amp-dbg&#34; class=&#34;headerlink&#34; title=&#34;glibc-source&amp;amp;dbg&#34;&gt;&lt;/a&gt;glibc-source&amp;amp;dbg&lt;/h1&gt;&lt;p&gt;glibc调试一直是做pwn的一个痛点，尝试过自己编译的libc，结果build半天全部core dump……&lt;/p&gt;
+&lt;h2 id=&#34;“源”由&#34;&gt;&lt;a href=&#34;#“源”由&#34; class=&#34;headerlink&#34; title=&#34;“源”由&#34;&gt;&lt;/a&gt;“源”由&lt;/h2&gt;&lt;p&gt;最早追溯到学习ret2dl-resolver时候需要调试源码，后来heap exploit时候更需要了，看源码静态分析宏定义看的想shi；&lt;/p&gt;
+&lt;p&gt;终于到house of orange卡住了，我一定要动调源码。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;怎么学？当然是看源码！&lt;/p&gt;
+&lt;p&gt;—— 某周大佬&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;源码&#34;&gt;&lt;a href=&#34;#源码&#34; class=&#34;headerlink&#34; title=&#34;源码&#34;&gt;&lt;/a&gt;源码&lt;/h2&gt;&lt;h3 id=&#34;apt-get-下载本机配套源码&#34;&gt;&lt;a href=&#34;#apt-get-下载本机配套源码&#34; class=&#34;headerlink&#34; title=&#34;apt-get 下载本机配套源码&#34;&gt;&lt;/a&gt;apt-get 下载本机配套源码&lt;/h3&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo apt-get install glibc-source &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo apt-get install libc6-dbg &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo tar xf /usr/src/glibc/glibc-2.23.tar.xz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;在gdb中使用directory重定向源码搜索目录：&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pwndbg&amp;gt; dir[ectory] /usr/src/glibc/glibc-2.23/malloc/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://bbs.pediy.com/thread-251195-1.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[看雪]借助gdb调试glibc代码学习House of Orange&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://stackoverflow.com/questions/29955609/include-source-code-of-malloc-c-in-gdb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;stackoverflow: include source code in gdb&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;GNU官方-glibc源码&#34;&gt;&lt;a href=&#34;#GNU官方-glibc源码&#34; class=&#34;headerlink&#34; title=&#34;GNU官方 glibc源码&#34;&gt;&lt;/a&gt;GNU官方 glibc源码&lt;/h3&gt;&lt;p&gt;使用 git clone git://sourceware.org/git/glibc.git 命令来下载代码&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourceware.org/ml/libc-alpha/2019-08/msg00029.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The GNU C Library version 2.30 is now available&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Download sources&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Checkout the latest glibc in development:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;git clone git://sourceware.org/git/glibc.git&lt;br&gt;cd glibc&lt;br&gt;git checkout master&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Releases are available by source branch checkout &lt;a href=&#34;https://sourceware.org/git/?p=glibc.git&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;via git&lt;/a&gt; and tarball &lt;a href=&#34;http://ftp.gnu.org/gnu/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;via ftp&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Checkout the latest glibc 2.30 stable release:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;git clone git://sourceware.org/git/glibc.git&lt;br&gt;cd glibc&lt;br&gt;git checkout release/2.30/master&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Release tarballs are available via anonymous ftp at &lt;a href=&#34;http://ftp.gnu.org/gnu/glibc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://ftp.gnu.org/gnu/glibc/&lt;/a&gt; and its mirrors.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.30.tar.gz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.gnu.org/software/libc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GNU C&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ftp.gnu.org/gnu/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GNU C mirror&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Ubuntu镜像源码&#34;&gt;&lt;a href=&#34;#Ubuntu镜像源码&#34; class=&#34;headerlink&#34; title=&#34;Ubuntu镜像源码&#34;&gt;&lt;/a&gt;Ubuntu镜像源码&lt;/h3&gt;&lt;p&gt;Ubuntu修改了glibc的源码，通过&lt;a href=&#34;http://old-releases.ubuntu.com/ubuntu/pool/main/g/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu 的镜像源&lt;/a&gt;和&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/ubuntu/pool/main/g/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;清华源镜像&lt;/a&gt;可以下载到不同版本的 glibc。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get source libc6-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/u012927281/article/details/51289608&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CSDN-使用gdb调试glibc&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://samwhelp.github.io/book-ubuntu-basic-skill/book/content/package/how-to-download-source-package.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;如何下載「Source Package」&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;dpkg&#34;&gt;&lt;a href=&#34;#dpkg&#34; class=&#34;headerlink&#34; title=&#34;dpkg&#34;&gt;&lt;/a&gt;dpkg&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;dpkg is the software at the base of the package management system in the free operating system Debian and its numerous derivatives. dpkg is used to install, remove, and provide information about .deb packages.&lt;/p&gt;
+&lt;p&gt;dpkg (Debian Package) itself is a low-level tool. APT (Advanced Package Tool), a higher-level tool, is more commonly used than dpkg as it can fetch packages from remote locations and deal with complex package relations, such as dependency resolution. Frontends for APT, like aptitude (ncurses) and synaptic (GTK+), are used for their friendlier interfaces.&lt;/p&gt;
+&lt;p&gt;The Debian package “dpkg” provides the dpkg program, as well as several other programs necessary for run-time functioning of the packaging system, including dpkg-deb, dpkg-split, dpkg-query, dpkg-statoverride, dpkg-divert and dpkg-trigger.[5] It also includes the programs such as update-alternatives and start-stop-daemon. The install-info program used to be included as well, but was later removed[6] as it is now developed and distributed separately.[7] The Debian package “dpkg-dev” includes the numerous build tools described below.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;简单来说，dpkg是Debian Package缩写，延伸为deb的包管理系统，相比APT更加低级，其一系列命令提供deb包的安装、卸载等功能&lt;/p&gt;
+&lt;h2 id=&#34;GDB内调试源码&#34;&gt;&lt;a href=&#34;#GDB内调试源码&#34; class=&#34;headerlink&#34; title=&#34;GDB内调试源码&#34;&gt;&lt;/a&gt;GDB内调试源码&lt;/h2&gt;&lt;h3 id=&#34;命令&#34;&gt;&lt;a href=&#34;#命令&#34; class=&#34;headerlink&#34; title=&#34;命令&#34;&gt;&lt;/a&gt;命令&lt;/h3&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;directory &amp;lt;directory&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Add directory to the list of directories that is searched for sources.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    list &amp;lt;filename&amp;gt;:&amp;lt;function&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    list &amp;lt;filename&amp;gt;:&amp;lt;line_number&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    list &amp;lt;first&amp;gt;,&amp;lt;last&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Shows the current or given source con-text. The filename may be omitted（省略）. If last is omitted the context starting at start is printed instead of centered a-round it.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set listsize &amp;lt;count&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Set how many lines to show in `list`&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;&lt;a href=&#34;https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GDB Cheat Sheet&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  GDB之所以能够知道对应的源代码，是因为调试版的可执行程序中记录了源代码的位置；因为源代码的位置在编译之后可能会移动到其它地方，所以GDB还会在当前目录中查找源代码，另外GDB也允许明确指定源代码的搜索位置。默认情况下，GDB在编译时目录中搜索，如果失败则在当前目录中搜索，即$cdir:$cwd
+  其中$cdir指的是编译时目录（compilation directory），$cwd指的是当前工作目录（current working directory）。
+  在GDB中使用查看源代码相关的命令时，有一个当前文件的概念，当命令的位置参数没有限定一个文件的时候（不论是明确限定还是隐含限定），将使用当前文件。当前文件默认是main函数所在文件，如果程序当前正处于断点位置，则断点所在文件即为当前文件。
+  与当前文件的概念类似，还存在一个当前行的概念，它默认为main函数的开始处。如果使用gdb载入一个可执行文件，然后单单执行一条简单的list命令，你会发现输出的源代码并非是从第一行开始的，这是因为当前行默认在main函数附近处的缘故。
+  1.设置和获取源代码显示数量：
+     默认情况下，GDB显示指定位置处以及其前后的10行代码，但是这是一个可设置的值。
+     set listsize count：设置list命令显示的源代码数量最多为count行，0表示不限制行数。
+     show listsize：显示listsize的值。
+...
+  3.搜索源代码：
+     有的时候，我们希望在当前文件中进行搜索，GDB提供了这样的命令。
+     search regexp：从当前行的下一行开始向前搜索。
+     rev regexp ：从当前行的上一行开始向后搜索。
+     有的时候，你会发现search命令总是提示“Expression not found”，这是因为当前行可能已经是最后一行了，特别是文件很短的时候。这里需要注意的是，任何list命令都会影响当前行的位置，并且由于每次都是多行输出，所以对当前行的影响并非简单地向前一行或者向后一行。
+      search命令本身也会影响当前行的位置。
+  4.源代码位置：
+     GDB之所以可以查看到源代码，是因为它知道源代码放在哪里。
+     在一个调试会话中，GDB维护了一个源代码查找目录列表，默认值是编译目录和当前工作目录。当GDB需要一个源文件的时候，它依次在这些目录中查找，直到找到一个或者抛出错误。
+     GDB还维护了一个路径替换规则，将要搜索的原始路径按照找到的第一个规则做前缀替换，然后再在源码搜索目录中查找文件。
+     GDB允许明确指定源代码位置，或者路径替换规则，以应付源代码位置迁移的情况。
+     directory path-list：将一个或者多个源代码搜索目录加入到当前源码搜索目录列表的前面，目录之间使用空格间隔。
+     directory：不带参数的directory将源码搜索目录恢复为默认值。
+     set directories path-list：将源码目录设置为path-list，但是会补上默认目录。
+     show directories：显示源码搜索目录列表。
+     set substitute-path from to：设置目录替换规则，放置在规则列表的末端。
+     unset substitute-path [path]：删除path对应的替换规则，或者删除所有的替换规则。
+     show substitute-path [path]：显示path对应的替换规则，或者显示所有的替换规则。
+  ...&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/frydsh/p/3388828.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;使用GDB的源代码查看功能&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;directory不能遍历搜索&#34;&gt;&lt;a href=&#34;#directory不能遍历搜索&#34; class=&#34;headerlink&#34; title=&#34;directory不能遍历搜索&#34;&gt;&lt;/a&gt;directory不能遍历搜索&lt;/h3&gt;&lt;h4 id=&#34;对于-g编译的程序本身的源码，源码位置变更&#34;&gt;&lt;a href=&#34;#对于-g编译的程序本身的源码，源码位置变更&#34; class=&#34;headerlink&#34; title=&#34;对于-g编译的程序本身的源码，源码位置变更&#34;&gt;&lt;/a&gt;对于-g编译的程序本身的源码，源码位置变更&lt;/h4&gt;&lt;p&gt;What you need for this is the command &lt;a href=&#34;http://sourceware.org/gdb/onlinedocs/gdb/Source-Path.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;set substitute-path&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;(gdb) set substitute-path /usr/src/include /mnt/include&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Only available in recent versions (6.6+) of gdb, though.&lt;/p&gt;
+&lt;p&gt;Or you can do something like this, for debugging program &lt;code&gt;prog&lt;/code&gt; with source in directory &lt;code&gt;srcdir&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gdb `find srcdir -type d -printf &amp;apos;-d %p &amp;apos;` prog&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;I think it’s a more direct answer to your question. Also useful if your executable doesn’t contain the compilation directories and/or you don’t have version 6.6+ of gdb.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/1103161/gdb-searching-for-source-directories&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;search for source files inside a single directory recursively&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在gdb程序的时候，有时候会发现源代码文件找不到，对于那些带调试信息的系统库或者第三方库，很多时候当你真正想gdb去追他源代码的时候你会发现gdb根本找不到这些源代码路径。这个时候有两种选择：&lt;/p&gt;
+&lt;p&gt;【1】如果gdb这个时候告诉你找不到这个带调试信息库的源文件路径，此时给出的路径地址是绝对路径，比如&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/home/rickyk/qt-4.8.6/src/corelib/tools/qstring.cpp: 没有那个文件或目录&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这种提示的，你就应该用gdb提供的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set substitute-path&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个其实很好理解，就是替换规则，你如果想查看当前的替换规则，你可以&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;show substitute-path&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;比如此时我们需要qstring.cpp这个文件，但由于某种原因，目前我们不能在/home/rickyk/qt-4.8.6/src/corelib/tools/qstring.cpp中找到，但我们确可以在/home/rickyk/qt-everywhere-opensource-src-4.8.6/src/corelib/tools/qstring.cpp中找到，我们就&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set substitute-path /home/rickyk/qt-4.8.6 /home/rickyk/qt-everywhere-opensource-src-4.8.6&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是什么意思？其实就是让gdb在看到/home/rickyk/qt-4.8.6的时候他会做自动替换成/home/rickyk/qt-everywhere-opensource-src.4.8.6，也就是说gdb可以正确知道这个文件了。此时我们再show substitute-path可以看到此时的转换规则已经被我们加进去了&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(gdb) show substitute-path 
+List of all source path substitution rules:
+&amp;apos;/home/rickyk/qt-4.8.6&amp;apos; -&amp;gt; &amp;apos;/home/rickyk/qt-everywhere-opensource-src-4.8.6&amp;apos;.&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【2】如果此时的gdb弹出的错误信息不是绝对路径的概念，而是相对路径的概念&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./a.cpp 没有那个文件或目录&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;那么此时你可以用gdb的第二个源代码路径法宝—-directory(dir) dirName来指定，也就是说如果我们此时的a.cpp不在当前目录下，而是在当前目录下的bak文件夹下，我们只要&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dir bak&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个时候我们的gdb就会把你加进去的dir&lt;strong&gt;整个替换到相对路径的前面&lt;/strong&gt;，自己做拼接，也就是说，现在的./a.cpp变成了./bak/a.cpp。&lt;/p&gt;
+&lt;p&gt;注意两者的差别，对于绝对路径来说，你需要给出替换规则给他做字符串替换，对于相对路径来说，你需要给他目录来让他做拼接，也有点prefix的意思，这里的prefix由你给出，但相对路径整体结构由gdb给出，然后完成拼接操作。&lt;/p&gt;
+&lt;p&gt;PS: 同时你需要在.gdbinit上加上一句&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set auto-load safe-path /&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/rickyk/p/4184860.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GDB源代码查找路径&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;对于glibc&#34;&gt;&lt;a href=&#34;#对于glibc&#34; class=&#34;headerlink&#34; title=&#34;对于glibc&#34;&gt;&lt;/a&gt;对于glibc&lt;/h4&gt;&lt;p&gt;老笨办法：手动添加directory&lt;br&gt;如何确定位置呢？——list&lt;br&gt;进入想要跟踪的函数时，&lt;code&gt;(gdb) list&lt;/code&gt;，显示无相关源代码时，就显示出了路径&lt;/p&gt;
+&lt;p&gt;……然而&lt;/p&gt;
+&lt;p&gt;我的并没有显示出来，可能因为编的本来就是不带源码的libc，只显示了相对路径（文件名）&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pwndbg&amp;gt; list malloc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;file: &lt;span class=&#34;string&#34;&gt;&#34;dl-minimal.c&#34;&lt;/span&gt;, line number: 50, symbol: &lt;span class=&#34;string&#34;&gt;&#34;malloc&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45	dl-minimal.c: No such file or directory.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;file: &lt;span class=&#34;string&#34;&gt;&#34;malloc.c&#34;&lt;/span&gt;, line number: 3028, symbol: &lt;span class=&#34;string&#34;&gt;&#34;???&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3023	malloc.c: No such file or directory.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;前人已经不辞辛苦写好脚本，我们只要改一改/嘿嘿嘿&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;directory有个问题是它不会遍历子目录，所以如果要加整个glibc的话就要写脚本遍历(你很闲的话一个个加也是可以的&lt;br&gt;下面是我写的py脚本(可以参考一下或者改一下直接用也可以，下面会说怎么改)(而且要能用python的gdb才行，可以自己编)：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#! -*- coding:utf8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; gdb&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; os&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;gdbDir_rec&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(f)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     fs = os.listdir(f)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;comment&#34;&gt;#print(f)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     result = []&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; f1 &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; fs:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         tmp_path = os.path.join(f,f1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; os.path.isdir(tmp_path):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;comment&#34;&gt;#gdb.execute(&#39;set dir &#39; + tmp_path,True,True)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             result.append(tmp_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             result += gdbDir_rec(tmp_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; result&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;# arg in path of glibc installed(32/64), and path/.. is root of glibc source&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Gcdir&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(gdb.Command)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         super(self.__class__, self).__init__(&lt;span class=&#34;string&#34;&gt;&#34;gcdir&#34;&lt;/span&gt;, gdb.COMMAND_USER)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self, args, from_tty)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         argv = gdb.string_to_argv(args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; len(argv) != &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; gdb.GdbError(&lt;span class=&#34;string&#34;&gt;&#39;argv error!&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; args[&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;] == &lt;span class=&#34;string&#34;&gt;&#39;/&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             args += &lt;span class=&#34;string&#34;&gt;&#39;../&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             args += &lt;span class=&#34;string&#34;&gt;&#39;/../&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         fin_path = gdbDir_rec(args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         fin_path = &lt;span class=&#34;string&#34;&gt;&#39;:&#39;&lt;/span&gt;.join(fin_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         gdb.execute(&lt;span class=&#34;string&#34;&gt;&#39;set dir &#39;&lt;/span&gt; + fin_path,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         print(&lt;span class=&#34;string&#34;&gt;&#39;glibc -&amp;gt; &#39;&lt;/span&gt;+args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Gcinit&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(gdb.Command)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         super(self.__class__, self).__init__(&lt;span class=&#34;string&#34;&gt;&#34;gcinit&#34;&lt;/span&gt;, gdb.COMMAND_USER)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(self, args, from_tty)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         argv = gdb.string_to_argv(args)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; len(argv)==&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;and&lt;/span&gt; (argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-h&#39;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;or&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;--help&#39;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             print(&lt;span class=&#34;string&#34;&gt;&#39;-m32 version  ---&amp;gt;  32 bit version of glibc &#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             print(&lt;span class=&#34;string&#34;&gt;&#39;-m64 version  ---&amp;gt;  64 bit version of glibc &#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             print(&lt;span class=&#34;string&#34;&gt;&#39;-p path       ---&amp;gt;  set path of glibc installed &#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; len(argv) != &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; gdb.GdbError(&lt;span class=&#34;string&#34;&gt;&#39;argv error!&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;comment&#34;&gt;# 这里设置好放各版本glibc的总目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         glibc_root = &lt;span class=&#34;string&#34;&gt;&#39;/home/tover/Lab/gnu_c/glibc/glibc-&#39;&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 这里把前缀顺便加上去了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-m32&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             fin_path = glibc_root+argv[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&#39;/x86/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;elif&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-m64&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             fin_path = glibc_root+argv[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&#39;/x64/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;elif&lt;/span&gt; argv[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]==&lt;span class=&#34;string&#34;&gt;&#39;-p&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             fin_path = argv[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; fin_path[&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;] != &lt;span class=&#34;string&#34;&gt;&#39;/&#39;&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;                 fin_path += &lt;span class=&#34;string&#34;&gt;&#39;/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;             &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; gdb.GdbError(&lt;span class=&#34;string&#34;&gt;&#39;input error!&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         print(fin_path)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         gdb.execute(&lt;span class=&#34;string&#34;&gt;&#39;set env LD_LIBRARY_PATH= &#39;&lt;/span&gt;+fin_path+&lt;span class=&#34;string&#34;&gt;&#39;lib/&#39;&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;         gdb.execute(&lt;span class=&#34;string&#34;&gt;&#39;gcdir &#39;&lt;/span&gt;+fin_path,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; Gcdir()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; Gcinit()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;## example usage(in gdb):&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#  gcdir /home/tover/Lab/glibc/glibc-2.23/x86&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#  gcinit -m32 2.23&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;comment&#34;&gt;#  gcinit -p /home/tover/Lab/glibc/glibc-2.23/x86&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;用法就是在gdb中gcdir加安装的库的目录(自动递归遍历子目录)。另外还写了个设环境变量的，用法上面也有，这个需要改一下 glibc_root 换成自己对应的的glibc目录，而且目录结构是 “glibc_root(要改的那个)-&amp;gt;各版本的glibc-&amp;gt;安装目录(名字要是x64/x86，不是的话改一下脚本就好了)”。&lt;/p&gt;
+&lt;p&gt;脚本可以随便放一个文件，然后在 “~/.gdbinit” 这个文件(没有的话新建一个)激活一下：&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; #这里换成脚本放的位置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;     source /path/to/script&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://0xffff.one/d/337&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;编译带debug_info的glibc&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;多版本glibc&#34;&gt;&lt;a href=&#34;#多版本glibc&#34; class=&#34;headerlink&#34; title=&#34;多版本glibc&#34;&gt;&lt;/a&gt;多版本glibc&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://bbs.pediy.com/thread-254868.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[看雪]关于不同版本 glibc 更换的一些问题&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;查看glibc的版本&#34;&gt;&lt;a href=&#34;#查看glibc的版本&#34; class=&#34;headerlink&#34; title=&#34;查看glibc的版本&#34;&gt;&lt;/a&gt;查看glibc的版本&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;$ ldd --version&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;glibc API 函数：&lt;/p&gt;
+  &lt;figure class=&#34;highlight c&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;gnu/libc-version.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;puts&lt;/span&gt; (gnu_get_libc_version ());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;（先通过ldd查看使用的库文件路径，再）命令行执行glibc 库（像命令一样）&lt;/p&gt;
+&lt;p&gt;  输出结果会显示更多关于glibc库的详细信息，包括glibc的版本以及使用的GNU编译器，也提供了glibc扩展的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://yq.aliyun.com/articles/85863&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;如何检查Linux上的glibc版本&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;http://blog.lujun9972.win/blog/2019/05/05/如何查看glibc的版本/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;如何查看glibc的版本&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;更换程序libc依赖&#34;&gt;&lt;a href=&#34;#更换程序libc依赖&#34; class=&#34;headerlink&#34; title=&#34;更换程序libc依赖&#34;&gt;&lt;/a&gt;更换程序libc依赖&lt;/h3&gt;&lt;p&gt;从2.23到2.27，经常用到不同版本的libc&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;LD_PRELOAD=&amp;quot;./glibc_versions/libc-2.25.so&amp;quot; ./glibc_versions/ld-2.25.so ./glibc_2.25/unsafe_unlink&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用不同的libc可以通过环境变量LD_PRELOAD解决，在gdb中可以通过命令&lt;code&gt;set exec-wrapper env &amp;quot;LD_PRELOAD=./libc-2.25.so&amp;quot;&lt;/code&gt;解决，现在就剩下链接器了，在看雪上看到有人分享了Python脚本修改程序使用的ld&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bbs.pediy.com/thread-225849.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;关于不同版本glibc强行加载的方法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;更换libc的依赖主要有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;elfpatch / 手动patch(libc.so.6 - &amp;gt; ./bc.so.6)&lt;/li&gt;
+&lt;li&gt;修改环境变量，LD_PRELOAD强行加载（版本与ld版本相差过大会引起Segment fault）、LD_LIBRARY_PATH（没成功过）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://thonsun.github.io/2019/07/15/自选择glibc带符号版本调试/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;自选择glibc带符号版本调试&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;自己编译不同版本glibc（硬骨头，暂未尝试）&#34;&gt;&lt;a href=&#34;#自己编译不同版本glibc（硬骨头，暂未尝试）&#34; class=&#34;headerlink&#34; title=&#34;自己编译不同版本glibc（硬骨头，暂未尝试）&#34;&gt;&lt;/a&gt;自己编译不同版本glibc（硬骨头，暂未尝试）&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/astrotycoon/article/details/52662685&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;源码级调试glibc&lt;/a&gt;&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/28/glibc-source&amp;dbg/&t=glibc-source&amp;dbg"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

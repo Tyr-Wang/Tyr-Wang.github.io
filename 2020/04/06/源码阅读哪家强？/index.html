@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>源码阅读哪家强？</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/04/10/Word Tricks/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/03/01/IO_FILE/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/04/06/源码阅读哪家强？/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&text=源码阅读哪家强？"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&is_video=false&description=源码阅读哪家强？"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=源码阅读哪家强？&body=Check out this article: http://yoursite.com/2020/04/06/源码阅读哪家强？/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&name=源码阅读哪家强？&description=&lt;h1 id=&#34;源码阅读哪家强？&#34;&gt;&lt;a href=&#34;#源码阅读哪家强？&#34; class=&#34;headerlink&#34; title=&#34;源码阅读哪家强？&#34;&gt;&lt;/a&gt;源码阅读哪家强？&lt;/h1&gt;&lt;h2 id=&#34;三大件&#34;&gt;&lt;a href=&#34;#三大件&#34; class=&#34;headerlink&#34; title=&#34;三大件&#34;&gt;&lt;/a&gt;三大件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;SourceInsight&lt;/li&gt;
+&lt;li&gt;Understand&lt;/li&gt;
+&lt;li&gt;Sourcetrail&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;IDE&#34;&gt;&lt;a href=&#34;#IDE&#34; class=&#34;headerlink&#34; title=&#34;IDE&#34;&gt;&lt;/a&gt;IDE&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;VS&lt;/li&gt;
+&lt;li&gt;VS code&lt;/li&gt;
+&lt;li&gt;Eclipse C/C++&lt;/li&gt;
+&lt;li&gt;Esmacs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;&lt;a href=&#34;#其他&#34; class=&#34;headerlink&#34; title=&#34;其他&#34;&gt;&lt;/a&gt;其他&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Vim + cscope&lt;/li&gt;
+&lt;li&gt;Vim + ctags&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;在线&#34;&gt;&lt;a href=&#34;#在线&#34; class=&#34;headerlink&#34; title=&#34;在线&#34;&gt;&lt;/a&gt;在线&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://code.woboq.org/userspace/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;woboq.org&lt;/a&gt;&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/04/06/源码阅读哪家强？/&t=源码阅读哪家强？"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#源码阅读哪家强？"><span class="toc-number">1.</span> <span class="toc-text">源码阅读哪家强？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三大件"><span class="toc-number">1.1.</span> <span class="toc-text">三大件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDE"><span class="toc-number">1.2.</span> <span class="toc-text">IDE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">1.3.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在线"><span class="toc-number">1.4.</span> <span class="toc-text">在线</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        源码阅读哪家强？
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-04-06T15:04:02.000Z" itemprop="datePublished">2020-04-06</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="源码阅读哪家强？"><a href="#源码阅读哪家强？" class="headerlink" title="源码阅读哪家强？"></a>源码阅读哪家强？</h1><h2 id="三大件"><a href="#三大件" class="headerlink" title="三大件"></a>三大件</h2><ul>
+<li>SourceInsight</li>
+<li>Understand</li>
+<li>Sourcetrail</li>
+</ul>
+<h2 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h2><ul>
+<li>VS</li>
+<li>VS code</li>
+<li>Eclipse C/C++</li>
+<li>Esmacs</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>Vim + cscope</li>
+<li>Vim + ctags</li>
+</ul>
+<h2 id="在线"><a href="#在线" class="headerlink" title="在线"></a>在线</h2><p><a href="https://code.woboq.org/userspace/glibc/" target="_blank" rel="noopener">woboq.org</a></p>
+<a id="more"></a>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#源码阅读哪家强？"><span class="toc-number">1.</span> <span class="toc-text">源码阅读哪家强？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三大件"><span class="toc-number">1.1.</span> <span class="toc-text">三大件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDE"><span class="toc-number">1.2.</span> <span class="toc-text">IDE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">1.3.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在线"><span class="toc-number">1.4.</span> <span class="toc-text">在线</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/04/06/源码阅读哪家强？/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&text=源码阅读哪家强？"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&is_video=false&description=源码阅读哪家强？"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=源码阅读哪家强？&body=Check out this article: http://yoursite.com/2020/04/06/源码阅读哪家强？/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&title=源码阅读哪家强？"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/06/源码阅读哪家强？/&name=源码阅读哪家强？&description=&lt;h1 id=&#34;源码阅读哪家强？&#34;&gt;&lt;a href=&#34;#源码阅读哪家强？&#34; class=&#34;headerlink&#34; title=&#34;源码阅读哪家强？&#34;&gt;&lt;/a&gt;源码阅读哪家强？&lt;/h1&gt;&lt;h2 id=&#34;三大件&#34;&gt;&lt;a href=&#34;#三大件&#34; class=&#34;headerlink&#34; title=&#34;三大件&#34;&gt;&lt;/a&gt;三大件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;SourceInsight&lt;/li&gt;
+&lt;li&gt;Understand&lt;/li&gt;
+&lt;li&gt;Sourcetrail&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;IDE&#34;&gt;&lt;a href=&#34;#IDE&#34; class=&#34;headerlink&#34; title=&#34;IDE&#34;&gt;&lt;/a&gt;IDE&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;VS&lt;/li&gt;
+&lt;li&gt;VS code&lt;/li&gt;
+&lt;li&gt;Eclipse C/C++&lt;/li&gt;
+&lt;li&gt;Esmacs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;&lt;a href=&#34;#其他&#34; class=&#34;headerlink&#34; title=&#34;其他&#34;&gt;&lt;/a&gt;其他&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Vim + cscope&lt;/li&gt;
+&lt;li&gt;Vim + ctags&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;在线&#34;&gt;&lt;a href=&#34;#在线&#34; class=&#34;headerlink&#34; title=&#34;在线&#34;&gt;&lt;/a&gt;在线&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://code.woboq.org/userspace/glibc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;woboq.org&lt;/a&gt;&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/04/06/源码阅读哪家强？/&t=源码阅读哪家强？"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Hexo &amp; 扩展、美化</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/02/07/WHY BLOG/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/02/05/复利、指数爆炸与e/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&text=Hexo &amp; 扩展、美化"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&is_video=false&description=Hexo &amp; 扩展、美化"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Hexo &amp; 扩展、美化&body=Check out this article: http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&name=Hexo &amp; 扩展、美化&description=&lt;h1 id=&#34;Hexo-amp-扩展、美化&#34;&gt;&lt;a href=&#34;#Hexo-amp-扩展、美化&#34; class=&#34;headerlink&#34; title=&#34;Hexo &amp;amp; 扩展、美化&#34;&gt;&lt;/a&gt;Hexo &amp;amp; 扩展、美化&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;每当我遇到问题和冲突，我都会提醒我自己：Markdown是为了更好的写作，而不是更优雅的渲染&lt;br&gt;—— 我自己&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;Hexo-Tricks&#34;&gt;&lt;a href=&#34;#Hexo-Tricks&#34; class=&#34;headerlink&#34; title=&#34;Hexo Tricks&#34;&gt;&lt;/a&gt;Hexo Tricks&lt;/h2&gt;&lt;h3 id=&#34;Configure&#34;&gt;&lt;a href=&#34;#Configure&#34; class=&#34;headerlink&#34; title=&#34;Configure&#34;&gt;&lt;/a&gt;Configure&lt;/h3&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;_config.yml post_asset_folder        #启动资源文件夹，默认是 false&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。&lt;/p&gt;
+&lt;p&gt;当&lt;code&gt;post_asset_folder: true&lt;/code&gt;，Hexo通过 &lt;code&gt;hexo new [layout] &amp;lt;title&amp;gt;&lt;/code&gt;命令创建新文章时，自动创建一个同名文件夹。将所有资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;Hexo-Engine&#34;&gt;&lt;a href=&#34;#Hexo-Engine&#34; class=&#34;headerlink&#34; title=&#34;Hexo Engine&#34;&gt;&lt;/a&gt;Hexo Engine&lt;/h2&gt;&lt;h3 id=&#34;remarkjs&#34;&gt;&lt;a href=&#34;#remarkjs&#34; class=&#34;headerlink&#34; title=&#34;remarkjs&#34;&gt;&lt;/a&gt;remarkjs&lt;/h3&gt;&lt;h4 id=&#34;修改渲染布局和模板（layout）&#34;&gt;&lt;a href=&#34;#修改渲染布局和模板（layout）&#34; class=&#34;headerlink&#34; title=&#34;修改渲染布局和模板（layout）&#34;&gt;&lt;/a&gt;修改渲染布局和模板（layout）&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;每个模板都默认使用 layout 布局，您可在 front-matter 指定其他布局，或是设为 false 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用layout参数改变布局后，并没有取消默认布局的渲染，而是仅仅改变了内嵌body指定的模板；&lt;/p&gt;
+&lt;p&gt;指定layout: false 也没有效果，所以决定修改ejs默认布局。&lt;/p&gt;
+&lt;h5 id=&#34;修改默认布局：layout-ejs&#34;&gt;&lt;a href=&#34;#修改默认布局：layout-ejs&#34; class=&#34;headerlink&#34; title=&#34;修改默认布局：layout.ejs&#34;&gt;&lt;/a&gt;修改默认布局：layout.ejs&lt;/h5&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;% &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (page.layout == &lt;span class=&#34;string&#34;&gt;&#34;slide&#34;&lt;/span&gt;) &amp;#123; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;%- body %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;% &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;% &amp;#125; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;添加模板ejs（对应-page-layout-参数）&#34;&gt;&lt;a href=&#34;#添加模板ejs（对应-page-layout-参数）&#34; class=&#34;headerlink&#34; title=&#34;添加模板ejs（对应 page.layout 参数）&#34;&gt;&lt;/a&gt;添加模板ejs（对应 page.layout 参数）&lt;/h5&gt;&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;%-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;page.title&lt;/span&gt; %&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;http-equiv&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;Content-Type&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;content&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/html; charset=UTF-8&#34;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;style&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/css&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      body &amp;#123; font-family: &#39;Droid Serif&#39;; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      h1, h2, h3 &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        font-family: &#39;Yanone Kaffeesatz&#39;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        font-weight: normal;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      .remark-code, .remark-inline-code &amp;#123; font-family: &#39;Ubuntu Mono&#39;; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;textarea&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;source&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;%-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;page.content&lt;/span&gt; %&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;textarea&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;https://remarkjs.com/downloads/remark-latest.min.js&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/javascript&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/javascript&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;javascript&#34;&gt;      &lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; slideshow = remark.create();&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;Front-matter&#34;&gt;&lt;a href=&#34;#Front-matter&#34; class=&#34;headerlink&#34; title=&#34;Front-matter&#34;&gt;&lt;/a&gt;Front-matter&lt;/h5&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;title: [slide title]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;layout: slide&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;记得一定要修改文件后缀为html，否则md文件会被默认渲染&lt;/p&gt;
+&lt;h4 id=&#34;简单粗暴的方法&#34;&gt;&lt;a href=&#34;#简单粗暴的方法&#34; class=&#34;headerlink&#34; title=&#34;简单粗暴的方法&#34;&gt;&lt;/a&gt;简单粗暴的方法&lt;/h4&gt;&lt;p&gt;&lt;code&gt;skip_render: slides/**/*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后使用脚本在 source &amp;gt; slides 下生成一个 [title] 文件夹&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;source &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├─slides&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    │  └─title&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    |      ├─index.html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    |      └─ ... img/js/css&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├─ ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;使用编辑器的Snippets&#34;&gt;&lt;a href=&#34;#使用编辑器的Snippets&#34; class=&#34;headerlink&#34; title=&#34;使用编辑器的Snippets&#34;&gt;&lt;/a&gt;使用编辑器的Snippets&lt;/h5&gt;&lt;p&gt;&lt;a href=&#34;https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/md/定制化/用户定义代码段.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSC Custom Snippets&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;manages(right blow setting ico) &amp;gt; Usr Snippets &amp;gt; language&lt;/p&gt;
+&lt;figure class=&#34;highlight&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	// ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&#34;remarkjs&#34;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&#34;prefix&#34;: &#34;remarkjs&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&#34;body&#34;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;&amp;lt;!DOCTYPE html&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;&amp;lt;html&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;head&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;title&amp;gt;$1&amp;lt;/title&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;meta http-equiv=\&#34;Content-Type\&#34; content=\&#34;text/html; charset=UTF-8\&#34;/&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;style type=\&#34;text/css\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      body &amp;#123; font-family: &#39;Droid Serif&#39;; &amp;#125;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      h1, h2, h3 &amp;#123;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;        font-family: &#39;Yanone Kaffeesatz&#39;;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;        font-weight: normal;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      &amp;#125;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      .remark-code, .remark-inline-code &amp;#123; font-family: &#39;Ubuntu Mono&#39;; &amp;#125;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/style&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;/head&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;body&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;textarea id=\&#34;source\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    $0&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/textarea&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;script src=\&#34;https://remarkjs.com/downloads/remark-latest.min.js\&#34; type=\&#34;text/javascript\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/script&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;script type=\&#34;text/javascript\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      var slideshow = remark.create();&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/script&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;/body&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&#34;&amp;lt;/html&amp;gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;vnote-snippets&#34;&gt;&lt;a href=&#34;#vnote-snippets&#34; class=&#34;headerlink&#34; title=&#34;vnote snippets&#34;&gt;&lt;/a&gt;vnote snippets&lt;/h5&gt;&lt;h5 id=&#34;python-scripts&#34;&gt;&lt;a href=&#34;#python-scripts&#34; class=&#34;headerlink&#34; title=&#34;python scripts&#34;&gt;&lt;/a&gt;python scripts&lt;/h5&gt;&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;Hexo-Theme&#34;&gt;&lt;a href=&#34;#Hexo-Theme&#34; class=&#34;headerlink&#34; title=&#34;Hexo Theme&#34;&gt;&lt;/a&gt;Hexo Theme&lt;/h2&gt;&lt;h2 id=&#34;Custom-Part&#34;&gt;&lt;a href=&#34;#Custom-Part&#34; class=&#34;headerlink&#34; title=&#34;Custom Part&#34;&gt;&lt;/a&gt;Custom Part&lt;/h2&gt;&lt;h3 id=&#34;跳过渲染&#34;&gt;&lt;a href=&#34;#跳过渲染&#34; class=&#34;headerlink&#34; title=&#34;跳过渲染&#34;&gt;&lt;/a&gt;跳过渲染&lt;/h3&gt;&lt;h4 id=&#34;文件&#34;&gt;&lt;a href=&#34;#文件&#34; class=&#34;headerlink&#34; title=&#34;文件&#34;&gt;&lt;/a&gt;文件&lt;/h4&gt;&lt;p&gt;对于单个文件（自定义页面）的指定跳过渲染，可以在页面开头以markdown格式加入header，添加属性&lt;code&gt;layout: false&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;layout: false&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;[注意]:&lt;/strong&gt; 一般主题会默认渲染布局，md文件会被渲染成对应HTML，所以不算完全跳过渲染&lt;/p&gt;
+&lt;h4 id=&#34;目录&#34;&gt;&lt;a href=&#34;#目录&#34; class=&#34;headerlink&#34; title=&#34;目录&#34;&gt;&lt;/a&gt;目录&lt;/h4&gt;&lt;p&gt;全局指定跳过文件、文件夹、递归目录树：全局配置文件&lt;code&gt;_config.yml&lt;/code&gt;添加&lt;code&gt;skip_render&lt;/code&gt;属性&lt;/p&gt;
+&lt;p&gt;属性值支持 glob 模式匹配：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;跳过source目录下的 test.html: &lt;code&gt;skip_render: test.html&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;跳过source目录下 test 文件夹内所有文件（但不包括子目录及其其中的文件）：&lt;code&gt;skip_render: test/*&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;跳过source目录下 test 文件夹内所有文件包括子文件夹以及子文件夹内的文件：&lt;code&gt;skip_render: test/**/*&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;跳过多个路径：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight md&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;skip_render:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   - &lt;/span&gt;text.html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   - &lt;/span&gt;text/*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;自定义页面&#34;&gt;&lt;a href=&#34;#自定义页面&#34; class=&#34;headerlink&#34; title=&#34;自定义页面&#34;&gt;&lt;/a&gt;自定义页面&lt;/h3&gt;&lt;h4 id=&#34;引用资源&#34;&gt;&lt;a href=&#34;#引用资源&#34; class=&#34;headerlink&#34; title=&#34;引用资源&#34;&gt;&lt;/a&gt;引用资源&lt;/h4&gt;&lt;p&gt;对于单页面跳过，若使用css、js外链，不能放在统一目录下，也会被当作文本渲染（图片可以相对引用）；&lt;br&gt;所以建议资源放入统一的css根目录下&lt;/p&gt;
+&lt;p&gt;对于目录跳过，资源即可按照正常的相对路径引用&lt;/p&gt;
+&lt;h3 id=&#34;自定义图片格式&#34;&gt;&lt;a href=&#34;#自定义图片格式&#34; class=&#34;headerlink&#34; title=&#34;自定义图片格式&#34;&gt;&lt;/a&gt;自定义图片格式&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;方法一：使用HTML标签&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;./xxx.png&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;width&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&#34;300&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;height&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&#34;200&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;alt&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;图片名称&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;align&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;center&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;附：&lt;/strong&gt;如果需要居中的话只要在外面包围div标签即可  &lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;div  align=&amp;quot;center&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;方法二：修改兼容 Vnote 编辑器语法&lt;/strong&gt;  [^more]&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;![test](_v_images/img_test.jpg =288x)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;注意:&lt;/strong&gt; =前有个空格，可以只写宽度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方法三：hexo 标签语法&lt;/strong&gt; （仅Hexo）&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;% img c1 /images/test_img.jpg 100 200 t1 %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;/images/test_img.jpg&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;c1&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;width&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;100&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;height&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;200&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;title&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;t1&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&t=Hexo &amp; 扩展、美化"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo-amp-扩展、美化"><span class="toc-number">1.</span> <span class="toc-text">Hexo &amp; 扩展、美化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-Tricks"><span class="toc-number">1.1.</span> <span class="toc-text">Hexo Tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure"><span class="toc-number">1.1.1.</span> <span class="toc-text">Configure</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-Engine"><span class="toc-number">1.2.</span> <span class="toc-text">Hexo Engine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#remarkjs"><span class="toc-number">1.2.1.</span> <span class="toc-text">remarkjs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改渲染布局和模板（layout）"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">修改渲染布局和模板（layout）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#修改默认布局：layout-ejs"><span class="toc-number">1.2.1.1.1.</span> <span class="toc-text">修改默认布局：layout.ejs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#添加模板ejs（对应-page-layout-参数）"><span class="toc-number">1.2.1.1.2.</span> <span class="toc-text">添加模板ejs（对应 page.layout 参数）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Front-matter"><span class="toc-number">1.2.1.1.3.</span> <span class="toc-text">Front-matter</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单粗暴的方法"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">简单粗暴的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用编辑器的Snippets"><span class="toc-number">1.2.1.2.1.</span> <span class="toc-text">使用编辑器的Snippets</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vnote-snippets"><span class="toc-number">1.2.1.2.2.</span> <span class="toc-text">vnote snippets</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#python-scripts"><span class="toc-number">1.2.1.2.3.</span> <span class="toc-text">python scripts</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-Theme"><span class="toc-number">1.3.</span> <span class="toc-text">Hexo Theme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custom-Part"><span class="toc-number">1.4.</span> <span class="toc-text">Custom Part</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#跳过渲染"><span class="toc-number">1.4.1.</span> <span class="toc-text">跳过渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目录"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义页面"><span class="toc-number">1.4.2.</span> <span class="toc-text">自定义页面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引用资源"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">引用资源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义图片格式"><span class="toc-number">1.4.3.</span> <span class="toc-text">自定义图片格式</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Hexo &amp; 扩展、美化
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-02-06T15:16:02.000Z" itemprop="datePublished">2020-02-06</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/blog/">blog</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Hexo-amp-扩展、美化"><a href="#Hexo-amp-扩展、美化" class="headerlink" title="Hexo &amp; 扩展、美化"></a>Hexo &amp; 扩展、美化</h1><blockquote>
+<p>每当我遇到问题和冲突，我都会提醒我自己：Markdown是为了更好的写作，而不是更优雅的渲染<br>—— 我自己</p>
+</blockquote>
+<h2 id="Hexo-Tricks"><a href="#Hexo-Tricks" class="headerlink" title="Hexo Tricks"></a>Hexo Tricks</h2><h3 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">_config.yml post_asset_folder        #启动资源文件夹，默认是 false</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。</p>
+<p>当<code>post_asset_folder: true</code>，Hexo通过 <code>hexo new [layout] &lt;title&gt;</code>命令创建新文章时，自动创建一个同名文件夹。将所有资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们。</p>
+</blockquote>
+<h2 id="Hexo-Engine"><a href="#Hexo-Engine" class="headerlink" title="Hexo Engine"></a>Hexo Engine</h2><h3 id="remarkjs"><a href="#remarkjs" class="headerlink" title="remarkjs"></a>remarkjs</h3><h4 id="修改渲染布局和模板（layout）"><a href="#修改渲染布局和模板（layout）" class="headerlink" title="修改渲染布局和模板（layout）"></a>修改渲染布局和模板（layout）</h4><blockquote>
+<p>每个模板都默认使用 layout 布局，您可在 front-matter 指定其他布局，或是设为 false 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。</p>
+</blockquote>
+<p>使用layout参数改变布局后，并没有取消默认布局的渲染，而是仅仅改变了内嵌body指定的模板；</p>
+<p>指定layout: false 也没有效果，所以决定修改ejs默认布局。</p>
+<h5 id="修改默认布局：layout-ejs"><a href="#修改默认布局：layout-ejs" class="headerlink" title="修改默认布局：layout.ejs"></a>修改默认布局：layout.ejs</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (page.layout == <span class="string">"slide"</span>) &#123; %&gt;</span><br><span class="line">&lt;%- body %&gt;</span><br><span class="line">&lt;% &#125; <span class="keyword">else</span> &#123; %&gt;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="添加模板ejs（对应-page-layout-参数）"><a href="#添加模板ejs（对应-page-layout-参数）" class="headerlink" title="添加模板ejs（对应 page.layout 参数）"></a>添加模板ejs（对应 page.layout 参数）</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">%-</span> <span class="attr">page.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);</span><br><span class="line">      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);</span><br><span class="line">      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);</span><br><span class="line"></span><br><span class="line">      body &#123; font-family: 'Droid Serif'; &#125;</span><br><span class="line">      h1, h2, h3 &#123;</span><br><span class="line">        font-family: 'Yanone Kaffeesatz';</span><br><span class="line">        font-weight: normal;</span><br><span class="line">      &#125;</span><br><span class="line">      .remark-code, .remark-inline-code &#123; font-family: 'Ubuntu Mono'; &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"source"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">%-</span> <span class="attr">page.content</span> %&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://remarkjs.com/downloads/remark-latest.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> slideshow = remark.create();</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: [slide title]</span><br><span class="line">layout: slide</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>记得一定要修改文件后缀为html，否则md文件会被默认渲染</p>
+<h4 id="简单粗暴的方法"><a href="#简单粗暴的方法" class="headerlink" title="简单粗暴的方法"></a>简单粗暴的方法</h4><p><code>skip_render: slides/**/*</code></p>
+<p>然后使用脚本在 source &gt; slides 下生成一个 [title] 文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source </span><br><span class="line">    ├─slides</span><br><span class="line">    │  └─title</span><br><span class="line">    |      ├─index.html</span><br><span class="line">    |      └─ ... img/js/css</span><br><span class="line">    ├─ ...</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用编辑器的Snippets"><a href="#使用编辑器的Snippets" class="headerlink" title="使用编辑器的Snippets"></a>使用编辑器的Snippets</h5><p><a href="https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/md/定制化/用户定义代码段.html" target="_blank" rel="noopener">VSC Custom Snippets</a></p>
+<p>manages(right blow setting ico) &gt; Usr Snippets &gt; language</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	// ...</span><br><span class="line">	"remarkjs": &#123;</span><br><span class="line">		"prefix": "remarkjs",</span><br><span class="line">		"body": [</span><br><span class="line">"&lt;!DOCTYPE html&gt;",</span><br><span class="line">"&lt;html&gt;",</span><br><span class="line">"  &lt;head&gt;",</span><br><span class="line">"    &lt;title&gt;$1&lt;/title&gt;",</span><br><span class="line">"    &lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/&gt;",</span><br><span class="line">"    &lt;style type=\"text/css\"&gt;",</span><br><span class="line">"      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);",</span><br><span class="line">"      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);",</span><br><span class="line">"      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);",</span><br><span class="line">"",</span><br><span class="line">"      body &#123; font-family: 'Droid Serif'; &#125;",</span><br><span class="line">"      h1, h2, h3 &#123;",</span><br><span class="line">"        font-family: 'Yanone Kaffeesatz';",</span><br><span class="line">"        font-weight: normal;",</span><br><span class="line">"      &#125;",</span><br><span class="line">"      .remark-code, .remark-inline-code &#123; font-family: 'Ubuntu Mono'; &#125;",</span><br><span class="line">"    &lt;/style&gt;",</span><br><span class="line">"  &lt;/head&gt;",</span><br><span class="line">"  &lt;body&gt;",</span><br><span class="line">"    &lt;textarea id=\"source\"&gt;",</span><br><span class="line">"    ",</span><br><span class="line">"    $0",</span><br><span class="line">"    ",</span><br><span class="line">"    &lt;/textarea&gt;",</span><br><span class="line">"    &lt;script src=\"https://remarkjs.com/downloads/remark-latest.min.js\" type=\"text/javascript\"&gt;",</span><br><span class="line">"    &lt;/script&gt;",</span><br><span class="line">"    &lt;script type=\"text/javascript\"&gt;",</span><br><span class="line">"      var slideshow = remark.create();",</span><br><span class="line">"    &lt;/script&gt;",</span><br><span class="line">"  &lt;/body&gt;",</span><br><span class="line"><span class="string">"&lt;/html&gt;"</span></span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="vnote-snippets"><a href="#vnote-snippets" class="headerlink" title="vnote snippets"></a>vnote snippets</h5><h5 id="python-scripts"><a href="#python-scripts" class="headerlink" title="python scripts"></a>python scripts</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Hexo-Theme"><a href="#Hexo-Theme" class="headerlink" title="Hexo Theme"></a>Hexo Theme</h2><h2 id="Custom-Part"><a href="#Custom-Part" class="headerlink" title="Custom Part"></a>Custom Part</h2><h3 id="跳过渲染"><a href="#跳过渲染" class="headerlink" title="跳过渲染"></a>跳过渲染</h3><h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><p>对于单个文件（自定义页面）的指定跳过渲染，可以在页面开头以markdown格式加入header，添加属性<code>layout: false</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p><strong>[注意]:</strong> 一般主题会默认渲染布局，md文件会被渲染成对应HTML，所以不算完全跳过渲染</p>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><p>全局指定跳过文件、文件夹、递归目录树：全局配置文件<code>_config.yml</code>添加<code>skip_render</code>属性</p>
+<p>属性值支持 glob 模式匹配：</p>
+<ol>
+<li><p>跳过source目录下的 test.html: <code>skip_render: test.html</code></p>
+</li>
+<li><p>跳过source目录下 test 文件夹内所有文件（但不包括子目录及其其中的文件）：<code>skip_render: test/*</code></p>
+</li>
+<li><p>跳过source目录下 test 文件夹内所有文件包括子文件夹以及子文件夹内的文件：<code>skip_render: test/**/*</code></p>
+</li>
+<li><p>跳过多个路径：</p>
+</li>
+</ol>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">skip_render:</span><br><span class="line"><span class="bullet">   - </span>text.html</span><br><span class="line"><span class="bullet">   - </span>text/*</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义页面"><a href="#自定义页面" class="headerlink" title="自定义页面"></a>自定义页面</h3><h4 id="引用资源"><a href="#引用资源" class="headerlink" title="引用资源"></a>引用资源</h4><p>对于单页面跳过，若使用css、js外链，不能放在统一目录下，也会被当作文本渲染（图片可以相对引用）；<br>所以建议资源放入统一的css根目录下</p>
+<p>对于目录跳过，资源即可按照正常的相对路径引用</p>
+<h3 id="自定义图片格式"><a href="#自定义图片格式" class="headerlink" title="自定义图片格式"></a>自定义图片格式</h3><p><strong>方法一：使用HTML标签</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./xxx.png"</span> <span class="attr">width</span> = <span class="string">"300"</span> <span class="attr">height</span> = <span class="string">"200"</span> <span class="attr">alt</span>=<span class="string">"图片名称"</span> <span class="attr">align</span>=<span class="string">center</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>附：</strong>如果需要居中的话只要在外面包围div标签即可  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div  align=&quot;center&quot;&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二：修改兼容 Vnote 编辑器语法</strong>  [^more]</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![test](_v_images/img_test.jpg =288x)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意:</strong> =前有个空格，可以只写宽度。</p>
+<p><strong>方法三：hexo 标签语法</strong> （仅Hexo）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% img c1 /images/test_img.jpg 100 200 t1 %&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/test_img.jpg"</span> <span class="attr">class</span>=<span class="string">"c1"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">title</span>=<span class="string">"t1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+
+<p>[^more]: <a href="https://bobcn.github.io/2018/03/24/hexo_reset_image_size/" target="_blank" rel="noopener">Hexo 中扩展 Markdown 语法设置图片的大小</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo-amp-扩展、美化"><span class="toc-number">1.</span> <span class="toc-text">Hexo &amp; 扩展、美化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-Tricks"><span class="toc-number">1.1.</span> <span class="toc-text">Hexo Tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure"><span class="toc-number">1.1.1.</span> <span class="toc-text">Configure</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-Engine"><span class="toc-number">1.2.</span> <span class="toc-text">Hexo Engine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#remarkjs"><span class="toc-number">1.2.1.</span> <span class="toc-text">remarkjs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改渲染布局和模板（layout）"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">修改渲染布局和模板（layout）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#修改默认布局：layout-ejs"><span class="toc-number">1.2.1.1.1.</span> <span class="toc-text">修改默认布局：layout.ejs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#添加模板ejs（对应-page-layout-参数）"><span class="toc-number">1.2.1.1.2.</span> <span class="toc-text">添加模板ejs（对应 page.layout 参数）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Front-matter"><span class="toc-number">1.2.1.1.3.</span> <span class="toc-text">Front-matter</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单粗暴的方法"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">简单粗暴的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用编辑器的Snippets"><span class="toc-number">1.2.1.2.1.</span> <span class="toc-text">使用编辑器的Snippets</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vnote-snippets"><span class="toc-number">1.2.1.2.2.</span> <span class="toc-text">vnote snippets</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#python-scripts"><span class="toc-number">1.2.1.2.3.</span> <span class="toc-text">python scripts</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-Theme"><span class="toc-number">1.3.</span> <span class="toc-text">Hexo Theme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Custom-Part"><span class="toc-number">1.4.</span> <span class="toc-text">Custom Part</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#跳过渲染"><span class="toc-number">1.4.1.</span> <span class="toc-text">跳过渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目录"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义页面"><span class="toc-number">1.4.2.</span> <span class="toc-text">自定义页面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引用资源"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">引用资源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义图片格式"><span class="toc-number">1.4.3.</span> <span class="toc-text">自定义图片格式</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&text=Hexo &amp; 扩展、美化"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&is_video=false&description=Hexo &amp; 扩展、美化"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Hexo &amp; 扩展、美化&body=Check out this article: http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&title=Hexo &amp; 扩展、美化"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&name=Hexo &amp; 扩展、美化&description=&lt;h1 id=&#34;Hexo-amp-扩展、美化&#34;&gt;&lt;a href=&#34;#Hexo-amp-扩展、美化&#34; class=&#34;headerlink&#34; title=&#34;Hexo &amp;amp; 扩展、美化&#34;&gt;&lt;/a&gt;Hexo &amp;amp; 扩展、美化&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;每当我遇到问题和冲突，我都会提醒我自己：Markdown是为了更好的写作，而不是更优雅的渲染&lt;br&gt;—— 我自己&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;Hexo-Tricks&#34;&gt;&lt;a href=&#34;#Hexo-Tricks&#34; class=&#34;headerlink&#34; title=&#34;Hexo Tricks&#34;&gt;&lt;/a&gt;Hexo Tricks&lt;/h2&gt;&lt;h3 id=&#34;Configure&#34;&gt;&lt;a href=&#34;#Configure&#34; class=&#34;headerlink&#34; title=&#34;Configure&#34;&gt;&lt;/a&gt;Configure&lt;/h3&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;_config.yml post_asset_folder        #启动资源文件夹，默认是 false&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。&lt;/p&gt;
+&lt;p&gt;当&lt;code&gt;post_asset_folder: true&lt;/code&gt;，Hexo通过 &lt;code&gt;hexo new [layout] &amp;lt;title&amp;gt;&lt;/code&gt;命令创建新文章时，自动创建一个同名文件夹。将所有资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;Hexo-Engine&#34;&gt;&lt;a href=&#34;#Hexo-Engine&#34; class=&#34;headerlink&#34; title=&#34;Hexo Engine&#34;&gt;&lt;/a&gt;Hexo Engine&lt;/h2&gt;&lt;h3 id=&#34;remarkjs&#34;&gt;&lt;a href=&#34;#remarkjs&#34; class=&#34;headerlink&#34; title=&#34;remarkjs&#34;&gt;&lt;/a&gt;remarkjs&lt;/h3&gt;&lt;h4 id=&#34;修改渲染布局和模板（layout）&#34;&gt;&lt;a href=&#34;#修改渲染布局和模板（layout）&#34; class=&#34;headerlink&#34; title=&#34;修改渲染布局和模板（layout）&#34;&gt;&lt;/a&gt;修改渲染布局和模板（layout）&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;每个模板都默认使用 layout 布局，您可在 front-matter 指定其他布局，或是设为 false 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用layout参数改变布局后，并没有取消默认布局的渲染，而是仅仅改变了内嵌body指定的模板；&lt;/p&gt;
+&lt;p&gt;指定layout: false 也没有效果，所以决定修改ejs默认布局。&lt;/p&gt;
+&lt;h5 id=&#34;修改默认布局：layout-ejs&#34;&gt;&lt;a href=&#34;#修改默认布局：layout-ejs&#34; class=&#34;headerlink&#34; title=&#34;修改默认布局：layout.ejs&#34;&gt;&lt;/a&gt;修改默认布局：layout.ejs&lt;/h5&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;% &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (page.layout == &lt;span class=&#34;string&#34;&gt;&#34;slide&#34;&lt;/span&gt;) &amp;#123; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;%- body %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;% &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;% &amp;#125; %&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;添加模板ejs（对应-page-layout-参数）&#34;&gt;&lt;a href=&#34;#添加模板ejs（对应-page-layout-参数）&#34; class=&#34;headerlink&#34; title=&#34;添加模板ejs（对应 page.layout 参数）&#34;&gt;&lt;/a&gt;添加模板ejs（对应 page.layout 参数）&lt;/h5&gt;&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;%-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;page.title&lt;/span&gt; %&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;http-equiv&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;Content-Type&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;content&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/html; charset=UTF-8&#34;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;style&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/css&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      body &amp;#123; font-family: &#39;Droid Serif&#39;; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      h1, h2, h3 &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        font-family: &#39;Yanone Kaffeesatz&#39;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        font-weight: normal;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      .remark-code, .remark-inline-code &amp;#123; font-family: &#39;Ubuntu Mono&#39;; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;textarea&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;source&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;%-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;page.content&lt;/span&gt; %&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;textarea&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;https://remarkjs.com/downloads/remark-latest.min.js&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/javascript&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;text/javascript&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;javascript&#34;&gt;      &lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; slideshow = remark.create();&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;Front-matter&#34;&gt;&lt;a href=&#34;#Front-matter&#34; class=&#34;headerlink&#34; title=&#34;Front-matter&#34;&gt;&lt;/a&gt;Front-matter&lt;/h5&gt;&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;title: [slide title]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;layout: slide&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;记得一定要修改文件后缀为html，否则md文件会被默认渲染&lt;/p&gt;
+&lt;h4 id=&#34;简单粗暴的方法&#34;&gt;&lt;a href=&#34;#简单粗暴的方法&#34; class=&#34;headerlink&#34; title=&#34;简单粗暴的方法&#34;&gt;&lt;/a&gt;简单粗暴的方法&lt;/h4&gt;&lt;p&gt;&lt;code&gt;skip_render: slides/**/*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后使用脚本在 source &amp;gt; slides 下生成一个 [title] 文件夹&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;source &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├─slides&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    │  └─title&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    |      ├─index.html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    |      └─ ... img/js/css&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├─ ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;使用编辑器的Snippets&#34;&gt;&lt;a href=&#34;#使用编辑器的Snippets&#34; class=&#34;headerlink&#34; title=&#34;使用编辑器的Snippets&#34;&gt;&lt;/a&gt;使用编辑器的Snippets&lt;/h5&gt;&lt;p&gt;&lt;a href=&#34;https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/md/定制化/用户定义代码段.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSC Custom Snippets&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;manages(right blow setting ico) &amp;gt; Usr Snippets &amp;gt; language&lt;/p&gt;
+&lt;figure class=&#34;highlight&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	// ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&#34;remarkjs&#34;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&#34;prefix&#34;: &#34;remarkjs&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&#34;body&#34;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;&amp;lt;!DOCTYPE html&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;&amp;lt;html&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;head&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;title&amp;gt;$1&amp;lt;/title&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;meta http-equiv=\&#34;Content-Type\&#34; content=\&#34;text/html; charset=UTF-8\&#34;/&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;style type=\&#34;text/css\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      body &amp;#123; font-family: &#39;Droid Serif&#39;; &amp;#125;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      h1, h2, h3 &amp;#123;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;        font-family: &#39;Yanone Kaffeesatz&#39;;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;        font-weight: normal;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      &amp;#125;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      .remark-code, .remark-inline-code &amp;#123; font-family: &#39;Ubuntu Mono&#39;; &amp;#125;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/style&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;/head&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;body&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;textarea id=\&#34;source\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    $0&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/textarea&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;script src=\&#34;https://remarkjs.com/downloads/remark-latest.min.js\&#34; type=\&#34;text/javascript\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/script&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;script type=\&#34;text/javascript\&#34;&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;      var slideshow = remark.create();&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;    &amp;lt;/script&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&#34;  &amp;lt;/body&amp;gt;&#34;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&#34;&amp;lt;/html&amp;gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h5 id=&#34;vnote-snippets&#34;&gt;&lt;a href=&#34;#vnote-snippets&#34; class=&#34;headerlink&#34; title=&#34;vnote snippets&#34;&gt;&lt;/a&gt;vnote snippets&lt;/h5&gt;&lt;h5 id=&#34;python-scripts&#34;&gt;&lt;a href=&#34;#python-scripts&#34; class=&#34;headerlink&#34; title=&#34;python scripts&#34;&gt;&lt;/a&gt;python scripts&lt;/h5&gt;&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;Hexo-Theme&#34;&gt;&lt;a href=&#34;#Hexo-Theme&#34; class=&#34;headerlink&#34; title=&#34;Hexo Theme&#34;&gt;&lt;/a&gt;Hexo Theme&lt;/h2&gt;&lt;h2 id=&#34;Custom-Part&#34;&gt;&lt;a href=&#34;#Custom-Part&#34; class=&#34;headerlink&#34; title=&#34;Custom Part&#34;&gt;&lt;/a&gt;Custom Part&lt;/h2&gt;&lt;h3 id=&#34;跳过渲染&#34;&gt;&lt;a href=&#34;#跳过渲染&#34; class=&#34;headerlink&#34; title=&#34;跳过渲染&#34;&gt;&lt;/a&gt;跳过渲染&lt;/h3&gt;&lt;h4 id=&#34;文件&#34;&gt;&lt;a href=&#34;#文件&#34; class=&#34;headerlink&#34; title=&#34;文件&#34;&gt;&lt;/a&gt;文件&lt;/h4&gt;&lt;p&gt;对于单个文件（自定义页面）的指定跳过渲染，可以在页面开头以markdown格式加入header，添加属性&lt;code&gt;layout: false&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;layout: false&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;---&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;[注意]:&lt;/strong&gt; 一般主题会默认渲染布局，md文件会被渲染成对应HTML，所以不算完全跳过渲染&lt;/p&gt;
+&lt;h4 id=&#34;目录&#34;&gt;&lt;a href=&#34;#目录&#34; class=&#34;headerlink&#34; title=&#34;目录&#34;&gt;&lt;/a&gt;目录&lt;/h4&gt;&lt;p&gt;全局指定跳过文件、文件夹、递归目录树：全局配置文件&lt;code&gt;_config.yml&lt;/code&gt;添加&lt;code&gt;skip_render&lt;/code&gt;属性&lt;/p&gt;
+&lt;p&gt;属性值支持 glob 模式匹配：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;跳过source目录下的 test.html: &lt;code&gt;skip_render: test.html&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;跳过source目录下 test 文件夹内所有文件（但不包括子目录及其其中的文件）：&lt;code&gt;skip_render: test/*&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;跳过source目录下 test 文件夹内所有文件包括子文件夹以及子文件夹内的文件：&lt;code&gt;skip_render: test/**/*&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;跳过多个路径：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight md&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;skip_render:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   - &lt;/span&gt;text.html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   - &lt;/span&gt;text/*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;自定义页面&#34;&gt;&lt;a href=&#34;#自定义页面&#34; class=&#34;headerlink&#34; title=&#34;自定义页面&#34;&gt;&lt;/a&gt;自定义页面&lt;/h3&gt;&lt;h4 id=&#34;引用资源&#34;&gt;&lt;a href=&#34;#引用资源&#34; class=&#34;headerlink&#34; title=&#34;引用资源&#34;&gt;&lt;/a&gt;引用资源&lt;/h4&gt;&lt;p&gt;对于单页面跳过，若使用css、js外链，不能放在统一目录下，也会被当作文本渲染（图片可以相对引用）；&lt;br&gt;所以建议资源放入统一的css根目录下&lt;/p&gt;
+&lt;p&gt;对于目录跳过，资源即可按照正常的相对路径引用&lt;/p&gt;
+&lt;h3 id=&#34;自定义图片格式&#34;&gt;&lt;a href=&#34;#自定义图片格式&#34; class=&#34;headerlink&#34; title=&#34;自定义图片格式&#34;&gt;&lt;/a&gt;自定义图片格式&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;方法一：使用HTML标签&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;./xxx.png&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;width&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&#34;300&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;height&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&#34;200&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;alt&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;图片名称&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;align&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;center&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;附：&lt;/strong&gt;如果需要居中的话只要在外面包围div标签即可  &lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;div  align=&amp;quot;center&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;方法二：修改兼容 Vnote 编辑器语法&lt;/strong&gt;  [^more]&lt;/p&gt;
+&lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;![test](_v_images/img_test.jpg =288x)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;注意:&lt;/strong&gt; =前有个空格，可以只写宽度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方法三：hexo 标签语法&lt;/strong&gt; （仅Hexo）&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;% img c1 /images/test_img.jpg 100 200 t1 %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;/images/test_img.jpg&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;c1&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;width&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;100&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;height&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;200&#34;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;title&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&#34;t1&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/06/Hexo &amp; 扩展、美化/&t=Hexo &amp; 扩展、美化"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>安全技术和个人生活随笔</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/05/02/python_tricks/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/02/双拼/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/02/双拼/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/02/双拼/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/05/02/双拼/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/02/双拼/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/02/双拼/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#双拼"><span class="toc-number">1.</span> <span class="toc-text">双拼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#韵母"><span class="toc-number">1.1.</span> <span class="toc-text">韵母</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分类（四呼）："><span class="toc-number">1.1.1.</span> <span class="toc-text">分类（四呼）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简洁版分类"><span class="toc-number">1.1.2.</span> <span class="toc-text">简洁版分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自然码"><span class="toc-number">1.2.</span> <span class="toc-text">自然码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#记忆"><span class="toc-number">1.2.1.</span> <span class="toc-text">记忆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按照结尾韵母复习巩固、直到建立反射"><span class="toc-number">1.2.2.</span> <span class="toc-text">按照结尾韵母复习巩固、直到建立反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#攻坚"><span class="toc-number">1.2.3.</span> <span class="toc-text">攻坚</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心得"><span class="toc-number">1.3.</span> <span class="toc-text">心得</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经验"><span class="toc-number">1.4.</span> <span class="toc-text">经验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纠错（第四天）"><span class="toc-number">1.5.</span> <span class="toc-text">纠错（第四天）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#历程"><span class="toc-number">1.6.</span> <span class="toc-text">历程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习曲线"><span class="toc-number">1.7.</span> <span class="toc-text">学习曲线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邓宁-克鲁格效应"><span class="toc-number">1.8.</span> <span class="toc-text">邓宁-克鲁格效应</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-02T14:23:21.412Z" itemprop="datePublished">2020-05-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="双拼"><a href="#双拼" class="headerlink" title="双拼"></a>双拼</h1><p>小学微机课，电脑上安装了好多的打字软件。虽然那时自己只用搜狗，但是切换过程总是大费周章——从智能ABC到五笔，然后路过一堆双拼。</p>
+<p>那时候，出于好奇试过一两次，不知怎的，感觉它像是个安静的老东西，默不作声的躺在那里。</p>
+<p>而且</p>
+<h2 id="韵母"><a href="#韵母" class="headerlink" title="韵母"></a>韵母</h2><table>
+<thead>
+<tr>
+<th>a</th>
+<th>o</th>
+<th>e</th>
+<th>i</th>
+<th>u</th>
+<th>ü</th>
+<th>ai</th>
+<th>ei</th>
+<th>ui</th>
+<th>ao</th>
+<th>ou</th>
+<th>iu</th>
+<th>ie</th>
+<th>üe</th>
+<th>er</th>
+<th>an</th>
+<th>en</th>
+<th>in</th>
+<th>un</th>
+<th>ün</th>
+<th>ang</th>
+<th>eng</th>
+<th>ing</th>
+<th>ong</th>
+</tr>
+</thead>
+</table>
+<h3 id="分类（四呼）："><a href="#分类（四呼）：" class="headerlink" title="分类（四呼）："></a>分类（四呼）：</h3><p><a href="https://zh.wikipedia.org/wiki/四呼" target="_blank" rel="noopener">韵母-四呼</a></p>
+<h3 id="简洁版分类"><a href="#简洁版分类" class="headerlink" title="简洁版分类"></a>简洁版分类</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>开口呼（无介音）</th>
+<th>齐齿呼（介音i）</th>
+<th>合口呼（介音u）</th>
+<th>撮口呼（介音ü）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开尾韵</td>
+<td>a</td>
+<td>ia</td>
+<td>ua</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>o</td>
+<td></td>
+<td>uo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>e</td>
+<td>ie</td>
+<td></td>
+<td>üe</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>i</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>u</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>ü</td>
+</tr>
+<tr>
+<td>元音尾韵</td>
+<td>ai</td>
+<td></td>
+<td>uai</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ei</td>
+<td></td>
+<td>ui</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ao</td>
+<td>iao</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ou</td>
+<td>iu</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>er</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>鼻尾韵</td>
+<td>an</td>
+<td>ian</td>
+<td>uan</td>
+<td>üan</td>
+</tr>
+<tr>
+<td></td>
+<td>en</td>
+<td>in</td>
+<td>un</td>
+<td>ün</td>
+</tr>
+<tr>
+<td></td>
+<td>ang</td>
+<td>iang</td>
+<td>uang</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>eng</td>
+<td>ing</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ong</td>
+<td>iong</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="自然码"><a href="#自然码" class="headerlink" title="自然码"></a>自然码</h2><p>![nature](<em>v</em>images/20200325201131094_9831.png =1053x)</p>
+<h3 id="记忆"><a href="#记忆" class="headerlink" title="记忆"></a>记忆</h3><p><strong>需要记忆的键位：</strong></p>
+<p>v、i、u——zh、ch、sh<br>谐音记忆法：<br>y—uai—歪<br>v—ui—危<br>o—uo—喔<br>q—iu—秋<br>l —ai—哎(哟)<br>n—in—因<br>w—ua、ia—挖</p>
+<p>d - *ang - iang、uang — duang！<br>g—eng—鞥</p>
+<p>对称位置记忆法：<br>f —— g — h —— j<br>en – eng–ang – an</p>
+<p>z — x<br>ei— ie</p>
+<p>词组记忆法：<br>r - uan - 软<br>p - un - P滚<br>s - ong - 怂<br>k - ao - 靠</p>
+<p>死记硬背法：</p>
+<p>ing - Y<br>ue - T<br>ou - B</p>
+<p>iao - C<br>ian - M</p>
+<h3 id="按照结尾韵母复习巩固、直到建立反射"><a href="#按照结尾韵母复习巩固、直到建立反射" class="headerlink" title="按照结尾韵母复习巩固、直到建立反射"></a>按照结尾韵母复习巩固、直到建立反射</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a、ia\ua、an、ian\uan、iang\uang 、ao、iao、ai：</span><br><span class="line">a、w、    j、 m、  r、 d、         k、 c、  l</span><br><span class="line"></span><br><span class="line">e、ie、ue、en、in(ien)、un(uen)、eng、ing(ieng)：</span><br><span class="line">e、x、 t、 f、 n、      p、      g、  y</span><br><span class="line"></span><br><span class="line">o、uo、ong\iong：</span><br><span class="line">o、o、s</span><br><span class="line"></span><br><span class="line">i、u、iu、ui</span><br><span class="line">i、u、q、v</span><br></pre></td></tr></table></figure>
+
+<h3 id="攻坚"><a href="#攻坚" class="headerlink" title="攻坚"></a>攻坚</h3><p>ian —- M<br>uan —- R<br>iao —- C<br>ao —- K<br>*ang — D<br>ei — Z<br>ue — T<br>iu — Q</p>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>如果：<br>你使用的是标准指法<br>之前使用的是全拼</p>
+<p>目前能够记住键位对应的韵母</p>
+<p>只是需要一定的反应时间</p>
+<p>估计现在的打字速度可能达不到原来的40%</p>
+<p>坚持住！</p>
+<p>按照前人的经验，恢复到原来的速度需要大概一周，达到极限瓶颈需要一个月。</p>
+<p>这就是一个小小的门槛，将大部分人挡在门外。</p>
+<h2 id="经验"><a href="#经验" class="headerlink" title="经验"></a>经验</h2><ol>
+<li>练习的目标是肌肉记忆。</li>
+</ol>
+<p>起初，可能使用一些便于记忆的方法做到“记得”，如谐音法、死记硬背法……<br>初期的打字过程可能是：音-拆声母韵母-对应的字母键-字母键的位置-按键；<br>但是，最终的目标是：音-按键，是一个反射一样的过程。<br>这就需要我们将中间过程，通过不断、不断、不断地练习，熟能生巧，建立肌肉记忆。</p>
+<ul>
+<li>tips：可以将不熟练的韵母写下来，像背单词一样提取对应的位置，用手指模拟去击键</li>
+</ul>
+<ol start="2">
+<li>方法</li>
+<li>坚持</li>
+</ol>
+<p>坚持！</p>
+<ol start="4">
+<li>时间、持续</li>
+</ol>
+<p>将输入法统统设成双拼，然后聊天去吧！</p>
+<h2 id="纠错（第四天）"><a href="#纠错（第四天）" class="headerlink" title="纠错（第四天）"></a>纠错（第四天）</h2><p>与英文发音相近的韵母很容易记住，但同时，对发音相近却不在同样位置的韵母产生了很强的误导作用，需要主动纠错</p>
+<p>反应延迟<br>zh - v<br>ch - i<br>sh - u<br>ei - z <del>a</del></p>
+<p>对应<br>ai - L <del>i</del><br>ao - K <del>o</del><br>en - F <del>n</del></p>
+<p>位置<br>V <del>b</del><br>C <del>x</del></p>
+<h2 id="历程"><a href="#历程" class="headerlink" title="历程"></a>历程</h2><p>![2020/04/04](<em>v</em>images/20200404173325165_404.png =911x)</p>
+<h2 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h2><blockquote>
+<p>学习曲线（在一定时间内获得的技能或知识的速率）<br>![learning curve](<em>v</em>images/20200330134341521_25584.jpg =600x)</p>
+</blockquote>
+<h2 id="邓宁-克鲁格效应"><a href="#邓宁-克鲁格效应" class="headerlink" title="邓宁-克鲁格效应"></a>邓宁-克鲁格效应</h2><p>![learning-curve-learning-theory-knowledge](<em>v</em>images/20200330134044782_15420.png =500x)</p>
+<p>![Dunning-kruger](<em>v</em>images/20200330134129725_14561.png =500x)</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#双拼"><span class="toc-number">1.</span> <span class="toc-text">双拼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#韵母"><span class="toc-number">1.1.</span> <span class="toc-text">韵母</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分类（四呼）："><span class="toc-number">1.1.1.</span> <span class="toc-text">分类（四呼）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简洁版分类"><span class="toc-number">1.1.2.</span> <span class="toc-text">简洁版分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自然码"><span class="toc-number">1.2.</span> <span class="toc-text">自然码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#记忆"><span class="toc-number">1.2.1.</span> <span class="toc-text">记忆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按照结尾韵母复习巩固、直到建立反射"><span class="toc-number">1.2.2.</span> <span class="toc-text">按照结尾韵母复习巩固、直到建立反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#攻坚"><span class="toc-number">1.2.3.</span> <span class="toc-text">攻坚</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心得"><span class="toc-number">1.3.</span> <span class="toc-text">心得</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经验"><span class="toc-number">1.4.</span> <span class="toc-text">经验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纠错（第四天）"><span class="toc-number">1.5.</span> <span class="toc-text">纠错（第四天）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#历程"><span class="toc-number">1.6.</span> <span class="toc-text">历程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习曲线"><span class="toc-number">1.7.</span> <span class="toc-text">学习曲线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邓宁-克鲁格效应"><span class="toc-number">1.8.</span> <span class="toc-text">邓宁-克鲁格效应</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/02/双拼/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/02/双拼/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/02/双拼/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/05/02/双拼/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/02/双拼/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/02/双拼/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/02/双拼/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

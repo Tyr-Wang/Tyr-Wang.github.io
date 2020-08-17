@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>安全技术和个人生活随笔</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>- 安全技术和个人生活随笔 --</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">首页</a></li>
+       
+        <li><a href="/about/">关于</a></li>
+       
+        <li><a href="/archives/">归档</a></li>
+       
+        <li><a href="/tags/">标签</a></li>
+       
+        <li><a href="/categories/">分类</a></li>
+       
+        <li><a href="/links/">友链</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <h1 id="算法、数据结构，高频面试题"><a href="#算法、数据结构，高频面试题" class="headerlink" title="算法、数据结构，高频面试题"></a>算法、数据结构，高频面试题</h1><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>链表</p>
+<p>二叉树</p>
+<p>队列</p>
+<p>栈</p>
+<p>hash map</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>快排</p>
+<p>堆排序</p>
+<p>TOPK</p>
+<p>荷兰国旗算法</p>
+<p>归并</p>
+<p>分治</p>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="跳台阶问题"><a href="#跳台阶问题" class="headerlink" title="跳台阶问题"></a>跳台阶问题</h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>一个台阶总共有n 级，如果一次可以跳1 级，也可以跳2 级。</p>
+<p>求总共有多少总跳法，并分析算法的时间复杂度。</p>
+<h4 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h4><p>首先考虑最简单的情况。如果只有1级台阶，那显然只有一种跳法。如果有2级台阶，那就有两种跳的方法了：一种是分两次跳，每次跳1级；另外一种就是一次跳2级。</p>
+<p>现在我们再来讨论一般情况。我们把n级台阶时的跳法看成是n的函数，记为f(n)。</p>
+<ul>
+<li>当n&gt;2时，第一次跳的时候就有两种不同的选择：<ul>
+<li>一是第一次只跳1级，此时跳法数目等于后面剩下的n-1级台阶的跳法数目，即为f(n-1)；</li>
+<li>另外一种选择是第一次跳2级，此时跳法数目等于后面剩下的n-2级台阶的跳法数目，即为f(n-2)。</li>
+</ul>
+</li>
+</ul>
+<p>因此n级台阶时的不同跳法的总数f(n)=f(n-1)+f(n-2)。</p>
+<p>我们把上面的分析用一个公式总结如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">        /  1                             n = 1</span><br><span class="line">f(n)=      2                             n = 2</span><br><span class="line">        \  f(n-1) + f(n-2)               n &gt; 2</span><br></pre></td></tr></table></figure>
+
+<p>原来上述问题就是我们平常所熟知的Fibonacci数列问题。可编写代码，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">long long Fibonacci(unsigned int n)</span><br><span class="line">&#123;</span><br><span class="line">    int result[3] = &#123;0, 1, 2&#125;;</span><br><span class="line">    if (n &lt;= 2)</span><br><span class="line">        return result[n];</span><br><span class="line"></span><br><span class="line">    return Fibonacci(n - 1) + Fibonacci(n - 2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么，如果一个人上台阶可以一次上1个，2个，或者3个呢？这个时候，公式是这样写的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">        / 1                                      n = 1</span><br><span class="line">f(n)=     2                                      n = 2</span><br><span class="line">          4                                      n = 3       //111, 12, 21, 3</span><br><span class="line">        \ f(n-1)+f(n-2)+f(n-3)                   n &gt; 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h4><p>解法一用的递归的方法有许多重复计算的工作，事实上，我们可以从后往前推，一步步利用之前计算的结果递推。</p>
+<p>初始化时，dp[0]=dp[1]=1，然后递推计算即可：dp[n] = dp[n-1] + dp[n-2]。</p>
+<p>参考代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//1, 1, 2, 3, 5, 8, 13, 21..</span><br><span class="line">int ClimbStairs(int n)</span><br><span class="line">&#123;</span><br><span class="line">    int dp[3] = &#123; 1, 1 &#125;;</span><br><span class="line">    if (n &lt; 2)</span><br><span class="line">    &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 2; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dp[2] = dp[0] + dp[1];</span><br><span class="line">        dp[0] = dp[1];</span><br><span class="line">        dp[1] = dp[2];</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[2];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="举一反三"><a href="#举一反三" class="headerlink" title="举一反三"></a>举一反三</h4><p>1、兔子繁殖问题</p>
+<p>13世纪意大利数学家斐波那契在他的《算盘书》中提出这样一个问题：有人想知道一年内一对兔子可繁殖成多少对，便筑了一道围墙把一对兔子关在里面。已知一对兔子每一个月可以生一对小兔子，而一对兔子出生后.第三个月开始生小兔子假如一年内没有发生死亡，则一对兔子一年内能繁殖成多少对？</p>
+<p>分析：这就是斐波那契数列的由来，本节的跳台阶问题便是此问题的变形，只是换了种表述形式。</p>
+<p>2、换硬币问题。</p>
+<p>想兑换100元钱，有1,2,5,10四种钱，问总共有多少兑换方法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const int N = 100;</span><br><span class="line">int dimes[] = &#123; 1, 2, 5, 10 &#125;;</span><br><span class="line">int arr[N + 1] = &#123; 1 &#125;;</span><br><span class="line">for (int i = 0; i &lt; sizeof(dimes) / sizeof(int); ++i)</span><br><span class="line">&#123;</span><br><span class="line">    for (int j = dimes[i]; j &lt;= N; ++j)</span><br><span class="line">    &#123;</span><br><span class="line">        arr[j] += arr[j - dimes[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此问题还有一个变形，就是打印出路径目前只想到要使用递归来解决这个问题。对此，利用一个vector来保存路径，每进入一层，push_back一个路径，每退出一层，pop_back一个路径。</p>
+<h2 id="综合"><a href="#综合" class="headerlink" title="综合"></a>综合</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><h4 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h4><h4 id="预测玩家"><a href="#预测玩家" class="headerlink" title="预测玩家"></a>预测玩家</h4><p><strong>题目大意</strong>：</p>
+<p>给定一个数组，数组每一位代表一个分数，两个人轮流拿取分数，且只能从剩余分数的两端取，两个人都足够聪明，问第一个人最后的总分能否超过第二个人。</p>
+<p><strong>题目解析：</strong></p>
+<p>这是一道动态规划的题目，当前数组的最优取值方法，依赖于它的子数组的最优取值方法。定义两个变量：<strong>_sum</strong>：用来保存前n个分数的总和；<strong>_dp</strong>：_dp[i][j]用来保存从第i项往前数j个数（包括第i个数），在这j个数组成的子数组中，第一个取值的人最多可以拿多少分。</p>
+<p><strong>代码(Python3)：</strong></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def PredictTheWinner(self, nums: List[<span class="keyword">int</span>]) -&gt; <span class="keyword">bool</span>:</span><br><span class="line">        <span class="keyword">if</span> not nums:</span><br><span class="line">            <span class="keyword">return</span> False</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(nums) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> True</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(nums) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> True</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(nums) == <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> True</span><br><span class="line">        _sum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums)+<span class="number">1</span>)</span><br><span class="line">        _dp = [[<span class="number">0</span>] * (<span class="built_in">len</span>(nums)+<span class="number">1</span>) <span class="keyword">for</span> i in <span class="keyword">range</span>(<span class="built_in">len</span>(nums))]</span><br><span class="line">        </span><br><span class="line">        _sum[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="keyword">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums)+<span class="number">1</span>):</span><br><span class="line">            _sum[i] = _sum[i<span class="number">-1</span>] + nums[i<span class="number">-1</span>]</span><br><span class="line">        </span><br><span class="line">        _dp[<span class="number">1</span>][<span class="number">2</span>] = max(nums[<span class="number">0</span>], nums[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">for</span> i in <span class="keyword">range</span>(<span class="number">2</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            _dp[i][<span class="number">2</span>] = max(nums[i], nums[i<span class="number">-1</span>])</span><br><span class="line">            <span class="keyword">for</span> j in <span class="keyword">range</span>(<span class="number">3</span>, <span class="built_in">len</span>(nums)+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> i-j+<span class="number">1</span> &gt;= <span class="number">0</span>:</span><br><span class="line">                    _dp[i][j] = max((_sum[i+<span class="number">1</span>] - _sum[i+<span class="number">1</span>-j]) -  _dp[i<span class="number">-1</span>][j<span class="number">-1</span>], (_sum[i+<span class="number">1</span>] - _sum[i+<span class="number">1</span>-j]) - _dp[i][j<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">if</span> _dp[<span class="number">-1</span>][<span class="number">-1</span>] &gt;= _sum[<span class="number">-1</span>] / <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> True</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> False</span><br></pre></td></tr></table></figure>
+
+<h3 id="DFS-BFS"><a href="#DFS-BFS" class="headerlink" title="DFS BFS"></a>DFS BFS</h3><h2 id="C-客户端"><a href="#C-客户端" class="headerlink" title="C++客户端"></a>C++客户端</h2><p>多态<br>虚函数及其实现<br>左值和右值<br>设计模式<br>i++和++i的区别<br>DFS和BFS的区别<br>内联函数以及和宏的区别<br>map的实现、unordered_map的实现<br>topk，堆和快排两种做法<br>n个球，每次拿1、3、5个，有几种拿法<br>问的都是面经常见题，建议大家多背背就好了<br>问的范围有c++，概率论，基础算法与数据结构，玩过哪些游戏（最后一问）</p>
+<p>二面全程算法题or脑筋急转弯题<br>面了俩小时<br>面试体验挺好的，面试官会一直引导，不用紧张简单题做不出<br>就是有的题我想复杂了，真的是脑筋急转弯</p>
+<p>5分钟结束面试，问了一些c++的基础，有几个没听过，最后问我有没有用过unity，我说没有，就结束了</p>
+<p>4.9更新<br>已收到感谢信</p>
+<h2 id="C-服务器"><a href="#C-服务器" class="headerlink" title="C++服务器"></a>C++服务器</h2><p>虚函数有什么作用？怎么实现？？为什么基类析构函数要声明为虚函数？<br>讲讲static关键字？volatile？<br>指针引用的区别？什么时候返回值是引用？<br>什么情况需要复制构造函数？</p>
+<p>讲讲STL，vector内存怎么管理的？跟list有什么区别？什么时候用list什么时候用vector？map怎么实现的？内存管理？讲讲迭代器失效，怎么处理？<br>用过智能指针吗？讲一讲。sizeof（sharedptr）等于多少？<br>讲讲大端小端模式？</p>
+<p>目标n块钱，1 2 5块钱硬币，最少用多少硬币？<br>目标n块钱，上述硬币有多少种组合方式？</p>
+<p>常用的排序算法？讲一讲快速排序。<br>基本有序用什么排序算法好？</p>
+<p>tcpUDP区别？tcp怎么保证可靠传输？<br>tcp的XXX算法？（n开头的）不会，忘了。</p>
+<p>线程进程区别？（写到这里突然想起上一篇面经贴里少写了一个问题，协程是什么？怎么用协程实现并发？后面的问题我不会。唉百度好难😢）</p>
+<p>讲讲虚拟内存？</p>
+<p>讲讲内存碎片？</p>
+<p>数据库（不太擅长）<br>group有啥用？事务是什么？主键外键区别？<br>讲讲tricker？不会<br>第三范式？不会（学过去两年了…）<br>索引是啥？怎么实现？讲讲b，b 树，有什么特点？<br>（问到这里我特别害怕再问下去，我对b，b 树不太熟，好在打住了）</p>
+<p>作者：HailHYDRA!<br>链接：<a href="https://www.nowcoder.com/discuss/387235?type=2&amp;order=0&amp;pos=38&amp;page=1&amp;channel=0&amp;source_id=discuss_tag" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/387235?type=2&amp;order=0&amp;pos=38&amp;page=1&amp;channel=0&amp;source_id=discuss_tag</a><br>来源：牛客网</p>
+<p>自我介绍 + 项目经历 + 计算机基础。</p>
+<p>计算机基础又分为：</p>
+<p>C++<br>操作系统<br>数据库<br>计算机网络<br>设计模式<br>我不会的有：</p>
+<p>TCP 3次挥手，最后的time_wait的作用<br>C++ 父类析构函数为什么必需是虚函数<br>MySQL<br>事务 及 ACID<br>Block 和 Tag 区别<br>BiLog是什么<br>timestamp, datetime的区别<br>说出常用的设计模式，我讲了几个，但面试官好像并不满意</p>
+<p>二面</p>
+<p>合并2个有序链表。</p>
+<p>项目<br>Linux下的项目。我告诉他我大多数全是Linux。<br>之前大四做的一个游戏（软件工程作业）github。<br>内存泄漏诊断<br>protobuf<br>计算机基础<br>如何诊断网络问题？<br>一致性哈希，增桶、减桶。<br>单例模式，带模版的单例，多线程下的。这是共享屏幕在本地IDE实现的。</p>
+<p>米哈游（三面挂）<br>米哈游是4月面的，这个时候经过了一段时间的准备面试的状态已经比3月好太多了，但还是很可惜，3面的时候感觉面的还不错，但还是挂了，可能是在一些细节上回答的不是很好。<br>一面：<br>1、图的遍历方式，迪杰斯塔拉算法，A*算法，动态规划，红黑树，如何判断两个链表相交<br>2、C#值类型，引用类型，装箱拆箱<br>3、协程实现，底层<br>4、渲染管线，OpenGL渲染一个三角型调用的api<br>还问了用没用过骨骼动画，没用过</p>
+<p>二面：<br>推导二维坐标系，一个点(x,y)与x轴夹角为α，绕原点旋转β角，问旋转后的坐标，用矩阵表示。<br>手撕代码：用面向对象的方式实现一个图，和他的dfs算法。<br>两个类，点类和图类。点类中负责管理他的邻居，图类中只管理所有的点。点类中有一个addlinju方法，图类中有一个addEdge方法和dfs方法。在main里addEdge加边构造图，然后调用dfs。<br>注意事项：在写代码前一定要先跟面试官说一下思路看看他的想法，不能写错方向，否则就浪费时间了。</p>
+<p>三面<br>1、老生常谈<br>2、进程和线程的区别，线程间通信方式，为什么进程切换开销比线程小<br>3、协程实现，协程会占用内存吗<br>4、有限状态机的组成和基本结构(???)<br>5、单例模式<br>6、map和unorderer_map的底层实现，为什么红黑树增删查不会退化到O(N)<br>7、围绕项目问了一些<br>8、++i和i++的区别</p>
+<p>作者：曲奇味哒曲奇<br>链接：<a href="https://www.nowcoder.com/discuss/389363?type=2&amp;order=0&amp;pos=2&amp;page=1&amp;channel=0&amp;source_id=discuss_tag" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/389363?type=2&amp;order=0&amp;pos=2&amp;page=1&amp;channel=0&amp;source_id=discuss_tag</a><br>来源：牛客网</p>
+<p>一面<br>一个非常可爱的小哥哥，一面问的都是很简单的问题，但是信号不是很好，互相之间不太听得清<br>1.███区别<br>2.██████和██████哪个可以（这个好像说错惹）<br>3.███的实现<br>4.███实现 需要哪些数据结构 （回答██）<br>5.影响███效率的因素（我说的███）不知道对不对<br>6.█████████&amp; █████████的区别<br>7.███是什么</p>
+<p>然后到现在没有通知，怕不是凉了！！！</p>
+<p>2020.3.27——————————————–<br>春招米哈游拒信 over</p>
+<p>哎，你猜怎么着，那个不是拒信，是通知面试的，结果我没收到电话以为错了<br>hr小姐姐后来打过来的电话，有约了一个面试时间<br>差点骗过了上帝！</p>
+<p>2020.4.2——————————————-<br>愚人节后一天，面试的是一个更可爱的小哥哥，长得太好看了，米忽悠的技术都这么帅了吗，感觉自己拖后了颜值。<br>编程面试，规定时间应该是30分钟<br>小哥哥来的晚了一会，我以为他们忘了。<br>他英语特别好，上来就在聊天框里说了几句洋文，然后开启面试。<br>我们开门见山，给我一道编程题，手撕代码：<br>给你一个███二叉树？，每个██节点？都有两种值，█A或者█B，让你写一个算法将该███二叉树？的██左子？节点中值为█A的置空。<br>题不是难题，考察的点倒是挺多的，算是回答上来了，复杂度方面自认为还可以。<br>之后问了我几个游戏方向可能会用到的技术：<br>1.███ ███<br>2.████<br>3.███<br>4.██<br>只会最后一个，看他的意思是只要能回答上来一个就可以。<br>我说了简单的██算法，自己做的几款游戏，问我其中的██算法用了什么技术<br>在我说的技术之上还说了还说了更高级alphaGo的██算法，我滴个乖乖，作为一个本科渣渣完全不敢去了解这些算法啊，哭唧唧！<br>最后我问了一个问题“米忽悠是只招二次元的吗？” 还好，并不是。我这个老三次元有救了~</p>
+<p>给自己祈个福，希望二面可以通过，听说米忽悠面试有4论技术，一轮hr，鬼鬼知道在那一面就挂掉了，杨超越附体！！！！<br>2020.4.7 收到三面通知，是技术面，希望可以通过杨超越附体啊啊啊！！！</p>
+<p>2020.4.8 米哈游三面，凉凉 春招OVER！<br>确实是自己能力不够还要努力呀<br>面试官来晚了15分钟，我都以为不面了，是一个30岁左右的光头，一看就是做程序的，看着就NB！<br>1.inline是不是一定会被替换？ （一脸懵逼）<br>2.vector 特点 resize &amp; reserve （忘记了，二面蒙蔽）<br>3.explicit<br>4.宏定义<br>5.项目<br>6.还有几个问题不过有些忘了</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

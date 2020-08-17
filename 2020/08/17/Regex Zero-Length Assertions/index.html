@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>安全技术和个人生活随笔</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/08/17/PE/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/07/20/进程/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Regex-Zero-Length-Assertions"><span class="toc-number">1.</span> <span class="toc-text">Regex Zero-Length Assertions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前瞻后顾-环视（Lookaround）"><span class="toc-number">1.1.</span> <span class="toc-text">前瞻后顾/环视（Lookaround）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#零宽度断言（Zero-Length-Assertions）"><span class="toc-number">1.1.1.</span> <span class="toc-text">零宽度断言（Zero-Length Assertions）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非捕获组"><span class="toc-number">1.1.2.</span> <span class="toc-text">非捕获组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环视"><span class="toc-number">1.1.3.</span> <span class="toc-text">环视</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#little-tricks"><span class="toc-number">1.2.</span> <span class="toc-text">little tricks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ref"><span class="toc-number">2.</span> <span class="toc-text">Ref</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tools"><span class="toc-number">2.1.</span> <span class="toc-text">Tools</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-08-17T07:58:44.085Z" itemprop="datePublished">2020-08-17</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Regex-Zero-Length-Assertions"><a href="#Regex-Zero-Length-Assertions" class="headerlink" title="Regex Zero-Length Assertions"></a>Regex Zero-Length Assertions</h1><p>对于不包含单个字符，可以使用<code>[^x]</code>，但想要不包含特定的字符组合即字符串的方法Emm……<br>需要一点新东西了</p>
+<h2 id="前瞻后顾-环视（Lookaround）"><a href="#前瞻后顾-环视（Lookaround）" class="headerlink" title="前瞻后顾/环视（Lookaround）"></a>前瞻后顾/环视（Lookaround）</h2><table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>(?&lt;=RegEx)</code></td>
+<td align="left">逆序肯定环视，表示所在位置左侧能够匹配RegEx</td>
+</tr>
+<tr>
+<td align="left"><code>(?&lt;!RegEx)</code></td>
+<td align="left">逆序否定环视，表示所在位置左侧不能匹配RegEx</td>
+</tr>
+<tr>
+<td align="left"><code>(?=RegEx)</code></td>
+<td align="left">顺序肯定环视，表示所在位置右侧能够匹配RegEx</td>
+</tr>
+<tr>
+<td align="left"><code>(?!RegEx)</code></td>
+<td align="left">顺序否定环视，表示所在位置右侧不能匹配RegEx</td>
+</tr>
+</tbody></table>
+<h3 id="零宽度断言（Zero-Length-Assertions）"><a href="#零宽度断言（Zero-Length-Assertions）" class="headerlink" title="零宽度断言（Zero-Length Assertions）"></a>零宽度断言（Zero-Length Assertions）</h3><p>之前已经使用过了——匹配文本开始<code>^</code>，文本结束<code>$</code>，单词边界(单词开头)<code>\b</code>，非单词边界<code>\B</code></p>
+<p>它们匹配了一个位置，一个宽度为0的字符；</p>
+<h3 id="非捕获组"><a href="#非捕获组" class="headerlink" title="非捕获组"></a>非捕获组</h3><p>括号分组的内容会被存储在内存中，以便向后引用（分组输出），故被称作捕获组<br>有时不会再引用，但又不得不分组的情况下（ 如，使用“|”表示“或”的关系），防止占用一定内存；<br>或分组输出和匹配分离实现时，减少代码修改，只修改正则不改动输出时，可使用非捕获组<code>(?:RegEx)</code><br>括号内以<code>?</code>开头，即标识为非捕获组，只分组不储存，且不占用标号</p>
+<p>当然环视也满足这个规则，所以算是非捕获组。（毕竟捕获一个空字符输出也没意义）</p>
+<h3 id="环视"><a href="#环视" class="headerlink" title="环视"></a>环视</h3><p>环视匹配一个位置，其本质也是一个零长度断言<br>比如，^类似<code>(?=Everything)</code> /<code>(?=.{TextLen})</code> ; $即类似<code>(?=Nothing)</code>/<code>(?=(\n|$))</code></p>
+<p><code>^(?!.*xxx).*$</code></p>
+<p><a href="https://regex101.com/r/ff5X8B/1" target="_blank" rel="noopener">排除if</a><br><a href="https://regex101.com/r/mdenGY/1" target="_blank" rel="noopener">不含指定组合的一个字段</a></p>
+<h2 id="little-tricks"><a href="#little-tricks" class="headerlink" title="little tricks"></a>little tricks</h2><p><code>.</code> 匹配除换行符 \n (有时还有\r)之外的任何单字符——若要匹配包括换行符：<code>(.|\n)</code> / 相同效果（匹配全部字符）——<code>[\s\S]</code></p>
+<p><code>\w</code>匹配的仅仅是中文，数字，字母，对于国人来讲，仅匹配中文时常会用到<br><code>​匹配中文字符的正则表达式： [\u4e00-\u9fa5]</code></p>
+<p>或许你也需要匹配双字节字符，中文也是双字节的字符<br><code>​匹配双字节字符(包括汉字在内)：[^\x00-\xff]</code></p>
+<h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a href="https://blog.csdn.net/lxcnn/article/details/4304754" target="_blank" rel="noopener">正则基础之——环视</a><br><a href="https://blog.csdn.net/lxcnn/article/details/4304651" target="_blank" rel="noopener">正则基础之——NFA引擎匹配原理</a>  </p>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><p><a href="https://regex101.com/" target="_blank" rel="noopener">RegEx Oline</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Regex-Zero-Length-Assertions"><span class="toc-number">1.</span> <span class="toc-text">Regex Zero-Length Assertions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前瞻后顾-环视（Lookaround）"><span class="toc-number">1.1.</span> <span class="toc-text">前瞻后顾/环视（Lookaround）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#零宽度断言（Zero-Length-Assertions）"><span class="toc-number">1.1.1.</span> <span class="toc-text">零宽度断言（Zero-Length Assertions）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非捕获组"><span class="toc-number">1.1.2.</span> <span class="toc-text">非捕获组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环视"><span class="toc-number">1.1.3.</span> <span class="toc-text">环视</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#little-tricks"><span class="toc-number">1.2.</span> <span class="toc-text">little tricks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ref"><span class="toc-number">2.</span> <span class="toc-text">Ref</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tools"><span class="toc-number">2.1.</span> <span class="toc-text">Tools</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/17/Regex Zero-Length Assertions/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

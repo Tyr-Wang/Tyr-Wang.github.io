@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>从宏观看二进制漏洞挖掘</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/01/05/From CTF to Real/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/12/30/密码学课设/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&text=从宏观看二进制漏洞挖掘"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&is_video=false&description=从宏观看二进制漏洞挖掘"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=从宏观看二进制漏洞挖掘&body=Check out this article: http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&name=从宏观看二进制漏洞挖掘&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&t=从宏观看二进制漏洞挖掘"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从宏观看二进制漏洞挖掘"><span class="toc-number">1.</span> <span class="toc-text">从宏观看二进制漏洞挖掘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多样化的二进制漏洞分析技术"><span class="toc-number">1.1.</span> <span class="toc-text">多样化的二进制漏洞分析技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源代码审计"><span class="toc-number">1.2.</span> <span class="toc-text">源代码审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新一代"><span class="toc-number">1.3.</span> <span class="toc-text">新一代</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观看逆向："><span class="toc-number">2.</span> <span class="toc-text">宏观看逆向：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观看二进制安全"><span class="toc-number">3.</span> <span class="toc-text">宏观看二进制安全</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        从宏观看二进制漏洞挖掘
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-05T02:52:02.000Z" itemprop="datePublished">2020-01-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="从宏观看二进制漏洞挖掘"><a href="#从宏观看二进制漏洞挖掘" class="headerlink" title="从宏观看二进制漏洞挖掘"></a>从宏观看二进制漏洞挖掘</h1><h2 id="多样化的二进制漏洞分析技术"><a href="#多样化的二进制漏洞分析技术" class="headerlink" title="多样化的二进制漏洞分析技术"></a>多样化的二进制漏洞分析技术</h2><ul>
+<li>模糊测试</li>
+<li>二进制代码对比</li>
+<li>动态污点分析</li>
+</ul>
+<h2 id="源代码审计"><a href="#源代码审计" class="headerlink" title="源代码审计"></a>源代码审计</h2><p>词法分析</p>
+<h2 id="新一代"><a href="#新一代" class="headerlink" title="新一代"></a>新一代</h2><ul>
+<li>智能漏洞挖掘技术：<ul>
+<li>动态污点分析</li>
+<li>动态符号执行</li>
+</ul>
+</li>
+<li>集群化漏洞分析<ul>
+<li>分布式模糊测试、</li>
+</ul>
+</li>
+<li>APT检测</li>
+</ul>
+<h1 id="宏观看逆向："><a href="#宏观看逆向：" class="headerlink" title="宏观看逆向："></a>宏观看逆向：</h1><p>为什么要逆向：</p>
+<p>功能性软件：</p>
+<ul>
+<li>闭源、收费</li>
+<li>外挂辅助</li>
+<li>魔改、二次开发、模仿开发</li>
+<li>漏洞挖掘</li>
+</ul>
+<p>恶意软件：</p>
+<ul>
+<li>了解原理、学习</li>
+<li>提取特征码，查杀</li>
+<li>挽回损失（加密勒索软件）</li>
+</ul>
+<p>想要有光明的前景，必须要考虑发展空间，扎实基础领域和上流学科，防止越走越窄；考虑高效和不可替代性，工程化、自动化，AI以及跟进新领域——快速学习。</p>
+<p>难点：</p>
+<p>有人说：</p>
+<p>以我所见所闻，所有人肉逆向机的特点，都是扎实到不能再扎实的四大基本功（操作系统，编译原理，程序设计语言和计算机体系结构），有了内功加持，看一切汇编代码，脑中自会有高抽象的模型浮现（而这正是大部分非科班出身逆向分析人员最薄弱的一环），这是胜过一切反编译器的智慧的体现。<br>实际上，我所见的逆向机们从未说专门靠学什么特别的“逆向材料”得以突飞猛进，以我自己的经验，多年的逆向分析可能只会让你在两方面有所加强，一是使用工具的熟练，二是猜出某些特定的程序风格。<br>但是回到最开始的问题，要想学习Linux逆向其实是个伪命题，扎扎实实把你要逆向的领域的开发知识弄得滚瓜烂熟，自然就水到渠成了</p>
+<ol>
+<li>技术面广：</li>
+<li>更新迭代快</li>
+</ol>
+<h1 id="宏观看二进制安全"><a href="#宏观看二进制安全" class="headerlink" title="宏观看二进制安全"></a>宏观看二进制安全</h1><p>天天跟细节打交道，容易视野狭窄，没有大局观。</p>
+<p>个人对二进制安全的感受是：<strong>一将功成万骨枯</strong>。</p>
+<p>相对于Web安全来讲，二进制就业面来说还是相对较窄，说到底还是门槛高并且难以自动化，并且没有击中目前很多互联网公司的痛点（需求不明朗）。</p>
+<p>二进制安全可以有以下的方向：</p>
+<ul>
+<li>去乙方做病毒分析、漏洞分析</li>
+<li>去乙方的安全实验室做漏洞研究、挖掘</li>
+<li>去乙方参与二进制层面的安全评估</li>
+<li>去乙方…….</li>
+</ul>
+<p>上面基本都是去乙方公司做研究导向的工作。如果想去甲方工作，讲道理，包括我所在的团队基本没有这个需求，大量的岗位还是留给了Web安全方向、移动安全方向的同学。</p>
+<p>为啥说是<strong>一将功成万骨枯</strong>呢？说到底还是门槛以及深入学习的成本较高，学习曲线比较陡峭，但是非常适合兴趣导向以及发誓一辈子专心做技术的同学，因为二进制安全确实对技术的要求比较高。</p>
+<p>相反，web安全选择会更多一些，觉得自己不是技术的料，也可以往运营、安全管理等方向进行发展，因此就业面也相对较广。</p>
+<p>总之，如果你对二进制安全十分感兴趣，同时也能静得下心来钻研技术（这一点很少人能做到），那么不论其前景如何，你只要保证钻研与坚持，几年下来做到top N%也不是没有可能，到时候估计漏洞bounty都拿到手软了~</p>
+<p>——exploit-cat</p>
+<p>在编程圈有个段子：“这个世界只有两种人：懂二进制的和不懂二进制的。”这话说得不无道理，可以说二进制是程序猿水平的分水岭。</p>
+<p>大道至简，机器底层皆是用二进制指令交流的；我们每个人每天在网络上传输的信息，例如文字、图片、视频、甚至生物信息也都会被转化为0和1这样的二进制代码。<strong>二进制安全本质上是指在传输数据时，保证二进制数据不被篡改、破译等，保障应用程序运行不被修改，覆盖到信息安全的各方各面。</strong>二进制运算也是计算机最底层的运算，如果攻击能在二进制层面及时检测出来，将极大提升效率。</p>
+<p>在网络安全中，二进制安全占据着至关重要的基石地位，<strong>0day漏洞挖掘、漏洞库研发、恶意代码检测、杀软、沙箱、反调试、二进制木马查杀的安全工作都基于这个方向的研究。移动基带、物联网、硬件等新兴领域的安全研究也都离不开二进制安全。</strong></p>
+<p>虽然目前尚未有关于前景的专业调研数据，但顶级黑客大都是懂加密、会防护、能挖洞、擅逆向破解的二进制高手。二进制安全大致有以下六个发展方向：</p>
+<ul>
+<li>网络安全逆向工程师</li>
+</ul>
+<p>逆向是二进制安全的基础。提到逆向工程，大多数人会联想到软件破解或者产品优化，但其实逆向技术也用于恶意软件研究，包括 <strong>安全地安装沙箱和虚拟机，以便你可以安全地浏览病毒、勒索软件以及其他恶意软件的操作过程。</strong> 随着版权意识的提升，对于一些公司来说，防止产品被破解，保护知识产权也是刚需。</p>
+<ul>
+<li>恶意代码分析工程师</li>
+</ul>
+<p>恶意代码分析工程师和病毒分析师相似，负责<strong>对病毒样本进行快速分析或详细分析。</strong>近年来有一种新的概念叫<strong>APT</strong>，类似特工情报组织所研发出针对指定敏感行业，例如能源化工，亦或者政府机关的攻击载体。特点是长期潜伏，密集踩点，对目标系统内部极为了解，有针对性的窃取情报。<strong>有部分恶意代码分析工程师负责追踪此类组织的攻击轨迹，分析同源性等相关工作。</strong></p>
+<ul>
+<li>二进制漏洞分析工程师</li>
+</ul>
+<p>漏洞分析工程师更专注于漏洞类型的样本分析，主要负责<strong>对已有漏洞POC样本进行深入分析，研究漏洞形成的机理。</strong>近年来恶意代码也多带有漏洞传播，例如永恒之蓝漏洞，就催生出了一大批勒索软件。所以漏洞分析工程师，也多兼任恶意代码分析工程师的职能。<strong>应急处理等职位往往对此技能要求较高。</strong></p>
+<ul>
+<li>二进制漏洞挖掘工程师</li>
+</ul>
+<p>漏洞挖掘工程师的主要工作内容为<strong>通过模糊测试等手段对软件、驱动或操作系统进行未知的漏洞发掘工作。</strong>此类工程师可能负责产品检测，模拟攻击者<strong>对产品的安全性进行检测</strong>；也有可能大部分时间都在对第三方厂商进行漏洞挖掘，并且<strong>将漏洞提交给厂商或SRC等平台</strong>。研究整体的漏洞挖掘方法，需要较强的理论知识和数学思维功底。</p>
+<ul>
+<li>游戏安全工程师</li>
+</ul>
+<p>现如今外挂作者由最初的业余玩家变成了专业人士，顾名思义游戏安全工程师就是与游戏外挂做对抗的专业人士。目前大部分的反外挂手段都集中在R0层，也就是使用驱动作为对抗手段，R3层的反调试手段已经很难阻止越来越猖獗的外挂作者了。<strong>外挂与反外挂的对抗手段越来越趋近底层，利用虚拟化手段重建调试体系，这对游戏安全工程师的技术提出更高的要求。</strong></p>
+<ul>
+<li>二进制安全研发工程师</li>
+</ul>
+<p>安全研发工程师主要负责<strong>杀软、恶意代码检测引擎、沙箱、蜜罐、扫描器、调试器等安全工具或安全产品的开发工作。</strong>此类工程师一般多为具有安全背景的研发者，区别于普通研发者的地方在于他们更加了解安全，可以<strong>实现一切特殊的功能以满足安全产品的需要。</strong></p>
+<p>越来越多ICT新技术涌入产业互联网，产业安全尤其是二进制安全前景广阔。二进制安全<strong>是涉及安全原理底层的安全方向，是安全领域权限最高效果最佳的安全手段。</strong>作为国际顶级信息安全会议之一，<strong>Can Sec West每年都吸引世界顶级黑客参与，关于二进制安全的议题与研究成果年复一年地推陈出新。</strong>作为极客高阶技能，二进制安全也需要个人投入较多的时间与精力研究技术。目前，<strong>工作技术含量高而专业人才稀缺</strong>是行业现状。</p>
+<p>——腾讯安全联合实验室  </p>
+<p>我觉得二进制安全的前景(按题主的意思特指二进制漏洞)是与攻击者的获利息息相关的。</p>
+<p>之所以有这么多人研究二进制漏洞，就是因为二进制漏洞可以被攻击者用来获取大量的经济利益。</p>
+<p>目前的情况是厂商不断改进漏洞缓解措施导致漏洞利用的成功率越来越低、成本越来越高，我想如果有一天攻击变成一个赔本的买卖（成本大于获利），漏洞研究可能就走到头了，当然这一天可能永远也不会到来^_^。</p>
+<p>——Ox9A82  </p>
+<p>对于鸡蛋到底该多少钱一斤这样的问题，为什么要在意鱼丸的看法……</p>
+<p>——</p>
+<p>我身边的同学里，尝试入过安全坑（二进制、web、移动端）的其实很多，我也是。但是最后，大部分都转算法、大数据、开发了，我也是。（立志学术方向纯理论的除外）我本科研究生都是信息安全专业，鉴于各高校，各研究所的安全团队之间或多或少有些联系，以上结论的样本量还是挺大的。</p>
+<p>我的经历是刷seed入门，后来渐渐开始刷src，刷ctf，开始写外挂，开始做fuzz，开始研究虚拟化安全。当时的目标是tk袁哥，想成为安全大神，想挖有价值的cve。对，都是从攻击的角度去学去看的。我相信大家也是一样的吧。可安全这个事情，对于公司来说，本质上是权衡利弊，是风险控制，确实不可能大行其道的。甲方眼里的安全就是打补丁，补丁是打不完的。乙方做安全方案就是给甲方领导当孙子。互联网公司呢，确实有做安全研究的实验室。但对比一下同一届进bat的人，去微信的背着低绩效，年终奖都能是安全部门的n倍。大家有眼睛，知道怎么选。说白了，安全圈子很小，圈外认可度真心不高，现在因为政策原因已经算是受重视的巅峰了。在可见的将来不会变得更高。我还是希望自己能被打脸的。唉。</p>
+<p>——</p>
+<p>很多人都从行业角度来分析，我发现如果从技术角度分析，那就不是前景好不好的问题了，根本不可能搞下去好嘛。</p>
+<p>二进制安全的一部分问题是c风格数组不知道自己几斤几两（堆溢出、栈溢出、格式化字符串）。另一部分是sb用户手动管理内存（二次释放、uaf）。还有一部分是根本不属于二进制的访问控制问题。</p>
+<p>对于缓解二进制漏洞，就算os层面做的努力全都可以绕过，语言的runtime也是很重要的，如果你看一下最近的几个AOT语言，比如golang吧，该补的东西都补上了。如果若干年后，二进制都用上了这种runtime，我估计你们也就只能研究一下历史遗留代码了。</p>
+<p>或许你可以说还有最后那个问题，又不是只有二进制会碰到这种问题，干嘛非要死磕二进制啊。</p>
+<p>我的感觉是，进阶路线不是很清晰，行业的生态也不是非常好。</p>
+<p>唯一的优势是还有几十万的缺口（其实也不怎么样，移动互联网的缺口是几百万，照样几年就饱和了），但目前天朝尚有人口红利，如果培训班盯上了，能撑几年也难说（我忘了这题说的是 pwn，如果按照 web 那种中学生难度，一定迅速饱和）。</p>
+<p>本质上来看，对于计算机来说，安全的代价太低了，你可以想象，搞土木的不重视安全，搞化工的不重视安全会是什么样子。最近清华不是还炸了一个，你去实验室看看就知道了。计算机的危险性比这两个低，所以忽视安全的代价也低。平时大家都是在写字楼里上班，危险是啥，不存在的。这个硬伤无可避免。</p>
+<p>再加上之前的大环境，经济高速增长，赚钱的机会有的是，没人会关注负产能的安全。网站被搞垮了再建一个就好了。等经济增涨放缓，大家赚不到钱，而是想要不赔钱的时候，可能不是现在这样。未来嘛，谁知道呢。</p>
+<p>总之安全适合你经济不发愁了，想随便玩玩或者挑战自己的一种技术。而不是第一个从事的岗位。</p>
+<p>——飞龙  </p>
+<p>做安全确实不赚钱，360企业安全都是在亏损着跑，齐向东都还在寻求融资。360企业安全，启明星辰，绿盟三家公司销售额就占了40%的安全市场销售额（整个企业安全市场全部加起来才200亿到300亿）。王者荣耀2017Q1月流水超过30亿元，整个企业安全市场盘子比不过一个王者荣耀。</p>
+<p>我参与360企业安全从创建到收购网神网康，360去年的年收入才做到10亿（业界第一是启明星辰），2017年目标20亿。但困难之大谁都知道，销售人员人数得翻番。</p>
+<p>而企业安全对待员工待遇就不是那么好了。在360企业安全员工和360集团（C端，个人产品端）比起来就是二等公民（福利待遇差点），这和其它企业安全公司比较还算比较好的。其它安全公司就更坑了。</p>
+<p>所以要做安全，给的建议是尽量不要去给企业做安全服务的公司，去BAT 或者360集团，有点本事了去个互联网公司做安全方向的总监。</p>
+<p>算是给个建议吧，安全是个很好装逼的地方，但对于赚钱来说还是靠人生机遇。</p>
+<p>——csdn  </p>
+<p>门槛高，回报少。这个是真的。你看上面那些安全圈的名人，老人，都在模糊回报这个事情。因为，真的回报少。</p>
+<p>另外，如果光搞二进制漏洞挖掘，你的正向编程能力会停止不前。另外，搞这个东西，搞的是细节，研究多了，你的大局观，或是说架构能力会出现问题。你的思维会掉到小坑里出不来。</p>
+<p>那么，当你想做产品时，你就会发现自己的技术能力完全不匹配。</p>
+<p>而市场对正向技术人员需求是最多的，回报也是非常不错的。特别搞的了二进制逆向的人，搞搞正向的东西，绝对是TOP10里的人才。回报肯定也是IT业中TOP10的那一层。</p>
+<p>讲了这么多，就是希望年青人才们不要掉到这个坑里来。</p>
+<p>如果自己真的不想搞正向技术，可以考虑进入这个圈子。</p>
+<p>——板桥客  </p>
+<p>一言以蔽之——安全方向之所以失败，是因为安全的市场很小，并且在可以预见的未来市场会更小。  </p>
+<p>安全就是个失败方向，而二进制又是失败中的失败。奇技淫巧，绞尽脑汁，还没人写ifelse赚的多。<br>一将功成万骨枯，最终能进各大公司实验室卖艺吆喝的也就那几个ctf的大佬，对于广大凡人而言，路子窄得很。除非你进黑产。<br>就算进了这些实验室…</p>
+<p>安全就是个卖噱头的方向，永远边缘永远屌丝（你以为你很屌，其实你只是屌旁边的丝）。<br>如果哪天安全不边缘了，满街都是警察特务，这个世界还能活吗？<br>如果世界太平，那警察能拿几块钱薪水？兔死狗烹没听过？看看360。</p>
+<p>更不用说二进制这个神坑，搞bin唯一一点爽的，就是你有能力知道关于计算机底层发生的所有事情。但这又有什么用呢？<br>你熟悉的那套，沾沾自喜，精通的那些东西，有什么价值？你创造价值了吗？写过哪怕一个垃圾传奇私服？<br>更别说安全圈子low b这么多，一个个不是说技术不深，而是level太低，一方面看问题的层次low，看不到十步开外的距离；另一方面风气很差，主要是因为半吊子多，各种忽悠大神sbblabla。<br>当然了，相对于web，bin至少门槛稍高一点，但所有的缺点，只要说安全领域，无一例外。<br>言尽于此，评论区欢迎撕。</p>
+<p>——朋克雪球兔  </p>
+<p>哎呀，想学安全就好好学嘛，想赚钱就学赚钱的技术嘛，又想只专注技术又想多赚钱，这真是让人很难办呀。</p>
+<p>好吧，扯个淡。</p>
+<p>其实我个人的理解，bin安全和web安全只是关注的点不一样，bin更关注c语言那一套，相对底层一点的。</p>
+<p>然而我们现实生活中用c写的项目已经很少有业务代码了，都是一些吊炸天的牛逼项目，那些项目自身难度大，写的人水平高，所以漏洞不好找，当然，一旦找到就牛逼了，而web针对业务居多，现在业务太多了，到处都是，所以web在实用性上很占优势。</p>
+<p>不过要注意啊，bin也要分具体的，pwn和rev还是不一样的，rev你可以做病毒研究啥的，那个还是很业务的，我这里主要想说的是pwn。</p>
+<p>那为什么还有需要学pwn的？我之前就一直没想通这个问题，于是老觉得自己会找不到工作，后来问了个补天的，他告诉我说，那些实验室是需要pwn的，理由？很简单，你的企业需要名气，我猜这也是腾讯那么多实验室存在的理由吧，毕竟安全行业，别人选择你的业务，得先看你靠不靠得住。</p>
+<p>so，对于pwn来说，最好的就是去实验室，专注于技术本身，你给公司带来的价值就是你的研究成果，为公司争名气。至于人数？真的是要的人少，不过还好，学的人也少..</p>
+<p>对于前景来讲，真的把技术学精通了啥都不用考虑啊，你是大牛去哪儿混不走啊。以及，其实现在我个人觉得二进制还是会起来的，这取决于iot多火，iot的代码用c写的业务看起来不少，这个时候pwn就有用武之地了，和web性质也就差不多了。搞业务永远比搞通用的库简单实用。</p>
+<p>结论:想学就好好学咯，其实我听到的倒是老有人告诉我二进制方向不错的，真到时候逼得你需要转web了也没有想象的那么难转的其实。<br>(菜鸡pwn拙见，有不对的错的地方大家指正的时候留点面子谢谢)</p>
+<p>——丁一  </p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从宏观看二进制漏洞挖掘"><span class="toc-number">1.</span> <span class="toc-text">从宏观看二进制漏洞挖掘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多样化的二进制漏洞分析技术"><span class="toc-number">1.1.</span> <span class="toc-text">多样化的二进制漏洞分析技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源代码审计"><span class="toc-number">1.2.</span> <span class="toc-text">源代码审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新一代"><span class="toc-number">1.3.</span> <span class="toc-text">新一代</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观看逆向："><span class="toc-number">2.</span> <span class="toc-text">宏观看逆向：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宏观看二进制安全"><span class="toc-number">3.</span> <span class="toc-text">宏观看二进制安全</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&text=从宏观看二进制漏洞挖掘"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&is_video=false&description=从宏观看二进制漏洞挖掘"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=从宏观看二进制漏洞挖掘&body=Check out this article: http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&title=从宏观看二进制漏洞挖掘"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&name=从宏观看二进制漏洞挖掘&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/05/从宏观看二进制漏洞挖掘/&t=从宏观看二进制漏洞挖掘"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

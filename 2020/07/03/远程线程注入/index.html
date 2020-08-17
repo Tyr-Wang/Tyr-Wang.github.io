@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>远程线程注入</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/07/20/进程/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/05/02/双拼/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/03/远程线程注入/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/03/远程线程注入/&text=远程线程注入"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/03/远程线程注入/&is_video=false&description=远程线程注入"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=远程线程注入&body=Check out this article: http://yoursite.com/2020/07/03/远程线程注入/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/03/远程线程注入/&name=远程线程注入&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/07/03/远程线程注入/&t=远程线程注入"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#远程线程注入"><span class="toc-number">1.</span> <span class="toc-text">远程线程注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Remote-Thread-Injection"><span class="toc-number">1.1.</span> <span class="toc-text">Remote Thread Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注入的本质"><span class="toc-number">1.2.</span> <span class="toc-text">注入的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入法注入（白名单注入）"><span class="toc-number">1.3.</span> <span class="toc-text">输入法注入（白名单注入）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#壳（反注）加载进程"><span class="toc-number">1.4.</span> <span class="toc-text">壳（反注）加载进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）"><span class="toc-number">1.5.</span> <span class="toc-text">内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        远程线程注入
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-07-03T07:56:22.000Z" itemprop="datePublished">2020-07-03</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="远程线程注入"><a href="#远程线程注入" class="headerlink" title="远程线程注入"></a>远程线程注入</h1><h2 id="Remote-Thread-Injection"><a href="#Remote-Thread-Injection" class="headerlink" title="Remote Thread Injection"></a>Remote Thread Injection</h2><h2 id="注入的本质"><a href="#注入的本质" class="headerlink" title="注入的本质"></a>注入的本质</h2><p>在目标进程中执行自己的代码——dll、hook</p>
+<p>链接的时候修改Base address</p>
+<h2 id="输入法注入（白名单注入）"><a href="#输入法注入（白名单注入）" class="headerlink" title="输入法注入（白名单注入）"></a>输入法注入（白名单注入）</h2><h2 id="壳（反注）加载进程"><a href="#壳（反注）加载进程" class="headerlink" title="壳（反注）加载进程"></a>壳（反注）加载进程</h2><p>shell.exe（提前改好ImageBase再编译，预留好目标进程的空间）</p>
+<p>A.exe 复制并手动展开到其imagebase</p>
+<p>修复 iat GetProcessAddr(LoadLibrary(DllName), FuncName)</p>
+<p>jmp OEP</p>
+<h2 id="内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）"><a href="#内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）" class="headerlink" title="内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）"></a>内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）</h2><p>获取自身句柄</p>
+<ul>
+<li><p>得到ImageSize的大小，得到模块的ImageBuffer</p>
+</li>
+<li><p>当前空间申请空间Buffer，以存放自身代码</p>
+</li>
+<li><p>拷贝自身（运存中的Image）到Buffer </p>
+</li>
+</ul>
+<p>可以抹掉exe特征</p>
+<ul>
+<li><p>打开目标进程A.exe</p>
+</li>
+<li><p>远程申请内存（！！！关键，如果A允许其他进程写，整个过程就稳了，如果不允许，可以先注入到有权限的进程（或系统服务）然后再其中再来一遍注入）</p>
+</li>
+<li><p>注入代码重定位</p>
+</li>
+<li><p>获取目标代码的函数地址</p>
+</li>
+<li><p>将模块在进程中的地址作为参数传递给入口函数</p>
+</li>
+<li><p>将修正后的模块，通过WriteProcessMemory 写入远程进程内存空间</p>
+</li>
+<li><p>CreateRmoteThread启动刚写入的代码</p>
+</li>
+<li><p>释放内存</p>
+</li>
+</ul>
+<p>是否需要修复导入表？</p>
+<p><strong>在注入模块（A进程空间中）的入口函数执行：</strong></p>
+<p>？- 用重定位表修复IAT表，的间接call</p>
+<ul>
+<li><p>再修复IAT表中的值</p>
+</li>
+<li><p>执行其他功能</p>
+</li>
+<li><p>通过全局变量来结束这个函数</p>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#远程线程注入"><span class="toc-number">1.</span> <span class="toc-text">远程线程注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Remote-Thread-Injection"><span class="toc-number">1.1.</span> <span class="toc-text">Remote Thread Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注入的本质"><span class="toc-number">1.2.</span> <span class="toc-text">注入的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入法注入（白名单注入）"><span class="toc-number">1.3.</span> <span class="toc-text">输入法注入（白名单注入）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#壳（反注）加载进程"><span class="toc-number">1.4.</span> <span class="toc-text">壳（反注）加载进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）"><span class="toc-number">1.5.</span> <span class="toc-text">内存写入（无特征RTI，将代码当作数据贴入，开新线程执行）</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/03/远程线程注入/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/03/远程线程注入/&text=远程线程注入"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/03/远程线程注入/&is_video=false&description=远程线程注入"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=远程线程注入&body=Check out this article: http://yoursite.com/2020/07/03/远程线程注入/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/03/远程线程注入/&title=远程线程注入"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/03/远程线程注入/&name=远程线程注入&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/07/03/远程线程注入/&t=远程线程注入"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

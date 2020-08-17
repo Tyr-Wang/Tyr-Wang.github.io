@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Python小破计算器</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/11/Reverse/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/04/10/Word Tricks/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/04/23/Python计算器/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/23/Python计算器/&text=Python小破计算器"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/23/Python计算器/&is_video=false&description=Python小破计算器"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python小破计算器&body=Check out this article: http://yoursite.com/2020/04/23/Python计算器/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/23/Python计算器/&name=Python小破计算器&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/04/23/Python计算器/&t=Python小破计算器"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python小破计算器"><span class="toc-number">1.</span> <span class="toc-text">Python小破计算器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计思路"><span class="toc-number">1.1.</span> <span class="toc-text">设计思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">核心算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤非法表达"><span class="toc-number">1.1.2.</span> <span class="toc-text">过滤非法表达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#括号实现"><span class="toc-number">1.1.3.</span> <span class="toc-text">括号实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记忆按键M系列"><span class="toc-number">1.1.4.</span> <span class="toc-text">记忆按键M系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#真·记忆功能——历史记录History"><span class="toc-number">1.1.5.</span> <span class="toc-text">真·记忆功能——历史记录History</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#子窗口Dialog"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">子窗口Dialog</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实时刷新"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">实时刷新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#防止destroy"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">防止destroy</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局"><span class="toc-number">1.1.6.</span> <span class="toc-text">布局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境配置"><span class="toc-number">1.2.</span> <span class="toc-text">开发环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行使用方法"><span class="toc-number">1.3.</span> <span class="toc-text">运行使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行效果分析总结——缺陷、改进方法"><span class="toc-number">1.4.</span> <span class="toc-text">运行效果分析总结——缺陷、改进方法</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Python小破计算器
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-04-23T01:51:12.000Z" itemprop="datePublished">2020-04-23</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Python小破计算器"><a href="#Python小破计算器" class="headerlink" title="Python小破计算器"></a>Python小破计算器</h1><h2 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h2><p>观察win10自带的计算器，学习了它的部分处理方式</p>
+<h3 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h3><p>从按键获取内容，存储到列表<br>计算（按等于键）拼接表达式<br>使用eval执行表达式，返回值回显</p>
+<h3 id="过滤非法表达"><a href="#过滤非法表达" class="headerlink" title="过滤非法表达"></a>过滤非法表达</h3><ul>
+<li>过滤连续输入计算符号<br>  使用了两个标志位<br>  self.hasPressSign = False<br>  self.hasPressNum = False<br>  如果按下符号/= 时，标志hasPressSign+not hasPressNum：删除当前式子的最后一个符号/更新符号</li>
+</ul>
+<h3 id="括号实现"><a href="#括号实现" class="headerlink" title="括号实现"></a>括号实现</h3><ol>
+<li>首先保证括号成对出现：使用了一个整型，左括号加入算式时+=1；右括号加入算式时-=1；==0时不能加右括号；!=0时不能执行等号（括号没有闭包）</li>
+<li>合法情况，直接加入算式（append）</li>
+<li>非法情况<ol>
+<li>当前输入屏幕无数字输入——忽略（啥也不做return）</li>
+<li>当前输入屏幕有数字输入：<ol>
+<li>先加数字再加括号合法——加入算式（append）</li>
+<li>加了数字也不合法——忽略（啥也不做return）</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>具体情况：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一个表示当前式子中的最后一个字符，第二个字符为当前按下的括号</span></span><br><span class="line">((        <span class="comment">#合法</span></span><br><span class="line">[<span class="number">0</span><span class="number">-9</span>](    <span class="comment">#不合法，所以左括号直接上屏，不管当前的输入有没有值</span></span><br><span class="line">[+-*/](   <span class="comment">#合法</span></span><br><span class="line">)(        <span class="comment">#不合法，所以忽略</span></span><br><span class="line"></span><br><span class="line">))        <span class="comment">#合法</span></span><br><span class="line">[<span class="number">0</span><span class="number">-9</span>])    <span class="comment">#合法</span></span><br><span class="line">[+-*/])   <span class="comment">#不合法</span></span><br><span class="line"><span class="comment"># 加入数字</span></span><br><span class="line">[+-*/] [<span class="number">0</span><span class="number">-9</span>] ) <span class="comment"># 加入数字合法，所以若有输入，先跟上然后加）；若没有输入，就忽略（return）</span></span><br><span class="line"></span><br><span class="line">()        <span class="comment">#不合法</span></span><br><span class="line"><span class="comment"># 加入数字</span></span><br><span class="line">([<span class="number">0</span><span class="number">-9</span>]) <span class="comment"># 加入数字按合法算（eval支持），所以若有输入，先跟上然后加）；若没有输入，就忽略（return）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="记忆按键M系列"><a href="#记忆按键M系列" class="headerlink" title="记忆按键M系列"></a>记忆按键M系列</h3><p>使用了tkinter的StringVar对象存储，便于显示（加了个小屏幕）</p>
+<ul>
+<li>MS M+ M- 在StringVar为空的时候，按下就把当前的值设定进去（M- 自搭加负号）</li>
+<li>MR 把StringVar的值设置输入屏回去</li>
+<li>MC 清空、M+: += 、M-: -=没有难点</li>
+</ul>
+<h3 id="真·记忆功能——历史记录History"><a href="#真·记忆功能——历史记录History" class="headerlink" title="真·记忆功能——历史记录History"></a>真·记忆功能——历史记录History</h3><p>这个自己挖坑自己跳……</p>
+<h4 id="子窗口Dialog"><a href="#子窗口Dialog" class="headerlink" title="子窗口Dialog"></a>子窗口Dialog</h4><p>不太熟悉tkinter，刚开始想用messagebox的showinfo，发现不太合适。</p>
+<p>后来读文档发现Toplevel类可以跟随父窗口进程，父窗口退出子窗口退出，子退出不影响父进程</p>
+<h4 id="实时刷新"><a href="#实时刷新" class="headerlink" title="实时刷新"></a>实时刷新</h4><p>需要使用Calculator类的数据，需要考虑类之间的数据互通：</p>
+<p>全局变量不太优雅，所以使用了把对象的引用self传给HistoryDialog对象的成员cal</p>
+<p>self.refresh函数调用cal.History刷新</p>
+<h4 id="防止destroy"><a href="#防止destroy" class="headerlink" title="防止destroy"></a>防止destroy</h4><p>防止每次点His键都要出现一个子窗口，我选择了初始化的时候就建好窗口（初始化实例——赋给self.HisDialog成员变量），然后使用withdraw函数隐藏，按His键deiconify函数显示；</p>
+<p>如果右上角关掉了（self.HisDialog.dialog.winfo_exists()在每次点击His键时检测是否存在），调用实例的create函数重建窗口</p>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p>本来想用QT5，但是有点大炮打蚊子的感觉，而且安装环境，不如选一个内置的tkinter</p>
+<p>tkinter的部件基本同级的，不能像QT5那样层层包含达到优雅的布局，不过我尽量美化的好看点（在颜色上）</p>
+<p>使用扁平化设计（按钮厚度设为0）模拟win10内置计算器配色，部件使用了ttk类的</p>
+<p>简单粗暴，place绝对坐标</p>
+<h2 id="开发环境配置"><a href="#开发环境配置" class="headerlink" title="开发环境配置"></a>开发环境配置</h2><p><strong>内置tkinter</strong></p>
+<p>python3.2+版本（理论上）</p>
+<p>实际开发环境 python 3.7.7</p>
+<h2 id="运行使用方法"><a href="#运行使用方法" class="headerlink" title="运行使用方法"></a>运行使用方法</h2><p><strong>双击运行python脚本</strong></p>
+<h2 id="运行效果分析总结——缺陷、改进方法"><a href="#运行效果分析总结——缺陷、改进方法" class="headerlink" title="运行效果分析总结——缺陷、改进方法"></a>运行效果分析总结——缺陷、改进方法</h2><p>细节处理大部分参照win10计算器，个别地方加入了自己的理解：</p>
+<ul>
+<li>当前输入实时清零（win10为实时计算结果）</li>
+</ul>
+<p>这会使按完符号没有按数字键就按=的结果出现分歧：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#依次输入</span><br><span class="line">1+2+=</span><br><span class="line"></span><br><span class="line">3 #我的；屏显1+2=</span><br><span class="line">6 #win10，屏显1+2+3=</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#依次输入</span><br><span class="line">1+2*=</span><br><span class="line"></span><br><span class="line">3 #我的；屏显1+2=</span><br><span class="line">7 #win10，屏显1+2*3=</span><br></pre></td></tr></table></figure>
+
+<p><strong>感觉这里win10计算器有bug被我发现了</strong></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python小破计算器"><span class="toc-number">1.</span> <span class="toc-text">Python小破计算器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计思路"><span class="toc-number">1.1.</span> <span class="toc-text">设计思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">核心算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤非法表达"><span class="toc-number">1.1.2.</span> <span class="toc-text">过滤非法表达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#括号实现"><span class="toc-number">1.1.3.</span> <span class="toc-text">括号实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记忆按键M系列"><span class="toc-number">1.1.4.</span> <span class="toc-text">记忆按键M系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#真·记忆功能——历史记录History"><span class="toc-number">1.1.5.</span> <span class="toc-text">真·记忆功能——历史记录History</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#子窗口Dialog"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">子窗口Dialog</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实时刷新"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">实时刷新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#防止destroy"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">防止destroy</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局"><span class="toc-number">1.1.6.</span> <span class="toc-text">布局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境配置"><span class="toc-number">1.2.</span> <span class="toc-text">开发环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行使用方法"><span class="toc-number">1.3.</span> <span class="toc-text">运行使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行效果分析总结——缺陷、改进方法"><span class="toc-number">1.4.</span> <span class="toc-text">运行效果分析总结——缺陷、改进方法</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/04/23/Python计算器/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/04/23/Python计算器/&text=Python小破计算器"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/04/23/Python计算器/&is_video=false&description=Python小破计算器"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python小破计算器&body=Check out this article: http://yoursite.com/2020/04/23/Python计算器/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/04/23/Python计算器/&title=Python小破计算器"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/04/23/Python计算器/&name=Python小破计算器&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/04/23/Python计算器/&t=Python小破计算器"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

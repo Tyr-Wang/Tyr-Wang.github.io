@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Reverse</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/05/17/内存对齐/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/04/23/Python计算器/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/11/Reverse/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/11/Reverse/&text=Reverse"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/11/Reverse/&is_video=false&description=Reverse"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Reverse&body=Check out this article: http://yoursite.com/2020/05/11/Reverse/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/11/Reverse/&name=Reverse&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/11/Reverse/&t=Reverse"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reverse"><span class="toc-number">1.</span> <span class="toc-text">Reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Switch"><span class="toc-number">1.1.</span> <span class="toc-text">Switch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#小于等于三个分支"><span class="toc-number">1.1.1.</span> <span class="toc-text">小于等于三个分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大于3个分支"><span class="toc-number">1.1.2.</span> <span class="toc-text">大于3个分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#完美连续"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">完美连续</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#乱序"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">乱序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不从0开始"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">不从0开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分段连续（连续含缺口）"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">分段连续（连续含缺口）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#较为独立"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">较为独立</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Reverse
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-11T08:09:15.000Z" itemprop="datePublished">2020-05-11</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><h3 id="小于等于三个分支"><a href="#小于等于三个分支" class="headerlink" title="小于等于三个分支"></a>小于等于三个分支</h3><p>等于If-else if-else结构</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    switch (x)</span><br><span class="line">00321748  mov         eax,dword ptr [x]  </span><br><span class="line">0032174B  mov         dword ptr [ebp-0C4h],eax  </span><br><span class="line">00321751  cmp         dword ptr [ebp-0C4h],1  </span><br><span class="line">00321758  je          test+4Eh (032176Eh)  </span><br><span class="line">0032175A  cmp         dword ptr [ebp-0C4h],2  </span><br><span class="line">00321761  je          test+5Dh (032177Dh)  </span><br><span class="line">00321763  cmp         dword ptr [ebp-0C4h],3  </span><br><span class="line">0032176A  je          test+6Ch (032178Ch)  </span><br><span class="line">0032176C  jmp         test+79h (0321799h)  </span><br><span class="line">    &#123;</span><br><span class="line">    case 1:</span><br><span class="line">        printf(&quot;1&quot;);</span><br><span class="line">0032176E  push        offset string &quot;1&quot; (0327B30h)  </span><br><span class="line">00321773  call        _printf (0321046h)  </span><br><span class="line">00321778  add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">0032177B  jmp         test+79h (0321799h)  </span><br><span class="line">    case 2:</span><br><span class="line">        printf(&quot;2&quot;);</span><br><span class="line">0032177D  push        offset string &quot;2&quot; (0327B34h)  </span><br><span class="line">00321782  call        _printf (0321046h)  </span><br><span class="line">00321787  add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">0032178A  jmp         test+79h (0321799h)  </span><br><span class="line">    case 3:</span><br><span class="line">        printf(&quot;3&quot;);</span><br><span class="line">0032178C  push        offset string &quot;3&quot; (0327B38h)  </span><br><span class="line">00321791  call        _printf (0321046h)  </span><br><span class="line">00321796  add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">00321799  xor         eax,eax</span><br></pre></td></tr></table></figure>
+
+<h3 id="大于3个分支"><a href="#大于3个分支" class="headerlink" title="大于3个分支"></a>大于3个分支</h3><h4 id="完美连续"><a href="#完美连续" class="headerlink" title="完美连续"></a>完美连续</h4><p>大表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">switch (x)</span><br><span class="line">00DB4378  mov         eax,dword ptr [x]  </span><br><span class="line">00DB437B  mov         dword ptr [ebp-0C4h],eax  </span><br><span class="line">00DB4381  cmp         dword ptr [ebp-0C4h],3  </span><br><span class="line">00DB4388  ja          $LN7+0Dh (0DB43D1h)          ;&amp;default</span><br><span class="line">00DB438A  mov         ecx,dword ptr [ebp-0C4h]     ;like a JmpTable:</span><br><span class="line">00DB4390  jmp         dword ptr [ecx*4+0DB43E8h]   ;base 0x0DB43E8 index $ecx width dword</span><br><span class="line">    &#123;</span><br><span class="line">    case 0:</span><br><span class="line">        printf(&quot;0&quot;);</span><br><span class="line">00DB4397  push        offset string &quot;0&quot; (0DB7B30h)  </span><br><span class="line">00DB439C  call        _printf (0DB1046h)  </span><br><span class="line">00DB43A1  add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">00DB43A4  jmp         $LN7+0Dh (0DB43D1h)  </span><br><span class="line">    case 1:</span><br><span class="line">        printf(&quot;1&quot;);</span><br><span class="line">00DB43A6  push        offset string &quot;2&quot; (0DB7B34h)  </span><br><span class="line">00DB43AB  call        _printf (0DB1046h)  </span><br><span class="line">00DB43B0  add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">00DB43B3  jmp         $LN7+0Dh (0DB43D1h)  </span><br><span class="line">    case 2:</span><br><span class="line">        printf(&quot;2&quot;);</span><br><span class="line">00DB43B5  push        offset string &quot;3&quot; (0DB7B38h)  </span><br><span class="line">00DB43BA  call        _printf (0DB1046h)  </span><br><span class="line">00DB43BF  add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">00DB43C2  jmp         $LN7+0Dh (0DB43D1h)  </span><br><span class="line">    case 3:</span><br><span class="line">        printf(&quot;3&quot;);</span><br><span class="line">00DB43C4  push        offset string &quot;3&quot; (0DB7BD8h)  </span><br><span class="line">00DB43C9  call        _printf (0DB1046h)  </span><br><span class="line">00DB43CE  add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">00DB43D1  xor         eax,eax</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 大表</span><br><span class="line">                  +---+</span><br><span class="line">base:  0xDB4397--&gt;| 0 |</span><br><span class="line">       0xDB43A6   | 1 |</span><br><span class="line">       0xDB43B5   | 2 |</span><br><span class="line">       0xDB43C4   | 3 |</span><br><span class="line">       0xDB43D1   |def|</span><br><span class="line">                  +---+</span><br></pre></td></tr></table></figure>
+
+<p>[注意] 表虽然在代码段，但是不是函数体里的case分支语句那块！是一个仅填有地址的表，在平栈返回之后的代码段</p>
+<h4 id="乱序"><a href="#乱序" class="headerlink" title="乱序"></a>乱序</h4><p>不影响大表的生成</p>
+<h4 id="不从0开始"><a href="#不从0开始" class="headerlink" title="不从0开始"></a>不从0开始</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">00FA4378  mov         eax,dword ptr [x]  </span><br><span class="line">00FA437B  mov         dword ptr [ebp-0C4h],eax  </span><br><span class="line">00FA4381  mov         ecx,dword ptr [ebp-0C4h]  </span><br><span class="line">00FA4387  sub         ecx,64h                      ;Only defference sub 0x64 == 100</span><br><span class="line">00FA438A  mov         dword ptr [ebp-0C4h],ecx     ;mov to stack as local var</span><br><span class="line">00FA4390  cmp         dword ptr [ebp-0C4h],3       ;cmp with size(table)-1</span><br><span class="line">00FA4397  ja          $LN7+0Dh (0FA43E0h)          ;default</span><br><span class="line">00FA4399  mov         edx,dword ptr [ebp-0C4h]  </span><br><span class="line">00FA439F  jmp         dword ptr [edx*4+0FA43F8h]</span><br></pre></td></tr></table></figure>
+
+<p>先减“起始”常量，再与“终止”边界比较<br>类似相对偏移的计算，映射到一个Table</p>
+<h4 id="分段连续（连续含缺口）"><a href="#分段连续（连续含缺口）" class="headerlink" title="分段连续（连续含缺口）"></a>分段连续（连续含缺口）</h4><ul>
+<li><p>较少缺口（1-5）<br>表缺口用default分支的地址填充</p>
+</li>
+<li><p>缺口<br>小表</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">switch (x)</span><br><span class="line">00865088 8B 45 08             mov         eax,dword ptr [x]  </span><br><span class="line">0086508B 89 85 3C FF FF FF    mov         dword ptr [ebp-0C4h],eax  </span><br><span class="line">00865091 8B 8D 3C FF FF FF    mov         ecx,dword ptr [ebp-0C4h]  </span><br><span class="line">00865097 83 E9 64             sub         ecx,64h  </span><br><span class="line">0086509A 89 8D 3C FF FF FF    mov         dword ptr [ebp-0C4h],ecx  </span><br><span class="line">008650A0 81 BD 3C FF FF FF CF 00 00 00 cmp         dword ptr [ebp-0C4h],0CFh  </span><br><span class="line">008650AA 77 7B                ja          $LN10+0Dh (0865127h)  </span><br><span class="line">008650AC 8B 95 3C FF FF FF    mov         edx,dword ptr [ebp-0C4h]  </span><br><span class="line">008650B2 0F B6 82 60 51 86 00 movzx       eax,byte ptr [edx+865160h]              ;小表，bsae</span><br><span class="line">008650B9 FF 24 85 40 51 86 00 jmp         dword ptr [eax*4+865140h]               ;大表，</span><br><span class="line">    &#123;</span><br><span class="line">    case 100:</span><br><span class="line">        printf(&quot;100&quot;);</span><br><span class="line">008650C0 68 30 7B 86 00       push        offset string &quot;0&quot; (0867B30h)  </span><br><span class="line">008650C5 E8 7C BF FF FF       call        _printf (0861046h)  </span><br><span class="line">008650CA 83 C4 04             add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">008650CD EB 58                jmp         $LN10+0Dh (0865127h)  </span><br><span class="line">    case 101:</span><br><span class="line">        printf(&quot;101&quot;);</span><br><span class="line">008650CF 68 34 7B 86 00       push        offset string &quot;2&quot; (0867B34h)  </span><br><span class="line">    case 101:</span><br><span class="line">        printf(&quot;101&quot;);</span><br><span class="line">008650D4 E8 6D BF FF FF       call        _printf (0861046h)  </span><br><span class="line">008650D9 83 C4 04             add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">008650DC EB 49                jmp         $LN10+0Dh (0865127h)  </span><br><span class="line">    case 102:</span><br><span class="line">        printf(&quot;102&quot;);</span><br><span class="line">008650DE 68 38 7B 86 00       push        offset string &quot;3&quot; (0867B38h)  </span><br><span class="line">008650E3 E8 5E BF FF FF       call        _printf (0861046h)  </span><br><span class="line">008650E8 83 C4 04             add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">008650EB EB 3A                jmp         $LN10+0Dh (0865127h)  </span><br><span class="line">    case 103:</span><br><span class="line">        printf(&quot;103&quot;);</span><br><span class="line">008650ED 68 D8 7B 86 00       push        offset string &quot;3&quot; (0867BD8h)  </span><br><span class="line">008650F2 E8 4F BF FF FF       call        _printf (0861046h)  </span><br><span class="line">008650F7 83 C4 04             add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">008650FA EB 2B                jmp         $LN10+0Dh (0865127h)  </span><br><span class="line">    case 105:</span><br><span class="line">        printf(&quot;105&quot;);</span><br><span class="line">008650FC 68 DC 7B 86 00       push        offset string &quot;4&quot; (0867BDCh)  </span><br><span class="line">00865101 E8 40 BF FF FF       call        _printf (0861046h)  </span><br><span class="line">00865106 83 C4 04             add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">00865109 EB 1C                jmp         $LN10+0Dh (0865127h)  </span><br><span class="line">    case 206:</span><br><span class="line">        printf(&quot;206&quot;);</span><br><span class="line">0086510B 68 E0 7B 86 00       push        offset string &quot;5&quot; (0867BE0h)  </span><br><span class="line">00865110 E8 31 BF FF FF       call        _printf (0861046h)  </span><br><span class="line">00865115 83 C4 04             add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">00865118 EB 0D                jmp         $LN10+0Dh (0865127h)  </span><br><span class="line">    case 307:</span><br><span class="line">        printf(&quot;307&quot;);</span><br><span class="line">0086511A 68 E4 7B 86 00       push        offset string &quot;6&quot; (0867BE4h)  </span><br><span class="line">0086511F E8 22 BF FF FF       call        _printf (0861046h)  </span><br><span class="line">00865124 83 C4 04             add         esp,4  </span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">00865127 33 C0                xor         eax,eax  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...                   ; 平栈、后续操作</span><br><span class="line">; 大表</span><br><span class="line">00865140 C0 50 86 00          rcl         byte ptr [eax+86h],0    ; VS 将其识别为代码了</span><br><span class="line">00865144 CF                   iretd</span><br><span class="line">00865145 50                   push        eax</span><br><span class="line">00865146 86                   </span><br><span class="line">00865147 00 DE                ...</span><br><span class="line">00865149 50                   </span><br><span class="line">0086514A 86                   </span><br><span class="line">0086514B 00 </span><br><span class="line">...</span><br><span class="line">; 小表</span><br><span class="line">00865160 00 01        </span><br><span class="line">00865162 02 03</span><br><span class="line">00865164 07</span><br><span class="line">00865165 04 07</span><br><span class="line">00865167 07</span><br><span class="line">00865168 07</span><br><span class="line">...</span><br><span class="line">008651CA 05 07 07 07 07</span><br><span class="line">008651CF 07</span><br><span class="line">008651D0 07</span><br><span class="line">...</span><br><span class="line">0086522E 07</span><br><span class="line">0086522F 06</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0x00865140  c0 50 86 00  ?P@.    //大表</span><br><span class="line">0x00865144  cf 50 86 00  ?P@.</span><br><span class="line">0x00865148  de 50 86 00  ?P@.</span><br><span class="line">0x0086514C  ed 50 86 00  ?P@.</span><br><span class="line">0x00865150  fc 50 86 00  ?P@.</span><br><span class="line">0x00865154  0b 51 86 00  .Q@.</span><br><span class="line">0x00865158  1a 51 86 00  .Q@.</span><br><span class="line">0x0086515C  27 51 86 00  &apos;Q@.</span><br><span class="line">0x00865160  00 01 02 03  ....    //小表</span><br><span class="line">0x00865164  07 04 07 07  ....</span><br><span class="line">0x00865168  07 07 07 07  ....</span><br><span class="line">0x0086516C  07 07 07 07  ....</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#           小表                        大表</span><br><span class="line">            +--+                     +-------+</span><br><span class="line">00865160 00 |00+---------------&gt; 00: |  100  |  0x00865140</span><br><span class="line">00865161 01 |01|---------------&gt; 01: |  101  |  0x00865144</span><br><span class="line">00865162 02 |02|---------------&gt; 02: |  102  |  0x00865148</span><br><span class="line">00865163 03 |03+---------------&gt; 03: |  103  |  0x0086514C</span><br><span class="line">00865164 07 |07|    +----------&gt; 04: |  105  |  0x00865150</span><br><span class="line">00865165 04 |04+----+   +------&gt; 05: |  206  |  0x00865154</span><br><span class="line">00865166 07 |07|        |   +--^ 06: |  307  |  0x00865158</span><br><span class="line">...         |  |        |   |    07: |default|  0x0086515C</span><br><span class="line">008651C7 07 |07|        |   |        +-------+</span><br><span class="line">008651C8 07 |07|        |   |</span><br><span class="line">008651C9 07 |07|        |   |</span><br><span class="line">008651CA 05 |05+--------+   |</span><br><span class="line">008651CB 07 |07|            |</span><br><span class="line">...         |  |            |</span><br><span class="line">0086522C 07 |07|            |</span><br><span class="line">0086522D 07 |07|            |</span><br><span class="line">0086522E 07 |07|            |</span><br><span class="line">0086522F 06 |06+------------+</span><br><span class="line">            +--+</span><br></pre></td></tr></table></figure>
+
+<h4 id="较为独立"><a href="#较为独立" class="headerlink" title="较为独立"></a>较为独立</h4><p>二叉搜索树</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reverse"><span class="toc-number">1.</span> <span class="toc-text">Reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Switch"><span class="toc-number">1.1.</span> <span class="toc-text">Switch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#小于等于三个分支"><span class="toc-number">1.1.1.</span> <span class="toc-text">小于等于三个分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大于3个分支"><span class="toc-number">1.1.2.</span> <span class="toc-text">大于3个分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#完美连续"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">完美连续</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#乱序"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">乱序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不从0开始"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">不从0开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分段连续（连续含缺口）"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">分段连续（连续含缺口）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#较为独立"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">较为独立</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/05/11/Reverse/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/05/11/Reverse/&text=Reverse"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/05/11/Reverse/&is_video=false&description=Reverse"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Reverse&body=Check out this article: http://yoursite.com/2020/05/11/Reverse/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/05/11/Reverse/&title=Reverse"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/05/11/Reverse/&name=Reverse&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/05/11/Reverse/&t=Reverse"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

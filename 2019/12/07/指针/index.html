@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>指针</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/12/20/pwnable_tw-WPs/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/12/02/小记C类型运算符优先级/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/12/07/指针/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/12/07/指针/&text=指针"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/12/07/指针/&is_video=false&description=指针"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=指针&body=Check out this article: http://yoursite.com/2019/12/07/指针/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/12/07/指针/&name=指针&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/12/07/指针/&t=指针"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#指针"><span class="toc-number">1.</span> <span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#指针也是一种类型"><span class="toc-number">1.1.</span> <span class="toc-text">指针也是一种类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#宽度"><span class="toc-number">1.1.1.</span> <span class="toc-text">宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算"><span class="toc-number">1.1.2.</span> <span class="toc-text">运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#赋值"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#、-、-int；–、-、-int"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">++、+=、+int；–、-=、-int</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#T-相减"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">T* 相减</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#比较大小"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">比较大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多重指针"><span class="toc-number">1.2.</span> <span class="toc-text">多重指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多维数组"><span class="toc-number">1.3.</span> <span class="toc-text">多维数组</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        指针
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">安全技术和个人生活随笔</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-07T09:20:26.000Z" itemprop="datePublished">2019-12-07</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><h2 id="指针也是一种类型"><a href="#指针也是一种类型" class="headerlink" title="指针也是一种类型"></a>指针也是一种类型</h2><p>关注指针本身，而不是值指向的类型，解耦合，</p>
+<h3 id="宽度"><a href="#宽度" class="headerlink" title="宽度"></a>宽度</h3><p>32位，dword<br>64位，qword</p>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><h4 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h4><h4 id="、-、-int；–、-、-int"><a href="#、-、-int；–、-、-int" class="headerlink" title="++、+=、+int；–、-=、-int"></a>++、+=、+int；–、-=、-int</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">T* +/- <span class="keyword">int</span> == T*</span><br></pre></td></tr></table></figure>
+
+<p>等于值+/-对应的（int*width）</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">T* + <span class="keyword">int</span> == T*  ==&gt; T* == T* - <span class="keyword">int</span></span><br><span class="line">T* - <span class="keyword">int</span> == T*  ==&gt; T* - T* == <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="T-相减"><a href="#T-相减" class="headerlink" title="T* 相减"></a>T* 相减</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">T* - T* == <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+
+<p>等于值相减，÷width</p>
+<p>很合理，加减的是n个T的宽度；相减的是相差T(的宽度)的个数n。<br>// 不可以相加</p>
+<h4 id="比较大小"><a href="#比较大小" class="headerlink" title="比较大小"></a>比较大小</h4><p>纯值比较</p>
+<h2 id="多重指针"><a href="#多重指针" class="headerlink" title="多重指针"></a>多重指针</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">char</span>* p;</span><br><span class="line">*p == *(p+<span class="number">0</span>)== p[<span class="number">0</span>];</span><br><span class="line">*(p+i) == p[i];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>** p;</span><br><span class="line"></span><br><span class="line">*(*(p+i)+j) == p[i][j];</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>*** p;</span><br><span class="line"></span><br><span class="line">*(*(*(p+i)+j)+k) == p[i][j][k];</span><br><span class="line">mov eax, dword ptr [</span><br></pre></td></tr></table></figure>
+
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>逻辑</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a[<span class="number">6</span>] = &#123;<span class="number">00</span>,<span class="number">01</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">20</span>,<span class="number">21</span>&#125;</span><br><span class="line">b[<span class="number">3</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">00</span>,<span class="number">01</span>&#125;, &#123;<span class="number">10</span>,<span class="number">11</span>&#125;, &#123;<span class="number">20</span>,<span class="number">21</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>内存中，两个数组内存分布完全一样，a与b的值也相同；</p>
+<p>但是，b的类型不再是<code>int*</code>，而是<code>int *[2]</code>——二元数组指针</p>
+<p>所以要区分！ b是<code>int *[]</code>，但不是<code>int**</code>，只有一维数组可以抛弃长度，长度对指针的运算不影响，所以可以退化为指针，多维只有第一维可以，必须保留除第一维的长度</p>
+<p>取值运算<code>*</code>，和下标运算<code>[ ]</code>，等价，让我想到多维数组的取值——可不可以用*来代替下标？<br>失败了——逻辑上的数组存储和真实的不一样</p>
+<p><strong>数组名 类型是指针吗？</strong><br>不完全等同，（第）一维数组会退化(decay)为指针，因为不需要长度；多维数组第一维，也可以退化为指针，但必须提供除第一维的长度，因为做运算时需要长度；</p>
+<p>VS预览类型时，会发现一维数组名为<code>T *</code>, 多维数组名为<code>T (*)[m][n]...</code><br>（PS: 指针数组也是一维数组，比如 <code>T* a[n]</code>，a的类型为<code>T**</code>)</p>
+<p><strong>数组名 取地址和本身为什么相同？多维数组指针，取值和本身为什么相同？</strong></p>
+<p>编译器的规定。</p>
+<p>数组的地址和第一个元素的地址相同，这是非常合理的。谁能代表数组？数组名——那数组名的地址&amp;ary == &amp;ary[0] == ary</p>
+<p>学习C时，各种资料不断强调，数组名ary指向数组首（元素）地址；不知不觉地，我产生了两个误解：</p>
+<p>数组名的地址应该是一个独立的空间 [x]取地址是左值，不占用空间<br>数组名就是指针，多维数组名就是多重指针 [x]数组名有自己的类型——数组指针</p>
+<p><strong>多维数组名，取地址之后的类型？表示什么意义？</strong></p>
+<p>首先要知道，数组名的类型：<br>数组名 ==数组类型== 退化后的指针</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">char</span> p[<span class="number">10</span>] = &#123;&#125;;     <span class="comment">// p: char[10] =&gt; char[] =&gt; char *</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[9][10] =&gt; char[][10] =&gt; char (*)[10]</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">8</span>][<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[8][9][10] =&gt; char[][9][10] =&gt; char (*)[9][10]</span></span><br></pre></td></tr></table></figure>
+
+<p>数组名取地址 <code>&amp;p</code> == 类型加*<br>p代表数组，数组的地址类型是数组指针，指向一个数组</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">char</span> p[<span class="number">10</span>] = &#123;&#125;;     <span class="comment">// p: char[10] =&gt; char[] =&gt; char *</span></span><br><span class="line">   &amp;p;  <span class="comment">// char (*)[10]</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[9][10] =&gt; char[][10] =&gt; char (*)[10]</span></span><br><span class="line">&amp;p;  <span class="comment">// char (*)[9][10]</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">8</span>][<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[8][9][10] =&gt; char[][9][10] =&gt; char (*)[9][10]</span></span><br><span class="line">&amp;p;  <span class="comment">// char (*)[8][9][10]</span></span><br></pre></td></tr></table></figure>
+
+<p>数组名取值 <code>*p</code> == 类型砍*<br>先砍下标后砍*</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">char</span> p[<span class="number">10</span>] = &#123;&#125;;     <span class="comment">// p: char[10] =&gt; char[] =&gt; char *</span></span><br><span class="line">   *p;    <span class="comment">// char</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[9][10] =&gt; char[][10] =&gt; char (*)[10]</span></span><br><span class="line">*p;    <span class="comment">// char*</span></span><br><span class="line">**p;   <span class="comment">// char</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">8</span>][<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[8][9][10] =&gt; char[][9][10] =&gt; char (*)[9][10]</span></span><br><span class="line">*p;    <span class="comment">// char(*)[10]</span></span><br><span class="line">**p;   <span class="comment">// char*</span></span><br><span class="line">***p;  <span class="comment">// char</span></span><br></pre></td></tr></table></figure>
+
+<p>取值运算<br>用下标和取值访问都没有问题，因为p的类型是正确的（数组指针，不能是多重指针，会内存访问读异常）<br>下标和指针访问等价</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">char</span> p[<span class="number">10</span>] = &#123;&#125;;     <span class="comment">// p: char[10] =&gt; char[] =&gt; char *</span></span><br><span class="line">   *(p+<span class="number">1</span>);              <span class="comment">// p[1]</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[9][10] =&gt; char[][10] =&gt; char (*)[10]</span></span><br><span class="line">*(p+<span class="number">1</span>);              <span class="comment">// p[1] : char*</span></span><br><span class="line">*(*(p+<span class="number">1</span>)+<span class="number">2</span>);         <span class="comment">// p[1][2]</span></span><br><span class="line"><span class="keyword">char</span> p[<span class="number">8</span>][<span class="number">9</span>][<span class="number">10</span>] = &#123;&#125;;  <span class="comment">// p: char[8][9][10] =&gt; char[][9][10] =&gt; char (*)[9][10]</span></span><br><span class="line">*(p+<span class="number">1</span>);              <span class="comment">// p[1] : char(*)[10]</span></span><br><span class="line">*(*(p+<span class="number">1</span>)+<span class="number">2</span>);         <span class="comment">// p[1][2] : char*</span></span><br><span class="line">*(*(*(p+<span class="number">1</span>)+<span class="number">2</span>)+<span class="number">3</span>);    <span class="comment">// p[1][2][3]</span></span><br></pre></td></tr></table></figure>
+
+<p>取值运算进阶</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">int</span>* p;</span><br><span class="line"><span class="keyword">int</span>(*px)[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span>(*py)[<span class="number">2</span>][<span class="number">3</span>];</span><br><span class="line">unsigned short(*pz)[2][3][4];</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> v[] = &#123; <span class="number">0x0</span>, <span class="number">0x1</span>, <span class="number">0x2</span>, <span class="number">0x3</span>, <span class="number">0x4</span>, <span class="number">0x5</span>, <span class="number">0x6</span>, <span class="number">0x7</span>, <span class="number">0x8</span>, <span class="number">0x9</span>, </span><br><span class="line">	<span class="number">0x10</span>, <span class="number">0x11</span>, <span class="number">0x12</span>, <span class="number">0x13</span>, <span class="number">0x14</span>, <span class="number">0x15</span>, <span class="number">0x16</span>, <span class="number">0x17</span>, <span class="number">0x18</span>, <span class="number">0x19</span>, </span><br><span class="line">	<span class="number">0x20</span>, <span class="number">0x21</span>, <span class="number">0x22</span>, <span class="number">0x23</span>, <span class="number">0x24</span>, <span class="number">0x25</span>, <span class="number">0x26</span>, <span class="number">0x27</span>, <span class="number">0x28</span>, <span class="number">0x29</span>,</span><br><span class="line">	<span class="number">0x30</span>, <span class="number">0x31</span>, <span class="number">0x32</span>, <span class="number">0x33</span>, <span class="number">0x34</span>, <span class="number">0x35</span>, <span class="number">0x36</span>, <span class="number">0x37</span>, <span class="number">0x38</span>, <span class="number">0x39</span>, </span><br><span class="line">	<span class="number">0x40</span>, <span class="number">0x41</span>, <span class="number">0x42</span>, <span class="number">0x43</span>, <span class="number">0x44</span>, <span class="number">0x45</span>, <span class="number">0x46</span>, <span class="number">0x47</span>, <span class="number">0x48</span>, <span class="number">0x49</span>,</span><br><span class="line">	<span class="number">0x50</span>, <span class="number">0x51</span>, <span class="number">0x52</span>, <span class="number">0x53</span>, <span class="number">0x54</span>, <span class="number">0x55</span>, <span class="number">0x56</span>, <span class="number">0x57</span>, <span class="number">0x58</span>, <span class="number">0x59</span>,</span><br><span class="line">	<span class="number">0x60</span>, <span class="number">0x61</span>, <span class="number">0x62</span>, <span class="number">0x63</span>, <span class="number">0x64</span>, <span class="number">0x65</span>, <span class="number">0x66</span>, <span class="number">0x67</span>, <span class="number">0x68</span>, <span class="number">0x69</span>, </span><br><span class="line">	<span class="number">0x70</span>, <span class="number">0x71</span>, <span class="number">0x72</span>, <span class="number">0x73</span>, <span class="number">0x74</span>, <span class="number">0x75</span>, <span class="number">0x76</span>, <span class="number">0x77</span>, <span class="number">0x78</span>, <span class="number">0x79</span>,</span><br><span class="line">	<span class="number">0x80</span>, <span class="number">0x81</span>, <span class="number">0x82</span>, <span class="number">0x83</span>, <span class="number">0x84</span>, <span class="number">0x85</span>, <span class="number">0x86</span>, <span class="number">0x87</span>, <span class="number">0x88</span>, <span class="number">0x89</span>, </span><br><span class="line">	<span class="number">0x90</span>, <span class="number">0x91</span>, <span class="number">0x92</span>, <span class="number">0x93</span>, <span class="number">0x94</span>, <span class="number">0x95</span>, <span class="number">0x96</span>, <span class="number">0x97</span>, <span class="number">0x98</span>, <span class="number">0x99</span> &#125;;</span><br><span class="line"></span><br><span class="line">p = (<span class="keyword">int</span>*)v;</span><br><span class="line">px = (<span class="keyword">int</span>(*)[<span class="number">2</span>])v;</span><br><span class="line">py = (<span class="keyword">int</span>(*)[<span class="number">2</span>][<span class="number">3</span>])v;</span><br><span class="line">pz = (<span class="keyword">unsigned</span> <span class="keyword">short</span>(*)[<span class="number">2</span>][<span class="number">3</span>][<span class="number">4</span>])v;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%x\n"</span>, *(p + <span class="number">2</span>));                       <span class="comment">//11100908</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%x\n"</span>, *(*(px + <span class="number">1</span>) + <span class="number">3</span>));               <span class="comment">//23222120</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%x\n"</span>, *(*(*(py + <span class="number">1</span>) + <span class="number">2</span>) + <span class="number">3</span>));        <span class="comment">//63626160</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%x\n"</span>, *(*(*(*(pz + <span class="number">1</span>) + <span class="number">1</span>) + <span class="number">1</span>) + <span class="number">2</span>)); <span class="comment">//8584</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// pz指向一个长度为2*3*4（24short）的多维数组，所以pz运算时跳24short宽，下同理</span><br><span class="line">pz -&gt; short [2][3][4]    </span><br><span class="line">*(pz + 1) -&gt; short [3][4]    </span><br><span class="line">*(*(pz + 1) + 2) -&gt; short [4]</span><br><span class="line">*(*(*(pz + 1) + 2) + 3) -&gt; short </span><br><span class="line"></span><br><span class="line">*(*(*(*(pz + 1) + 1) + 1) + 2) </span><br><span class="line">offset = 24short*1+12short*1+4short*1+short*2</span><br><span class="line">= 48 + 24 + 8 + 4</span><br><span class="line">= 84 </span><br><span class="line">mov eax,dword ptr [pz]</span><br><span class="line">movsz ecx,word ptr [eax+54h]</span><br><span class="line">push ecx</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#指针"><span class="toc-number">1.</span> <span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#指针也是一种类型"><span class="toc-number">1.1.</span> <span class="toc-text">指针也是一种类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#宽度"><span class="toc-number">1.1.1.</span> <span class="toc-text">宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算"><span class="toc-number">1.1.2.</span> <span class="toc-text">运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#赋值"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#、-、-int；–、-、-int"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">++、+=、+int；–、-=、-int</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#T-相减"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">T* 相减</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#比较大小"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">比较大小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多重指针"><span class="toc-number">1.2.</span> <span class="toc-text">多重指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多维数组"><span class="toc-number">1.3.</span> <span class="toc-text">多维数组</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/12/07/指针/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/12/07/指针/&text=指针"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/12/07/指针/&is_video=false&description=指针"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=指针&body=Check out this article: http://yoursite.com/2019/12/07/指针/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/12/07/指针/&title=指针"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/12/07/指针/&name=指针&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/12/07/指针/&t=指针"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Tyr Wang
+    <span> · </span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37032302000153" style="text-decoration:none;height:20px;"><img src="/uploads/beian.png" style="vertical-align:middle;"/><span style="height:20px;margin: 0px 0px 0px 5px;">鲁公网安备 37032302000153号</span></a>
+    <span> · </span><a href="http://www.beian.miit.gov.cn" target="_blank" style="text-decoration:none;">鲁ICP备20011350号</a>
+  </div>
+  <div class="footer-right">
+        由 <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" class="theme-link" rel="noopener" target="_blank"><img src="/uploads/powerby.png" height="20" style="vertical-align: middle;"></a> 提供CDN服务支持 
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

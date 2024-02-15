@@ -70,6 +70,7 @@ jobs:
         run: |
           mkdir content/extra # cwd must contains content
           mv temp/$MARKDOWN_DIR/*.md content/extra/ # Move processed Markdown files to Hugo content directory
+          rm -rf ./temp
         
       - name: Build with Hugo
         env:

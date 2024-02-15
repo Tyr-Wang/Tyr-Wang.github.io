@@ -1,0 +1,4 @@
+baseURL = 'https://blog.tyr-wang.top/'
+languageCode = 'en-us'
+title = 'Under Construction...'
+theme = "PaperMod"

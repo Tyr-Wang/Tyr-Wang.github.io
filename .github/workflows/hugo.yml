@@ -59,7 +59,9 @@ jobs:
       
       - name: Process Markdown files
         run: |
+          pwd
           ls -al
+          git status
           python --version
           # Process Markdown files here
           # For example, add front matter and remove drafts
@@ -69,6 +71,7 @@ jobs:
           done
       - name: Move Markdown files to Hugo content directory
         run: |
+          cd ..
           mkdir -p content/extra # Create directory if not exist
           mv $MARKDOWN_DIR/*.md content/extra/ # Move processed Markdown files to Hugo content directory
         

@@ -50,6 +50,13 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
+      - name: debug output
+        run: |
+          pwd
+          ls -al
+          git status
+          python --version
+
       # pre-set content
       - name: Checkout additional branch for Markdown files
         uses: actions/checkout@v2
@@ -59,19 +66,17 @@ jobs:
       
       - name: Process Markdown files
         run: |
-          pwd
-          ls -al
-          git status
-          python --version
           # Process Markdown files here
           # For example, add front matter and remove drafts
           for file in $MARKDOWN_DIR/*.md; do
             sed -i '1s/^/---\n/' $file
             sed -i '2s/^/draft: false\n---\n/' $file
           done
+          cd ..
+          ls -al
+          pwd
       - name: Move Markdown files to Hugo content directory
         run: |
-          cd ..
           mkdir -p content/extra # Create directory if not exist
           mv $MARKDOWN_DIR/*.md content/extra/ # Move processed Markdown files to Hugo content directory
         

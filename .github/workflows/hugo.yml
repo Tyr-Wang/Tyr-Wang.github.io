@@ -33,6 +33,7 @@ jobs:
     env:
       HUGO_VERSION: 0.120.4
       MARKDOWN_DIR: publish
+      PUBLISH_PATH: ${{ secrets.SECRETPATH }}
     steps:
       - name: Install Hugo CLI
         run: |
@@ -68,8 +69,8 @@ jobs:
 
       - name: Move Markdown files to Hugo content directory
         run: |
-          mkdir content/extra # cwd must contains content
-          mv temp/$MARKDOWN_DIR/*.md content/extra/ # Move processed Markdown files to Hugo content directory
+          mkdir content/$PUBLISH_PATH # cwd must contains content
+          mv temp/$MARKDOWN_DIR/*.md content/$PUBLISH_PATH/ # Move processed Markdown files to Hugo content directory
           rm -rf ./temp
         
       - name: Build with Hugo

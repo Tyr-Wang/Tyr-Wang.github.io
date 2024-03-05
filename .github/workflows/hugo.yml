@@ -1,10 +1,12 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master", "markdowns"]
+
+  repository_dispatch:
+      types: [content_update]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -45,6 +47,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          ref: master
+
+      - name: log status
+        run: |
+          pwd && ls -al 
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4

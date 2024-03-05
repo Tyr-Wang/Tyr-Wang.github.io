@@ -51,7 +51,7 @@ jobs:
 
       - name: log status
         run: |
-          pwd && ls -al 
+          pwd && ls -al && ls content
 
       - name: Setup Pages
         id: pages
@@ -77,7 +77,7 @@ jobs:
 
       - name: Move Markdown files to Hugo content directory
         run: |
-          mkdir content/$PUBLISH_PATH # cwd must contains content
+          mkdir -p content/$PUBLISH_PATH # cwd must contains content
           mv temp/$MARKDOWN_DIR/*.md content/$PUBLISH_PATH/ # Move processed Markdown files to Hugo content directory
           rm -rf ./temp
         

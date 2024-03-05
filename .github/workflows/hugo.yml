@@ -51,7 +51,7 @@ jobs:
 
       - name: log status
         run: |
-          pwd && ls -al && ls content
+          pwd && ls -al && ( ls content || true )
 
       - name: Setup Pages
         id: pages

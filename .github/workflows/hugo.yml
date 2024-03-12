@@ -60,12 +60,20 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
-      # pre-set content
-      - name: Checkout additional branch for Markdown files
-        uses: actions/checkout@v2
+      - name: Check out extra content to temp
+        uses: actions/checkout@master
         with:
-          ref: markdowns
+          repository: Tyr-Wang/blog-content
+          ref: main
+          token: ${{ secrets.EXTRA_REPO_PAT }}
           path: temp
+
+      # pre-set content
+      # - name: Checkout additional branch for Markdown files
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ref: markdowns
+      #     path: temp
       
       - name: Process Markdown files
         run: |

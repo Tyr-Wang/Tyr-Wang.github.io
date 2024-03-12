@@ -13,14 +13,13 @@ on:
 jobs:
   trigger:
     name: Remote pages update Trigger
-    env:
-      PACKAGES_TO_UPGRADE: ${{ needs.run_publish.outputs.packages }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         repo: ['Tyr-Wang/Tyr-Wang.github.io']
     timeout-minutes: 5
     steps:
+      # require content:write
       - name: Dispatch to workflows
         run: |
             curl -H "Accept: application/vnd.github.everest-preview+json" \
